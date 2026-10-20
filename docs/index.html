@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>T-Soft dokümantasyon ve örnekler</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>T-Soft dokümantasyon ve örnekler</h1>
+    <p>Geliştirici platformu, REST1 notları, üye ve fiyat örnekleri, vitrin blokları. Mağaza parolası ve üye verisi yoktur.</p>
+  </header>
+  <main>
+    <section>
+      <h2>Geliştirici platformu</h2>
+      <p>20 Ekim 2026 tarihli <a href="https://developer.tsoft.com.tr/">developer.tsoft.com.tr</a> özeti. Storefront dokümanı 1.9.0, API yolu <code>2026-01</code>.</p>
+      <ul>
+        <li><a href="developer/README.md">Platform haritası</a></li>
+        <li><a href="developer/baslarken.md">Başlarken</a> — T-SOFT360, partner paneli, <code>tsoft-cli</code></li>
+        <li><a href="developer/tema.md">Tema motoru</a> — Twig section, Tailwind, CLI</li>
+        <li><a href="developer/storefront-api.md">Storefront API</a> — <code>/api/v3/storefront/2026-01</code></li>
+      </ul>
+      <p class="muted">Uygulama geliştirme, Admin API ve tema servisleri sitede Yakında durur; adresler 404 döner. Aşağıdaki REST bölümü paneldeki REST1 servisidir.</p>
+    </section>
+    <section>
+      <h2>REST</h2>
+      <p>Metot kataloğu ve çağrıda görülen yanıt biçimleri tek dosyadadır.</p>
+      <p><a href="tsoft.rest.md">tsoft.rest.md</a></p>
+      <ul>
+        <li>Giriş <code>POST /rest1/auth/login/{user}</code> ve form alanı <code>pass</code>.</li>
+        <li><code>User-Agent</code> yokken bazı mağazalar <code>403</code> ve <code>1010</code> döner.</li>
+        <li>Üye grubu <code>CustomerGroupCode</code> ile yazılır. Liste süzgeci <code>CustomerGroupId</code> ister.</li>
+        <li>Grup fiyatı <code>DiscountedPrices</code> dizisindedir. Satış üzerinden indirimde oran negatiftir.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Örnek kod</h2>
+      <ul>
+        <li><a href="examples/python/tsoft_client.py">Python istemci</a></li>
+        <li><a href="examples/python/add_customer.py">Üye ekleme ve grup güncelleme</a></li>
+        <li><a href="examples/python/check_group_price.py">Grup fiyatını okuma</a></li>
+        <li><a href="examples/python/.env.example">Ortam değişkeni örneği</a></li>
+        <li><a href="examples/apps-script/Code.gs">Apps Script senkronu</a></li>
+      </ul>
+      <pre>cd examples/python
+cp .env.example .env
+python3 add_customer.py</pre>
+      <p class="muted">Yeni üye parolası örnekte <code>Dy</code> artı 10 haneli ceptir. Grup kodu <code>ogretmenler</code> olarak geçer. Kayıtlı e-postada <code>setCustomers</code> yalnız grup ve okul alanlarını yazar.</p>
+    </section>
+    <section>
+      <h2>Tema blokları</h2>
+      <ul>
+        <li><a href="theme/TSoft%20Block%20Codes/ust.html">Üst blok</a></li>
+        <li><a href="theme/TSoft%20Block%20Codes/alt.html">Alt blok</a></li>
+        <li><a href="theme/TSoft%20Block%20Codes/yeni-urunler.html">Yeni ürünler</a></li>
+        <li><a href="theme/TSoft%20Block%20Codes/kategori-menusu.html">Kategori menüsü</a></li>
+        <li><a href="theme/TSoft%20Block%20Codes/home-banner.html">Ana sayfa banner</a></li>
+        <li><a href="theme/TSoft%20Block%20Varriables/tsoft-product-varriables.json">Ürün değişkeni örneği</a></li>
+        <li><a href="theme/TSoft%20Block%20Varriables/tsoft-header-page-links-varriable.json">Sayfa linkleri</a></li>
+        <li><a href="theme/snippets/bayi-mi-degil-mi.tpl">Bayi hesabı koşulu</a></li>
+        <li><a href="theme/orta/user_bayipanel.tpl">Bayi paneli şablonu</a></li>
+      </ul>
+    </section>
+  </main>
+  <footer>Tema örnekleri GPL-3.0 ile lisanslıdır.</footer>
+</body>
+</html>

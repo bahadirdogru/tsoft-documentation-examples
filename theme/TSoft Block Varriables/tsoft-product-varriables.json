@@ -1,0 +1,22 @@
+{
+  "ID": "1001",
+  "TITLE": "ÖRNEK KİTAP",
+  "IS_ACTIVE": "1",
+  "CATEGORY_ID": "10",
+  "PRICE_SELL": "100.00",
+  "PRICE_NOT_DISCOUNTED": 130,
+  "VAT": 0,
+  "BRAND": "Örnek Marka",
+  "BRAND_URL": "ornek-marka",
+  "MODEL": "ÖRNEK YAZAR",
+  "STOCK": "10",
+  "PRODUCT_CODE": "ORNEK-003",
+  "BARCODE": "9780000000000",
+  "IS_DISCOUNT_ACTIVE": 1,
+  "DISCOUNT_PERCENT": 18,
+  "IMAGE": {
+    "SMALL": "https://cdn.magaza.example/ornek-k.jpg",
+    "MEDIUM": "https://cdn.magaza.example/ornek-o.jpg",
+    "BIG": "https://cdn.magaza.example/ornek-b.jpg"
+  }
+}

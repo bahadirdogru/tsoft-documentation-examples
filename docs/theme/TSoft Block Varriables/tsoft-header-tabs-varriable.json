@@ -1,0 +1,9 @@
+[
+  {
+    "ID": "1",
+    "NAME": "Kategoriler",
+    "CHILDREN": [
+      {"ID": "2", "PARENT_ID": "1", "NAME": "Örnek Kategori", "URL": "/ornek-kategori", "STATUS": "1"}
+    ]
+  }
+]
