@@ -2,24 +2,24 @@
     var MEMBER_INFO = window.store.memberInfo;
     /*var MEMBER_INFO = 
     {
-        "ID": 33773,
-        "ID_HASH_SHA": "a5ac27134d69fd2ae5076f18f283bf8f92bde7502eec03945be1eee2dc0f3606",
-        "CODE": "T33773",
-        "FIRST_NAME": "Bahadır",
-        "LAST_NAME": "Doğru",
+        "ID": 1001,
+        "ID_HASH_SHA": "<sha256>",
+        "CODE": "T1001",
+        "FIRST_NAME": "Örnek",
+        "LAST_NAME": "Üye",
         "BIRTH_DATE": "0000-00-00",
         "GENDER": "E",
         "MAIL": "ornek@magaza.example",
-        "MAIL_HASH": "5123caf6ebc3eeb90ae7c61b29a8e36c",
-        "MAIL_HASH_SHA": "6ab2f724e3cbdce30557c8ce2d087f8f36208c902b74375daf6c2f6767199c5b",
+        "MAIL_HASH": "<md5>",
+        "MAIL_HASH_SHA": "<sha256>",
         "GROUP": 6,
         "MAIL_PERMISSION": false,
         "SMS_PERMISSION": false,
         "PHONE_PERMISSION": false,
         "PHONE": "+90",
-        "PHONE_HASH": "43c3e7a1799125d472e8f0107989bce1",
-        "PHONE_HASH_SHA": "f03e5b524bba4869f2819901d3a90cfb2e632e787f0a29aa885fda97599b166c",
-        "IP": "45.139.201.162",
+        "PHONE_HASH": "<md5>",
+        "PHONE_HASH_SHA": "<sha256>",
+        "IP": "203.0.113.10",
         "TRANSACTION_COUNT": 0,
         "REPRESENTATIVE": "",
         "KVKK": 0,
@@ -56,14 +56,14 @@
                             </div>
                             <div class="manager-content" style="display: flex; align-items: center; padding: 10px;">
                                 <div class="manager-details" style="flex: 1;">
-                                    <p style="margin: 5px 0;"><strong>Ad Soyad:</strong> <span id="rep_name">Ahmet Ünal</span></p>
+                                    <p style="margin: 5px 0;"><strong>Ad Soyad:</strong> <span id="rep_name">Temsilci Bir</span></p>
                                     <p style="margin: 5px 0;"><strong>Telefon:</strong> <span
-                                            id="rep_phone">0533 484 06 26</span></p>
+                                            id="rep_phone">0500 000 00 01</span></p>
                                     <p style="margin: 5px 0;"><strong>E-mail:</strong> <span
                                             id="rep_email">ornek@magaza.example</span></p>
                                 </div>
                                 <div class="manager-photo" style="margin-left: 10px;">
-                                    <img id="rep_img" src="https://cdn.magaza.example/PUBLIC/plasiyer/ahmet-unal.jpg"
+                                    <img id="rep_img" src="https://cdn.magaza.example/PUBLIC/plasiyer/temsilci-1.jpg"
                                         alt="Plasiyer Resim" style="width: 100px; height: auto; border-radius: 5px;">
                                 </div>
                             </div>

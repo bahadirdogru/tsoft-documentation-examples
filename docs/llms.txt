@@ -1,0 +1,129 @@
+# T-Soft Dokümantasyonu
+
+> T-Soft e-ticaret altyapısı için REST1 web servisi, Admin API v3, uygulama platformu, Storefront API ve Twig/Smarty tema kodlama başvuru dokümantasyonu. İnsanlar ve LLM'ler için. Topluluk belgesidir; T-Soft’un resmî yayını değildir. Resmî kaynak: https://developer.tsoft.com.tr/
+
+Önemli ayrımlar:
+- REST1 `https://<mağaza>/rest1/{modul}/{metot}/` adresine form gövdesi ve `token` ile POST edilir; alan adları PascalCase'dir.
+- Panel iç API'si `https://<mağaza>/api/v3/admin/...` Laravel JSON döner, panel oturum token'ı ister; alanlar camelCase'dir.
+- Uygulama Admin API'si `.../api/v3/admin/2026-01/...` JSON:API'dir ve OAuth token'ı ister.
+- Örneklerde mağaza adresi `magaza.example` yer tutucusudur. Gözlenmemiş davranışlar sayfalarda "gözlenmedi" diye işaretlidir.
+- Her sayfanın Markdown hâli, HTML adresindeki son "/" yerine ".md" konarak alınır (ör. https://tsoft.bahadirdogru.com/rest/customer.md).
+
+## Başlangıç
+
+- [Ana sayfa](https://tsoft.bahadirdogru.com/index.md): T-Soft REST1, Admin API v3, uygulama platformu, Storefront API ve Twig/Smarty tema kodlama için Türkçe başvuru dokümantasyonu.
+- [Hangi yüzey?](https://tsoft.bahadirdogru.com/rehber.md): REST1, Admin API, Storefront ve tema arasında seçim; ilk çağrılar ve terimler
+- [LLM ve ajanlar için](https://tsoft.bahadirdogru.com/llm.md): llms.txt, ham Markdown adresleri ve yazım kuralları
+
+## Platform
+
+- [Platform haritası](https://tsoft.bahadirdogru.com/developer.md): developer.tsoft.com.tr bölümleri ve durumları
+- [Başlarken](https://tsoft.bahadirdogru.com/developer/baslarken.md): T-SOFT360 hesabı, partner paneli, tsoft-cli
+- [Uygulama geliştirme](https://tsoft.bahadirdogru.com/developer/uygulama.md): OAuth, kapsamlar, webhook, gömülü uygulama, REST1’den geçiş
+- [Storefront API](https://tsoft.bahadirdogru.com/developer/storefront-api.md): Vitrin ve mobil istemci, JSON:API, 2026-01
+
+## Tema
+
+- [Tema motoru (Twig)](https://tsoft.bahadirdogru.com/developer/tema.md): Twig section, snippet, Tailwind, JS global’leri, CLI
+- [Eski tema (Smarty)](https://tsoft.bahadirdogru.com/theme.md): Smarty sözdizimi, blok değişkenleri, ürün alanları, blok kataloğu
+
+## REST1
+
+- [Genel bakış](https://tsoft.bahadirdogru.com/rest.md): Ortak kurallar, canlı çağrı notları, Postman, modül özeti
+- [Hatalar ve mesaj kodları](https://tsoft.bahadirdogru.com/rest/hatalar.md): Zarf, mesaj kodları, HTTP hataları, konsol
+
+## REST1 modülleri
+
+- [Auth](https://tsoft.bahadirdogru.com/rest/auth.md): Web servis kullanıcısının token alması. Vitrin üyesi girişi değildir.
+- [Customer](https://tsoft.bahadirdogru.com/rest/customer.md): Üye, adres, grup, giriş linki, sepet okuma, istek listesi ve arşiv.
+- [Product](https://tsoft.bahadirdogru.com/rest/product.md): Ürün oluşturma, stok, fiyat, görsel, etiket ve dil.
+- [SubProduct](https://tsoft.bahadirdogru.com/rest/subproduct.md): Alt ürün, özellik ve stok/fiyat.
+- [Category](https://tsoft.bahadirdogru.com/rest/category.md): Kategori ağacı, listeleme ve yazma.
+- [Brand](https://tsoft.bahadirdogru.com/rest/brand.md): Marka listeleme, yazma, dil ve görsel.
+- [Model](https://tsoft.bahadirdogru.com/rest/model.md): Model kayıtları.
+- [Filter](https://tsoft.bahadirdogru.com/rest/filter.md): Yeni filtre yapısı: grup, seçenek ve ürüne bağlama.
+- [Catalog](https://tsoft.bahadirdogru.com/rest/catalog.md): Varyant teması ve katalog görseli.
+- [Order](https://tsoft.bahadirdogru.com/rest/order.md): Güncel sipariş okuma, arşiv, iade, kargo ve sevkiyat.
+- [Order2](https://tsoft.bahadirdogru.com/rest/order2.md): Sipariş oluşturma ve durum güncelleme. Eski sipariş sınıfı.
+- [Cart](https://tsoft.bahadirdogru.com/rest/cart.md): Üye sepetine ürün yazma ve okuma. Konsolda hepsi alpha. Ayrı sepet linki alanı yok.
+- [Campaign](https://tsoft.bahadirdogru.com/rest/campaign.md): Kampanya, koşul, promosyon ve hediye kodu. Konsolda hepsi alpha.
+- [Payment](https://tsoft.bahadirdogru.com/rest/payment.md): Taksit, havale, BIN ve POS parametreleri.
+- [FundMovement](https://tsoft.bahadirdogru.com/rest/fundmovement.md): Cari hareket okuma, yazma ve silme.
+- [Point](https://tsoft.bahadirdogru.com/rest/point.md): Üye puanı ekleme veya düşürme.
+- [Segment](https://tsoft.bahadirdogru.com/rest/segment.md): Üye segmenti oluşturma ve üyeye atama.
+- [Supplier](https://tsoft.bahadirdogru.com/rest/supplier.md): Tedarikçi ve mağaza görselleri.
+- [BranchOffice](https://tsoft.bahadirdogru.com/rest/branchoffice.md): Mağaza / şube kayıtlarını okuma ve yazma.
+- [Content](https://tsoft.bahadirdogru.com/rest/content.md): İçerik kaydı okuma.
+- [News](https://tsoft.bahadirdogru.com/rest/news.md): Haber kayıtları.
+- [Showcase](https://tsoft.bahadirdogru.com/rest/showcase.md): Vitrin yerleşimi.
+- [HtmlBlock](https://tsoft.bahadirdogru.com/rest/htmlblock.md): HTML blok. Konsolda üçü de support-only.
+- [Widget](https://tsoft.bahadirdogru.com/rest/widget.md): Widget yazma ve silme.
+- [Link](https://tsoft.bahadirdogru.com/rest/link.md): SEO, sitemap ve yönlendirme linki. Sepet linki değildir.
+- [Personalization](https://tsoft.bahadirdogru.com/rest/personalization.md): Ürün kişiselleştirme formları.
+- [TrackingCode](https://tsoft.bahadirdogru.com/rest/trackingcode.md): İzleme kodları.
+- [Ticket](https://tsoft.bahadirdogru.com/rest/ticket.md): Destek talebi ve iletişim mesajı.
+- [User](https://tsoft.bahadirdogru.com/rest/user.md): Yönetim paneli ve web servis kullanıcıları. Panele yönetici olarak giriş linki.
+- [Setting](https://tsoft.bahadirdogru.com/rest/setting.md): Kod güncelleme ve önbellek silme.
+- [Notification](https://tsoft.bahadirdogru.com/rest/notification.md): Push cihaz kaydı ve bildirim.
+- [Mobile](https://tsoft.bahadirdogru.com/rest/mobile.md): Mobil uygulama oturumu (MobileToken) ile sipariş, favori, alarm, adres.
+- [Platform](https://tsoft.bahadirdogru.com/rest/platform.md): Mobil/platform oturumu (CustomerHash): üye, sepet, sipariş, adres, iade.
+- [Cargo](https://tsoft.bahadirdogru.com/rest/cargo.md): Kargo gönderi logu.
+- [Adapter](https://tsoft.bahadirdogru.com/rest/adapter.md): Sendheap ve Nildesk aktarımı.
+- [Hopi](https://tsoft.bahadirdogru.com/rest/hopi.md): Hopi kampanya oturumu.
+- [Zubizu](https://tsoft.bahadirdogru.com/rest/zubizu.md): Zubizu kampanya oturumu.
+- [Routing](https://tsoft.bahadirdogru.com/rest/routing.md): Servis yönlendirme.
+
+## Admin API v3
+
+- [Genel bakış](https://tsoft.bahadirdogru.com/admin-api.md): Panel iç API’si: taban, başlık, sayfalama, hata, yetki
+- [Uç listesi](https://tsoft.bahadirdogru.com/admin-api/uclar.md): 357 uç ve 35 kimlikli yol, gruplarına göre
+- [Ödeme bildirimi](https://tsoft.bahadirdogru.com/admin-api/odeme-bildirimi.md): Uçtan uca örnek: gövde, doğrulama, bilinen sorunlar
+
+## Örnek kod
+
+- [Python istemci](https://tsoft.bahadirdogru.com/examples/python/tsoft_client.py)
+- [Üye ekleme](https://tsoft.bahadirdogru.com/examples/python/add_customer.py)
+- [Grup fiyatı](https://tsoft.bahadirdogru.com/examples/python/check_group_price.py)
+- [Ortam değişkenleri](https://tsoft.bahadirdogru.com/examples/python/.env.example)
+- [Apps Script](https://tsoft.bahadirdogru.com/examples/apps-script/Code.gs)
+
+## Eski tema blokları
+
+- [Üst blok](https://tsoft.bahadirdogru.com/theme/bloklar/ust.html)
+- [Alt blok](https://tsoft.bahadirdogru.com/theme/bloklar/alt.html)
+- [Yeni ürünler](https://tsoft.bahadirdogru.com/theme/bloklar/yeni-urunler.html)
+- [Kategori menüsü](https://tsoft.bahadirdogru.com/theme/bloklar/kategori-menusu.html)
+- [Kategori listesi](https://tsoft.bahadirdogru.com/theme/bloklar/kategori-listesi.html)
+- [Ana sayfa banner](https://tsoft.bahadirdogru.com/theme/bloklar/home-banner.html)
+- [Ana sayfa indirim](https://tsoft.bahadirdogru.com/theme/bloklar/home-sale.html)
+- [Haberler](https://tsoft.bahadirdogru.com/theme/bloklar/haberler.html)
+- [Benzer ürünler](https://tsoft.bahadirdogru.com/theme/bloklar/benzer-urunler.html)
+- [Model listesi](https://tsoft.bahadirdogru.com/theme/bloklar/model-listesi.html)
+- [Marka listesi](https://tsoft.bahadirdogru.com/theme/bloklar/marka-listesi.html)
+- [Parça toplama sihirbazı](https://tsoft.bahadirdogru.com/theme/bloklar/parca-toplama-sihirbazi.html)
+- [Tedarikçi listesi](https://tsoft.bahadirdogru.com/theme/bloklar/tedarikci-listesi.html)
+- [Fırsat ürünleri](https://tsoft.bahadirdogru.com/theme/bloklar/firsat-urunleri.html)
+- [Ayın yazarı](https://tsoft.bahadirdogru.com/theme/bloklar/ayin-yazari.html)
+- [Gelecek fırsatlar](https://tsoft.bahadirdogru.com/theme/bloklar/gelecek-firsat-urun-listesi.html)
+- [SSS](https://tsoft.bahadirdogru.com/theme/bloklar/sss.html)
+- [Görsel vitrin](https://tsoft.bahadirdogru.com/theme/bloklar/gorsel-vitrin.html)
+
+## Eski tema değişkenleri
+
+- [Ürün değişkenleri](https://tsoft.bahadirdogru.com/theme/degiskenler/tsoft-product-varriables.json)
+- [Sayfa linkleri](https://tsoft.bahadirdogru.com/theme/degiskenler/tsoft-header-page-links-varriable.json)
+- [Üst sekmeler](https://tsoft.bahadirdogru.com/theme/degiskenler/tsoft-header-tabs-varriable.json)
+- [Alt menü](https://tsoft.bahadirdogru.com/theme/degiskenler/tsoft-footer-menu-varriables.json)
+- [Sol ve sağ kategori](https://tsoft.bahadirdogru.com/theme/degiskenler/tsoft-left-right-category-varriables.json)
+
+## Eski tema şablonları
+
+- [Bayi hesabı koşulu](https://tsoft.bahadirdogru.com/theme/snippets/bayi-mi-degil-mi.tpl)
+- [Bayi paneli](https://tsoft.bahadirdogru.com/theme/orta/user_bayipanel.tpl)
+- [Bayi giriş plasiyer](https://tsoft.bahadirdogru.com/theme/orta/user_bayigirisplasiyer.tpl)
+- [V4 şablon](https://tsoft.bahadirdogru.com/theme/orta/user_v4tpl.tpl)
+- [Tasarım yeni menü](https://tsoft.bahadirdogru.com/theme/UstAlt/user_tasarimyenimenu.tpl)
+
+## Optional
+
+- [Tam metin (llms-full.txt)](https://tsoft.bahadirdogru.com/llms-full.txt): tüm Markdown sayfaları tek dosyada

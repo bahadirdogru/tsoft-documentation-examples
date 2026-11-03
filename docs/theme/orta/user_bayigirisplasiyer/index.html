@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bayi giriş plasiyer · T-Soft Dokümantasyonu</title>
+<meta name="description" content="T-Soft e-ticaret altyapısı için REST1 web servisi, Admin API v3, uygulama platformu, Storefront API ve Twig/Smarty tema kodlama başvuru dokümantasyonu. İnsanlar ve LLM'ler için.">
+<link rel="canonical" href="https://tsoft.bahadirdogru.com/theme/orta/user_bayigirisplasiyer/">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%231f6feb%22%2F%3E%3Cpath%20d%3D%22M8%209h16v3.2h-6.4V23h-3.2V12.2H8z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E">
+<meta property="og:title" content="Bayi giriş plasiyer">
+<meta property="og:description" content="T-Soft e-ticaret altyapısı için REST1 web servisi, Admin API v3, uygulama platformu, Storefront API ve Twig/Smarty tema kodlama başvuru dokümantasyonu. İnsanlar ve LLM'ler için.">
+<meta property="og:url" content="https://tsoft.bahadirdogru.com/theme/orta/user_bayigirisplasiyer/">
+<meta property="og:type" content="website">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" media="(prefers-color-scheme: light)" id="hl-light">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" media="(prefers-color-scheme: dark)" id="hl-dark">
+</head>
+<body>
+<a class="skip" href="#main">İçeriğe geç</a>
+<header class="top">
+  <button class="menu-btn" aria-label="Menü" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="/"><svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><path d="M8 9h16v3.2h-6.4V23h-3.2V12.2H8z" fill="var(--bg)"/></svg><span>T-Soft Dokümantasyonu</span></a>
+  <div class="search">
+    <input id="q" type="search" placeholder="Ara: metot, uç, değişken, sayfa…  ( / )" autocomplete="off" aria-label="Ara">
+    <ul id="results" role="listbox" hidden></ul>
+  </div>
+  <button class="theme-btn" aria-label="Tema değiştir" title="Tema değiştir">◐</button>
+</header>
+<div class="layout">
+<aside id="sidebar" class="sidebar"><details class="nav-sec" open><summary>Başlangıç <span class="count">3</span></summary><ul><li><a href="/">Ana sayfa</a></li><li><a href="/rehber/">Hangi yüzey?</a></li><li><a href="/llm/">LLM ve ajanlar için</a></li></ul></details><details class="nav-sec" open><summary>Platform <span class="count">4</span></summary><ul><li><a href="/developer/">Platform haritası</a></li><li><a href="/developer/baslarken/">Başlarken</a></li><li><a href="/developer/uygulama/">Uygulama geliştirme</a></li><li><a href="/developer/storefront-api/">Storefront API</a></li></ul></details><details class="nav-sec" open><summary>Tema <span class="count">2</span></summary><ul><li><a href="/developer/tema/">Tema motoru (Twig)</a></li><li><a href="/theme/">Eski tema (Smarty)</a></li></ul></details><details class="nav-sec" open><summary>REST1 <span class="count">2</span></summary><ul><li><a href="/rest/">Genel bakış</a></li><li><a href="/rest/hatalar/">Hatalar ve mesaj kodları</a></li></ul></details><details class="nav-sec"><summary>REST1 modülleri <span class="count">38</span></summary><ul><li><a href="/rest/auth/">Auth</a></li><li><a href="/rest/customer/">Customer</a></li><li><a href="/rest/product/">Product</a></li><li><a href="/rest/subproduct/">SubProduct</a></li><li><a href="/rest/category/">Category</a></li><li><a href="/rest/brand/">Brand</a></li><li><a href="/rest/model/">Model</a></li><li><a href="/rest/filter/">Filter</a></li><li><a href="/rest/catalog/">Catalog</a></li><li><a href="/rest/order/">Order</a></li><li><a href="/rest/order2/">Order2</a></li><li><a href="/rest/cart/">Cart</a></li><li><a href="/rest/campaign/">Campaign</a></li><li><a href="/rest/payment/">Payment</a></li><li><a href="/rest/fundmovement/">FundMovement</a></li><li><a href="/rest/point/">Point</a></li><li><a href="/rest/segment/">Segment</a></li><li><a href="/rest/supplier/">Supplier</a></li><li><a href="/rest/branchoffice/">BranchOffice</a></li><li><a href="/rest/content/">Content</a></li><li><a href="/rest/news/">News</a></li><li><a href="/rest/showcase/">Showcase</a></li><li><a href="/rest/htmlblock/">HtmlBlock</a></li><li><a href="/rest/widget/">Widget</a></li><li><a href="/rest/link/">Link</a></li><li><a href="/rest/personalization/">Personalization</a></li><li><a href="/rest/trackingcode/">TrackingCode</a></li><li><a href="/rest/ticket/">Ticket</a></li><li><a href="/rest/user/">User</a></li><li><a href="/rest/setting/">Setting</a></li><li><a href="/rest/notification/">Notification</a></li><li><a href="/rest/mobile/">Mobile</a></li><li><a href="/rest/platform/">Platform</a></li><li><a href="/rest/cargo/">Cargo</a></li><li><a href="/rest/adapter/">Adapter</a></li><li><a href="/rest/hopi/">Hopi</a></li><li><a href="/rest/zubizu/">Zubizu</a></li><li><a href="/rest/routing/">Routing</a></li></ul></details><details class="nav-sec" open><summary>Admin API v3 <span class="count">3</span></summary><ul><li><a href="/admin-api/">Genel bakış</a></li><li><a href="/admin-api/uclar/">Uç listesi</a></li><li><a href="/admin-api/odeme-bildirimi/">Ödeme bildirimi</a></li></ul></details><details class="nav-sec"><summary>Örnek kod <span class="count">5</span></summary><ul><li><a href="/examples/python/tsoft_client/">Python istemci</a></li><li><a href="/examples/python/add_customer/">Üye ekleme</a></li><li><a href="/examples/python/check_group_price/">Grup fiyatı</a></li><li><a href="/examples/python/env/">Ortam değişkenleri</a></li><li><a href="/examples/apps-script/code/">Apps Script</a></li></ul></details><details class="nav-sec"><summary>Eski tema blokları <span class="count">18</span></summary><ul><li><a href="/theme/bloklar/ust/">Üst blok</a></li><li><a href="/theme/bloklar/alt/">Alt blok</a></li><li><a href="/theme/bloklar/yeni-urunler/">Yeni ürünler</a></li><li><a href="/theme/bloklar/kategori-menusu/">Kategori menüsü</a></li><li><a href="/theme/bloklar/kategori-listesi/">Kategori listesi</a></li><li><a href="/theme/bloklar/home-banner/">Ana sayfa banner</a></li><li><a href="/theme/bloklar/home-sale/">Ana sayfa indirim</a></li><li><a href="/theme/bloklar/haberler/">Haberler</a></li><li><a href="/theme/bloklar/benzer-urunler/">Benzer ürünler</a></li><li><a href="/theme/bloklar/model-listesi/">Model listesi</a></li><li><a href="/theme/bloklar/marka-listesi/">Marka listesi</a></li><li><a href="/theme/bloklar/parca-toplama-sihirbazi/">Parça toplama sihirbazı</a></li><li><a href="/theme/bloklar/tedarikci-listesi/">Tedarikçi listesi</a></li><li><a href="/theme/bloklar/firsat-urunleri/">Fırsat ürünleri</a></li><li><a href="/theme/bloklar/ayin-yazari/">Ayın yazarı</a></li><li><a href="/theme/bloklar/gelecek-firsat-urun-listesi/">Gelecek fırsatlar</a></li><li><a href="/theme/bloklar/sss/">SSS</a></li><li><a href="/theme/bloklar/gorsel-vitrin/">Görsel vitrin</a></li></ul></details><details class="nav-sec"><summary>Eski tema değişkenleri <span class="count">5</span></summary><ul><li><a href="/theme/degiskenler/tsoft-product-varriables/">Ürün değişkenleri</a></li><li><a href="/theme/degiskenler/tsoft-header-page-links-varriable/">Sayfa linkleri</a></li><li><a href="/theme/degiskenler/tsoft-header-tabs-varriable/">Üst sekmeler</a></li><li><a href="/theme/degiskenler/tsoft-footer-menu-varriables/">Alt menü</a></li><li><a href="/theme/degiskenler/tsoft-left-right-category-varriables/">Sol ve sağ kategori</a></li></ul></details><details class="nav-sec" open><summary>Eski tema şablonları <span class="count">5</span></summary><ul><li><a href="/theme/snippets/bayi-mi-degil-mi/">Bayi hesabı koşulu</a></li><li><a href="/theme/orta/user_bayipanel/">Bayi paneli</a></li><li><a href="/theme/orta/user_bayigirisplasiyer/" aria-current="page">Bayi giriş plasiyer</a></li><li><a href="/theme/orta/user_v4tpl/">V4 şablon</a></li><li><a href="/theme/UstAlt/user_tasarimyenimenu/">Tasarım yeni menü</a></li></ul></details></aside>
+<main id="main" class="content">
+<nav class="crumbs" aria-label="Konum"><a href="/">Ana sayfa</a> <span>/</span> <a href="/theme/">Eski tema (Smarty)</a></nav>
+<article>
+<h1 id="bayi-giriş-plasiyer"><a class="anchor" href="#bayi-giriş-plasiyer" aria-hidden="true">#</a>Bayi giriş plasiyer</h1>
+<p>Dosya: <code>theme/orta/user_bayigirisplasiyer.tpl</code> · <a href="/theme/orta/user_bayigirisplasiyer.tpl">Ham dosya</a> · Smarty</p>
+<pre><code class="language-xml">{if $GoogleRecaptcha}
+&lt;script src='https://www.google.com/recaptcha/api.js'&gt;&lt;/script&gt;
+&lt;script&gt;
+    window.GoogleRecaptchaClientKey = '{$GoogleRecaptchaClientKey}';
+&lt;/script&gt;
+{/if}
+&lt;div class=&quot;col col-12&quot; id=&quot;page-login&quot;&gt;
+    &lt;div class=&quot;row mb&quot;&gt;
+        {if $IS_VENDOR_LOGIN==true}
+            &lt;div class=&quot;col col-12 box-border&quot;&gt;
+                &lt;div class=&quot;row&quot; id=&quot;vendor-login&quot;&gt;
+                    &lt;div class=&quot;col col-12 pageTitle&quot;&gt;
+                        &lt;div class=&quot;row mb lightBg member&quot;&gt;{$BLOCK_TITLE}&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;box col-12&quot;&gt;
+                        &lt;div class=&quot;col col-6 col-md-8 col-sm-12 col-ml-3 col-mr-3 col-md-mr-2 col-md-ml-2&quot;&gt;
+                            &lt;div class=&quot;box col-12  form-control xlarge&quot;&gt;
+                                &lt;div class=&quot;row input-icon tooltipWrapper&quot;&gt;
+                                    &lt;span class=&quot;icon icon-mail&quot;&gt;
+                                    &lt;/span&gt;
+                                    &lt;input type=&quot;text&quot; placeholder=&quot;{#email#}&quot; name=&quot;vendor-email&quot; id=&quot;vendor-email&quot; value=&quot;&quot; class=&quot;col col-12&quot; /&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;box col-12 form-control xlarge tooltipWrapper&quot;&gt;
+                                &lt;div class=&quot;row input-icon tooltipWrapper&quot;&gt;
+                                    &lt;span class=&quot;icon icon-pass&quot;&gt;
+                                    &lt;/span&gt;
+                                    &lt;input type=&quot;password&quot; placeholder=&quot;{#password#}&quot; name=&quot;vendor-password&quot; id=&quot;vendor-password&quot; value=&quot;&quot; class=&quot;col col-12&quot; /&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            {if $GoogleRecaptcha}
+                                &lt;div class=&quot;box col-12 form-control tooltipWrapper&quot;&gt;
+                                     &lt;div id=&quot;seccode&quot; class=&quot;g-recaptcha&quot; data-sitekey=&quot;{$GoogleRecaptchaClientKey}&quot;&gt;&lt;/div&gt;
+                                &lt;/div&gt;
+                            {else}
+                                &lt;div class=&quot;box col-12 form-control tooltipWrapper&quot; {if $CAPTCHA_COUNTER &lt; $CAPTCHA_LIMIT}style=&quot;display:none;&quot;{/if}&gt;
+                                    &lt;div class=&quot;row mb input-icon&quot;&gt;
+                                        &lt;img  id=&quot;vendor-code&quot; data-limit=&quot;{$CAPTCHA_LIMIT}&quot; class=&quot;secCode&quot; src=&quot;/SecCode.php?1509621554748&quot;/&gt;
+                                        &lt;input type=&quot;text&quot; id=&quot;ug-security&quot; name=&quot;ug-security&quot; placeholder=&quot;Güvenlik Kodu&quot; class=&quot;col col-12 withPlace mail required&quot; style=&quot;height: 30px;&quot;/&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            {/if}
+                            &lt;div class=&quot;box col-12&quot;&gt;
+                                &lt;div class=&quot;row&quot;&gt;
+                                    &lt;a data-prefix=&quot;vendor-&quot; data-vendor=&quot;1&quot; data-callback=&quot;ugMemberLoginFn&quot; class=&quot;login btn col-12 btn-default btn-big btn-upper btn-radius a-center&quot;&gt;
+                                        {#login#}
+                                    &lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            {if $IS_REMEMBER_ME_ACTIVE}
+                                &lt;div&gt;
+                                    &lt;span class=&quot;Yazi&quot;&gt;
+                                        &amp;nbsp;
+                                    &lt;/span&gt;
+                                    &lt;span class=&quot;textalan&quot;&gt;
+                                        &lt;input type=&quot;checkbox&quot; id=&quot;vendor-remember&quot; value=&quot;1&quot; /&gt;
+                                        &lt;label for=&quot;vendor-remember&quot;&gt;
+                                            {#remember_me#}
+                                        &lt;/label&gt;
+                                    &lt;/span&gt;
+                                &lt;/div&gt;
+                            {/if}
+                            &lt;div class=&quot;col col-12&quot;&gt;
+                                &lt;div class=&quot;row&quot;&gt;
+                                    &lt;a href=&quot;{$PAGE_LINK.MEMBER_PASSWORD_REMINDER}&quot; class=&quot;fr form-link info&quot; target=&quot;_blank&quot;&gt;{#forgot_password#}&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;col col-12&quot;&gt;
+                                &lt;div class=&quot;row&quot;&gt;
+                                    &lt;a href=&quot;{$PAGE_LINK.VENDOR_REGISTER}&quot; class=&quot;fr form-link&quot;&gt;{#be_vendor#}&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;row&quot;&gt;
+                                {if $DISPLAY_FACEBOOK == 1}
+                                    &lt;div class=&quot;box col-6 col-md-12 form-control xlarge&quot;&gt;
+                                        &lt;a href=&quot;/srv/service/social/facebook/login&quot; class=&quot;fl col-12 input-icon&quot;&gt;
+                                            &lt;span class=&quot;icon icon-fb&quot;&gt;&lt;/span&gt;
+                                            &lt;span class=&quot;col col-12 box-border social-btn&quot;&gt;
+                                                &lt;span class=&quot;row&quot;&gt;
+                                                    &lt;span class=&quot;col col-12 form-input&quot;&gt;{#login_facebook#}&lt;/span&gt;
+                                                &lt;/span&gt;
+                                            &lt;/span&gt;
+                                        &lt;/a&gt;
+                                    &lt;/div&gt;
+                                {/if}
+                                {if $DISPLAY_TWITTER == 1}
+                                    &lt;div class=&quot;box col-6 col-md-12 form-control xlarge&quot;&gt;
+                                        &lt;a href=&quot;/srv/service/social/twitter/login&quot; class=&quot;fl col-12 input-icon&quot;&gt;
+                                            &lt;span class=&quot;icon icon-tw&quot;&gt;&lt;/span&gt;
+                                            &lt;span class=&quot;col col-12 box-border social-btn&quot;&gt;
+                                                &lt;span class=&quot;row&quot;&gt;
+                                                    &lt;span class=&quot;col col-12 form-input&quot;&gt;{#login_twitter#}&lt;/span&gt;
+                                                &lt;/span&gt;
+                                            &lt;/span&gt;
+                                        &lt;/a&gt;
+                                    &lt;/div&gt;
+                                {/if}
+                                {if $DISPLAY_APPLE == 1}
+                                    &lt;div class=&quot;box col-6 col-md-12 form xlarge&quot;&gt;
+                                        &lt;a href=&quot;/srv/service/social/apple/login&quot; class=&quot;fl col-12 input-icon&quot; id=&quot;popup-member-login-apple&quot;&gt;
+                                            &lt;span class=&quot;icon icon-apple&quot;&gt;
+                                            &lt;/span&gt;
+                                            &lt;span class=&quot;col col-12 box-border social-btn&quot;&gt;
+                                                &lt;span class=&quot;row&quot;&gt;
+                                                    &lt;span class=&quot;col col-12 form-input&quot;&gt;
+                                                        {#login_apple#}
+                                                    &lt;/span&gt;
+                                                &lt;/span&gt;
+                                            &lt;/span&gt;
+                                        &lt;/a&gt;
+                                    &lt;/div&gt;
+                                {/if}
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;script type=&quot;text/javascript&quot;&gt;
+
+                function ugMemberLoginFn(result, opt) {
+                    tooltip.hideAll();
+                    var element = result.status === -1 ? $('#vendor-code') : $('#vendor-email');
+                    var cls = result.status === 1 ? 'btn-success' : 'btn-danger';
+
+                    tooltip.show(element, result.statusText, false, cls);
+
+                    if (result.status === 1) {
+                        setTimeout(function () {
+                            window.location.href = result.url;
+                        }, 2000);
+                    }
+                    if (typeof LoginPageTracking !== 'undefined' &amp;&amp; typeof LoginPageTracking.Callback === 'function') {
+                        LoginPageTracking.Callback(result);
+                    }
+                }
+                $(document).ready(function () {
+
+                    $(&quot;#vendor-login input[name^='vendor-']&quot;).keypress(function (e) {
+                        if (e.which == 13) {
+                            $('#vendor-login .login').trigger('click');
+                            return false;
+                        }
+                    });
+                    var html = $('#vendor-mesaj').html();
+                    setInterval(function () {
+                        if ($('#vendor-mesaj').html() != html) {
+                            $('#vendor-mesaj').fadeIn();
+                        }
+                    }, 500);
+
+                    if ($('#vendor-remember').length &gt; 0 &amp;&amp; $.cookie('email') !== null &amp;&amp; $.cookie('email').length &gt; 5) {
+                        $('#vendor-email').val($.cookie('email'));
+                        $('#vendor-password').val($.cookie('password'));
+                        $('#vendor-remember').prop('checked', true);
+                    }
+                });
+            &lt;/script&gt;
+        {elseif $IS_VENDOR_MESSAGE_ACTIVE==true}
+            {#vendor_is_not_active#}
+        {else}
+            &lt;div class=&quot;col col-12 box-border&quot;&gt;
+                &lt;div class=&quot;row&quot;&gt;
+                    &lt;div class=&quot;col col-12 pageTitle&quot;&gt;
+                        &lt;div class=&quot;row mb lightBg member&quot; id=&quot;fullname&quot;&gt;&lt;/div&gt;
+                        &lt;script&gt;
+                            $('#fullname').text('{#hello#} ' + MEMBER_INFO.FIRST_NAME + ' ' + MEMBER_INFO.LAST_NAME);
+                        &lt;/script&gt;
+                    &lt;/div&gt;
+                    &lt;!-- bölge müdürü bilgisi --&gt;
+                    {if $IS_CURRENT_ACCOUNT_ACTIVE==1}
+                    &lt;div class=&quot;box col-12&quot;&gt;
+                        &lt;div class=&quot;col col-6 col-md-12 col-sm-12 col-ml-3 col-mr-3&quot;&gt;
+                            &lt;div class=&quot;region-manager-box&quot;&gt;
+                                &lt;div style=&quot;background-color: gray; color: white; padding: 10px; text-align: center; font-size: 16px; border-radius: 5px 5px 0 0;&quot;&gt;
+                                    &lt;strong&gt;Bölge Müdürünüz&lt;/strong&gt;
+                                &lt;/div&gt;
+                                &lt;div class=&quot;manager-content&quot; style=&quot;display: flex; align-items: center; padding: 10px;&quot;&gt;
+                                    &lt;div class=&quot;manager-details&quot; style=&quot;flex: 1;&quot;&gt;
+                                         &lt;p style=&quot;margin: 5px 0;&quot;&gt;&lt;strong&gt;Ad Soyad:&lt;/strong&gt; &lt;span id=&quot;rep_name&quot;&gt;Genel Merkez&lt;/span&gt;&lt;/p&gt;
+                                        &lt;p style=&quot;margin: 5px 0;&quot;&gt;&lt;strong&gt;Telefon:&lt;/strong&gt; &lt;span id=&quot;rep_phone&quot;&gt;02120000000&lt;/span&gt;&lt;/p&gt;
+                                        &lt;p style=&quot;margin: 5px 0;&quot;&gt;&lt;strong&gt;E-mail:&lt;/strong&gt; &lt;span id=&quot;rep_email&quot;&gt;ornek@magaza.example&lt;/span&gt;&lt;/p&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class=&quot;manager-photo&quot; style=&quot;margin-left: 10px;&quot;&gt;
+                                        &lt;img id=&quot;rep_img&quot; src=&quot;https://cdn.magaza.example/PUBLIC/plasiyer/genel-merkez.jpg&quot; alt=&quot;Plasiyer Resim&quot; style=&quot;width: 100px; height: auto; border-radius: 5px;&quot;&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    {/if}
+                    &lt;!-- bölge müdürü bilgisi --&gt;
+                    &lt;div class=&quot;box col-12&quot;&gt;
+                        &lt;div class=&quot;col col-6 col-md-12 col-sm-12 col-ml-3 col-mr-3&quot;&gt;
+                            &lt;div class=&quot;box col-6&quot;&gt;
+                                &lt;a href=&quot;/{$PAGE_LINK.MEMBER_ORDERS}&quot; class=&quot;btn col-12 btn-default btn-big btn-upper btn-radius a-center&quot;&gt;
+                                    {#orders#}
+                                &lt;/a&gt;
+                            &lt;/div&gt;
+                            {if $IS_CURRENT_ACCOUNT_ACTIVE==1}
+                                &lt;div class=&quot;box col-6&quot;&gt;
+                                    &lt;a href=&quot;/{$PAGE_LINK.MEMBER_CURRENT_ACCOUNT}&quot; class=&quot;btn col-12 btn-default btn-big btn-upper btn-radius a-center&quot; target=&quot;_blank&quot;&gt;
+                                        {#current_account#}
+                                    &lt;/a&gt;
+                                &lt;/div&gt;
+                                &lt;div class=&quot;box col-6&quot;&gt;
+                                    &lt;a href=&quot;/pay&quot; class=&quot;btn col-12 btn-default btn-big btn-upper btn-radius a-center&quot; target=&quot;_blank&quot;&gt;
+                                        {#pay_with_credit_cart#}
+                                    &lt;/a&gt;
+                                &lt;/div&gt;
+                            {/if}
+                            &lt;div class=&quot;box col-6&quot;&gt;
+                                &lt;a href=&quot;/{$PAGE_LINK.MEMBER_PERSONAL_INFO}&quot; class=&quot;btn col-12 btn-default btn-big btn-upper btn-radius a-center&quot;&gt;
+                                    {#personal_informations#}
+                                &lt;/a&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;box col-6&quot;&gt;
+                                &lt;a href=&quot;/{$PAGE_LINK.MEMBER_SHOPPING_LIST}&quot; class=&quot;btn col-12 btn-default btn-big btn-upper btn-radius a-center&quot;&gt;
+                                    {#shopping_list#}
+                                &lt;/a&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;box col-6&quot;&gt;
+                                &lt;a href=&quot;/{$PAGE_LINK.MEMBER_GIFT_CHECK}&quot; class=&quot;btn col-12 btn-default btn-big btn-upper btn-radius a-center&quot;&gt;
+                                    {#gift_coupons#}
+                                &lt;/a&gt;
+                            &lt;/div&gt;
+                            {if $IS_COMMENT_POINTS_ACTIVE}
+                                &lt;div class=&quot;box col-6&quot;&gt;
+                                    &lt;a href=&quot;/{$PAGE_LINK.MEMBER_COMMENT_POINT}&quot; class=&quot;btn col-12 btn-default btn-big btn-upper btn-radius a-center&quot;&gt;
+                                        {#points#}
+                                    &lt;/a&gt;
+                                &lt;/div&gt;
+                            {/if}
+                            &lt;div class=&quot;box col-6&quot;&gt;
+                                &lt;a href=&quot;/{$PAGE_LINK.MEMBER_ADDRESS_LIST}&quot; class=&quot;btn col-12 btn-default btn-big btn-upper btn-radius a-center&quot;&gt;
+                                    {#adddress_info#}
+                                &lt;/a&gt;
+                            &lt;/div&gt;
+                            {if $IS_MESSAGE_ACTIVE==1}
+                                &lt;div class=&quot;box col-6&quot;&gt;
+                                    &lt;a href=&quot;/{$PAGE_LINK.MEMBER_MESSAGES}&quot; class=&quot;btn col-12 btn-default btn-big btn-upper btn-radius a-center&quot;&gt;
+                                        {#messages#}
+                                    &lt;/a&gt;
+                                &lt;/div&gt;
+                            {/if}
+                            &lt;div class=&quot;box col-6&quot;&gt;
+                                &lt;a href=&quot;/{$PAGE_LINK.MEMBER_PRICE_ALERT_LIST}&quot; class=&quot;btn col-12 btn-default btn-big btn-upper btn-radius a-center&quot;&gt;
+                                    {#price_alert#}
+                                &lt;/a&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;box col-6&quot;&gt;
+                                &lt;a href=&quot;/{$PAGE_LINK.MEMBER_STOCK_ALERT_LIST}&quot; class=&quot;btn col-12 btn-default btn-big btn-upper btn-radius a-center&quot;&gt;
+                                    {#stock_alert#}
+                                &lt;/a&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;box col-6&quot;&gt;
+                                &lt;a href=&quot;/{$PAGE_LINK.MEMBER_MONEY_ORDER_NOTIFICATION}&quot; class=&quot;btn col-12 btn-default btn-big btn-upper btn-radius a-center&quot;&gt;
+                                    {#money_order_notificiation#}
+                                &lt;/a&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;box col-6&quot;&gt;
+                                &lt;a href=&quot;/{$PAGE_LINK.MEMBER_PASSWORD_CHANGE}&quot; class=&quot;btn col-12 btn-default btn-big btn-upper btn-radius a-center&quot;&gt;
+                                    {#change_password#}
+                                &lt;/a&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;box col-6&quot;&gt;
+                                &lt;a href=&quot;#&quot; class=&quot;logout btn col-12 btn-default btn-big btn-upper btn-radius a-center&quot;&gt;
+                                    {#logout#}
+                                &lt;/a&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        {/if}
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+</article>
+<nav class="pager" aria-label="Sayfa geçişi"><a class="prev" href="/theme/orta/user_bayipanel/"><span>← Önceki</span>Bayi paneli</a><a class="next" href="/theme/orta/user_v4tpl/"><span>Sonraki →</span>V4 şablon</a></nav>
+<footer class="page-foot"><a href="https://github.com/bahadirdogru/tsoft-documentation-examples/edit/main/content/theme/orta/user_bayigirisplasiyer.tpl">GitHub'da düzenle</a> · <a href="/theme/orta/user_bayigirisplasiyer.tpl">Ham dosya</a> · <a href="/llms.txt">llms.txt</a> · Topluluk belgesidir, T-Soft’un resmî yayını değildir.</footer>
+</main>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/twig.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/http.min.js"></script>
+<script src="/assets/site.js"></script>
+</body>
+</html>

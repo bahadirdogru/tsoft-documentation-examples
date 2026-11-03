@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Uç listesi · T-Soft Dokümantasyonu</title>
+<meta name="description" content="357 uç ve 35 kimlikli yol, gruplarına göre">
+<link rel="canonical" href="https://tsoft.bahadirdogru.com/admin-api/uclar/">
+<link rel="alternate" type="text/markdown" href="/admin-api/uclar.md" title="Markdown">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%231f6feb%22%2F%3E%3Cpath%20d%3D%22M8%209h16v3.2h-6.4V23h-3.2V12.2H8z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E">
+<meta property="og:title" content="Uç listesi">
+<meta property="og:description" content="357 uç ve 35 kimlikli yol, gruplarına göre">
+<meta property="og:url" content="https://tsoft.bahadirdogru.com/admin-api/uclar/">
+<meta property="og:type" content="website">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" media="(prefers-color-scheme: light)" id="hl-light">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" media="(prefers-color-scheme: dark)" id="hl-dark">
+</head>
+<body>
+<a class="skip" href="#main">İçeriğe geç</a>
+<header class="top">
+  <button class="menu-btn" aria-label="Menü" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="/"><svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><path d="M8 9h16v3.2h-6.4V23h-3.2V12.2H8z" fill="var(--bg)"/></svg><span>T-Soft Dokümantasyonu</span></a>
+  <div class="search">
+    <input id="q" type="search" placeholder="Ara: metot, uç, değişken, sayfa…  ( / )" autocomplete="off" aria-label="Ara">
+    <ul id="results" role="listbox" hidden></ul>
+  </div>
+  <button class="theme-btn" aria-label="Tema değiştir" title="Tema değiştir">◐</button>
+</header>
+<div class="layout">
+<aside id="sidebar" class="sidebar"><details class="nav-sec" open><summary>Başlangıç <span class="count">3</span></summary><ul><li><a href="/">Ana sayfa</a></li><li><a href="/rehber/">Hangi yüzey?</a></li><li><a href="/llm/">LLM ve ajanlar için</a></li></ul></details><details class="nav-sec" open><summary>Platform <span class="count">4</span></summary><ul><li><a href="/developer/">Platform haritası</a></li><li><a href="/developer/baslarken/">Başlarken</a></li><li><a href="/developer/uygulama/">Uygulama geliştirme</a></li><li><a href="/developer/storefront-api/">Storefront API</a></li></ul></details><details class="nav-sec" open><summary>Tema <span class="count">2</span></summary><ul><li><a href="/developer/tema/">Tema motoru (Twig)</a></li><li><a href="/theme/">Eski tema (Smarty)</a></li></ul></details><details class="nav-sec" open><summary>REST1 <span class="count">2</span></summary><ul><li><a href="/rest/">Genel bakış</a></li><li><a href="/rest/hatalar/">Hatalar ve mesaj kodları</a></li></ul></details><details class="nav-sec"><summary>REST1 modülleri <span class="count">38</span></summary><ul><li><a href="/rest/auth/">Auth</a></li><li><a href="/rest/customer/">Customer</a></li><li><a href="/rest/product/">Product</a></li><li><a href="/rest/subproduct/">SubProduct</a></li><li><a href="/rest/category/">Category</a></li><li><a href="/rest/brand/">Brand</a></li><li><a href="/rest/model/">Model</a></li><li><a href="/rest/filter/">Filter</a></li><li><a href="/rest/catalog/">Catalog</a></li><li><a href="/rest/order/">Order</a></li><li><a href="/rest/order2/">Order2</a></li><li><a href="/rest/cart/">Cart</a></li><li><a href="/rest/campaign/">Campaign</a></li><li><a href="/rest/payment/">Payment</a></li><li><a href="/rest/fundmovement/">FundMovement</a></li><li><a href="/rest/point/">Point</a></li><li><a href="/rest/segment/">Segment</a></li><li><a href="/rest/supplier/">Supplier</a></li><li><a href="/rest/branchoffice/">BranchOffice</a></li><li><a href="/rest/content/">Content</a></li><li><a href="/rest/news/">News</a></li><li><a href="/rest/showcase/">Showcase</a></li><li><a href="/rest/htmlblock/">HtmlBlock</a></li><li><a href="/rest/widget/">Widget</a></li><li><a href="/rest/link/">Link</a></li><li><a href="/rest/personalization/">Personalization</a></li><li><a href="/rest/trackingcode/">TrackingCode</a></li><li><a href="/rest/ticket/">Ticket</a></li><li><a href="/rest/user/">User</a></li><li><a href="/rest/setting/">Setting</a></li><li><a href="/rest/notification/">Notification</a></li><li><a href="/rest/mobile/">Mobile</a></li><li><a href="/rest/platform/">Platform</a></li><li><a href="/rest/cargo/">Cargo</a></li><li><a href="/rest/adapter/">Adapter</a></li><li><a href="/rest/hopi/">Hopi</a></li><li><a href="/rest/zubizu/">Zubizu</a></li><li><a href="/rest/routing/">Routing</a></li></ul></details><details class="nav-sec" open><summary>Admin API v3 <span class="count">3</span></summary><ul><li><a href="/admin-api/">Genel bakış</a></li><li><a href="/admin-api/uclar/" aria-current="page">Uç listesi</a></li><li><a href="/admin-api/odeme-bildirimi/">Ödeme bildirimi</a></li></ul></details><details class="nav-sec"><summary>Örnek kod <span class="count">5</span></summary><ul><li><a href="/examples/python/tsoft_client/">Python istemci</a></li><li><a href="/examples/python/add_customer/">Üye ekleme</a></li><li><a href="/examples/python/check_group_price/">Grup fiyatı</a></li><li><a href="/examples/python/env/">Ortam değişkenleri</a></li><li><a href="/examples/apps-script/code/">Apps Script</a></li></ul></details><details class="nav-sec"><summary>Eski tema blokları <span class="count">18</span></summary><ul><li><a href="/theme/bloklar/ust/">Üst blok</a></li><li><a href="/theme/bloklar/alt/">Alt blok</a></li><li><a href="/theme/bloklar/yeni-urunler/">Yeni ürünler</a></li><li><a href="/theme/bloklar/kategori-menusu/">Kategori menüsü</a></li><li><a href="/theme/bloklar/kategori-listesi/">Kategori listesi</a></li><li><a href="/theme/bloklar/home-banner/">Ana sayfa banner</a></li><li><a href="/theme/bloklar/home-sale/">Ana sayfa indirim</a></li><li><a href="/theme/bloklar/haberler/">Haberler</a></li><li><a href="/theme/bloklar/benzer-urunler/">Benzer ürünler</a></li><li><a href="/theme/bloklar/model-listesi/">Model listesi</a></li><li><a href="/theme/bloklar/marka-listesi/">Marka listesi</a></li><li><a href="/theme/bloklar/parca-toplama-sihirbazi/">Parça toplama sihirbazı</a></li><li><a href="/theme/bloklar/tedarikci-listesi/">Tedarikçi listesi</a></li><li><a href="/theme/bloklar/firsat-urunleri/">Fırsat ürünleri</a></li><li><a href="/theme/bloklar/ayin-yazari/">Ayın yazarı</a></li><li><a href="/theme/bloklar/gelecek-firsat-urun-listesi/">Gelecek fırsatlar</a></li><li><a href="/theme/bloklar/sss/">SSS</a></li><li><a href="/theme/bloklar/gorsel-vitrin/">Görsel vitrin</a></li></ul></details><details class="nav-sec"><summary>Eski tema değişkenleri <span class="count">5</span></summary><ul><li><a href="/theme/degiskenler/tsoft-product-varriables/">Ürün değişkenleri</a></li><li><a href="/theme/degiskenler/tsoft-header-page-links-varriable/">Sayfa linkleri</a></li><li><a href="/theme/degiskenler/tsoft-header-tabs-varriable/">Üst sekmeler</a></li><li><a href="/theme/degiskenler/tsoft-footer-menu-varriables/">Alt menü</a></li><li><a href="/theme/degiskenler/tsoft-left-right-category-varriables/">Sol ve sağ kategori</a></li></ul></details><details class="nav-sec"><summary>Eski tema şablonları <span class="count">5</span></summary><ul><li><a href="/theme/snippets/bayi-mi-degil-mi/">Bayi hesabı koşulu</a></li><li><a href="/theme/orta/user_bayipanel/">Bayi paneli</a></li><li><a href="/theme/orta/user_bayigirisplasiyer/">Bayi giriş plasiyer</a></li><li><a href="/theme/orta/user_v4tpl/">V4 şablon</a></li><li><a href="/theme/UstAlt/user_tasarimyenimenu/">Tasarım yeni menü</a></li></ul></details></aside>
+<main id="main" class="content">
+<nav class="crumbs" aria-label="Konum"><a href="/">Ana sayfa</a> <span>/</span> <a href="/admin-api/">Admin API v3</a></nav>
+<article>
+<h1 id="admin-api-v3-uç-listesi"><a class="anchor" href="#admin-api-v3-uç-listesi" aria-hidden="true">#</a>Admin API v3 uç listesi</h1>
+<p>Panel <code>v5.0.273</code> ön yüzünün çağırdığı 357 uç, gruplarına göre. Genel kurallar (taban, başlık, metot, sayfalama, hata) <a href="/admin-api/">Admin API v3</a> sayfasındadır. Yollar mağaza alan adına eklenir: <code>https://www.magaza.example/&lt;yol&gt;</code>.</p>
+<p>Liste yalnızca yolu verir. Metot ve gövde için panelde ilgili ekranı açıp Network sekmesine bakın. <code>{groupId}</code>, <code>{id}</code>, <code>{uuid}</code> yol içi kimliktir.</p>
+<h2 id="analitik"><a class="anchor" href="#analitik" aria-hidden="true">#</a>Analitik</h2>
+<p>Rapor, canlı ziyaretçi, arama boşluğu ve personel logları.</p>
+<ul>
+<li><code>api/v3/admin/analytics/assistant/insights</code></li>
+<li><code>api/v3/admin/analytics/log</code></li>
+<li><code>api/v3/admin/analytics/log/customer-code-changes</code></li>
+<li><code>api/v3/admin/analytics/log/price-stock-log</code></li>
+<li><code>api/v3/admin/analytics/log/template-history</code></li>
+<li><code>api/v3/admin/analytics/log/theme-history</code></li>
+<li><code>api/v3/admin/analytics/log/user-activities</code></li>
+<li><code>api/v3/admin/analytics/log/user-logins</code></li>
+<li><code>api/v3/admin/analytics/report</code></li>
+<li><code>api/v3/admin/analytics/report/customers-by-group</code></li>
+<li><code>api/v3/admin/analytics/report/customers-by-location</code></li>
+<li><code>api/v3/admin/analytics/report/most-used-campaign</code></li>
+<li><code>api/v3/admin/analytics/report/product/most-alert</code></li>
+<li><code>api/v3/admin/analytics/report/product/most-commented</code></li>
+<li><code>api/v3/admin/analytics/report/registration-platform</code></li>
+<li><code>api/v3/admin/analytics/report/sales-by-product</code></li>
+<li><code>api/v3/admin/analytics/report/visitor/briefing</code></li>
+<li><code>api/v3/admin/analytics/report/visitor/funnel</code></li>
+<li><code>api/v3/admin/analytics/report/visitor/live</code></li>
+<li><code>api/v3/admin/analytics/report/visitor/live-count</code></li>
+<li><code>api/v3/admin/analytics/report/visitor/live-locations</code></li>
+<li><code>api/v3/admin/analytics/report/visitor/new-vs-returning</code></li>
+<li><code>api/v3/admin/analytics/report/visitor/overview</code></li>
+<li><code>api/v3/admin/analytics/report/visitor/search-gaps</code></li>
+<li><code>api/v3/admin/analytics/report/visitor/timeseries</code></li>
+<li><code>api/v3/admin/analytics/report/visitor/top-pages</code></li>
+<li><code>api/v3/admin/analytics/report/visitor/top-products</code></li>
+<li><code>api/v3/admin/analytics/report/visitor/traffic-sources</code></li>
+<li><code>api/v3/admin/analytics/risk</code></li>
+<li><code>api/v3/admin/analytics/risk/center</code></li>
+</ul>
+<h2 id="oturum"><a class="anchor" href="#oturum" aria-hidden="true">#</a>Oturum</h2>
+<p>Giriş, parola sıfırlama, iki adımlı doğrulama, panel kullanıcısı ve rol.</p>
+<ul>
+<li><code>api/v3/admin/auth/auth-application</code></li>
+<li><code>api/v3/admin/auth/auth-application/authorize</code></li>
+<li><code>api/v3/admin/auth/auth-application/recovery</code></li>
+<li><code>api/v3/admin/auth/connect</code></li>
+<li><code>api/v3/admin/auth/demolish</code></li>
+<li><code>api/v3/admin/auth/forgot-password</code></li>
+<li><code>api/v3/admin/auth/legacy-api-users</code></li>
+<li><code>api/v3/admin/auth/login</code></li>
+<li><code>api/v3/admin/auth/login-by-jwt</code></li>
+<li><code>api/v3/admin/auth/logout</code></li>
+<li><code>api/v3/admin/auth/me</code></li>
+<li><code>api/v3/admin/auth/notification-token</code></li>
+<li><code>api/v3/admin/auth/oauth/authorize/user/callback</code></li>
+<li><code>api/v3/admin/auth/oauth/callback</code></li>
+<li><code>api/v3/admin/auth/oauth/refresh</code></li>
+<li><code>api/v3/admin/auth/oauth/two-factor</code></li>
+<li><code>api/v3/admin/auth/oauth/two-factor/sms-validation</code></li>
+<li><code>api/v3/admin/auth/reset-password</code></li>
+<li><code>api/v3/admin/auth/roles</code></li>
+<li><code>api/v3/admin/auth/storefront-apps</code></li>
+<li><code>api/v3/admin/auth/token</code></li>
+<li><code>api/v3/admin/auth/token-validate</code></li>
+<li><code>api/v3/admin/auth/two-factor</code></li>
+<li><code>api/v3/admin/auth/users</code></li>
+</ul>
+<h2 id="kampanya"><a class="anchor" href="#kampanya" aria-hidden="true">#</a>Kampanya</h2>
+<ul>
+<li><code>api/v3/admin/campaigns</code></li>
+<li><code>api/v3/admin/campaigns/campaign</code></li>
+<li><code>api/v3/admin/campaigns/customer-experience-scoring</code></li>
+<li><code>api/v3/admin/campaigns/gift-code</code></li>
+<li><code>api/v3/admin/campaigns/point</code></li>
+<li><code>api/v3/admin/campaigns/recommend</code></li>
+</ul>
+<h2 id="katalog"><a class="anchor" href="#katalog" aria-hidden="true">#</a>Katalog</h2>
+<p>Ürün, toplu işlem, görsel, kategori, marka, filtre, tedarikçi, varyant ve grup fiyatı.</p>
+<ul>
+<li><code>api/v3/admin/catalog/alarm</code></li>
+<li><code>api/v3/admin/catalog/catalogue-wizard/assign</code></li>
+<li><code>api/v3/admin/catalog/catalogue-wizard/bulk-assign</code></li>
+<li><code>api/v3/admin/catalog/catalogue-wizard/create-initial</code></li>
+<li><code>api/v3/admin/catalog/catalogue-wizard/unassign</code></li>
+<li><code>api/v3/admin/catalog/collections</code></li>
+<li><code>api/v3/admin/catalog/collections/items</code></li>
+<li><code>api/v3/admin/catalog/collections/items/sortable</code></li>
+<li><code>api/v3/admin/catalog/combine</code></li>
+<li><code>api/v3/admin/catalog/combine/categories</code></li>
+<li><code>api/v3/admin/catalog/comments</code></li>
+<li><code>api/v3/admin/catalog/definitions/brands</code></li>
+<li><code>api/v3/admin/catalog/definitions/brands/batch</code></li>
+<li><code>api/v3/admin/catalog/definitions/brands/group</code></li>
+<li><code>api/v3/admin/catalog/definitions/categories</code></li>
+<li><code>api/v3/admin/catalog/definitions/categories/batch</code></li>
+<li><code>api/v3/admin/catalog/definitions/filter</code></li>
+<li><code>api/v3/admin/catalog/definitions/filter/options</code></li>
+<li><code>api/v3/admin/catalog/definitions/models</code></li>
+<li><code>api/v3/admin/catalog/definitions/personalization</code></li>
+<li><code>api/v3/admin/catalog/definitions/stock-units</code></li>
+<li><code>api/v3/admin/catalog/definitions/suppliers</code></li>
+<li><code>api/v3/admin/catalog/definitions/tags</code></li>
+<li><code>api/v3/admin/catalog/definitions/variant-themes</code></li>
+<li><code>api/v3/admin/catalog/pricing/group-price</code></li>
+<li><code>api/v3/admin/catalog/pricing/group-price-filter</code></li>
+<li><code>api/v3/admin/catalog/products</code></li>
+<li><code>api/v3/admin/catalog/products/batch</code></li>
+<li><code>api/v3/admin/catalog/products/catalog-images</code></li>
+<li><code>api/v3/admin/catalog/products/digital-files</code></li>
+<li><code>api/v3/admin/catalog/products/flexible-price</code></li>
+<li><code>api/v3/admin/catalog/products/image</code></li>
+<li><code>api/v3/admin/catalog/products/image/advanced</code></li>
+<li><code>api/v3/admin/catalog/products/image/sortable</code></li>
+<li><code>api/v3/admin/catalog/search-console</code></li>
+<li><code>api/v3/admin/catalog/search-matching</code></li>
+<li><code>api/v3/admin/catalog/search-words/convert</code></li>
+<li><code>api/v3/admin/catalog/variant</code></li>
+<li><code>api/v3/admin/catalog/variant/groups</code></li>
+<li><code>api/v3/admin/catalog/variant/groups/options</code></li>
+<li><code>api/v3/admin/catalog/variant/groups/{groupId}/options</code></li>
+</ul>
+<h2 id="içerik"><a class="anchor" href="#içerik" aria-hidden="true">#</a>İçerik</h2>
+<ul>
+<li><code>api/v3/admin/cms/blog</code></li>
+<li><code>api/v3/admin/cms/blog/category</code></li>
+<li><code>api/v3/admin/cms/content</code></li>
+<li><code>api/v3/admin/cms/faq</code></li>
+<li><code>api/v3/admin/cms/faq/category</code></li>
+<li><code>api/v3/admin/cms/mobile-settings</code></li>
+<li><code>api/v3/admin/cms/mobile-showcase</code></li>
+<li><code>api/v3/admin/cms/news</code></li>
+<li><code>api/v3/admin/cms/photo-gallery</code></li>
+<li><code>api/v3/admin/cms/photo-gallery/category</code></li>
+<li><code>api/v3/admin/cms/video-gallery</code></li>
+<li><code>api/v3/admin/cms/video-gallery/category</code></li>
+</ul>
+<h2 id="ayarlar"><a class="anchor" href="#ayarlar" aria-hidden="true">#</a>Ayarlar</h2>
+<p>Dil, para, bölge, e-posta, SMS, POS, bildirim şablonu, yönlendirme, webhook, önbellek, lisans ve sistem.</p>
+<ul>
+<li><code>api/v3/admin/configuration/advisory/specs</code></li>
+<li><code>api/v3/admin/configuration/cache</code></li>
+<li><code>api/v3/admin/configuration/cache/reset-css-js-cache</code></li>
+<li><code>api/v3/admin/configuration/currency</code></li>
+<li><code>api/v3/admin/configuration/currency-rate-archive</code></li>
+<li><code>api/v3/admin/configuration/email</code></li>
+<li><code>api/v3/admin/configuration/language</code></li>
+<li><code>api/v3/admin/configuration/language/mapper</code></li>
+<li><code>api/v3/admin/configuration/link/batch</code></li>
+<li><code>api/v3/admin/configuration/link/default-redirect</code></li>
+<li><code>api/v3/admin/configuration/link/feeds</code></li>
+<li><code>api/v3/admin/configuration/link/links</code></li>
+<li><code>api/v3/admin/configuration/link/migrate</code></li>
+<li><code>api/v3/admin/configuration/link/not-founds</code></li>
+<li><code>api/v3/admin/configuration/link/types</code></li>
+<li><code>api/v3/admin/configuration/meta</code></li>
+<li><code>api/v3/admin/configuration/mobile/config-group</code></li>
+<li><code>api/v3/admin/configuration/mobile/config-setting</code></li>
+<li><code>api/v3/admin/configuration/notification/templates</code></li>
+<li><code>api/v3/admin/configuration/notification/templates/group</code></li>
+<li><code>api/v3/admin/configuration/payment/pos</code></li>
+<li><code>api/v3/admin/configuration/payment/pos-builder</code></li>
+<li><code>api/v3/admin/configuration/payment/type</code></li>
+<li><code>api/v3/admin/configuration/plan/wallet</code></li>
+<li><code>api/v3/admin/configuration/print-template</code></li>
+<li><code>api/v3/admin/configuration/project-notes</code></li>
+<li><code>api/v3/admin/configuration/region</code></li>
+<li><code>api/v3/admin/configuration/region/batch</code></li>
+<li><code>api/v3/admin/configuration/region/duty</code></li>
+<li><code>api/v3/admin/configuration/region/field</code></li>
+<li><code>api/v3/admin/configuration/region/ip-service</code></li>
+<li><code>api/v3/admin/configuration/region/market</code></li>
+<li><code>api/v3/admin/configuration/region/setting</code></li>
+<li><code>api/v3/admin/configuration/settings</code></li>
+<li><code>api/v3/admin/configuration/settings/category</code></li>
+<li><code>api/v3/admin/configuration/settings/update-report</code></li>
+<li><code>api/v3/admin/configuration/sms</code></li>
+<li><code>api/v3/admin/configuration/store-checkpoints</code></li>
+<li><code>api/v3/admin/configuration/structured-data/fields</code></li>
+<li><code>api/v3/admin/configuration/structured-data/live-preview</code></li>
+<li><code>api/v3/admin/configuration/structured-data/node</code></li>
+<li><code>api/v3/admin/configuration/structured-data/nodes</code></li>
+<li><code>api/v3/admin/configuration/structured-data/overview</code></li>
+<li><code>api/v3/admin/configuration/structured-data/recipe</code></li>
+<li><code>api/v3/admin/configuration/structured-data/templates</code></li>
+<li><code>api/v3/admin/configuration/tracking-codes</code></li>
+<li><code>api/v3/admin/configuration/util/batch-job</code></li>
+<li><code>api/v3/admin/configuration/util/cron</code></li>
+<li><code>api/v3/admin/configuration/util/database-field</code></li>
+<li><code>api/v3/admin/configuration/util/demo-preview</code></li>
+<li><code>api/v3/admin/configuration/util/file-manager</code></li>
+<li><code>api/v3/admin/configuration/util/flexible-price</code></li>
+<li><code>api/v3/admin/configuration/util/flow</code></li>
+<li><code>api/v3/admin/configuration/util/license</code></li>
+<li><code>api/v3/admin/configuration/util/log</code></li>
+<li><code>api/v3/admin/configuration/util/marriage-loan</code></li>
+<li><code>api/v3/admin/configuration/util/sitemap</code></li>
+<li><code>api/v3/admin/configuration/util/store-plugins</code></li>
+<li><code>api/v3/admin/configuration/util/system-info</code></li>
+<li><code>api/v3/admin/configuration/util/system-messages</code></li>
+<li><code>api/v3/admin/configuration/util/system-notifications</code></li>
+<li><code>api/v3/admin/configuration/util/system-usage</code></li>
+<li><code>api/v3/admin/configuration/util/upgrade</code></li>
+<li><code>api/v3/admin/configuration/webhooks</code></li>
+<li><code>api/v3/admin/configuration/webhooks/domain-settings</code></li>
+<li><code>api/v3/admin/configuration/webhooks/events</code></li>
+<li><code>api/v3/admin/configuration/webhooks/logs</code></li>
+<li><code>api/v3/admin/configuration/webhooks/logs/total</code></li>
+<li><code>api/v3/admin/configuration/webhooks/test</code></li>
+</ul>
+<h2 id="crm"><a class="anchor" href="#crm" aria-hidden="true">#</a>CRM</h2>
+<ul>
+<li><code>api/v3/admin/crm/guest-book</code></li>
+<li><code>api/v3/admin/crm/store</code></li>
+<li><code>api/v3/admin/crm/store/group</code></li>
+<li><code>api/v3/admin/crm/ticket</code></li>
+<li><code>api/v3/admin/crm/ticket/department</code></li>
+<li><code>api/v3/admin/crm/ticket/user-token</code></li>
+</ul>
+<h2 id="üye"><a class="anchor" href="#üye" aria-hidden="true">#</a>Üye</h2>
+<p>Üye kartı, grup, segment, sepet, sadakat, mesaj, istek listesi, cari bakiye ve ödeme bildirimi. Ödeme bildiriminin gövdesi <a href="/admin-api/odeme-bildirimi/">Ödeme bildirimi</a> sayfasındadır.</p>
+<ul>
+<li><code>api/v3/admin/customers/batch</code></li>
+<li><code>api/v3/admin/customers/billing/account-balance</code></li>
+<li><code>api/v3/admin/customers/billing/payment-form</code></li>
+<li><code>api/v3/admin/customers/cart</code></li>
+<li><code>api/v3/admin/customers/customer</code></li>
+<li><code>api/v3/admin/customers/fields</code></li>
+<li><code>api/v3/admin/customers/fields/sortable</code></li>
+<li><code>api/v3/admin/customers/gift-coupon/reactivate</code></li>
+<li><code>api/v3/admin/customers/group</code></li>
+<li><code>api/v3/admin/customers/loyalty</code></li>
+<li><code>api/v3/admin/customers/loyalty/config</code></li>
+<li><code>api/v3/admin/customers/loyalty/rules</code></li>
+<li><code>api/v3/admin/customers/loyalty/tiers</code></li>
+<li><code>api/v3/admin/customers/loyalty/transactions</code></li>
+<li><code>api/v3/admin/customers/messages</code></li>
+<li><code>api/v3/admin/customers/messages/department</code></li>
+<li><code>api/v3/admin/customers/messages/resolution</code></li>
+<li><code>api/v3/admin/customers/payment-notification</code></li>
+<li><code>api/v3/admin/customers/payment-notification/batch-recreate</code></li>
+<li><code>api/v3/admin/customers/point</code></li>
+<li><code>api/v3/admin/customers/segment</code></li>
+<li><code>api/v3/admin/customers/wishlist</code></li>
+<li><code>api/v3/admin/customers/wishlist/category</code></li>
+</ul>
+<h2 id="dosya"><a class="anchor" href="#dosya" aria-hidden="true">#</a>Dosya</h2>
+<ul>
+<li><code>api/v3/admin/file-manager</code></li>
+</ul>
+<h2 id="entegrasyon"><a class="anchor" href="#entegrasyon" aria-hidden="true">#</a>Entegrasyon</h2>
+<p>Nova sohbeti, görsel ve taksonomi işleri, Nova Studio, cüzdan, Sendheap, T-Soft Apps kurulumu ve Hotnoc.</p>
+<ul>
+<li><code>api/v3/admin/integration/ai/agent</code></li>
+<li><code>api/v3/admin/integration/ai/mcp/connection</code></li>
+<li><code>api/v3/admin/integration/ai/mcp/consent</code></li>
+<li><code>api/v3/admin/integration/ai/nova/actions/catalog</code></li>
+<li><code>api/v3/admin/integration/ai/nova/actions/proposals</code></li>
+<li><code>api/v3/admin/integration/ai/nova/chat</code></li>
+<li><code>api/v3/admin/integration/ai/nova/images/bulk/batches</code></li>
+<li><code>api/v3/admin/integration/ai/nova/images/bulk/batches/cancel</code></li>
+<li><code>api/v3/admin/integration/ai/nova/images/bulk/optimize</code></li>
+<li><code>api/v3/admin/integration/ai/nova/images/directory/count</code></li>
+<li><code>api/v3/admin/integration/ai/nova/images/history</code></li>
+<li><code>api/v3/admin/integration/ai/nova/images/optimized/index</code></li>
+<li><code>api/v3/admin/integration/ai/nova/images/settings</code></li>
+<li><code>api/v3/admin/integration/ai/nova/images/single/optimize</code></li>
+<li><code>api/v3/admin/integration/ai/nova/images/summary</code></li>
+<li><code>api/v3/admin/integration/ai/nova/taxonomy</code></li>
+<li><code>api/v3/admin/integration/ai/nova/taxonomy/bulk/batches</code></li>
+<li><code>api/v3/admin/integration/ai/nova/taxonomy/bulk/preview</code></li>
+<li><code>api/v3/admin/integration/ai/nova/taxonomy/bulk/scan</code></li>
+<li><code>api/v3/admin/integration/ai/nova/taxonomy/review</code></li>
+<li><code>api/v3/admin/integration/ai/nova/taxonomy/review/bulk-approve</code></li>
+<li><code>api/v3/admin/integration/ai/nova/taxonomy/review/{id}/approve</code></li>
+<li><code>api/v3/admin/integration/ai/nova/taxonomy/review/{id}/reject</code></li>
+<li><code>api/v3/admin/integration/ai/nova/taxonomy/single/suggest</code></li>
+<li><code>api/v3/admin/integration/ai/novastudio</code></li>
+<li><code>api/v3/admin/integration/ai/novastudio/jobs</code></li>
+<li><code>api/v3/admin/integration/ai/novastudio/social</code></li>
+<li><code>api/v3/admin/integration/ai/novastudio/templates</code></li>
+<li><code>api/v3/admin/integration/ai/novastudio/video/generate</code></li>
+<li><code>api/v3/admin/integration/ai/novastudio/video/jobs</code></li>
+<li><code>api/v3/admin/integration/ai/novastudio/virtual-try-on</code></li>
+<li><code>api/v3/admin/integration/ai/task</code></li>
+<li><code>api/v3/admin/integration/ai/wallet</code></li>
+<li><code>api/v3/admin/integration/bill-tekrom</code></li>
+<li><code>api/v3/admin/integration/hotnoc</code></li>
+<li><code>api/v3/admin/integration/nilcare/iframe</code></li>
+<li><code>api/v3/admin/integration/sendheap</code></li>
+<li><code>api/v3/admin/integration/sendheap/login</code></li>
+<li><code>api/v3/admin/integration/sendheap/status</code></li>
+<li><code>api/v3/admin/integration/tsoftapps/install/start</code></li>
+<li><code>api/v3/admin/integration/tsoftapps/oauth/callback</code></li>
+<li><code>api/v3/admin/integration/tsoftapps/oauth/disconnect</code></li>
+<li><code>api/v3/admin/integration/tsoftapps/oauth/initiate</code></li>
+<li><code>api/v3/admin/integration/tsoftapps/oauth/status</code></li>
+<li><code>api/v3/admin/integration/tsoftapps/themes/storefront-ready</code></li>
+</ul>
+<h2 id="pazarlama"><a class="anchor" href="#pazarlama" aria-hidden="true">#</a>Pazarlama</h2>
+<ul>
+<li><code>api/v3/admin/marketing/collabs/affiliates</code></li>
+<li><code>api/v3/admin/marketing/collabs/config</code></li>
+<li><code>api/v3/admin/marketing/collabs/earnings</code></li>
+<li><code>api/v3/admin/marketing/collabs/payments</code></li>
+<li><code>api/v3/admin/marketing/collabs/programs</code></li>
+</ul>
+<h2 id="vitrin"><a class="anchor" href="#vitrin" aria-hidden="true">#</a>Vitrin</h2>
+<p>Eski tema motoru: sayfa, menü, blok ve tema.</p>
+<ul>
+<li><code>api/v3/admin/online-store/block</code></li>
+<li><code>api/v3/admin/online-store/fonts/google</code></li>
+<li><code>api/v3/admin/online-store/menu</code></li>
+<li><code>api/v3/admin/online-store/menu/items</code></li>
+<li><code>api/v3/admin/online-store/meta/relation/fields</code></li>
+<li><code>api/v3/admin/online-store/pages</code></li>
+<li><code>api/v3/admin/online-store/pages/column/relation</code></li>
+<li><code>api/v3/admin/online-store/pages/relation</code></li>
+<li><code>api/v3/admin/online-store/themes</code></li>
+<li><code>api/v3/admin/online-store/themes/scss/variables</code></li>
+</ul>
+<h2 id="yeni-vitrin"><a class="anchor" href="#yeni-vitrin" aria-hidden="true">#</a>Yeni vitrin</h2>
+<p>OS2 tema, satır ve sütun, anlık görüntü ve geliştirici çalışma alanı.</p>
+<ul>
+<li><code>api/v3/admin/online-store-2/block</code></li>
+<li><code>api/v3/admin/online-store-2/developer-workspace/auth/disconnect</code></li>
+<li><code>api/v3/admin/online-store-2/developer-workspace/auth/exchange</code></li>
+<li><code>api/v3/admin/online-store-2/developer-workspace/auth/initiate</code></li>
+<li><code>api/v3/admin/online-store-2/developer-workspace/me</code></li>
+<li><code>api/v3/admin/online-store-2/developer-workspace/themes</code></li>
+<li><code>api/v3/admin/online-store-2/pages</code></li>
+<li><code>api/v3/admin/online-store-2/pages/relation</code></li>
+<li><code>api/v3/admin/online-store-2/storefront/activation/activate</code></li>
+<li><code>api/v3/admin/online-store-2/storefront/activation/status</code></li>
+<li><code>api/v3/admin/online-store-2/storefront/apply-marketplace-templates</code></li>
+<li><code>api/v3/admin/online-store-2/storefront/assignments</code></li>
+<li><code>api/v3/admin/online-store-2/storefront/bootstrap</code></li>
+<li><code>api/v3/admin/online-store-2/storefront/columns</code></li>
+<li><code>api/v3/admin/online-store-2/storefront/migration</code></li>
+<li><code>api/v3/admin/online-store-2/storefront/pages</code></li>
+<li><code>api/v3/admin/online-store-2/storefront/relations</code></li>
+<li><code>api/v3/admin/online-store-2/storefront/rows</code></li>
+<li><code>api/v3/admin/online-store-2/storefront/snapshots</code></li>
+<li><code>api/v3/admin/online-store-2/storefront/templates</code></li>
+<li><code>api/v3/admin/online-store-2/storefront/theme</code></li>
+<li><code>api/v3/admin/online-store-2/theme</code></li>
+<li><code>api/v3/admin/online-store-2/theme/export-theme/{uuid}/theme</code></li>
+<li><code>api/v3/admin/online-store-2/theme/global-snippets</code></li>
+<li><code>api/v3/admin/online-store-2/theme/section</code></li>
+</ul>
+<h2 id="sipariş"><a class="anchor" href="#sipariş" aria-hidden="true">#</a>Sipariş</h2>
+<p>Sipariş, kargo, iade, iade ödemesi, taksit, POS ve depo.</p>
+<ul>
+<li><code>api/v3/admin/orders/address-field</code></li>
+<li><code>api/v3/admin/orders/batch</code></li>
+<li><code>api/v3/admin/orders/cargo/company</code></li>
+<li><code>api/v3/admin/orders/cargo/integration/company</code></li>
+<li><code>api/v3/admin/orders/cargo/integration/depot</code></li>
+<li><code>api/v3/admin/orders/cargo/integration/post</code></li>
+<li><code>api/v3/admin/orders/cargo/integration/storehouse</code></li>
+<li><code>api/v3/admin/orders/cargo/integration/user</code></li>
+<li><code>api/v3/admin/orders/cargo/payment-shipping</code></li>
+<li><code>api/v3/admin/orders/cargo/ptt-barcode</code></li>
+<li><code>api/v3/admin/orders/cargo/ptt-barcode/batch</code></li>
+<li><code>api/v3/admin/orders/cargo/shipping-cost</code></li>
+<li><code>api/v3/admin/orders/email-transaction-error</code></li>
+<li><code>api/v3/admin/orders/fulfillment-status</code></li>
+<li><code>api/v3/admin/orders/in-store-sales</code></li>
+<li><code>api/v3/admin/orders/order</code></li>
+<li><code>api/v3/admin/orders/order/digital-file-downloads</code></li>
+<li><code>api/v3/admin/orders/order/fulfillment</code></li>
+<li><code>api/v3/admin/orders/order/shipment</code></li>
+<li><code>api/v3/admin/orders/payment/bank-account</code></li>
+<li><code>api/v3/admin/orders/payment/bin</code></li>
+<li><code>api/v3/admin/orders/payment/bin/options</code></li>
+<li><code>api/v3/admin/orders/payment/card-banks</code></li>
+<li><code>api/v3/admin/orders/payment/card-banks/active-pos-types</code></li>
+<li><code>api/v3/admin/orders/payment/card-installment</code></li>
+<li><code>api/v3/admin/orders/payment/card-pos</code></li>
+<li><code>api/v3/admin/orders/payment/card-pos/details/bulk</code></li>
+<li><code>api/v3/admin/orders/payment/method</code></li>
+<li><code>api/v3/admin/orders/product</code></li>
+<li><code>api/v3/admin/orders/refund</code></li>
+<li><code>api/v3/admin/orders/refund-type</code></li>
+<li><code>api/v3/admin/orders/return</code></li>
+<li><code>api/v3/admin/orders/return/detail</code></li>
+<li><code>api/v3/admin/orders/return/reason</code></li>
+<li><code>api/v3/admin/orders/return/status</code></li>
+<li><code>api/v3/admin/orders/static/platform</code></li>
+<li><code>api/v3/admin/orders/static/supply-status</code></li>
+<li><code>api/v3/admin/orders/status</code></li>
+<li><code>api/v3/admin/orders/status-initial</code></li>
+<li><code>api/v3/admin/orders/status-update</code></li>
+<li><code>api/v3/admin/orders/subscription</code></li>
+<li><code>api/v3/admin/orders/transaction</code></li>
+<li><code>api/v3/admin/orders/transaction/pos-models</code></li>
+<li><code>api/v3/admin/orders/wms</code></li>
+</ul>
+<h2 id="diğer"><a class="anchor" href="#diğer" aria-hidden="true">#</a>Diğer</h2>
+<ul>
+<li><code>api/v3/admin/packages/form-app</code></li>
+<li><code>api/v3/admin/partner/access-requests</code></li>
+<li><code>api/v3/admin/partner/collaborator-codes</code></li>
+<li><code>api/v3/admin/partner/store-access</code></li>
+<li><code>api/v3/admin/supplier/dashboard</code></li>
+<li><code>api/v3/admin/supplier/profile</code></li>
+<li><code>api/v3/admin/tool/db-health-check</code></li>
+<li><code>api/v3/admin/tool/os2-migration/build-composer</code></li>
+<li><code>api/v3/admin/tool/os2-migration/build-os2-settings</code></li>
+<li><code>api/v3/admin/tool/os2-migration/build-tailwind</code></li>
+<li><code>api/v3/admin/tool/os2-migration/build-themes</code></li>
+<li><code>api/v3/admin/tool/os2-migration/status</code></li>
+<li><code>api/v3/admin/tool/user-filters</code></li>
+<li><code>api/v3/oauth/install</code></li>
+<li><code>api/v3/public/theme-categories</code></li>
+<li><code>api/v3/public/themes</code></li>
+</ul>
+<h2 id="kimlik-eklenen-yollar"><a class="anchor" href="#kimlik-eklenen-yollar" aria-hidden="true">#</a>Kimlik eklenen yollar</h2>
+<p>Kod bu adreslerin sonuna kayıt kimliği yazar.</p>
+<ul>
+<li><code>api/v3/admin/analytics/log/price-stock-log/download/</code></li>
+<li><code>api/v3/admin/analytics/report/loyal/customer/</code></li>
+<li><code>api/v3/admin/auth/auth-application/</code></li>
+<li><code>api/v3/admin/campaigns/campaign/</code></li>
+<li><code>api/v3/admin/catalog/products/</code></li>
+<li><code>api/v3/admin/catalog/variant/</code></li>
+<li><code>api/v3/admin/configuration/util/log/</code></li>
+<li><code>api/v3/admin/configuration/webhooks/</code></li>
+<li><code>api/v3/admin/customers/</code></li>
+<li><code>api/v3/admin/integration/tsoftapps/theme/</code></li>
+<li><code>api/v3/admin/online-store-2/developer-workspace/themes/</code></li>
+<li><code>api/v3/admin/online-store-2/storefront/templates/</code></li>
+<li><code>api/v3/admin/online-store-2/storefront/theme/</code></li>
+<li><code>api/v3/admin/online-store-2/theme/</code></li>
+<li><code>api/v3/admin/online-store-2/theme/export/</code></li>
+<li><code>api/v3/admin/online-store/language-vars/</code></li>
+<li><code>api/v3/admin/online-store/page-relation/</code></li>
+<li><code>api/v3/admin/online-store/pages/</code></li>
+<li><code>api/v3/admin/online-store/themes/</code></li>
+<li><code>api/v3/admin/online-store/themes/export-theme/</code></li>
+<li><code>api/v3/admin/orders/cargo/integration/post/</code></li>
+<li><code>api/v3/admin/orders/cargo/payment-shipping/</code></li>
+<li><code>api/v3/admin/orders/order/</code></li>
+<li><code>api/v3/admin/orders/order/address/</code></li>
+<li><code>api/v3/admin/orders/order/shipment/</code></li>
+<li><code>api/v3/admin/orders/payment/bank-account/</code></li>
+<li><code>api/v3/admin/orders/payment/card-banks/</code></li>
+<li><code>api/v3/admin/orders/payment/card-installment/</code></li>
+<li><code>api/v3/admin/orders/payment/card-pos/</code></li>
+<li><code>api/v3/admin/orders/payment/option/</code></li>
+<li><code>api/v3/admin/orders/payment/provider-installments/</code></li>
+<li><code>api/v3/admin/packages/form-app/</code></li>
+<li><code>api/v3/public/onlinestore/theme/</code></li>
+<li><code>api/v3/public/themes/</code></li>
+<li><code>api/v3/storefront/utils/developer/preview/template/</code></li>
+</ul>
+
+</article>
+<nav class="pager" aria-label="Sayfa geçişi"><a class="prev" href="/admin-api/"><span>← Önceki</span>Genel bakış</a><a class="next" href="/admin-api/odeme-bildirimi/"><span>Sonraki →</span>Ödeme bildirimi</a></nav>
+<footer class="page-foot"><a href="https://github.com/bahadirdogru/tsoft-documentation-examples/edit/main/content/admin-api/uclar.md">GitHub'da düzenle</a> · <a href="/admin-api/uclar.md">Markdown</a> · <a href="/llms.txt">llms.txt</a> · Topluluk belgesidir, T-Soft’un resmî yayını değildir.</footer>
+</main>
+<nav class="toc" aria-label="Bu sayfada"><div class="toc-title">Bu sayfada</div><ul><li class="l2"><a href="#analitik">Analitik</a></li><li class="l2"><a href="#oturum">Oturum</a></li><li class="l2"><a href="#kampanya">Kampanya</a></li><li class="l2"><a href="#katalog">Katalog</a></li><li class="l2"><a href="#içerik">İçerik</a></li><li class="l2"><a href="#ayarlar">Ayarlar</a></li><li class="l2"><a href="#crm">CRM</a></li><li class="l2"><a href="#üye">Üye</a></li><li class="l2"><a href="#dosya">Dosya</a></li><li class="l2"><a href="#entegrasyon">Entegrasyon</a></li><li class="l2"><a href="#pazarlama">Pazarlama</a></li><li class="l2"><a href="#vitrin">Vitrin</a></li><li class="l2"><a href="#yeni-vitrin">Yeni vitrin</a></li><li class="l2"><a href="#sipariş">Sipariş</a></li><li class="l2"><a href="#diğer">Diğer</a></li><li class="l2"><a href="#kimlik-eklenen-yollar">Kimlik eklenen yollar</a></li></ul></nav>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/twig.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/http.min.js"></script>
+<script src="/assets/site.js"></script>
+</body>
+</html>

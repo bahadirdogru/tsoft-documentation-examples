@@ -1,34 +1,109 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>T-Soft dokümantasyon</title>
-  <meta name="description" content="T-Soft geliştirici notları, REST1 kataloğu, örnek kod ve vitrin blokları.">
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T-Soft Dokümantasyonu</title>
+<meta name="description" content="T-Soft REST1, Admin API v3, uygulama platformu, Storefront API ve Twig/Smarty tema kodlama için Türkçe başvuru dokümantasyonu.">
+<link rel="canonical" href="https://tsoft.bahadirdogru.com/">
+<link rel="alternate" type="text/markdown" href="/index.md" title="Markdown">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%231f6feb%22%2F%3E%3Cpath%20d%3D%22M8%209h16v3.2h-6.4V23h-3.2V12.2H8z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E">
+<meta property="og:title" content="Ana sayfa">
+<meta property="og:description" content="T-Soft REST1, Admin API v3, uygulama platformu, Storefront API ve Twig/Smarty tema kodlama için Türkçe başvuru dokümantasyonu.">
+<meta property="og:url" content="https://tsoft.bahadirdogru.com/">
+<meta property="og:type" content="website">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" media="(prefers-color-scheme: light)" id="hl-light">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" media="(prefers-color-scheme: dark)" id="hl-dark">
 </head>
 <body>
-  <a class="skip" href="#icerik">İçeriğe geç</a>
-  <header class="top">
-    <button type="button" id="menu" aria-expanded="false" aria-controls="nav">Menü</button>
-    <a class="brand" href="#">T-Soft dokümantasyon</a>
-    <form id="search-form" role="search">
-      <label class="sr" for="q">Ara</label>
-      <input id="q" type="search" placeholder="Başlık, metot veya kod ara" autocomplete="off" enterkeyhint="search">
-    </form>
-  </header>
-  <div class="shell">
-    <nav id="nav" aria-label="Sayfalar">
-      <p id="search-status" class="sr" aria-live="polite"></p>
-      <div id="nav-body"></div>
-    </nav>
-    <main id="icerik" tabindex="-1"></main>
-    <aside id="toc" aria-label="Bu sayfada" hidden></aside>
+<a class="skip" href="#main">İçeriğe geç</a>
+<header class="top">
+  <button class="menu-btn" aria-label="Menü" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="/"><svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><path d="M8 9h16v3.2h-6.4V23h-3.2V12.2H8z" fill="var(--bg)"/></svg><span>T-Soft Dokümantasyonu</span></a>
+  <div class="search">
+    <input id="q" type="search" placeholder="Ara: metot, uç, değişken, sayfa…  ( / )" autocomplete="off" aria-label="Ara">
+    <ul id="results" role="listbox" hidden></ul>
   </div>
-  <div id="backdrop" hidden></div>
-  <noscript>
-    <p class="noscript">Bu sayfa içeriği tarayıcıda düzenler. JavaScript kapalıyken dosyalar ham metin olarak durur.</p>
-  </noscript>
-  <script src="app.js"></script>
+  <button class="theme-btn" aria-label="Tema değiştir" title="Tema değiştir">◐</button>
+</header>
+<div class="layout">
+<aside id="sidebar" class="sidebar"><details class="nav-sec" open><summary>Başlangıç <span class="count">3</span></summary><ul><li><a href="/" aria-current="page">Ana sayfa</a></li><li><a href="/rehber/">Hangi yüzey?</a></li><li><a href="/llm/">LLM ve ajanlar için</a></li></ul></details><details class="nav-sec" open><summary>Platform <span class="count">4</span></summary><ul><li><a href="/developer/">Platform haritası</a></li><li><a href="/developer/baslarken/">Başlarken</a></li><li><a href="/developer/uygulama/">Uygulama geliştirme</a></li><li><a href="/developer/storefront-api/">Storefront API</a></li></ul></details><details class="nav-sec" open><summary>Tema <span class="count">2</span></summary><ul><li><a href="/developer/tema/">Tema motoru (Twig)</a></li><li><a href="/theme/">Eski tema (Smarty)</a></li></ul></details><details class="nav-sec" open><summary>REST1 <span class="count">2</span></summary><ul><li><a href="/rest/">Genel bakış</a></li><li><a href="/rest/hatalar/">Hatalar ve mesaj kodları</a></li></ul></details><details class="nav-sec"><summary>REST1 modülleri <span class="count">38</span></summary><ul><li><a href="/rest/auth/">Auth</a></li><li><a href="/rest/customer/">Customer</a></li><li><a href="/rest/product/">Product</a></li><li><a href="/rest/subproduct/">SubProduct</a></li><li><a href="/rest/category/">Category</a></li><li><a href="/rest/brand/">Brand</a></li><li><a href="/rest/model/">Model</a></li><li><a href="/rest/filter/">Filter</a></li><li><a href="/rest/catalog/">Catalog</a></li><li><a href="/rest/order/">Order</a></li><li><a href="/rest/order2/">Order2</a></li><li><a href="/rest/cart/">Cart</a></li><li><a href="/rest/campaign/">Campaign</a></li><li><a href="/rest/payment/">Payment</a></li><li><a href="/rest/fundmovement/">FundMovement</a></li><li><a href="/rest/point/">Point</a></li><li><a href="/rest/segment/">Segment</a></li><li><a href="/rest/supplier/">Supplier</a></li><li><a href="/rest/branchoffice/">BranchOffice</a></li><li><a href="/rest/content/">Content</a></li><li><a href="/rest/news/">News</a></li><li><a href="/rest/showcase/">Showcase</a></li><li><a href="/rest/htmlblock/">HtmlBlock</a></li><li><a href="/rest/widget/">Widget</a></li><li><a href="/rest/link/">Link</a></li><li><a href="/rest/personalization/">Personalization</a></li><li><a href="/rest/trackingcode/">TrackingCode</a></li><li><a href="/rest/ticket/">Ticket</a></li><li><a href="/rest/user/">User</a></li><li><a href="/rest/setting/">Setting</a></li><li><a href="/rest/notification/">Notification</a></li><li><a href="/rest/mobile/">Mobile</a></li><li><a href="/rest/platform/">Platform</a></li><li><a href="/rest/cargo/">Cargo</a></li><li><a href="/rest/adapter/">Adapter</a></li><li><a href="/rest/hopi/">Hopi</a></li><li><a href="/rest/zubizu/">Zubizu</a></li><li><a href="/rest/routing/">Routing</a></li></ul></details><details class="nav-sec" open><summary>Admin API v3 <span class="count">3</span></summary><ul><li><a href="/admin-api/">Genel bakış</a></li><li><a href="/admin-api/uclar/">Uç listesi</a></li><li><a href="/admin-api/odeme-bildirimi/">Ödeme bildirimi</a></li></ul></details><details class="nav-sec"><summary>Örnek kod <span class="count">5</span></summary><ul><li><a href="/examples/python/tsoft_client/">Python istemci</a></li><li><a href="/examples/python/add_customer/">Üye ekleme</a></li><li><a href="/examples/python/check_group_price/">Grup fiyatı</a></li><li><a href="/examples/python/env/">Ortam değişkenleri</a></li><li><a href="/examples/apps-script/code/">Apps Script</a></li></ul></details><details class="nav-sec"><summary>Eski tema blokları <span class="count">18</span></summary><ul><li><a href="/theme/bloklar/ust/">Üst blok</a></li><li><a href="/theme/bloklar/alt/">Alt blok</a></li><li><a href="/theme/bloklar/yeni-urunler/">Yeni ürünler</a></li><li><a href="/theme/bloklar/kategori-menusu/">Kategori menüsü</a></li><li><a href="/theme/bloklar/kategori-listesi/">Kategori listesi</a></li><li><a href="/theme/bloklar/home-banner/">Ana sayfa banner</a></li><li><a href="/theme/bloklar/home-sale/">Ana sayfa indirim</a></li><li><a href="/theme/bloklar/haberler/">Haberler</a></li><li><a href="/theme/bloklar/benzer-urunler/">Benzer ürünler</a></li><li><a href="/theme/bloklar/model-listesi/">Model listesi</a></li><li><a href="/theme/bloklar/marka-listesi/">Marka listesi</a></li><li><a href="/theme/bloklar/parca-toplama-sihirbazi/">Parça toplama sihirbazı</a></li><li><a href="/theme/bloklar/tedarikci-listesi/">Tedarikçi listesi</a></li><li><a href="/theme/bloklar/firsat-urunleri/">Fırsat ürünleri</a></li><li><a href="/theme/bloklar/ayin-yazari/">Ayın yazarı</a></li><li><a href="/theme/bloklar/gelecek-firsat-urun-listesi/">Gelecek fırsatlar</a></li><li><a href="/theme/bloklar/sss/">SSS</a></li><li><a href="/theme/bloklar/gorsel-vitrin/">Görsel vitrin</a></li></ul></details><details class="nav-sec"><summary>Eski tema değişkenleri <span class="count">5</span></summary><ul><li><a href="/theme/degiskenler/tsoft-product-varriables/">Ürün değişkenleri</a></li><li><a href="/theme/degiskenler/tsoft-header-page-links-varriable/">Sayfa linkleri</a></li><li><a href="/theme/degiskenler/tsoft-header-tabs-varriable/">Üst sekmeler</a></li><li><a href="/theme/degiskenler/tsoft-footer-menu-varriables/">Alt menü</a></li><li><a href="/theme/degiskenler/tsoft-left-right-category-varriables/">Sol ve sağ kategori</a></li></ul></details><details class="nav-sec"><summary>Eski tema şablonları <span class="count">5</span></summary><ul><li><a href="/theme/snippets/bayi-mi-degil-mi/">Bayi hesabı koşulu</a></li><li><a href="/theme/orta/user_bayipanel/">Bayi paneli</a></li><li><a href="/theme/orta/user_bayigirisplasiyer/">Bayi giriş plasiyer</a></li><li><a href="/theme/orta/user_v4tpl/">V4 şablon</a></li><li><a href="/theme/UstAlt/user_tasarimyenimenu/">Tasarım yeni menü</a></li></ul></details></aside>
+<main id="main" class="content">
+
+<article>
+<h1 id="t-soft-dokümantasyonu"><a class="anchor" href="#t-soft-dokümantasyonu" aria-hidden="true">#</a>T-Soft Dokümantasyonu</h1>
+<p>T-Soft e-ticaret altyapısıyla entegrasyon ve tema yazan geliştiriciler ve onlara yardım eden yapay zekâ asistanları için tek bir başvuru noktası. Resmî sayfalarda, panel kodunda ve konsolda dağınık duran bilgiyi gerçek mağazada denenmiş çağrılarla bir araya getirir.</p>
+<div class="cards">
+<a class="card" href="/rehber/"><strong>Hangi yüzey?</strong><span>REST1, Admin API, Storefront ve tema arasında seçim, ilk çağrılar, terimler.</span></a>
+<a class="card" href="/rest/"><strong>REST1 web servisi</strong><span>38 modül, 428 metot. Form gövdesi, token, PascalCase alanlar, hata kodları.</span></a>
+<a class="card" href="/admin-api/"><strong>Admin API v3</strong><span>Panelin kendi kullandığı 357 uç: kurallar, yetkiler, ödeme bildirimi örneği.</span></a>
+<a class="card" href="/developer/uygulama/"><strong>Uygulama platformu</strong><span>OAuth, 48 kapsam, 15 webhook olayı, panele gömülü uygulama, REST1’den geçiş.</span></a>
+<a class="card" href="/developer/storefront-api/"><strong>Storefront API</strong><span>Mobil uygulama ve headless vitrin için JSON:API, müşteri ve misafir token’ı.</span></a>
+<a class="card" href="/developer/tema/"><strong>Tema motoru (Twig)</strong><span>Yeni tema yapısı, tsoft-cli, şablonlar ve global değişkenler.</span></a>
+<a class="card" href="/theme/"><strong>Eski tema (Smarty)</strong><span>Blok kodları, <code>$P</code> ürün alanları, menü ağacı, sık hatalar.</span></a>
+<a class="card" href="/llm/"><strong>LLM’ler için</strong><span>llms.txt, tam metin ve her sayfanın Markdown hâli.</span></a>
+</div>
+
+<h2 id="hangi-yolu-seçmeliyim"><a class="anchor" href="#hangi-yolu-seçmeliyim" aria-hidden="true">#</a>Hangi yolu seçmeliyim?</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>İhtiyaç</th>
+<th>Önerilen yol</th>
+<th>Neden</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Tek mağazanın ERP, stok, sipariş entegrasyonu</td>
+<td><a href="/rest/">REST1</a></td>
+<td>Web servis kullanıcısıyla çalışır, en geniş modül kapsamı.</td>
+</tr>
+<tr>
+<td>Birden çok mağazaya kurulacak uygulama</td>
+<td><a href="/developer/uygulama/">Uygulama platformu</a></td>
+<td>OAuth ve webhook; REST1 kullanıcı/parola modeli kapanacak.</td>
+</tr>
+<tr>
+<td>REST1’de karşılığı olmayan panel işi</td>
+<td><a href="/admin-api/">Admin API v3</a></td>
+<td>Panelin kendi uçları. Sürüm garantisi yok.</td>
+</tr>
+<tr>
+<td>Mobil uygulama, headless vitrin</td>
+<td><a href="/developer/storefront-api/">Storefront API</a></td>
+<td>Müşteri ve misafir oturumu, sepet, ödeme.</td>
+</tr>
+<tr>
+<td>Vitrin görünümü</td>
+<td><a href="/developer/tema/">Twig</a> veya <a href="/theme/">Smarty</a></td>
+<td>Temanın sürümüne göre.</td>
+</tr>
+</tbody></table></div>
+<blockquote>
+<p><strong>Üç API, üç ayrı adlandırma:</strong> REST1 <code>CustomerCode</code> (PascalCase, form gövdesi), panel API’si <code>customerId</code> (camelCase, JSON), Storefront <code>attributes.name</code> (JSON:API). Hiçbiri diğerinin token’ını kabul etmez. Ayrıntı: <a href="/rehber/">Hangi yüzey?</a></p>
+</blockquote>
+<h2 id="hızlı-bağlantılar"><a class="anchor" href="#hızlı-bağlantılar" aria-hidden="true">#</a>Hızlı bağlantılar</h2>
+<ul>
+<li>Token alma: <a href="/rest/auth/#auth-login"><code>auth/login</code></a> · Hata kodları: <a href="/rest/hatalar/">REST1 hataları</a></li>
+<li>Üye: <a href="/rest/customer/#customer-setcustomers"><code>customer/setCustomers</code></a> · Ürün: <a href="/rest/product/#product-get"><code>product/get</code></a> · Sipariş: <a href="/rest/order2/#order2-getorders"><code>order2/getOrders</code></a></li>
+<li>Panel uç listesi: <a href="/admin-api/uclar/">Admin API v3 uçları</a> · Örnek: <a href="/admin-api/odeme-bildirimi/">Ödeme bildirimi</a></li>
+<li>Örnek kod: <a href="/examples/python/tsoft_client/">Python istemci</a> · <a href="/examples/apps-script/code/">Apps Script</a></li>
+</ul>
+<h2 id="katkı"><a class="anchor" href="#katkı" aria-hidden="true">#</a>Katkı</h2>
+<p>Site <a href="https://github.com/bahadirdogru/tsoft-documentation-examples" rel="noopener" target="_blank">GitHub</a> üzerinde açık kaynaktır. Her sayfanın altındaki &quot;GitHub&#39;da düzenle&quot; bağlantısıyla düzeltme önerebilirsiniz. Topluluk belgesidir; T-Soft’un resmî yayını değildir. Resmî kaynak: <a href="https://developer.tsoft.com.tr/" rel="noopener" target="_blank">developer.tsoft.com.tr</a>.</p>
+
+</article>
+<nav class="pager" aria-label="Sayfa geçişi"><span></span><a class="next" href="/rehber/"><span>Sonraki →</span>Hangi yüzey?</a></nav>
+<footer class="page-foot"><a href="https://github.com/bahadirdogru/tsoft-documentation-examples/edit/main/content/index.md">GitHub'da düzenle</a> · <a href="/index.md">Markdown</a> · <a href="/llms.txt">llms.txt</a> · Topluluk belgesidir, T-Soft’un resmî yayını değildir.</footer>
+</main>
+<nav class="toc" aria-label="Bu sayfada"><div class="toc-title">Bu sayfada</div><ul><li class="l2"><a href="#hangi-yolu-seçmeliyim">Hangi yolu seçmeliyim?</a></li><li class="l2"><a href="#hızlı-bağlantılar">Hızlı bağlantılar</a></li><li class="l2"><a href="#katkı">Katkı</a></li></ul></nav>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/twig.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/http.min.js"></script>
+<script src="/assets/site.js"></script>
 </body>
 </html>

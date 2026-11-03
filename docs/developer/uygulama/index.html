@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Uygulama geliştirme · T-Soft Dokümantasyonu</title>
+<meta name="description" content="OAuth, kapsamlar, webhook, gömülü uygulama, REST1’den geçiş">
+<link rel="canonical" href="https://tsoft.bahadirdogru.com/developer/uygulama/">
+<link rel="alternate" type="text/markdown" href="/developer/uygulama.md" title="Markdown">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%231f6feb%22%2F%3E%3Cpath%20d%3D%22M8%209h16v3.2h-6.4V23h-3.2V12.2H8z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E">
+<meta property="og:title" content="Uygulama geliştirme">
+<meta property="og:description" content="OAuth, kapsamlar, webhook, gömülü uygulama, REST1’den geçiş">
+<meta property="og:url" content="https://tsoft.bahadirdogru.com/developer/uygulama/">
+<meta property="og:type" content="website">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" media="(prefers-color-scheme: light)" id="hl-light">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" media="(prefers-color-scheme: dark)" id="hl-dark">
+</head>
+<body>
+<a class="skip" href="#main">İçeriğe geç</a>
+<header class="top">
+  <button class="menu-btn" aria-label="Menü" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="/"><svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><path d="M8 9h16v3.2h-6.4V23h-3.2V12.2H8z" fill="var(--bg)"/></svg><span>T-Soft Dokümantasyonu</span></a>
+  <div class="search">
+    <input id="q" type="search" placeholder="Ara: metot, uç, değişken, sayfa…  ( / )" autocomplete="off" aria-label="Ara">
+    <ul id="results" role="listbox" hidden></ul>
+  </div>
+  <button class="theme-btn" aria-label="Tema değiştir" title="Tema değiştir">◐</button>
+</header>
+<div class="layout">
+<aside id="sidebar" class="sidebar"><details class="nav-sec" open><summary>Başlangıç <span class="count">3</span></summary><ul><li><a href="/">Ana sayfa</a></li><li><a href="/rehber/">Hangi yüzey?</a></li><li><a href="/llm/">LLM ve ajanlar için</a></li></ul></details><details class="nav-sec" open><summary>Platform <span class="count">4</span></summary><ul><li><a href="/developer/">Platform haritası</a></li><li><a href="/developer/baslarken/">Başlarken</a></li><li><a href="/developer/uygulama/" aria-current="page">Uygulama geliştirme</a></li><li><a href="/developer/storefront-api/">Storefront API</a></li></ul></details><details class="nav-sec" open><summary>Tema <span class="count">2</span></summary><ul><li><a href="/developer/tema/">Tema motoru (Twig)</a></li><li><a href="/theme/">Eski tema (Smarty)</a></li></ul></details><details class="nav-sec" open><summary>REST1 <span class="count">2</span></summary><ul><li><a href="/rest/">Genel bakış</a></li><li><a href="/rest/hatalar/">Hatalar ve mesaj kodları</a></li></ul></details><details class="nav-sec"><summary>REST1 modülleri <span class="count">38</span></summary><ul><li><a href="/rest/auth/">Auth</a></li><li><a href="/rest/customer/">Customer</a></li><li><a href="/rest/product/">Product</a></li><li><a href="/rest/subproduct/">SubProduct</a></li><li><a href="/rest/category/">Category</a></li><li><a href="/rest/brand/">Brand</a></li><li><a href="/rest/model/">Model</a></li><li><a href="/rest/filter/">Filter</a></li><li><a href="/rest/catalog/">Catalog</a></li><li><a href="/rest/order/">Order</a></li><li><a href="/rest/order2/">Order2</a></li><li><a href="/rest/cart/">Cart</a></li><li><a href="/rest/campaign/">Campaign</a></li><li><a href="/rest/payment/">Payment</a></li><li><a href="/rest/fundmovement/">FundMovement</a></li><li><a href="/rest/point/">Point</a></li><li><a href="/rest/segment/">Segment</a></li><li><a href="/rest/supplier/">Supplier</a></li><li><a href="/rest/branchoffice/">BranchOffice</a></li><li><a href="/rest/content/">Content</a></li><li><a href="/rest/news/">News</a></li><li><a href="/rest/showcase/">Showcase</a></li><li><a href="/rest/htmlblock/">HtmlBlock</a></li><li><a href="/rest/widget/">Widget</a></li><li><a href="/rest/link/">Link</a></li><li><a href="/rest/personalization/">Personalization</a></li><li><a href="/rest/trackingcode/">TrackingCode</a></li><li><a href="/rest/ticket/">Ticket</a></li><li><a href="/rest/user/">User</a></li><li><a href="/rest/setting/">Setting</a></li><li><a href="/rest/notification/">Notification</a></li><li><a href="/rest/mobile/">Mobile</a></li><li><a href="/rest/platform/">Platform</a></li><li><a href="/rest/cargo/">Cargo</a></li><li><a href="/rest/adapter/">Adapter</a></li><li><a href="/rest/hopi/">Hopi</a></li><li><a href="/rest/zubizu/">Zubizu</a></li><li><a href="/rest/routing/">Routing</a></li></ul></details><details class="nav-sec" open><summary>Admin API v3 <span class="count">3</span></summary><ul><li><a href="/admin-api/">Genel bakış</a></li><li><a href="/admin-api/uclar/">Uç listesi</a></li><li><a href="/admin-api/odeme-bildirimi/">Ödeme bildirimi</a></li></ul></details><details class="nav-sec"><summary>Örnek kod <span class="count">5</span></summary><ul><li><a href="/examples/python/tsoft_client/">Python istemci</a></li><li><a href="/examples/python/add_customer/">Üye ekleme</a></li><li><a href="/examples/python/check_group_price/">Grup fiyatı</a></li><li><a href="/examples/python/env/">Ortam değişkenleri</a></li><li><a href="/examples/apps-script/code/">Apps Script</a></li></ul></details><details class="nav-sec"><summary>Eski tema blokları <span class="count">18</span></summary><ul><li><a href="/theme/bloklar/ust/">Üst blok</a></li><li><a href="/theme/bloklar/alt/">Alt blok</a></li><li><a href="/theme/bloklar/yeni-urunler/">Yeni ürünler</a></li><li><a href="/theme/bloklar/kategori-menusu/">Kategori menüsü</a></li><li><a href="/theme/bloklar/kategori-listesi/">Kategori listesi</a></li><li><a href="/theme/bloklar/home-banner/">Ana sayfa banner</a></li><li><a href="/theme/bloklar/home-sale/">Ana sayfa indirim</a></li><li><a href="/theme/bloklar/haberler/">Haberler</a></li><li><a href="/theme/bloklar/benzer-urunler/">Benzer ürünler</a></li><li><a href="/theme/bloklar/model-listesi/">Model listesi</a></li><li><a href="/theme/bloklar/marka-listesi/">Marka listesi</a></li><li><a href="/theme/bloklar/parca-toplama-sihirbazi/">Parça toplama sihirbazı</a></li><li><a href="/theme/bloklar/tedarikci-listesi/">Tedarikçi listesi</a></li><li><a href="/theme/bloklar/firsat-urunleri/">Fırsat ürünleri</a></li><li><a href="/theme/bloklar/ayin-yazari/">Ayın yazarı</a></li><li><a href="/theme/bloklar/gelecek-firsat-urun-listesi/">Gelecek fırsatlar</a></li><li><a href="/theme/bloklar/sss/">SSS</a></li><li><a href="/theme/bloklar/gorsel-vitrin/">Görsel vitrin</a></li></ul></details><details class="nav-sec"><summary>Eski tema değişkenleri <span class="count">5</span></summary><ul><li><a href="/theme/degiskenler/tsoft-product-varriables/">Ürün değişkenleri</a></li><li><a href="/theme/degiskenler/tsoft-header-page-links-varriable/">Sayfa linkleri</a></li><li><a href="/theme/degiskenler/tsoft-header-tabs-varriable/">Üst sekmeler</a></li><li><a href="/theme/degiskenler/tsoft-footer-menu-varriables/">Alt menü</a></li><li><a href="/theme/degiskenler/tsoft-left-right-category-varriables/">Sol ve sağ kategori</a></li></ul></details><details class="nav-sec"><summary>Eski tema şablonları <span class="count">5</span></summary><ul><li><a href="/theme/snippets/bayi-mi-degil-mi/">Bayi hesabı koşulu</a></li><li><a href="/theme/orta/user_bayipanel/">Bayi paneli</a></li><li><a href="/theme/orta/user_bayigirisplasiyer/">Bayi giriş plasiyer</a></li><li><a href="/theme/orta/user_v4tpl/">V4 şablon</a></li><li><a href="/theme/UstAlt/user_tasarimyenimenu/">Tasarım yeni menü</a></li></ul></details></aside>
+<main id="main" class="content">
+<nav class="crumbs" aria-label="Konum"><a href="/">Ana sayfa</a> <span>/</span> <a href="/developer/">Platform haritası</a></nav>
+<article>
+<h1 id="uygulama-geliştirme"><a class="anchor" href="#uygulama-geliştirme" aria-hidden="true">#</a>Uygulama geliştirme</h1>
+<p>Kaynak: <a href="https://developer.tsoft.com.tr/uygulama-gelistirme/genel-bakis" rel="noopener" target="_blank">Uygulama Geliştirme</a> (3 Kasım 2026). Bölüm 20 Ekim 2026’da 404 dönüyordu; artık açık. Aşağıdaki özet OAuth, kapsam, webhook, panele gömme ve REST1’den geçiş sayfalarını birleştirir.</p>
+<h2 id="uygulama-türleri"><a class="anchor" href="#uygulama-türleri" aria-hidden="true">#</a>Uygulama türleri</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Tür</th>
+<th>Kim kurar</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Public</td>
+<td>App Store’da yayınlanır, her mağaza kurabilir</td>
+</tr>
+<tr>
+<td>Custom</td>
+<td>Tek mağaza için yazılır</td>
+</tr>
+<tr>
+<td>Embedded</td>
+<td>Panel içinde iframe olarak açılır (public veya custom olabilir)</td>
+</tr>
+</tbody></table></div>
+<p>Akış: kayıt bilgilerini T-SOFT’a ilet → <code>client_secret</code> al → kurulum kodunu takas et → test mağazasında dene → incelemeye gönder. <code>tsoft-cli</code> uygulama komutları henüz yok; işlemler partner paneli ve API üzerinden yapılır.</p>
+<h2 id="kayıt"><a class="anchor" href="#kayıt" aria-hidden="true">#</a>Kayıt</h2>
+<p>T-SOFT’a iletilen alanlar:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Alan</th>
+<th>Not</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>redirect_uri</code></td>
+<td>Kurulum sonrası dönüş. <code>https://</code> zorunlu</td>
+</tr>
+<tr>
+<td><code>app_url</code></td>
+<td>Panelde açılacaksa iframe adresi (isteğe bağlı)</td>
+</tr>
+<tr>
+<td><code>uninstall_url</code></td>
+<td>Kaldırma bildirimi adresi</td>
+</tr>
+<tr>
+<td>Kapsamlar</td>
+<td>İstenen izinler ve gerekçesi</td>
+</tr>
+</tbody></table></div>
+<p>Karşılığında uygulama <code>client_secret</code> alır. <code>client_id</code> uygulamanın önekidir (ör. <code>app.ornek</code>). Sır yalnız sunucuda durur; sızarsa yenisi istenir ve eskisi anında geçersiz olur.</p>
+<h2 id="oauth-akışı"><a class="anchor" href="#oauth-akışı" aria-hidden="true">#</a>OAuth akışı</h2>
+<pre><code class="language-plaintext">Mağaza sahibi &quot;Yükle&quot; → onay ekranı
+  ├─ app_url yoksa → 302 redirect_uri?code=…&amp;store=…&amp;domain=…
+  └─ app_url varsa → panel iframe'i app_url?session=&lt;jwt&gt;&amp;code=…
+Sunucunuz: code → mağazaya özel client_id/secret  (10 dk, tek kullanımlık)
+Sunucunuz: client_credentials → access_token
+Sunucunuz: Admin API  /api/v3/admin/2026-01/*</code></pre>
+<h3 id="1-kodu-takas-et"><a class="anchor" href="#1-kodu-takas-et" aria-hidden="true">#</a>1. Kodu takas et</h3>
+<pre><code class="language-bash">curl -X POST https://api.tsoftapps.com/api/integration/v3/install/app/credentials \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{&quot;client_id&quot;:&quot;app.ornek&quot;,&quot;client_secret&quot;:&quot;&lt;uygulama sırrı&gt;&quot;,&quot;code&quot;:&quot;&lt;code&gt;&quot;}'</code></pre>
+<p>Cevap alanları: <code>store_id</code>, <code>store_domain</code>, <code>client_id</code>, <code>client_secret</code>, <code>scopes[]</code>. Dönen <code>client_id</code> / <code>client_secret</code> <strong>mağazaya özeldir</strong>; şifreli depoda <code>store_id</code> ile saklanır. Mağaza adresi olarak sorgudaki <code>domain</code> değil, cevaptaki <code>store_domain</code> kullanılır.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Hata</th>
+<th>Sebep</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>401 invalid_client</code></td>
+<td>Uygulama sırrı yanlış</td>
+</tr>
+<tr>
+<td><code>400 invalid_grant</code></td>
+<td>Kod geçersiz, süresi geçmiş veya kullanılmış</td>
+</tr>
+</tbody></table></div>
+<h3 id="2-token-al"><a class="anchor" href="#2-token-al" aria-hidden="true">#</a>2. Token al</h3>
+<pre><code class="language-bash">curl -X POST https://login.tsoft360.com/oauth/token \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{&quot;grant_type&quot;:&quot;client_credentials&quot;,&quot;client_id&quot;:&quot;&lt;mağaza client_id&gt;&quot;,&quot;client_secret&quot;:&quot;&lt;mağaza secret&gt;&quot;,&quot;scope&quot;:&quot;read_orders read_products&quot;}'</code></pre>
+<p><code>scope</code> boşlukla ayrılır. Token ömrü ve cevap şekli resmi sayfada yazmıyor; <code>expires_in</code> alanına göre yenileyin.</p>
+<h3 id="3-admin-api-çağır"><a class="anchor" href="#3-admin-api-çağır" aria-hidden="true">#</a>3. Admin API çağır</h3>
+<pre><code class="language-bash">curl https://magaza.example/api/v3/admin/2026-01/order/orders \
+  -H &quot;Authorization: Bearer &lt;access_token&gt;&quot; \
+  -H &quot;Accept: application/vnd.api+json&quot;</code></pre>
+<p>Admin API JSON:API’dir. <code>Accept: application/json</code> <strong>406</strong>, onaylanmamış kapsam <strong>403</strong> döner. Panelin kendi kullandığı sürümsüz <code>/api/v3/admin/*</code> uçlarıyla karıştırmayın; fark <a href="/admin-api/#iki-farklı-admin-api">Admin API v3</a> sayfasında.</p>
+<h3 id="izin-değişikliği-ve-kaldırma"><a class="anchor" href="#izin-değişikliği-ve-kaldırma" aria-hidden="true">#</a>İzin değişikliği ve kaldırma</h3>
+<p>Yeni kapsam istenince uygulama sürümü yükselir. Mağaza sahibi <strong>Uygulamalarım → İzinleri onayla</strong> ile onaylar; yeni kurulum kodu gelir ve eski mağaza istemcisi geçersiz olur. Kaldırmada mağaza istemcisi iptal edilir, token istekleri başarısız olur ve <code>uninstall_url</code> adresine imzalı bildirim gider.</p>
+<h2 id="kapsamlar"><a class="anchor" href="#kapsamlar" aria-hidden="true">#</a>Kapsamlar</h2>
+<p><code>write_</code> kapsamı aynı alandaki <code>read_</code> erişimini içerir. Hassas kapsamlar onay ekranında uyarıyla gösterilir ve kurulum oranını düşürür; yalnız kullanılan kapsamı isteyin.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Kapsam</th>
+<th>Ne açar</th>
+<th>Hassas</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>read_products</code></td>
+<td>Ürün, varyant, görsel, marka, kategori, liste fiyatı</td>
+<td></td>
+</tr>
+<tr>
+<td><code>write_products</code></td>
+<td>Ürün oluşturma, güncelleme, yayından kaldırma (silme ve fiyat hariç)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>delete_products</code></td>
+<td>Ürün silme</td>
+<td>evet</td>
+</tr>
+<tr>
+<td><code>read_product_prices</code></td>
+<td>Bayi/grup fiyatı, miktar indirimi, bölge fiyatı</td>
+<td>evet</td>
+</tr>
+<tr>
+<td><code>write_product_prices</code></td>
+<td>Ürün, bayi/grup fiyatı ve miktar indirimi değiştirme</td>
+<td>evet</td>
+</tr>
+<tr>
+<td><code>read_merchandising</code> / <code>write_merchandising</code></td>
+<td>Vitrin sıralaması, arama eşleştirme, kombin</td>
+<td></td>
+</tr>
+<tr>
+<td><code>read_inventory</code> / <code>write_inventory</code></td>
+<td>Stok, depo, stok birimi</td>
+<td></td>
+</tr>
+<tr>
+<td><code>read_reviews</code> / <code>write_reviews</code></td>
+<td>Ürün yorumu</td>
+<td></td>
+</tr>
+<tr>
+<td><code>read_orders</code></td>
+<td>Sipariş ve durumları</td>
+<td></td>
+</tr>
+<tr>
+<td><code>write_orders</code></td>
+<td>Sipariş düzenleme (durum hariç)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>write_order_status</code></td>
+<td>Sipariş durumu değiştirme</td>
+<td>evet</td>
+</tr>
+<tr>
+<td><code>create_orders</code></td>
+<td>Sipariş oluşturma</td>
+<td>evet</td>
+</tr>
+<tr>
+<td><code>read_subscriptions</code> / <code>write_subscriptions</code></td>
+<td>Abonelik siparişi görme, iptal, yeniden başlatma</td>
+<td></td>
+</tr>
+<tr>
+<td><code>read_financial_reports</code></td>
+<td>Ödeme işlemleri, satış raporu</td>
+<td>evet</td>
+</tr>
+<tr>
+<td><code>read_fulfillments</code> / <code>write_fulfillments</code></td>
+<td>Gönderi ve barkod</td>
+<td></td>
+</tr>
+<tr>
+<td><code>read_returns</code> / <code>write_returns</code></td>
+<td>İade talebi ve para iadesi</td>
+<td></td>
+</tr>
+<tr>
+<td><code>read_customers</code> / <code>write_customers</code></td>
+<td>Müşteri kaydı ve adres (kişisel veri)</td>
+<td>evet</td>
+</tr>
+<tr>
+<td><code>read_customer_groups</code> / <code>write_customer_groups</code></td>
+<td>Grup, segment, üye alanı tanımı</td>
+<td></td>
+</tr>
+<tr>
+<td><code>read_customer_balances</code> / <code>write_customer_balances</code></td>
+<td>Cari hareket</td>
+<td>evet</td>
+</tr>
+<tr>
+<td><code>read_customer_messages</code> / <code>write_customer_messages</code></td>
+<td>Müşteri mesajı</td>
+<td>evet</td>
+</tr>
+<tr>
+<td><code>read_carts</code></td>
+<td>Müşteri sepetleri</td>
+<td>evet</td>
+</tr>
+<tr>
+<td><code>read_discounts</code> / <code>write_discounts</code></td>
+<td>Kampanya, kupon, hediye çeki</td>
+<td></td>
+</tr>
+<tr>
+<td><code>read_content</code> / <code>write_content</code></td>
+<td>Sayfa, blog, içerik</td>
+<td></td>
+</tr>
+<tr>
+<td><code>read_themes</code></td>
+<td>Tema, bölüm, blok, menü</td>
+<td></td>
+</tr>
+<tr>
+<td><code>write_themes</code></td>
+<td>Tema, bölüm, blok, menü değiştirme</td>
+<td>evet</td>
+</tr>
+<tr>
+<td><code>read_shipping</code> / <code>write_shipping</code></td>
+<td>Kargo firması, bölge, ücret</td>
+<td></td>
+</tr>
+<tr>
+<td><code>read_files</code> / <code>write_files</code></td>
+<td>Dosya yöneticisi</td>
+<td></td>
+</tr>
+<tr>
+<td><code>read_tracking_codes</code></td>
+<td>Uygulamanın eklediği izleme kodları</td>
+<td></td>
+</tr>
+<tr>
+<td><code>write_tracking_codes</code></td>
+<td>Vitrine izleme kodu ekleme</td>
+<td>evet</td>
+</tr>
+<tr>
+<td><code>read_store</code></td>
+<td>Para birimi, dil, pazar</td>
+<td></td>
+</tr>
+<tr>
+<td><code>write_currencies</code></td>
+<td>Para birimi ve kur</td>
+<td>evet</td>
+</tr>
+<tr>
+<td><code>read_suppliers</code></td>
+<td>Tedarikçiler</td>
+<td></td>
+</tr>
+<tr>
+<td><code>write_webhooks</code></td>
+<td>Webhook tanımlama</td>
+<td>evet</td>
+</tr>
+</tbody></table></div>
+<p>Vitrin kapsamları (<a href="/developer/storefront-api/">Storefront API</a>): <code>storefront:read</code>, <code>storefront:pricing</code>, <code>storefront:account</code>, <code>storefront:cart</code>, <code>storefront:register</code>, <code>storefront:origin</code>.</p>
+<h2 id="webhook"><a class="anchor" href="#webhook" aria-hidden="true">#</a>Webhook</h2>
+<h3 id="kaldırma-bildirimi"><a class="anchor" href="#kaldırma-bildirimi" aria-hidden="true">#</a>Kaldırma bildirimi</h3>
+<p><code>uninstall_url</code> adresine <code>POST</code>, gövde <code>{ &quot;token&quot;: &quot;&lt;jwt&gt;&quot; }</code>. Yönlendirme izlenmez.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Beklenen</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>iss</code></td>
+<td><code>https://api.tsoftapps.com</code></td>
+</tr>
+<tr>
+<td><code>aud</code></td>
+<td>Uygulama öneki</td>
+</tr>
+<tr>
+<td><code>event</code></td>
+<td><code>app.uninstalled</code></td>
+</tr>
+<tr>
+<td><code>store_id</code></td>
+<td>Kaldıran mağaza</td>
+</tr>
+<tr>
+<td><code>dest</code></td>
+<td>Mağaza alan adı</td>
+</tr>
+<tr>
+<td><code>exp</code></td>
+<td>Gönderimden 5 dakika sonra</td>
+</tr>
+</tbody></table></div>
+<p>İmza ES256; anahtarlar oturum token’ıyla aynı JWKS’ten gelir. 10 saniye içinde 2xx dönülmezse 1 ve 5 dakika sonra iki kez daha denenir.</p>
+<pre><code class="language-typescript">import { createRemoteJWKSet, jwtVerify } from &quot;jose&quot;;
+
+const jwks = createRemoteJWKSet(new URL(&quot;https://api.tsoftapps.com/api/integration/v3/apps/jwks.json&quot;));
+
+app.post(&quot;/uninstall&quot;, async (req, res) =&gt; {
+  const { payload } = await jwtVerify(req.body.token, jwks, {
+    algorithms: [&quot;ES256&quot;],
+    issuer: &quot;https://api.tsoftapps.com&quot;,
+    audience: process.env.TSOFT_APP_PREFIX,
+  });
+  if (payload.event !== &quot;app.uninstalled&quot;) return res.sendStatus(400);
+  await stores.forget(payload.store_id);
+  res.sendStatus(200);
+});</code></pre>
+<h3 id="mağaza-olayları"><a class="anchor" href="#mağaza-olayları" aria-hidden="true">#</a>Mağaza olayları</h3>
+<p><code>write_webhooks</code> kapsamı gerekir.</p>
+<pre><code class="language-bash">curl -X POST https://magaza.example/api/v3/admin/2026-01/webhooks \
+  -H &quot;Authorization: Bearer &lt;access_token&gt;&quot; \
+  -H &quot;Accept: application/vnd.api+json&quot; \
+  -H &quot;Content-Type: application/vnd.api+json&quot; \
+  -d '{&quot;data&quot;:{&quot;type&quot;:&quot;webhooks&quot;,&quot;attributes&quot;:{&quot;payloadUrl&quot;:&quot;https://uygulama.example/hook&quot;,&quot;payloadSecret&quot;:&quot;&lt;rastgele&gt;&quot;,&quot;events&quot;:[&quot;ORDER.CREATE&quot;,&quot;ORDER.STATUS.CHANGE&quot;]}}}'</code></pre>
+<p>Olay kataloğu <code>GET /api/v3/admin/2026-01/webhook-events</code>, gönderim geçmişi <code>webhook-deliveries</code>.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Olay</th>
+<th>Ne zaman</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ORDER.CREATE</code></td>
+<td>Sipariş oluştu</td>
+</tr>
+<tr>
+<td><code>ORDER.STATUS.CHANGE</code></td>
+<td>Sipariş durumu değişti</td>
+</tr>
+<tr>
+<td><code>ORDER.CARGO.SEND</code></td>
+<td>Kargoya verildi</td>
+</tr>
+<tr>
+<td><code>ORDER.INVOICE.UPDATE</code></td>
+<td>Fatura bilgisi güncellendi</td>
+</tr>
+<tr>
+<td><code>ORDER.TRANSFER</code></td>
+<td>Sipariş aktarıldı</td>
+</tr>
+<tr>
+<td><code>ORDER.BEFORE</code></td>
+<td>Sipariş tamamlanmadan önce</td>
+</tr>
+<tr>
+<td><code>ORDER.PROVISION.REPORT.STATUS</code></td>
+<td>Provizyon raporu durumu değişti</td>
+</tr>
+<tr>
+<td><code>MEMBER.CREATE</code></td>
+<td>Üye kaydoldu</td>
+</tr>
+<tr>
+<td><code>MEMBER.DELETE</code></td>
+<td>Üye silindi</td>
+</tr>
+<tr>
+<td><code>MEMBER.NOTIFICATION.SETTING</code></td>
+<td>E-posta/SMS izni değişti</td>
+</tr>
+<tr>
+<td><code>COMMENT.CREATE</code></td>
+<td>Ürün yorumu yazıldı</td>
+</tr>
+<tr>
+<td><code>MESSAGE.CREATE</code></td>
+<td>Müşteri mesajı geldi</td>
+</tr>
+<tr>
+<td><code>RETURN.CREATE</code></td>
+<td>İade talebi açıldı</td>
+</tr>
+<tr>
+<td><code>RETURN.UPDATE</code></td>
+<td>İade talebi güncellendi</td>
+</tr>
+<tr>
+<td><code>RETURN.STATUS.CHANGE</code></td>
+<td>İade durumu değişti</td>
+</tr>
+</tbody></table></div>
+<p><code>webhooks</code> listesi mağaza sahibinin kendi tanımlarını da döner; yalnız <code>payloadUrl</code> sizin olan kayıtları değiştirin. Hemen 2xx dönüp işi kuyruğa alın, aynı olay birden çok gelebilir. Olay gövdesinin alanları ve <code>payloadSecret</code> imza başlığı resmi sayfada henüz yok.</p>
+<p>Panel iç API’sinde aynı tanımlar <code>api/v3/admin/configuration/webhooks</code> (<code>events</code>, <code>logs</code>, <code>test</code>, <code>domain-settings</code>) altındadır.</p>
+<h2 id="panele-gömülü-uygulama"><a class="anchor" href="#panele-gömülü-uygulama" aria-hidden="true">#</a>Panele gömülü uygulama</h2>
+<p>Panel uygulamayı <code>/apps/open/&lt;önek&gt;</code> sayfasında iframe olarak açar: <code>https://uygulama.example/app?session=&lt;jwt&gt;</code>. İlk açılışta tek kullanımlık <code>code</code> da eklenir.</p>
+<p>Oturum token’ı ES256, ömrü <strong>60 saniye</strong>. Claim’ler: <code>iss</code> <code>https://api.tsoftapps.com</code>, <code>aud</code> önek, <code>exp</code> / <code>nbf</code>, <code>store_id</code>, <code>dest</code> (mağaza alanı), <code>sub</code> (paneli açan kullanıcı). <code>event</code> claim’i olan token oturum token’ı değildir; reddedin. Oturum token’ı Admin API’de kullanılmaz.</p>
+<p>JWKS: <code>GET https://api.tsoftapps.com/api/integration/v3/apps/jwks.json</code> (<code>kid</code> ile eşleşir, birkaç dakika önbelleklenebilir).</p>
+<p>Iframe başlığı:</p>
+<pre><code class="language-plaintext">Content-Security-Policy: frame-ancestors https://tsoftpanel.com https://*.tsoftpanel.com https://paneltsoft.com https://*.paneltsoft.com https://&lt;dest&gt;</code></pre>
+<p>Üçüncü taraf çerezi iframe’de engellenebilir; oturumu çereze değil token’a bağlayın.</p>
+<h3 id="panel-köprüsü"><a class="anchor" href="#panel-köprüsü" aria-hidden="true">#</a>Panel köprüsü</h3>
+<pre><code class="language-bash">npm install @tekrom/tsoft-app-gate</code></pre>
+<p>veya <code>https://cdn.jsdelivr.net/npm/@tekrom/tsoft-app-gate@0.3/dist/tsoft-app-gate.min.js</code> (global <code>TSoftAppGate</code>).</p>
+<pre><code class="language-javascript">import { createApp, isEmbedded } from &quot;@tekrom/tsoft-app-gate&quot;;
+
+if (isEmbedded()) {
+  const app = createApp();
+  const token = await app.getSessionToken();
+  const { ids, cancelled } = await app.pickResource({ type: &quot;product&quot;, multiple: true });
+  if (!cancelled) await app.toast(ids.length + &quot; ürün seçildi&quot;);
+  app.autoResize();
+}</code></pre>
+<p><code>pickResource</code> için <code>type</code> değerinin tam yazımı resmi sayfada verilmiyor; örnekteki <code>&quot;product&quot;</code> tahmindir, paket tiplerinden kontrol edin.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Fonksiyon</th>
+<th>İş</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>isEmbedded()</code></td>
+<td>Panelde mi</td>
+</tr>
+<tr>
+<td><code>createApp()</code></td>
+<td>Köprü örneği. Yalnız <code>*.tsoftpanel.com</code>, <code>*.tsoftpanel.net</code>, <code>*.paneltsoft.com</code> içinde çalışır</td>
+</tr>
+<tr>
+<td><code>app.claims</code></td>
+<td>Token içeriği. Doğrulama sunucuda yapılır</td>
+</tr>
+<tr>
+<td><code>app.getSessionToken()</code></td>
+<td>Süresi dolmak üzereyse yenisini alır</td>
+</tr>
+<tr>
+<td><code>app.toast(mesaj, { variant })</code></td>
+<td>Bildirim; hata için <code>variant: &quot;error&quot;</code></td>
+</tr>
+<tr>
+<td><code>app.confirm({ title, message, confirmText })</code></td>
+<td>Onay penceresi</td>
+</tr>
+<tr>
+<td><code>app.pickResource({ type, multiple })</code></td>
+<td>Ürün seçici, <code>read_products</code> ister. <code>{ ids, cancelled }</code></td>
+</tr>
+<tr>
+<td><code>app.navigate.app(yol)</code></td>
+<td>Uygulama içi yolu panel adresine yansıtır</td>
+</tr>
+<tr>
+<td><code>app.navigate.panel(ad, id)</code></td>
+<td><code>order</code>, <code>orders</code>, <code>product</code>, <code>products</code>, <code>apps</code></td>
+</tr>
+<tr>
+<td><code>app.autoResize()</code></td>
+<td>Iframe yüksekliği</td>
+</tr>
+</tbody></table></div>
+<p>Reddedilen çağrı <code>AppBridgeError</code> fırlatır; <code>code</code>: <code>missing_scope</code>, <code>invalid_route</code>, <code>timeout</code> … Eski <code>TSoftBridge</code> (<code>developer.tsoft.com.tr/app-bridge/v1/tsoft-app-bridge.js</code>) kaldırıldı. Mesaj protokolü: <a href="https://github.com/tekrom/tsoft-app-gate#readme" rel="noopener" target="_blank">tsoft-app-gate README</a>.</p>
+<h2 id="rest1-den-geçiş"><a class="anchor" href="#rest1-den-geçiş" aria-hidden="true">#</a>REST1’den geçiş</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Konu</th>
+<th>Eski</th>
+<th>Yeni</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Kimlik</td>
+<td>Kurulumda önekle açılan <code>rest1</code> kullanıcısı</td>
+<td>Kurulum kodu + mağazaya özel istemci</td>
+</tr>
+<tr>
+<td>Adres</td>
+<td><code>https://&lt;mağaza&gt;/rest1/*</code></td>
+<td><code>https://&lt;mağaza&gt;/api/v3/admin/2026-01/*</code></td>
+</tr>
+<tr>
+<td>Yetki</td>
+<td>Paketteki web servis metot listesi</td>
+<td>Kapsamlar</td>
+</tr>
+<tr>
+<td>Kurulum bildirimi</td>
+<td>Sunucuya kayıt çağrısı</td>
+<td><code>redirect_uri</code> / <code>app_url</code> üzerine <code>code</code></td>
+</tr>
+<tr>
+<td>Kaldırma</td>
+<td>Sunucuya çağrı</td>
+<td><code>uninstall_url</code> + <code>app.uninstalled</code> JWT</td>
+</tr>
+<tr>
+<td>Panel açılışı</td>
+<td><code>gateway.tsoftapps.com/api/go/app/&lt;önek&gt;</code>, <code>/api/app/get-token/&lt;önek&gt;</code></td>
+<td><code>/apps/open/&lt;önek&gt;</code> iframe + oturum token’ı</td>
+</tr>
+<tr>
+<td>Takip kodu</td>
+<td>Uygulama ekler</td>
+<td>Kurulumdaki ayar formu</td>
+</tr>
+</tbody></table></div>
+<p>Adımlar: kullanılan REST1 metotlarını kapsamlara eşle (karşılığı yoksa T-SOFT’a bildir) → kaydı güncelle → test mağazasında dene → mağaza sahiplerini <strong>İzinleri onayla</strong> bağlantısına yönlendir. Geçiş sırasında kodu gelmiş mağazada Admin API, gelmemişte REST1 çalışır. Kapanış tarihi yayımlanmadı.</p>
+
+</article>
+<nav class="pager" aria-label="Sayfa geçişi"><a class="prev" href="/developer/baslarken/"><span>← Önceki</span>Başlarken</a><a class="next" href="/developer/storefront-api/"><span>Sonraki →</span>Storefront API</a></nav>
+<footer class="page-foot"><a href="https://github.com/bahadirdogru/tsoft-documentation-examples/edit/main/content/developer/uygulama.md">GitHub'da düzenle</a> · <a href="/developer/uygulama.md">Markdown</a> · <a href="/llms.txt">llms.txt</a> · Topluluk belgesidir, T-Soft’un resmî yayını değildir.</footer>
+</main>
+<nav class="toc" aria-label="Bu sayfada"><div class="toc-title">Bu sayfada</div><ul><li class="l2"><a href="#uygulama-türleri">Uygulama türleri</a></li><li class="l2"><a href="#kayıt">Kayıt</a></li><li class="l2"><a href="#oauth-akışı">OAuth akışı</a></li><li class="l3"><a href="#1-kodu-takas-et">1. Kodu takas et</a></li><li class="l3"><a href="#2-token-al">2. Token al</a></li><li class="l3"><a href="#3-admin-api-çağır">3. Admin API çağır</a></li><li class="l3"><a href="#izin-değişikliği-ve-kaldırma">İzin değişikliği ve kaldırma</a></li><li class="l2"><a href="#kapsamlar">Kapsamlar</a></li><li class="l2"><a href="#webhook">Webhook</a></li><li class="l3"><a href="#kaldırma-bildirimi">Kaldırma bildirimi</a></li><li class="l3"><a href="#mağaza-olayları">Mağaza olayları</a></li><li class="l2"><a href="#panele-gömülü-uygulama">Panele gömülü uygulama</a></li><li class="l3"><a href="#panel-köprüsü">Panel köprüsü</a></li><li class="l2"><a href="#rest1-den-geçiş">REST1’den geçiş</a></li></ul></nav>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/twig.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/http.min.js"></script>
+<script src="/assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,1501 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Customer · T-Soft Dokümantasyonu</title>
+<meta name="description" content="Üye, adres, grup, giriş linki, sepet okuma, istek listesi ve arşiv.">
+<link rel="canonical" href="https://tsoft.bahadirdogru.com/rest/customer/">
+<link rel="alternate" type="text/markdown" href="/rest/customer.md" title="Markdown">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%231f6feb%22%2F%3E%3Cpath%20d%3D%22M8%209h16v3.2h-6.4V23h-3.2V12.2H8z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E">
+<meta property="og:title" content="Customer">
+<meta property="og:description" content="Üye, adres, grup, giriş linki, sepet okuma, istek listesi ve arşiv.">
+<meta property="og:url" content="https://tsoft.bahadirdogru.com/rest/customer/">
+<meta property="og:type" content="website">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" media="(prefers-color-scheme: light)" id="hl-light">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" media="(prefers-color-scheme: dark)" id="hl-dark">
+</head>
+<body>
+<a class="skip" href="#main">İçeriğe geç</a>
+<header class="top">
+  <button class="menu-btn" aria-label="Menü" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="/"><svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><path d="M8 9h16v3.2h-6.4V23h-3.2V12.2H8z" fill="var(--bg)"/></svg><span>T-Soft Dokümantasyonu</span></a>
+  <div class="search">
+    <input id="q" type="search" placeholder="Ara: metot, uç, değişken, sayfa…  ( / )" autocomplete="off" aria-label="Ara">
+    <ul id="results" role="listbox" hidden></ul>
+  </div>
+  <button class="theme-btn" aria-label="Tema değiştir" title="Tema değiştir">◐</button>
+</header>
+<div class="layout">
+<aside id="sidebar" class="sidebar"><details class="nav-sec" open><summary>Başlangıç <span class="count">3</span></summary><ul><li><a href="/">Ana sayfa</a></li><li><a href="/rehber/">Hangi yüzey?</a></li><li><a href="/llm/">LLM ve ajanlar için</a></li></ul></details><details class="nav-sec" open><summary>Platform <span class="count">4</span></summary><ul><li><a href="/developer/">Platform haritası</a></li><li><a href="/developer/baslarken/">Başlarken</a></li><li><a href="/developer/uygulama/">Uygulama geliştirme</a></li><li><a href="/developer/storefront-api/">Storefront API</a></li></ul></details><details class="nav-sec" open><summary>Tema <span class="count">2</span></summary><ul><li><a href="/developer/tema/">Tema motoru (Twig)</a></li><li><a href="/theme/">Eski tema (Smarty)</a></li></ul></details><details class="nav-sec" open><summary>REST1 <span class="count">2</span></summary><ul><li><a href="/rest/">Genel bakış</a></li><li><a href="/rest/hatalar/">Hatalar ve mesaj kodları</a></li></ul></details><details class="nav-sec" open><summary>REST1 modülleri <span class="count">38</span></summary><ul><li><a href="/rest/auth/">Auth</a></li><li><a href="/rest/customer/" aria-current="page">Customer</a></li><li><a href="/rest/product/">Product</a></li><li><a href="/rest/subproduct/">SubProduct</a></li><li><a href="/rest/category/">Category</a></li><li><a href="/rest/brand/">Brand</a></li><li><a href="/rest/model/">Model</a></li><li><a href="/rest/filter/">Filter</a></li><li><a href="/rest/catalog/">Catalog</a></li><li><a href="/rest/order/">Order</a></li><li><a href="/rest/order2/">Order2</a></li><li><a href="/rest/cart/">Cart</a></li><li><a href="/rest/campaign/">Campaign</a></li><li><a href="/rest/payment/">Payment</a></li><li><a href="/rest/fundmovement/">FundMovement</a></li><li><a href="/rest/point/">Point</a></li><li><a href="/rest/segment/">Segment</a></li><li><a href="/rest/supplier/">Supplier</a></li><li><a href="/rest/branchoffice/">BranchOffice</a></li><li><a href="/rest/content/">Content</a></li><li><a href="/rest/news/">News</a></li><li><a href="/rest/showcase/">Showcase</a></li><li><a href="/rest/htmlblock/">HtmlBlock</a></li><li><a href="/rest/widget/">Widget</a></li><li><a href="/rest/link/">Link</a></li><li><a href="/rest/personalization/">Personalization</a></li><li><a href="/rest/trackingcode/">TrackingCode</a></li><li><a href="/rest/ticket/">Ticket</a></li><li><a href="/rest/user/">User</a></li><li><a href="/rest/setting/">Setting</a></li><li><a href="/rest/notification/">Notification</a></li><li><a href="/rest/mobile/">Mobile</a></li><li><a href="/rest/platform/">Platform</a></li><li><a href="/rest/cargo/">Cargo</a></li><li><a href="/rest/adapter/">Adapter</a></li><li><a href="/rest/hopi/">Hopi</a></li><li><a href="/rest/zubizu/">Zubizu</a></li><li><a href="/rest/routing/">Routing</a></li></ul></details><details class="nav-sec" open><summary>Admin API v3 <span class="count">3</span></summary><ul><li><a href="/admin-api/">Genel bakış</a></li><li><a href="/admin-api/uclar/">Uç listesi</a></li><li><a href="/admin-api/odeme-bildirimi/">Ödeme bildirimi</a></li></ul></details><details class="nav-sec"><summary>Örnek kod <span class="count">5</span></summary><ul><li><a href="/examples/python/tsoft_client/">Python istemci</a></li><li><a href="/examples/python/add_customer/">Üye ekleme</a></li><li><a href="/examples/python/check_group_price/">Grup fiyatı</a></li><li><a href="/examples/python/env/">Ortam değişkenleri</a></li><li><a href="/examples/apps-script/code/">Apps Script</a></li></ul></details><details class="nav-sec"><summary>Eski tema blokları <span class="count">18</span></summary><ul><li><a href="/theme/bloklar/ust/">Üst blok</a></li><li><a href="/theme/bloklar/alt/">Alt blok</a></li><li><a href="/theme/bloklar/yeni-urunler/">Yeni ürünler</a></li><li><a href="/theme/bloklar/kategori-menusu/">Kategori menüsü</a></li><li><a href="/theme/bloklar/kategori-listesi/">Kategori listesi</a></li><li><a href="/theme/bloklar/home-banner/">Ana sayfa banner</a></li><li><a href="/theme/bloklar/home-sale/">Ana sayfa indirim</a></li><li><a href="/theme/bloklar/haberler/">Haberler</a></li><li><a href="/theme/bloklar/benzer-urunler/">Benzer ürünler</a></li><li><a href="/theme/bloklar/model-listesi/">Model listesi</a></li><li><a href="/theme/bloklar/marka-listesi/">Marka listesi</a></li><li><a href="/theme/bloklar/parca-toplama-sihirbazi/">Parça toplama sihirbazı</a></li><li><a href="/theme/bloklar/tedarikci-listesi/">Tedarikçi listesi</a></li><li><a href="/theme/bloklar/firsat-urunleri/">Fırsat ürünleri</a></li><li><a href="/theme/bloklar/ayin-yazari/">Ayın yazarı</a></li><li><a href="/theme/bloklar/gelecek-firsat-urun-listesi/">Gelecek fırsatlar</a></li><li><a href="/theme/bloklar/sss/">SSS</a></li><li><a href="/theme/bloklar/gorsel-vitrin/">Görsel vitrin</a></li></ul></details><details class="nav-sec"><summary>Eski tema değişkenleri <span class="count">5</span></summary><ul><li><a href="/theme/degiskenler/tsoft-product-varriables/">Ürün değişkenleri</a></li><li><a href="/theme/degiskenler/tsoft-header-page-links-varriable/">Sayfa linkleri</a></li><li><a href="/theme/degiskenler/tsoft-header-tabs-varriable/">Üst sekmeler</a></li><li><a href="/theme/degiskenler/tsoft-footer-menu-varriables/">Alt menü</a></li><li><a href="/theme/degiskenler/tsoft-left-right-category-varriables/">Sol ve sağ kategori</a></li></ul></details><details class="nav-sec"><summary>Eski tema şablonları <span class="count">5</span></summary><ul><li><a href="/theme/snippets/bayi-mi-degil-mi/">Bayi hesabı koşulu</a></li><li><a href="/theme/orta/user_bayipanel/">Bayi paneli</a></li><li><a href="/theme/orta/user_bayigirisplasiyer/">Bayi giriş plasiyer</a></li><li><a href="/theme/orta/user_v4tpl/">V4 şablon</a></li><li><a href="/theme/UstAlt/user_tasarimyenimenu/">Tasarım yeni menü</a></li></ul></details></aside>
+<main id="main" class="content">
+<nav class="crumbs" aria-label="Konum"><a href="/">Ana sayfa</a> <span>/</span> <a href="/rest/">REST1</a></nav>
+<article>
+<h1 id="customer"><a class="anchor" href="#customer" aria-hidden="true">#</a>Customer</h1>
+<p>REST1 modülü · 34 metot · taban <code>https://magaza.example/rest1/customer/{metot}/</code></p>
+<p>Her çağrı <code>POST</code> ve form gövdesidir; <code>token</code> ayrı alan olarak gider. Ortak kurallar, zarf yapısı ve süzgeç sözdizimi <a href="/rest/#ortak-kurallar">REST1 genel bakış</a> sayfasındadır. Tablodaki &quot;Yer&quot; sütunu: <code>url_param</code> yolun sonuna eklenir, <code>query</code> gövde alanıdır, <code>file</code> dosya yüklemesidir.</p>
+<p>Üye, adres, grup, giriş linki, sepet okuma, istek listesi ve arşiv.</p>
+<h2 id="customer-addcustomers"><a class="anchor" href="#customer-addcustomers" aria-hidden="true">#</a><code>customer/addCustomers</code></h2>
+<p><code>POST https://magaza.example/rest1/customer/addCustomers/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>CheckIdentityNumber parametresini kullanılırken Merkezi Nüfus Sistemi doğrulaması için TC Kimlik No Doğrulaması ayarının açık olması gerekir aksi halde nüfus sitesi doğrulaması yapılmaz.</td>
+</tr>
+<tr>
+<td><code>IsPasswordEncrypted</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>CheckIdentityNumber</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>SendPasswordResetEmail</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td>Bu parametre true gönderilirse üyeye şifre sıfırlama e-postası gider</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>CustomerCode</code>, <code>Name</code>, <code>Surname</code>, <code>Email</code>, <code>Password</code>, <code>Gender</code>, <code>Birthdate</code>, <code>Phone</code>, <code>Mobile</code>, <code>OfficePhone</code>, <code>Address</code>, <code>Postcode</code>, <code>City</code>, <code>Town</code>, <code>District</code>, <code>CountryCode</code>, <code>Country</code>, <code>TaxOffice</code>, <code>TaxNo</code>, <code>CompanyName</code>, <code>IdentityNo</code>, <code>Field1</code>, <code>Field2</code>, <code>Field3</code>, <code>Field4</code>, <code>Field5</code>, <code>Field6</code>, <code>Field7</code>, <code>Field8</code>, <code>Field9</code>, <code>Field10</code>, <code>Field11</code>, <code>Field12</code>, <code>Field13</code>, <code>Field14</code>, <code>Field15</code>, <code>PosMerchantId</code>, <code>Approval</code>, <code>Language</code>, <code>IsEmailNotificationOn</code>, <code>IsSmsNotificationOn</code>, <code>IsPhoneCallNotificationOn</code>, <code>EmailApprovalTime</code>, <code>SmsApprovalTime</code>, <code>PhoneCallApprovalTime</code>, <code>NotificationApprovalIp</code>, <code>SmsNotificationApprovalIp</code>, <code>PhoneNotificationApprovalIp</code>, <code>CustomerGroupCode</code>, <code>RepresentativeCode</code>, <code>Credibility</code>, <code>PayAtDoor</code>, <code>Risked</code>, <code>Banned</code>, <code>PriceField</code>, <code>CargoFree</code>, <code>UtmMedium</code>, <code>UtmSource</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;CustomerCode&quot;: &quot;&quot;,
+    &quot;Name&quot;: &quot;&quot;,
+    &quot;Surname&quot;: &quot;&quot;,
+    &quot;Email&quot;: &quot;&quot;,
+    &quot;Password&quot;: &quot;&quot;,
+    &quot;Gender&quot;: &quot;&quot;,
+    &quot;Birthdate&quot;: &quot;&quot;,
+    &quot;Phone&quot;: &quot;&quot;,
+    &quot;Mobile&quot;: &quot;&quot;,
+    &quot;OfficePhone&quot;: &quot;&quot;,
+    &quot;Address&quot;: &quot;&quot;,
+    &quot;Postcode&quot;: &quot;&quot;,
+    &quot;City&quot;: &quot;&quot;,
+    &quot;Town&quot;: &quot;&quot;,
+    &quot;District&quot;: &quot;&quot;,
+    &quot;CountryCode&quot;: &quot;&quot;,
+    &quot;Country&quot;: &quot;&quot;,
+    &quot;TaxOffice&quot;: &quot;&quot;,
+    &quot;TaxNo&quot;: &quot;&quot;,
+    &quot;CompanyName&quot;: &quot;&quot;,
+    &quot;IdentityNo&quot;: &quot;&quot;,
+    &quot;Field1&quot;: &quot;&quot;,
+    &quot;Field2&quot;: &quot;&quot;,
+    &quot;Field3&quot;: &quot;&quot;,
+    &quot;Field4&quot;: &quot;&quot;,
+    &quot;Field5&quot;: &quot;&quot;,
+    &quot;Field6&quot;: &quot;&quot;,
+    &quot;Field7&quot;: &quot;&quot;,
+    &quot;Field8&quot;: &quot;&quot;,
+    &quot;Field9&quot;: &quot;&quot;,
+    &quot;Field10&quot;: &quot;&quot;,
+    &quot;Field11&quot;: &quot;&quot;,
+    &quot;Field12&quot;: &quot;&quot;,
+    &quot;Field13&quot;: &quot;&quot;,
+    &quot;Field14&quot;: &quot;&quot;,
+    &quot;Field15&quot;: &quot;&quot;,
+    &quot;PosMerchantId&quot;: &quot;&quot;,
+    &quot;Approval&quot;: &quot;&quot;,
+    &quot;Language&quot;: &quot;&quot;,
+    &quot;IsEmailNotificationOn&quot;: &quot;&quot;,
+    &quot;IsSmsNotificationOn&quot;: &quot;&quot;,
+    &quot;IsPhoneCallNotificationOn&quot;: &quot;&quot;,
+    &quot;EmailApprovalTime&quot;: &quot;&quot;,
+    &quot;SmsApprovalTime&quot;: &quot;&quot;,
+    &quot;PhoneCallApprovalTime&quot;: &quot;&quot;,
+    &quot;NotificationApprovalIp&quot;: &quot;&quot;,
+    &quot;SmsNotificationApprovalIp&quot;: &quot;&quot;,
+    &quot;PhoneNotificationApprovalIp&quot;: &quot;&quot;,
+    &quot;CustomerGroupCode&quot;: &quot;&quot;,
+    &quot;RepresentativeCode&quot;: &quot;&quot;,
+    &quot;Credibility&quot;: &quot;&quot;,
+    &quot;PayAtDoor&quot;: 0,
+    &quot;Risked&quot;: 0,
+    &quot;Banned&quot;: 0,
+    &quot;PriceField&quot;: &quot;&quot;,
+    &quot;CargoFree&quot;: 0,
+    &quot;UtmMedium&quot;: &quot;&quot;,
+    &quot;UtmSource&quot;: &quot;&quot;
+  }
+]</code></pre>
+<p>20 Ekim 2026 çağrısında 10 haneli cep ve <code>CustomerGroupCode</code> <code>ogretmenler</code> kabul edildi. Başarı kodu <code>CUI002</code>. Kayıtlı e-posta güncellenmez. Parti <code>success: false</code> dönse de <code>CUI002</code> alan satırlar durur. Ayrıntı <a href="/rest/#20-ekim-2026-canlı-çağrı">canlı çağrı</a> bölümündedir.</p>
+<h2 id="customer-address"><a class="anchor" href="#customer-address" aria-hidden="true">#</a><code>customer/address</code></h2>
+<p><code>POST https://magaza.example/rest1/customer/address/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>address_id</code></td>
+<td>url_param</td>
+<td>int</td>
+<td>hayır</td>
+<td>Tek bir adres listeleme için bu bilgi girilmelidir. Üyenin tüm adreslerini listelemek için customer_id ve type göndermeniz yeterlidir.</td>
+</tr>
+<tr>
+<td><code>customer_id</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Adres listeleme için bu bilgi girilmelidir.</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Adres listelemede ön tanımlı olarak teslimat adresi gelir. type:0 teslimat adresi, type:1 fatura adresi</td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Adres eklemek veya düzenlemek için yalnızca bu bilgi girilmelidir. invoice_type:0 şahıs invoice_type:1 kurumsal. tax_number alanına invoice_type:0 olduğu durumda TC kimlik no yazılmalıdır.   customer_id yerine customer_code, address_id yerine address_code kullanılabilir.</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>customer_id</code>, <code>title</code>, <code>country_code</code>, <code>city_code</code>, <code>town_code</code>, <code>town</code>, <code>address</code>, <code>address_id</code>, <code>also_invoice</code>, <code>company_name</code>, <code>district</code>, <code>name</code>, <code>invoice_type</code>, <code>mobile_phone</code>, <code>nationality</code>, <code>other_phone</code>, <code>tax_number</code>, <code>tax_office</code>, <code>zip</code>, <code>has_e_invoice</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;customer_id&quot;: 110,
+    &quot;title&quot;: &quot;İş Adresim&quot;,
+    &quot;country_code&quot;: &quot;TR&quot;,
+    &quot;city_code&quot;: &quot;34&quot;,
+    &quot;town_code&quot;: &quot;941&quot;,
+    &quot;town&quot;: &quot;Üsküdar&quot;,
+    &quot;address&quot;: &quot;Teknopark No:104&quot;,
+    &quot;address_id&quot;: 0,
+    &quot;also_invoice&quot;: 1,
+    &quot;company_name&quot;: &quot;&quot;,
+    &quot;district&quot;: &quot;&quot;,
+    &quot;name&quot;: &quot;Kübra K&quot;,
+    &quot;invoice_type&quot;: 0,
+    &quot;mobile_phone&quot;: &quot;905555555555&quot;,
+    &quot;nationality&quot;: 0,
+    &quot;other_phone&quot;: &quot;&quot;,
+    &quot;tax_number&quot;: &quot;66666666666&quot;,
+    &quot;tax_office&quot;: &quot;&quot;,
+    &quot;zip&quot;: &quot;34104&quot;,
+    &quot;has_e_invoice&quot;: 0
+  }
+]</code></pre>
+<p>Postman <code>setAddress</code> aynı uca gider ve konsol örneğinde olmayan <code>type</code>, <code>ws_address_code</code>, <code>partner</code>, <code>partnerparams</code> alanlarını gönderir. <code>partner</code> değeri <code>Netsis</code>tir. Postman <code>getAddress</code> listeleme için <code>customer_id</code> gönderir ve yanında bir <code>data</code> dizisi de taşır. Gövdeler Postman bölümündedir.</p>
+<h2 id="customer-getaddress"><a class="anchor" href="#customer-getaddress" aria-hidden="true">#</a><code>customer/getAddress</code></h2>
+<p><code>POST https://magaza.example/rest1/customer/getAddress/</code></p>
+<p>Müşteriye ait adres verilerini döner</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerId</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>CustomerId veya CustomerCode parametrelerinden bir tanesi gönderilmelidir.</td>
+</tr>
+<tr>
+<td><code>CustomerCode</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>CustomerId veya CustomerCode parametrelerinden bir tanesi gönderilmelidir.</td>
+</tr>
+<tr>
+<td><code>Archive</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Arşivlenmiş üyeler için 1 gönderiniz</td>
+</tr>
+<tr>
+<td><code>FetchDeleteds</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>Postman <code>getAddress2</code> bu uca <code>CustomerCode=12001-01-BM0007</code> ile gider. <code>CustomerId</code> kapalıdır.</p>
+<h2 id="customer-check"><a class="anchor" href="#customer-check" aria-hidden="true">#</a><code>customer/check</code></h2>
+<p><code>POST https://magaza.example/rest1/customer/check/</code></p>
+<p>E-posta ve parola bilgileri ile kayıt varsa döner.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Platform metotlarında kullanılmak için eklenmiştir. customer_hash bu değere göre üretilmektedir. Platform metotları kullanılmıyorsa önemsenmez.</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>phone</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Telefonla giriş aktif ise telefon ile girebilmek için email paramtresinin yerine kullanılabilir</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>query</td>
+<td>pass</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>CheckMemberPasswordChangeFrequency</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td>1 gönderilir ise üyenin şifre değiştirme sıklığı ayarına uyup uymadığını kontrol eder.</td>
+</tr>
+</tbody></table></div>
+<h2 id="customer-deleteaddress"><a class="anchor" href="#customer-deleteaddress" aria-hidden="true">#</a><code>customer/deleteAddress</code></h2>
+<p><code>POST https://magaza.example/rest1/customer/deleteAddress/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>address_id</code></td>
+<td>url_param</td>
+<td>int</td>
+<td>hayır</td>
+<td>Tek bir adres listeleme için bu bilgi girilmelidir. Üyenin tüm adreslerini listelemek için customer_id ve type göndermeniz yeterlidir.</td>
+</tr>
+<tr>
+<td><code>customer_id</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Adres listeleme için bu bilgi girilmelidir.</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Adres listelemede ön tanımlı olarak teslimat adresi gelir. type:0 teslimat adresi, type:1 fatura adresi</td>
+</tr>
+</tbody></table></div>
+<h2 id="customer-facebookcheck-alpha"><a class="anchor" href="#customer-facebookcheck-alpha" aria-hidden="true">#</a><code>customer/facebookCheck</code> (alpha)</h2>
+<p><code>POST https://magaza.example/rest1/customer/facebookCheck/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>id</code>, <code>name</code>, <code>email</code>, <code>gender</code>, <code>picture_url</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;id&quot;: &quot;12345678&quot;,
+    &quot;name&quot;: &quot;kübra&quot;,
+    &quot;email&quot;: &quot;ornek@magaza.example&quot;,
+    &quot;gender&quot;: &quot;female&quot;,
+    &quot;picture_url&quot;: &quot;&quot;
+  }
+]</code></pre>
+<h2 id="customer-applecheck-alpha"><a class="anchor" href="#customer-applecheck-alpha" aria-hidden="true">#</a><code>customer/appleCheck</code> (alpha)</h2>
+<p><code>POST https://magaza.example/rest1/customer/appleCheck/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>id</code>, <code>name</code>, <code>email</code>, <code>gender</code>, <code>picture_url</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;id&quot;: &quot;12345678&quot;,
+    &quot;name&quot;: &quot;İsim&quot;,
+    &quot;email&quot;: &quot;ornek@magaza.example&quot;,
+    &quot;gender&quot;: &quot;female&quot;,
+    &quot;picture_url&quot;: &quot;&quot;
+  }
+]</code></pre>
+<h2 id="customer-forgotpassword"><a class="anchor" href="#customer-forgotpassword" aria-hidden="true">#</a><code>customer/forgotPassword</code></h2>
+<p><code>POST https://magaza.example/rest1/customer/forgotPassword/</code></p>
+<p>Şifremi unuttum. email verilirse şifre sıfırlama bağlantısı e-posta ile gönderilir. phone verilirse (LisansTelefonNoIleUyelik aktif) V5 mağazalarda SMS ile 6 haneli doğrulama kodu gönderilir; cevapta extra.otpRequired=true, extra.resentSmsTime (sn) ve extra.otpTtl (sn) döner ve şifre forgotPasswordOtpReset ile değiştirilir. V4 mağazalarda eski akış (şifre SMS ile) korunur. Güvenlik gereği telefon yolunda cevap numaradan bağımsızdır (kayıtsız numara, bekleme süresi ve günlük 10 kod tavanı dahil her durumda &#39;gönderildi&#39; döner); e-posta yolunda da kayıtlı olmayan adres için başarılı cevap döner.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>email</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>E-posta adresi. phone verilmezse zorunludur.</td>
+</tr>
+<tr>
+<td><code>phone</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Telefon numarası. Telefon No İle giriş lisansı aktifse kullanılabilir.</td>
+</tr>
+</tbody></table></div>
+<h2 id="customer-forgotpasswordotpreset"><a class="anchor" href="#customer-forgotpasswordotpreset" aria-hidden="true">#</a><code>customer/forgotPasswordOtpReset</code></h2>
+<p><code>POST https://magaza.example/rest1/customer/forgotPasswordOtpReset/</code></p>
+<p>forgotPassword ile telefona gönderilen 6 haneli doğrulama kodu ve yeni şifre ile şifreyi tek adımda değiştirir. Kod 5 dakika geçerlidir, 5 hatalı denemede geçersiz olur (CUE040). Başarılı işlemde oturum açılmaz; kullanıcı yeni şifresiyle login olmalıdır.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>phone</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td>forgotPassword isteğinde kullanılan telefon numarası.</td>
+</tr>
+<tr>
+<td><code>otp</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td>SMS ile gönderilen 6 haneli doğrulama kodu.</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>query</td>
+<td>pass</td>
+<td>evet</td>
+<td>Yeni şifre.</td>
+</tr>
+<tr>
+<td><code>passwordAgain</code></td>
+<td>query</td>
+<td>pass</td>
+<td>evet</td>
+<td>Yeni şifre tekrarı.</td>
+</tr>
+</tbody></table></div>
+<h2 id="customer-getcart"><a class="anchor" href="#customer-getcart" aria-hidden="true">#</a><code>customer/getCart</code></h2>
+<p><code>POST https://magaza.example/rest1/customer/getCart/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerCode</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ProductCode</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>start</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Varsayılan:50, Max:500</td>
+</tr>
+<tr>
+<td><code>columns</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Örnek: &quot;CustomerCode,ProductCode,Total,UpdateDate&quot;</td>
+</tr>
+<tr>
+<td><code>f</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>İzin Verilen İşlemler: startwith,endwith,equal,greater,smaller,between,contain. Example: &quot;CustomerName | kubra | contain&quot;</td>
+</tr>
+<tr>
+<td><code>orderby</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Örnek: &quot;UpdateDate ASC&quot;, Default: &quot;UpdateDate DESC&quot;</td>
+</tr>
+</tbody></table></div>
+<h2 id="customer-getcustomerbycode"><a class="anchor" href="#customer-getcustomerbycode" aria-hidden="true">#</a><code>customer/getCustomerByCode</code></h2>
+<p><code>POST https://magaza.example/rest1/customer/getCustomerByCode/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerCode</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Archive</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Arşivlenmiş üyeler için 1 gönderiniz</td>
+</tr>
+</tbody></table></div>
+<h2 id="customer-getcustomerbyid"><a class="anchor" href="#customer-getcustomerbyid" aria-hidden="true">#</a><code>customer/getCustomerById</code></h2>
+<p><code>POST https://magaza.example/rest1/customer/getCustomerById/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerId</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Archive</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Arşivlenmiş üyeler için 1 gönderiniz</td>
+</tr>
+</tbody></table></div>
+<h2 id="customer-getcustomersbyphone-beta"><a class="anchor" href="#customer-getcustomersbyphone-beta" aria-hidden="true">#</a><code>customer/getCustomersByPhone</code> (beta)</h2>
+<p><code>POST https://magaza.example/rest1/customer/getCustomersByPhone/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Phone</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Archive</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Arşivlenmiş üyeler için 1 gönderiniz</td>
+</tr>
+</tbody></table></div>
+<h2 id="customer-getcustomergroups"><a class="anchor" href="#customer-getcustomergroups" aria-hidden="true">#</a><code>customer/getCustomerGroups</code></h2>
+<p><code>POST https://magaza.example/rest1/customer/getCustomerGroups/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>start</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>f</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Allowed operators: startwith,endwith,equal,greater,smaller,between,contain. Example: &quot;CustomerName | kubra | contain&quot;</td>
+</tr>
+</tbody></table></div>
+<p>Postman <code>getCustomerGroups</code> yalnız <code>token</code> gönderir.</p>
+<h2 id="customer-getcustomers"><a class="anchor" href="#customer-getcustomers" aria-hidden="true">#</a><code>customer/getCustomers</code></h2>
+<p><code>POST https://magaza.example/rest1/customer/getCustomers/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CreateDateTimeStart</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Example: &quot;2011-07-21T20:09:00Z&quot;, 1374475843</td>
+</tr>
+<tr>
+<td><code>CreateDateTimeEnd</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>UpdateDateTimeStart</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>UpdateDateTimeEnd</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>start</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>columns</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>f</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Email | <a href="mailto:ornek@magaza.example">ornek@magaza.example</a> | equal, Password | kubra123 | equal</td>
+</tr>
+<tr>
+<td><code>orderby</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchSegment</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchCustomerGroup</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchAddressList</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchCustomerLastOrderDate</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchOrderTotal</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>Postman üç liste ister. Üçünde <code>FetchCustomerGroup=true</code>. B2B: <code>f=Field1||notequal</code>. B2C: <code>f=Field1||equal</code>. Kimlik listesi B2B süzgecine <code>columns=CustomerId,CustomerCode,CompanyName</code> ekler. <code>notequal</code> yukarıdaki operatör listesinde yoktur.</p>
+<p>20 Ekim 2026 çağrısında <code>f</code> alanı <code>CustomerGroupCode</code> reddedildi. <code>CustomerGroupId | 17 | equal</code> <code>ogretmenler</code> grubunu listeledi. Eşleşmeyen e-posta <code>success: true</code>, <code>data: null</code>, <code>totalRecordCount</code> <code>0</code> döner. Boş dönüş kaydın yokluğunu kanıtlamaz. Ayrıntı <a href="/rest/#20-ekim-2026-canlı-çağrı">canlı çağrı</a> bölümündedir.</p>
+<h2 id="customer-getdeletedcustomers"><a class="anchor" href="#customer-getdeletedcustomers" aria-hidden="true">#</a><code>customer/getDeletedCustomers</code></h2>
+<p><code>POST https://magaza.example/rest1/customer/getDeletedCustomers/</code></p>
+<p>Silinen müşterileri uyeler_deleted tablosundan getirir. KVKK uyumluluğu için silinmiş müşteri kayıtlarını izlemek amacıyla kullanılır.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>DeletedDateStart</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Silinme başlangıç tarihi. Örnek: &quot;2024-01-01 00:00:00&quot; veya timestamp</td>
+</tr>
+<tr>
+<td><code>DeletedDateEnd</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Silinme bitiş tarihi. Örnek: &quot;2024-12-31 23:59:59&quot; veya timestamp</td>
+</tr>
+<tr>
+<td><code>start</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Sayfalama için başlangıç indeksi (varsayılan: 0)</td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Getirilecek kayıt sayısı (varsayılan: 100, maksimum: 1000)</td>
+</tr>
+<tr>
+<td><code>columns</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Getirilecek kolonlar (virgülle ayrılmış). Örnek: CustomerId,Email,DeletedAt</td>
+</tr>
+<tr>
+<td><code>search</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Arama kriteri. Format: kolon1,kolon2|arama_terimi. Örnek: Email,FirstName|test</td>
+</tr>
+<tr>
+<td><code>orderby</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Sıralama kriteri. Örnek: DeletedAt|DESC veya CustomerId|ASC</td>
+</tr>
+</tbody></table></div>
+<h2 id="customer-googlecheck-alpha"><a class="anchor" href="#customer-googlecheck-alpha" aria-hidden="true">#</a><code>customer/googleCheck</code> (alpha)</h2>
+<p><code>POST https://magaza.example/rest1/customer/googleCheck/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>id</code>, <code>name</code>, <code>email</code>, <code>gender</code>, <code>picture_url</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;id&quot;: &quot;12345678&quot;,
+    &quot;name&quot;: &quot;kübra&quot;,
+    &quot;email&quot;: &quot;ornek@magaza.example&quot;,
+    &quot;gender&quot;: &quot;&quot;,
+    &quot;picture_url&quot;: &quot;&quot;
+  }
+]</code></pre>
+<h2 id="customer-login"><a class="anchor" href="#customer-login" aria-hidden="true">#</a><code>customer/login</code></h2>
+<p><code>POST https://magaza.example/rest1/customer/login/</code></p>
+<p>Customer ID veya Code alanlarından birinin doldurulması zorunludur.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>customerId</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>customerCode</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>loginRedirectUrl</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="customer-setcustomergroups"><a class="anchor" href="#customer-setcustomergroups" aria-hidden="true">#</a><code>customer/setCustomerGroups</code></h2>
+<p><code>POST https://magaza.example/rest1/customer/setCustomerGroups/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>Code</code>, <code>Name</code>, <code>IsVendor</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;Code&quot;: &quot;&quot;,
+    &quot;Name&quot;: &quot;&quot;,
+    &quot;IsVendor&quot;: &quot;&quot;
+  }
+]</code></pre>
+<p>Postman’da <code>setCustomerGroups</code> adındaki istek bu uca gitmez. <code>customer/setCustomers</code> adresine üye alanları gönderir.</p>
+<h2 id="customer-setcustomers"><a class="anchor" href="#customer-setcustomers" aria-hidden="true">#</a><code>customer/setCustomers</code></h2>
+<p><code>POST https://magaza.example/rest1/customer/setCustomers/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>City yerine CityCode da gönderilebilir.  Town yerine ilçe kodu biliniyorsa TownCode da gönderilebilir.</td>
+</tr>
+<tr>
+<td><code>MatchWithEmail</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td>CustomerCode gönderilmeden bu parametre true olarak gönderilirse eposta ya göre kayıt varsa günceller, yoksa ekleme yapar.</td>
+</tr>
+<tr>
+<td><code>MatchWithMobile</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td>CustomerCode gönderilmeden bu parametre true olarak gönderilirse cep telefonuna(Mobile) göre kayıt varsa günceller, yoksa ekleme yapar.</td>
+</tr>
+<tr>
+<td><code>SearchInArchive</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td>Bu parametre true gönderilirse üyeyi arşiveden kontrol eder arşivde ise arşivde ise orada güncelleme yapar.</td>
+</tr>
+<tr>
+<td><code>SendPasswordResetEmail</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td>Bu parametre true gönderilirse üyeye şifre sıfırlama e-postası gider.</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>CustomerCode</code>, <code>Name</code>, <code>Surname</code>, <code>Email</code>, <code>Password</code>, <code>Gender</code>, <code>Birthdate</code>, <code>Phone</code>, <code>Mobile</code>, <code>OfficePhone</code>, <code>Address</code>, <code>Postcode</code>, <code>City</code>, <code>Town</code>, <code>Country</code>, <code>TaxOffice</code>, <code>TaxNo</code>, <code>CompanyName</code>, <code>IdentityNo</code>, <code>Field1</code>, <code>Field2</code>, <code>Field3</code>, <code>Field4</code>, <code>Field5</code>, <code>Field6</code>, <code>Field7</code>, <code>Field8</code>, <code>Field9</code>, <code>Field10</code>, <code>Field11</code>, <code>Field12</code>, <code>Field13</code>, <code>Field14</code>, <code>Field15</code>, <code>PosMerchantId</code>, <code>Approval</code>, <code>IsEmailNotificationOn</code>, <code>IsSmsNotificationOn</code>, <code>IsPhoneCallNotificationOn</code>, <code>EmailApprovalTime</code>, <code>SmsApprovalTime</code>, <code>PhoneCallApprovalTime</code>, <code>NotificationApprovalIp</code>, <code>SmsNotificationApprovalIp</code>, <code>PhoneNotificationApprovalIp</code>, <code>CustomerGroupCode</code>, <code>RepresentativeCode</code>, <code>Credibility</code>, <code>PayAtDoor</code>, <code>Risked</code>, <code>Banned</code>, <code>PriceField</code>, <code>CargoFree</code>, <code>UtmMedium</code>, <code>UtmSource</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;CustomerCode&quot;: &quot;&quot;,
+    &quot;Name&quot;: &quot;&quot;,
+    &quot;Surname&quot;: &quot;&quot;,
+    &quot;Email&quot;: &quot;&quot;,
+    &quot;Password&quot;: &quot;&quot;,
+    &quot;Gender&quot;: &quot;&quot;,
+    &quot;Birthdate&quot;: &quot;&quot;,
+    &quot;Phone&quot;: &quot;&quot;,
+    &quot;Mobile&quot;: &quot;&quot;,
+    &quot;OfficePhone&quot;: &quot;&quot;,
+    &quot;Address&quot;: &quot;&quot;,
+    &quot;Postcode&quot;: &quot;&quot;,
+    &quot;City&quot;: &quot;&quot;,
+    &quot;Town&quot;: &quot;&quot;,
+    &quot;Country&quot;: &quot;&quot;,
+    &quot;TaxOffice&quot;: &quot;&quot;,
+    &quot;TaxNo&quot;: &quot;&quot;,
+    &quot;CompanyName&quot;: &quot;&quot;,
+    &quot;IdentityNo&quot;: &quot;&quot;,
+    &quot;Field1&quot;: &quot;&quot;,
+    &quot;Field2&quot;: &quot;&quot;,
+    &quot;Field3&quot;: &quot;&quot;,
+    &quot;Field4&quot;: &quot;&quot;,
+    &quot;Field5&quot;: &quot;&quot;,
+    &quot;Field6&quot;: &quot;&quot;,
+    &quot;Field7&quot;: &quot;&quot;,
+    &quot;Field8&quot;: &quot;&quot;,
+    &quot;Field9&quot;: &quot;&quot;,
+    &quot;Field10&quot;: &quot;&quot;,
+    &quot;Field11&quot;: &quot;&quot;,
+    &quot;Field12&quot;: &quot;&quot;,
+    &quot;Field13&quot;: &quot;&quot;,
+    &quot;Field14&quot;: &quot;&quot;,
+    &quot;Field15&quot;: &quot;&quot;,
+    &quot;PosMerchantId&quot;: &quot;&quot;,
+    &quot;Approval&quot;: &quot;&quot;,
+    &quot;IsEmailNotificationOn&quot;: &quot;&quot;,
+    &quot;IsSmsNotificationOn&quot;: &quot;&quot;,
+    &quot;IsPhoneCallNotificationOn&quot;: &quot;&quot;,
+    &quot;EmailApprovalTime&quot;: &quot;&quot;,
+    &quot;SmsApprovalTime&quot;: &quot;&quot;,
+    &quot;PhoneCallApprovalTime&quot;: &quot;&quot;,
+    &quot;NotificationApprovalIp&quot;: &quot;&quot;,
+    &quot;SmsNotificationApprovalIp&quot;: &quot;&quot;,
+    &quot;PhoneNotificationApprovalIp&quot;: &quot;&quot;,
+    &quot;CustomerGroupCode&quot;: &quot;&quot;,
+    &quot;RepresentativeCode&quot;: &quot;&quot;,
+    &quot;Credibility&quot;: &quot;&quot;,
+    &quot;PayAtDoor&quot;: 0,
+    &quot;Risked&quot;: 0,
+    &quot;Banned&quot;: 0,
+    &quot;PriceField&quot;: &quot;&quot;,
+    &quot;CargoFree&quot;: 0,
+    &quot;UtmMedium&quot;: &quot;&quot;,
+    &quot;UtmSource&quot;: &quot;&quot;
+  }
+]</code></pre>
+<p>Postman <code>setCustomer</code> bu uca kurumsal cari yazar. Konsol listesinde olmayan alan <code>CustomerType</code> (<code>KURUMSAL</code>). <code>setCredibility</code> yalnız <code>CustomerCode</code> ve <code>Credibility</code> gönderir. <code>setCustomerGroups</code> adlı istek de bu uca vergi, firma ve grup alanlarını yazar. Gövdeler Postman bölümündedir.</p>
+<p>20 Ekim 2026 çağrısında yalnız <code>CustomerCode</code> ve <code>CustomerGroupCode</code> gönderilen yedi üyenin grubu <code>ogretmenler</code> oldu. Ad, e-posta, cep ve firma ilk okumada değişmedi. Aynı gece altı <code>TZ0</code> üyesine ek olarak <code>CompanyName</code>, <code>Field2</code>, <code>Field3</code> ve <code>Field4</code> yazıldı. Güncelleme kodu <code>CUI001</code>, metin <code>Müşteri başarıyla güncellendi!</code>.</p>
+<h2 id="customer-updatecustomercode"><a class="anchor" href="#customer-updatecustomercode" aria-hidden="true">#</a><code>customer/updateCustomerCode</code></h2>
+<p><code>POST https://magaza.example/rest1/customer/updateCustomerCode/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>CustomerCode</code>, <code>CustomerNewCode</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;CustomerCode&quot;: &quot;T88&quot;,
+    &quot;CustomerNewCode&quot;: &quot;AY37K&quot;
+  }
+]</code></pre>
+<h2 id="customer-updatecustomers"><a class="anchor" href="#customer-updatecustomers" aria-hidden="true">#</a><code>customer/updateCustomers</code></h2>
+<p><code>POST https://magaza.example/rest1/customer/updateCustomers/</code></p>
+<p>City yerine CityCode da gönderilebilir.
+ Town yerine ilçe kodu biliniyorsa TownCode da gönderilebilir.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>IsPasswordEncrypted</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>SetCustomerGroupCodeSessions</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>MatchWithEmail</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td>CustomerCode gönderilmeden bu parametre true olarak gönderilirse eposta ya göre kayıt varsa günceller, yoksa ekleme yapar.</td>
+</tr>
+<tr>
+<td><code>MatchWithMobile</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td>CustomerCode gönderilmeden bu parametre true olarak gönderilirse cep telefonuna(Mobile) göre kayıt varsa günceller, yoksa ekleme yapar.</td>
+</tr>
+<tr>
+<td><code>SearchInArchive</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td>Bu parametre true gönderilirse üyeyi arşiveden kontrol eder arşivde ise arşivde ise orada güncelleme yapar.</td>
+</tr>
+<tr>
+<td><code>SendPasswordResetEmail</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td>Bu parametre true üyeye şifre sıfırlama e-postası gider.</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>CustomerCode</code>, <code>Name</code>, <code>Surname</code>, <code>Email</code>, <code>Password</code>, <code>Gender</code>, <code>Birthdate</code>, <code>Phone</code>, <code>Mobile</code>, <code>Address</code>, <code>Postcode</code>, <code>City</code>, <code>Town</code>, <code>District</code>, <code>CountryCode</code>, <code>Country</code>, <code>TaxOffice</code>, <code>TaxNo</code>, <code>CompanyName</code>, <code>IdentityNo</code>, <code>Field1</code>, <code>Field2</code>, <code>Field3</code>, <code>Field4</code>, <code>Field5</code>, <code>Field6</code>, <code>Field7</code>, <code>Field8</code>, <code>Field9</code>, <code>Field10</code>, <code>Field11</code>, <code>Field12</code>, <code>Field13</code>, <code>Field14</code>, <code>Field15</code>, <code>PosMerchantId</code>, <code>Approval</code>, <code>IsEmailNotificationOn</code>, <code>IsSmsNotificationOn</code>, <code>IsPhoneCallNotificationOn</code>, <code>EmailApprovalTime</code>, <code>SmsApprovalTime</code>, <code>PhoneCallApprovalTime</code>, <code>NotificationApprovalIp</code>, <code>SmsNotificationApprovalIp</code>, <code>PhoneNotificationApprovalIp</code>, <code>CustomerGroupCode</code>, <code>RepresentativeCode</code>, <code>Credibility</code>, <code>PayAtDoor</code>, <code>Risked</code>, <code>Banned</code>, <code>PriceField</code>, <code>CargoFree</code>, <code>UtmMedium</code>, <code>UtmSource</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;CustomerCode&quot;: &quot;&quot;,
+    &quot;Name&quot;: &quot;&quot;,
+    &quot;Surname&quot;: &quot;&quot;,
+    &quot;Email&quot;: &quot;&quot;,
+    &quot;Password&quot;: &quot;&quot;,
+    &quot;Gender&quot;: &quot;&quot;,
+    &quot;Birthdate&quot;: &quot;&quot;,
+    &quot;Phone&quot;: &quot;&quot;,
+    &quot;Mobile&quot;: &quot;&quot;,
+    &quot;Address&quot;: &quot;&quot;,
+    &quot;Postcode&quot;: &quot;&quot;,
+    &quot;City&quot;: &quot;&quot;,
+    &quot;Town&quot;: &quot;&quot;,
+    &quot;District&quot;: &quot;&quot;,
+    &quot;CountryCode&quot;: &quot;&quot;,
+    &quot;Country&quot;: &quot;&quot;,
+    &quot;TaxOffice&quot;: &quot;&quot;,
+    &quot;TaxNo&quot;: &quot;&quot;,
+    &quot;CompanyName&quot;: &quot;&quot;,
+    &quot;IdentityNo&quot;: &quot;&quot;,
+    &quot;Field1&quot;: &quot;&quot;,
+    &quot;Field2&quot;: &quot;&quot;,
+    &quot;Field3&quot;: &quot;&quot;,
+    &quot;Field4&quot;: &quot;&quot;,
+    &quot;Field5&quot;: &quot;&quot;,
+    &quot;Field6&quot;: &quot;&quot;,
+    &quot;Field7&quot;: &quot;&quot;,
+    &quot;Field8&quot;: &quot;&quot;,
+    &quot;Field9&quot;: &quot;&quot;,
+    &quot;Field10&quot;: &quot;&quot;,
+    &quot;Field11&quot;: &quot;&quot;,
+    &quot;Field12&quot;: &quot;&quot;,
+    &quot;Field13&quot;: &quot;&quot;,
+    &quot;Field14&quot;: &quot;&quot;,
+    &quot;Field15&quot;: &quot;&quot;,
+    &quot;PosMerchantId&quot;: &quot;&quot;,
+    &quot;Approval&quot;: &quot;&quot;,
+    &quot;IsEmailNotificationOn&quot;: &quot;&quot;,
+    &quot;IsSmsNotificationOn&quot;: &quot;&quot;,
+    &quot;IsPhoneCallNotificationOn&quot;: &quot;&quot;,
+    &quot;EmailApprovalTime&quot;: &quot;&quot;,
+    &quot;SmsApprovalTime&quot;: &quot;&quot;,
+    &quot;PhoneCallApprovalTime&quot;: &quot;&quot;,
+    &quot;NotificationApprovalIp&quot;: &quot;&quot;,
+    &quot;SmsNotificationApprovalIp&quot;: &quot;&quot;,
+    &quot;PhoneNotificationApprovalIp&quot;: &quot;&quot;,
+    &quot;CustomerGroupCode&quot;: &quot;&quot;,
+    &quot;RepresentativeCode&quot;: &quot;&quot;,
+    &quot;Credibility&quot;: &quot;&quot;,
+    &quot;PayAtDoor&quot;: 0,
+    &quot;Risked&quot;: 0,
+    &quot;Banned&quot;: 0,
+    &quot;PriceField&quot;: &quot;&quot;,
+    &quot;CargoFree&quot;: 0,
+    &quot;UtmMedium&quot;: &quot;&quot;,
+    &quot;UtmSource&quot;: &quot;&quot;
+  }
+]</code></pre>
+<h2 id="customer-setwishlist"><a class="anchor" href="#customer-setwishlist" aria-hidden="true">#</a><code>customer/setWishList</code></h2>
+<p><code>POST https://magaza.example/rest1/customer/setWishList/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>ProductId yerine ProductCode, SubProductId yerine SubProductCode ve CustomerId yerine CustomerCode gönderilebilir.</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>ListCategoryId</code>, <code>ProductId</code>, <code>SubProductId</code>, <code>CustomerId</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;ListCategoryId&quot;: 3,
+    &quot;ProductId&quot;: 608,
+    &quot;SubProductId&quot;: 0,
+    &quot;CustomerId&quot;: 213
+  }
+]</code></pre>
+<h2 id="customer-getwishlist"><a class="anchor" href="#customer-getwishlist" aria-hidden="true">#</a><code>customer/getWishList</code></h2>
+<p><code>POST https://magaza.example/rest1/customer/getWishList/</code></p>
+<p>Konsol bu metot için ek parametre listelemiyor. <code>token</code> yine gönderilir.</p>
+<h2 id="customer-getwishlistcategories"><a class="anchor" href="#customer-getwishlistcategories" aria-hidden="true">#</a><code>customer/getWishListCategories</code></h2>
+<p><code>POST https://magaza.example/rest1/customer/getWishListCategories/</code></p>
+<p>Konsol bu metot için ek parametre listelemiyor. <code>token</code> yine gönderilir.</p>
+<h2 id="customer-getfields"><a class="anchor" href="#customer-getfields" aria-hidden="true">#</a><code>customer/getFields</code></h2>
+<p><code>POST https://magaza.example/rest1/customer/getFields/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Type</code></td>
+<td>url_param</td>
+<td>text</td>
+<td>hayır</td>
+<td>İzin Veriler Tipler    - YeniKayıt =&gt; MemberRegister    - BayiKayit =&gt; VendorRegister    - Duzenle =&gt; Update</td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>İzin Veriler Tipler =&gt; mobile_app, web</td>
+</tr>
+</tbody></table></div>
+<h2 id="customer-deletecustomer"><a class="anchor" href="#customer-deletecustomer" aria-hidden="true">#</a><code>customer/deleteCustomer</code></h2>
+<p><code>POST https://magaza.example/rest1/customer/deleteCustomer/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerIds</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Üye id leri aralara - eklenerek gönderilebilir.   Örnek CustomerIds=100-150</td>
+</tr>
+<tr>
+<td><code>CustomerCodes</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Üye kodları leri aralara &#39;Rest Web Servis Ayraç Karakteri&#39; eklenerek gönderilebilir. (Ayarın Varsayılan değeri : &#39;|&#39;)   Örnek CustomerCodes=T100-T150</td>
+</tr>
+</tbody></table></div>
+<h2 id="customer-unarchive"><a class="anchor" href="#customer-unarchive" aria-hidden="true">#</a><code>customer/unArchive</code></h2>
+<p><code>POST https://magaza.example/rest1/customer/unArchive/</code></p>
+<p>Üye veya üyeleri arşivden geri döndermek için kullanılır</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerIds</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>CustomerIds veya CustomerCodes parametrelerinden bir tanesi gönderilmelidir. Çoklu gönderim yapılabilir. Örnek : 127|128</td>
+</tr>
+<tr>
+<td><code>CustomerCodes</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>CustomerIds veya CustomerCodes parametrelerinden bir tanesi gönderilmelidir. Çoklu gönderim yapılabilir. Örnek : T127|T128</td>
+</tr>
+</tbody></table></div>
+<h2 id="customer-archive"><a class="anchor" href="#customer-archive" aria-hidden="true">#</a><code>customer/archive</code></h2>
+<p><code>POST https://magaza.example/rest1/customer/archive/</code></p>
+<p>Üye veya üyeleri arşive eklemek için kullanılır</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerIds</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>CustomerIds veya CustomerCodes parametrelerinden bir tanesi gönderilmelidir. Çoklu gönderim yapılabilir. Örnek : 127|128</td>
+</tr>
+<tr>
+<td><code>CustomerCodes</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>CustomerIds veya CustomerCodes parametrelerinden bir tanesi gönderilmelidir. Çoklu gönderim yapılabilir. Örnek : T127|T128</td>
+</tr>
+</tbody></table></div>
+<h2 id="customer-gettax"><a class="anchor" href="#customer-gettax" aria-hidden="true">#</a><code>customer/getTax</code></h2>
+<p><code>POST https://magaza.example/rest1/customer/getTax/</code></p>
+<p>Vergi Daireleri getirmek için kullanılır</p>
+<p>Konsol bu metot için ek parametre listelemiyor. <code>token</code> yine gönderilir.</p>
+<h2 id="customer-getservices"><a class="anchor" href="#customer-getservices" aria-hidden="true">#</a><code>customer/getServices</code></h2>
+<p><code>POST https://magaza.example/rest1/customer/getServices/</code></p>
+<p>Müşteri Hizmetleri</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Language</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>start</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>f</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>orderby</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="customer-setservices"><a class="anchor" href="#customer-setservices" aria-hidden="true">#</a><code>customer/setServices</code></h2>
+<p><code>POST https://magaza.example/rest1/customer/setServices/</code></p>
+<p>Müşteri Hizmetleri</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>Id girilmediği durumda oluşturma yapmaktadır. Id değeri ile güncelleme yapılabilir. Oluşturma işlemleri sırasında CategoryId zorunludur. CategoryId için getServiceCategories&#39;e istek atılır.</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>Id</code>, <code>Title</code>, <code>Description</code>, <code>CategoryId</code>, <code>Status</code>, <code>ListNo</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;Id&quot;: &quot;&quot;,
+    &quot;Title&quot;: &quot;Yeni Müşteri Hizmet&quot;,
+    &quot;Description&quot;: &quot;Yeni Müşteri Hizmet Açıklama&quot;,
+    &quot;CategoryId&quot;: &quot;&quot;,
+    &quot;Status&quot;: 1,
+    &quot;ListNo&quot;: &quot;999&quot;
+  }
+]</code></pre>
+<h2 id="customer-getservicecategories"><a class="anchor" href="#customer-getservicecategories" aria-hidden="true">#</a><code>customer/getServiceCategories</code></h2>
+<p><code>POST https://magaza.example/rest1/customer/getServiceCategories/</code></p>
+<p>Müşteri Hizmetleri Kategorileri</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Language</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>start</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>f</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>orderby</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="customer-setservicecategories"><a class="anchor" href="#customer-setservicecategories" aria-hidden="true">#</a><code>customer/setServiceCategories</code></h2>
+<p><code>POST https://magaza.example/rest1/customer/setServiceCategories/</code></p>
+<p>Müşteri Hizmetleri Kategorileri</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>Id girilmediği durumda oluşturma yapmaktadır. Id değeri ile güncelleme yapılabilir.</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>Id</code>, <code>Name</code>, <code>Link</code>, <code>IsVisible</code>, <code>ListNo</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;Id&quot;: &quot;&quot;,
+    &quot;Name&quot;: &quot;Yeni Kategori&quot;,
+    &quot;Link&quot;: &quot;yeni-kategori&quot;,
+    &quot;IsVisible&quot;: 1,
+    &quot;ListNo&quot;: &quot;999&quot;
+  }
+]</code></pre>
+
+</article>
+<nav class="pager" aria-label="Sayfa geçişi"><a class="prev" href="/rest/auth/"><span>← Önceki</span>Auth</a><a class="next" href="/rest/product/"><span>Sonraki →</span>Product</a></nav>
+<footer class="page-foot"><a href="https://github.com/bahadirdogru/tsoft-documentation-examples/edit/main/content/rest/customer.md">GitHub'da düzenle</a> · <a href="/rest/customer.md">Markdown</a> · <a href="/llms.txt">llms.txt</a> · Topluluk belgesidir, T-Soft’un resmî yayını değildir.</footer>
+</main>
+<nav class="toc" aria-label="Bu sayfada"><div class="toc-title">Bu sayfada</div><ul><li class="l2"><a href="#customer-addcustomers">customer/addCustomers</a></li><li class="l2"><a href="#customer-address">customer/address</a></li><li class="l2"><a href="#customer-getaddress">customer/getAddress</a></li><li class="l2"><a href="#customer-check">customer/check</a></li><li class="l2"><a href="#customer-deleteaddress">customer/deleteAddress</a></li><li class="l2"><a href="#customer-facebookcheck-alpha">customer/facebookCheck (alpha)</a></li><li class="l2"><a href="#customer-applecheck-alpha">customer/appleCheck (alpha)</a></li><li class="l2"><a href="#customer-forgotpassword">customer/forgotPassword</a></li><li class="l2"><a href="#customer-forgotpasswordotpreset">customer/forgotPasswordOtpReset</a></li><li class="l2"><a href="#customer-getcart">customer/getCart</a></li><li class="l2"><a href="#customer-getcustomerbycode">customer/getCustomerByCode</a></li><li class="l2"><a href="#customer-getcustomerbyid">customer/getCustomerById</a></li><li class="l2"><a href="#customer-getcustomersbyphone-beta">customer/getCustomersByPhone (beta)</a></li><li class="l2"><a href="#customer-getcustomergroups">customer/getCustomerGroups</a></li><li class="l2"><a href="#customer-getcustomers">customer/getCustomers</a></li><li class="l2"><a href="#customer-getdeletedcustomers">customer/getDeletedCustomers</a></li><li class="l2"><a href="#customer-googlecheck-alpha">customer/googleCheck (alpha)</a></li><li class="l2"><a href="#customer-login">customer/login</a></li><li class="l2"><a href="#customer-setcustomergroups">customer/setCustomerGroups</a></li><li class="l2"><a href="#customer-setcustomers">customer/setCustomers</a></li><li class="l2"><a href="#customer-updatecustomercode">customer/updateCustomerCode</a></li><li class="l2"><a href="#customer-updatecustomers">customer/updateCustomers</a></li><li class="l2"><a href="#customer-setwishlist">customer/setWishList</a></li><li class="l2"><a href="#customer-getwishlist">customer/getWishList</a></li><li class="l2"><a href="#customer-getwishlistcategories">customer/getWishListCategories</a></li><li class="l2"><a href="#customer-getfields">customer/getFields</a></li><li class="l2"><a href="#customer-deletecustomer">customer/deleteCustomer</a></li><li class="l2"><a href="#customer-unarchive">customer/unArchive</a></li><li class="l2"><a href="#customer-archive">customer/archive</a></li><li class="l2"><a href="#customer-gettax">customer/getTax</a></li><li class="l2"><a href="#customer-getservices">customer/getServices</a></li><li class="l2"><a href="#customer-setservices">customer/setServices</a></li><li class="l2"><a href="#customer-getservicecategories">customer/getServiceCategories</a></li><li class="l2"><a href="#customer-setservicecategories">customer/setServiceCategories</a></li></ul></nav>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/twig.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/http.min.js"></script>
+<script src="/assets/site.js"></script>
+</body>
+</html>

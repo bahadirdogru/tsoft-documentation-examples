@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alt blok · T-Soft Dokümantasyonu</title>
+<meta name="description" content="T-Soft e-ticaret altyapısı için REST1 web servisi, Admin API v3, uygulama platformu, Storefront API ve Twig/Smarty tema kodlama başvuru dokümantasyonu. İnsanlar ve LLM'ler için.">
+<link rel="canonical" href="https://tsoft.bahadirdogru.com/theme/bloklar/alt/">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%231f6feb%22%2F%3E%3Cpath%20d%3D%22M8%209h16v3.2h-6.4V23h-3.2V12.2H8z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E">
+<meta property="og:title" content="Alt blok">
+<meta property="og:description" content="T-Soft e-ticaret altyapısı için REST1 web servisi, Admin API v3, uygulama platformu, Storefront API ve Twig/Smarty tema kodlama başvuru dokümantasyonu. İnsanlar ve LLM'ler için.">
+<meta property="og:url" content="https://tsoft.bahadirdogru.com/theme/bloklar/alt/">
+<meta property="og:type" content="website">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" media="(prefers-color-scheme: light)" id="hl-light">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" media="(prefers-color-scheme: dark)" id="hl-dark">
+</head>
+<body>
+<a class="skip" href="#main">İçeriğe geç</a>
+<header class="top">
+  <button class="menu-btn" aria-label="Menü" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="/"><svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><path d="M8 9h16v3.2h-6.4V23h-3.2V12.2H8z" fill="var(--bg)"/></svg><span>T-Soft Dokümantasyonu</span></a>
+  <div class="search">
+    <input id="q" type="search" placeholder="Ara: metot, uç, değişken, sayfa…  ( / )" autocomplete="off" aria-label="Ara">
+    <ul id="results" role="listbox" hidden></ul>
+  </div>
+  <button class="theme-btn" aria-label="Tema değiştir" title="Tema değiştir">◐</button>
+</header>
+<div class="layout">
+<aside id="sidebar" class="sidebar"><details class="nav-sec" open><summary>Başlangıç <span class="count">3</span></summary><ul><li><a href="/">Ana sayfa</a></li><li><a href="/rehber/">Hangi yüzey?</a></li><li><a href="/llm/">LLM ve ajanlar için</a></li></ul></details><details class="nav-sec" open><summary>Platform <span class="count">4</span></summary><ul><li><a href="/developer/">Platform haritası</a></li><li><a href="/developer/baslarken/">Başlarken</a></li><li><a href="/developer/uygulama/">Uygulama geliştirme</a></li><li><a href="/developer/storefront-api/">Storefront API</a></li></ul></details><details class="nav-sec" open><summary>Tema <span class="count">2</span></summary><ul><li><a href="/developer/tema/">Tema motoru (Twig)</a></li><li><a href="/theme/">Eski tema (Smarty)</a></li></ul></details><details class="nav-sec" open><summary>REST1 <span class="count">2</span></summary><ul><li><a href="/rest/">Genel bakış</a></li><li><a href="/rest/hatalar/">Hatalar ve mesaj kodları</a></li></ul></details><details class="nav-sec"><summary>REST1 modülleri <span class="count">38</span></summary><ul><li><a href="/rest/auth/">Auth</a></li><li><a href="/rest/customer/">Customer</a></li><li><a href="/rest/product/">Product</a></li><li><a href="/rest/subproduct/">SubProduct</a></li><li><a href="/rest/category/">Category</a></li><li><a href="/rest/brand/">Brand</a></li><li><a href="/rest/model/">Model</a></li><li><a href="/rest/filter/">Filter</a></li><li><a href="/rest/catalog/">Catalog</a></li><li><a href="/rest/order/">Order</a></li><li><a href="/rest/order2/">Order2</a></li><li><a href="/rest/cart/">Cart</a></li><li><a href="/rest/campaign/">Campaign</a></li><li><a href="/rest/payment/">Payment</a></li><li><a href="/rest/fundmovement/">FundMovement</a></li><li><a href="/rest/point/">Point</a></li><li><a href="/rest/segment/">Segment</a></li><li><a href="/rest/supplier/">Supplier</a></li><li><a href="/rest/branchoffice/">BranchOffice</a></li><li><a href="/rest/content/">Content</a></li><li><a href="/rest/news/">News</a></li><li><a href="/rest/showcase/">Showcase</a></li><li><a href="/rest/htmlblock/">HtmlBlock</a></li><li><a href="/rest/widget/">Widget</a></li><li><a href="/rest/link/">Link</a></li><li><a href="/rest/personalization/">Personalization</a></li><li><a href="/rest/trackingcode/">TrackingCode</a></li><li><a href="/rest/ticket/">Ticket</a></li><li><a href="/rest/user/">User</a></li><li><a href="/rest/setting/">Setting</a></li><li><a href="/rest/notification/">Notification</a></li><li><a href="/rest/mobile/">Mobile</a></li><li><a href="/rest/platform/">Platform</a></li><li><a href="/rest/cargo/">Cargo</a></li><li><a href="/rest/adapter/">Adapter</a></li><li><a href="/rest/hopi/">Hopi</a></li><li><a href="/rest/zubizu/">Zubizu</a></li><li><a href="/rest/routing/">Routing</a></li></ul></details><details class="nav-sec" open><summary>Admin API v3 <span class="count">3</span></summary><ul><li><a href="/admin-api/">Genel bakış</a></li><li><a href="/admin-api/uclar/">Uç listesi</a></li><li><a href="/admin-api/odeme-bildirimi/">Ödeme bildirimi</a></li></ul></details><details class="nav-sec"><summary>Örnek kod <span class="count">5</span></summary><ul><li><a href="/examples/python/tsoft_client/">Python istemci</a></li><li><a href="/examples/python/add_customer/">Üye ekleme</a></li><li><a href="/examples/python/check_group_price/">Grup fiyatı</a></li><li><a href="/examples/python/env/">Ortam değişkenleri</a></li><li><a href="/examples/apps-script/code/">Apps Script</a></li></ul></details><details class="nav-sec" open><summary>Eski tema blokları <span class="count">18</span></summary><ul><li><a href="/theme/bloklar/ust/">Üst blok</a></li><li><a href="/theme/bloklar/alt/" aria-current="page">Alt blok</a></li><li><a href="/theme/bloklar/yeni-urunler/">Yeni ürünler</a></li><li><a href="/theme/bloklar/kategori-menusu/">Kategori menüsü</a></li><li><a href="/theme/bloklar/kategori-listesi/">Kategori listesi</a></li><li><a href="/theme/bloklar/home-banner/">Ana sayfa banner</a></li><li><a href="/theme/bloklar/home-sale/">Ana sayfa indirim</a></li><li><a href="/theme/bloklar/haberler/">Haberler</a></li><li><a href="/theme/bloklar/benzer-urunler/">Benzer ürünler</a></li><li><a href="/theme/bloklar/model-listesi/">Model listesi</a></li><li><a href="/theme/bloklar/marka-listesi/">Marka listesi</a></li><li><a href="/theme/bloklar/parca-toplama-sihirbazi/">Parça toplama sihirbazı</a></li><li><a href="/theme/bloklar/tedarikci-listesi/">Tedarikçi listesi</a></li><li><a href="/theme/bloklar/firsat-urunleri/">Fırsat ürünleri</a></li><li><a href="/theme/bloklar/ayin-yazari/">Ayın yazarı</a></li><li><a href="/theme/bloklar/gelecek-firsat-urun-listesi/">Gelecek fırsatlar</a></li><li><a href="/theme/bloklar/sss/">SSS</a></li><li><a href="/theme/bloklar/gorsel-vitrin/">Görsel vitrin</a></li></ul></details><details class="nav-sec"><summary>Eski tema değişkenleri <span class="count">5</span></summary><ul><li><a href="/theme/degiskenler/tsoft-product-varriables/">Ürün değişkenleri</a></li><li><a href="/theme/degiskenler/tsoft-header-page-links-varriable/">Sayfa linkleri</a></li><li><a href="/theme/degiskenler/tsoft-header-tabs-varriable/">Üst sekmeler</a></li><li><a href="/theme/degiskenler/tsoft-footer-menu-varriables/">Alt menü</a></li><li><a href="/theme/degiskenler/tsoft-left-right-category-varriables/">Sol ve sağ kategori</a></li></ul></details><details class="nav-sec"><summary>Eski tema şablonları <span class="count">5</span></summary><ul><li><a href="/theme/snippets/bayi-mi-degil-mi/">Bayi hesabı koşulu</a></li><li><a href="/theme/orta/user_bayipanel/">Bayi paneli</a></li><li><a href="/theme/orta/user_bayigirisplasiyer/">Bayi giriş plasiyer</a></li><li><a href="/theme/orta/user_v4tpl/">V4 şablon</a></li><li><a href="/theme/UstAlt/user_tasarimyenimenu/">Tasarım yeni menü</a></li></ul></details></aside>
+<main id="main" class="content">
+<nav class="crumbs" aria-label="Konum"><a href="/">Ana sayfa</a> <span>/</span> <a href="/theme/">Eski tema (Smarty)</a></nav>
+<article>
+<h1 id="alt-blok"><a class="anchor" href="#alt-blok" aria-hidden="true">#</a>Alt blok</h1>
+<p>Dosya: <code>theme/bloklar/alt.html</code> · <a href="/theme/bloklar/alt.html">Ham dosya</a> · Smarty</p>
+<pre><code class="language-xml">&lt;script type=&quot;text/javascript&quot;&gt;
+    $(document).ready(function () {
+        $('#footerMiddle h3').click(function () {
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+                $(this).toggleClass('active');
+                $(this).next('div').slideToggle();
+            }
+        });
+        $('#tsoft-ecommerce-systems').remove();
+    });
+&lt;/script&gt;
+&lt;div id=&quot;footerTop&quot; class=&quot;col col-12&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;inner&quot;&gt;
+            &lt;div class=&quot;box col-ml-1 musHiz footerTopOther&quot;&gt;
+                &lt;span&gt;Müşteri Hizmetleri&lt;/span&gt;&lt;br /&gt;
+                &lt;span&gt;
+                    &lt;strong style=&quot;display: flex; color: #27306c&quot;&gt;+90 212 514&amp;nbsp;
+                            &lt;div class=&quot;slidingVertical&quot; style=&quot;color: #e3682a;&quot;&gt;
+                                &lt;span style=&quot;font-size: 27px; font-weight: bold;&quot;&gt;28 28&lt;/span&gt;
+                                &lt;span&gt;28 28&lt;/span&gt;
+                                &lt;span&gt;28 28&lt;/span&gt;
+                                &lt;span&gt;28 28&lt;/span&gt;
+                            &lt;/div&gt;
+                            &lt;strong style=&quot;visibility: hidden;&quot;&gt;KİTAPP&lt;/strong&gt;
+                    &lt;/strong&gt;
+                
+                &lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;box col-ml-1 destek footerTopOther&quot;&gt;
+                &lt;span&gt;Mail Destek&lt;/span&gt;&lt;br /&gt;
+                &lt;span style=&quot;color: #27306c;&quot;&gt;ornek@magaza.example&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div id=&quot;social&quot; class=&quot;col fr col-sm-12&quot;&gt;
+                &lt;ul&gt;
+                    {foreach $SOCIAL_ICONS as $ICON}
+                        &lt;li&gt;
+                            &lt;a href=&quot;{$ICON.URL}&quot; rel=&quot;nofollow&quot; data-target=&quot;blank&quot;&gt;
+                                &lt;img src=&quot;{$ICON.IMAGE}&quot; alt=&quot;Sosyal Medya - {$ICON.NUMBER}&quot; /&gt;
+                            &lt;/a&gt;
+                        &lt;/li&gt;
+                    {/foreach}
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;footerMiddle&quot; class=&quot;col col-12&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;inner&quot;&gt;
+            {foreach $MENU as $M}
+                &lt;div class=&quot;col col-2 col-md-4 col-sm-12&quot;&gt;
+                    &lt;ul class=&quot;fl col-12&quot;&gt;
+                        &lt;li class=&quot;col-sm-12&quot;&gt;
+                            &lt;h3 class=&quot;ease&quot;&gt;{$M.NAME}&lt;/h3&gt;
+                            &lt;div class=&quot;fl col-12&quot;&gt;
+                                &lt;ul class=&quot;fl col-12&quot;&gt;
+                                    {foreach $M.CHILDREN as $CHILD}
+                                        &lt;li class=&quot;col-sm-12&quot;&gt;
+                                            &lt;a href=&quot;{$CHILD.URL}&quot;{if $CHILD.IS_TARGET_BLANK} data-target=&quot;blank&quot;{/if}&gt;{$CHILD.NAME}&lt;/a&gt;
+                                        &lt;/li&gt;
+                                    {/foreach}
+                                &lt;/ul&gt;
+                            &lt;/div&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            {/foreach}
+            &lt;div class=&quot;col col-4 col-sm-12 newsletter&quot;&gt;
+                &lt;h3&gt;{#newsletter_title#}&lt;/h3&gt;
+                &lt;div class=&quot;fl col-12&quot;&gt;
+                    &lt;p&gt;{#newsletter_description#}&lt;/p&gt;
+                    &lt;div class=&quot;newsletterMain col col-12&quot;&gt;
+                        &lt;div class=&quot;row input-icon tooltipWrapper&quot;&gt;
+                            &lt;input type=&quot;text&quot; class=&quot;sub-email&quot; class=&quot;box&quot; placeholder=&quot;{#enter_mail#}&quot; /&gt;
+                            &lt;input type=&quot;button&quot; class=&quot;subscribe&quot; value=&quot;ABONE OL&quot; id=&quot;newsletterBtn&quot; /&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;footerBottom&quot; class=&quot;col col-12&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;inner&quot;&gt;
+            &lt;div id=&quot;footerSecurity&quot; class=&quot;col col-6 col-sm-12&quot;&gt;
+                &lt;img src=&quot;/Data/EditorFiles/site-alt-kisim/verified-by-visa.png&quot; alt=&quot;Verified by Visa&quot; /&gt;
+                &lt;img src=&quot;/Data/EditorFiles/site-alt-kisim/master-secure-code.png&quot; alt=&quot;Master SecureCODE&quot; /&gt;
+                &lt;img src=&quot;/Data/EditorFiles/site-alt-kisim/rapid-ssl.png&quot; alt=&quot;Rapid SSL&quot; /&gt;
+                &lt;img src=&quot;/Data/EditorFiles/site-alt-kisim/chip-and-pin.png&quot; alt=&quot;Chip &amp; Pin&quot; /&gt;
+            &lt;/div&gt;
+            &lt;div id=&quot;footerCards&quot; class=&quot;col col-6 col-sm-12&quot;&gt;
+                &lt;img src=&quot;/Data/EditorFiles/site-alt-kisim/world.png&quot; alt=&quot;World&quot; /&gt;
+                &lt;img src=&quot;/Data/EditorFiles/site-alt-kisim/axess.png&quot; alt=&quot;Axess&quot; /&gt;
+                &lt;img src=&quot;/Data/EditorFiles/site-alt-kisim/maximum.png&quot; alt=&quot;Maximum&quot; /&gt;
+                &lt;img src=&quot;/Data/EditorFiles/site-alt-kisim/bonus.png&quot; alt=&quot;Bonus&quot; /&gt;
+                &lt;img src=&quot;/Data/EditorFiles/site-alt-kisim/advantage.png&quot; alt=&quot;Advantage&quot; /&gt;
+                &lt;img src=&quot;/Data/EditorFiles/site-alt-kisim/paraf.png&quot; alt=&quot;Paraf&quot; /&gt;
+                &lt;img src=&quot;/Data/EditorFiles/site-alt-kisim/visa.png&quot; alt=&quot;Visa&quot; /&gt;
+                &lt;img src=&quot;/Data/EditorFiles/site-alt-kisim/master-card.png&quot; alt=&quot;Master Card&quot; /&gt;
+                &lt;img src=&quot;/Data/EditorFiles/site-alt-kisim/paypal.png&quot; alt=&quot;PayPal&quot; /&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+</article>
+<nav class="pager" aria-label="Sayfa geçişi"><a class="prev" href="/theme/bloklar/ust/"><span>← Önceki</span>Üst blok</a><a class="next" href="/theme/bloklar/yeni-urunler/"><span>Sonraki →</span>Yeni ürünler</a></nav>
+<footer class="page-foot"><a href="https://github.com/bahadirdogru/tsoft-documentation-examples/edit/main/content/theme/bloklar/alt.html">GitHub'da düzenle</a> · <a href="/theme/bloklar/alt.html">Ham dosya</a> · <a href="/llms.txt">llms.txt</a> · Topluluk belgesidir, T-Soft’un resmî yayını değildir.</footer>
+</main>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/twig.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/http.min.js"></script>
+<script src="/assets/site.js"></script>
+</body>
+</html>

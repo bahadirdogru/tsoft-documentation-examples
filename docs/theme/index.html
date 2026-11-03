@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eski tema (Smarty) · T-Soft Dokümantasyonu</title>
+<meta name="description" content="Smarty sözdizimi, blok değişkenleri, ürün alanları, blok kataloğu">
+<link rel="canonical" href="https://tsoft.bahadirdogru.com/theme/">
+<link rel="alternate" type="text/markdown" href="/theme.md" title="Markdown">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%231f6feb%22%2F%3E%3Cpath%20d%3D%22M8%209h16v3.2h-6.4V23h-3.2V12.2H8z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E">
+<meta property="og:title" content="Eski tema (Smarty)">
+<meta property="og:description" content="Smarty sözdizimi, blok değişkenleri, ürün alanları, blok kataloğu">
+<meta property="og:url" content="https://tsoft.bahadirdogru.com/theme/">
+<meta property="og:type" content="website">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" media="(prefers-color-scheme: light)" id="hl-light">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" media="(prefers-color-scheme: dark)" id="hl-dark">
+</head>
+<body>
+<a class="skip" href="#main">İçeriğe geç</a>
+<header class="top">
+  <button class="menu-btn" aria-label="Menü" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="/"><svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><path d="M8 9h16v3.2h-6.4V23h-3.2V12.2H8z" fill="var(--bg)"/></svg><span>T-Soft Dokümantasyonu</span></a>
+  <div class="search">
+    <input id="q" type="search" placeholder="Ara: metot, uç, değişken, sayfa…  ( / )" autocomplete="off" aria-label="Ara">
+    <ul id="results" role="listbox" hidden></ul>
+  </div>
+  <button class="theme-btn" aria-label="Tema değiştir" title="Tema değiştir">◐</button>
+</header>
+<div class="layout">
+<aside id="sidebar" class="sidebar"><details class="nav-sec" open><summary>Başlangıç <span class="count">3</span></summary><ul><li><a href="/">Ana sayfa</a></li><li><a href="/rehber/">Hangi yüzey?</a></li><li><a href="/llm/">LLM ve ajanlar için</a></li></ul></details><details class="nav-sec" open><summary>Platform <span class="count">4</span></summary><ul><li><a href="/developer/">Platform haritası</a></li><li><a href="/developer/baslarken/">Başlarken</a></li><li><a href="/developer/uygulama/">Uygulama geliştirme</a></li><li><a href="/developer/storefront-api/">Storefront API</a></li></ul></details><details class="nav-sec" open><summary>Tema <span class="count">2</span></summary><ul><li><a href="/developer/tema/">Tema motoru (Twig)</a></li><li><a href="/theme/" aria-current="page">Eski tema (Smarty)</a></li></ul></details><details class="nav-sec" open><summary>REST1 <span class="count">2</span></summary><ul><li><a href="/rest/">Genel bakış</a></li><li><a href="/rest/hatalar/">Hatalar ve mesaj kodları</a></li></ul></details><details class="nav-sec"><summary>REST1 modülleri <span class="count">38</span></summary><ul><li><a href="/rest/auth/">Auth</a></li><li><a href="/rest/customer/">Customer</a></li><li><a href="/rest/product/">Product</a></li><li><a href="/rest/subproduct/">SubProduct</a></li><li><a href="/rest/category/">Category</a></li><li><a href="/rest/brand/">Brand</a></li><li><a href="/rest/model/">Model</a></li><li><a href="/rest/filter/">Filter</a></li><li><a href="/rest/catalog/">Catalog</a></li><li><a href="/rest/order/">Order</a></li><li><a href="/rest/order2/">Order2</a></li><li><a href="/rest/cart/">Cart</a></li><li><a href="/rest/campaign/">Campaign</a></li><li><a href="/rest/payment/">Payment</a></li><li><a href="/rest/fundmovement/">FundMovement</a></li><li><a href="/rest/point/">Point</a></li><li><a href="/rest/segment/">Segment</a></li><li><a href="/rest/supplier/">Supplier</a></li><li><a href="/rest/branchoffice/">BranchOffice</a></li><li><a href="/rest/content/">Content</a></li><li><a href="/rest/news/">News</a></li><li><a href="/rest/showcase/">Showcase</a></li><li><a href="/rest/htmlblock/">HtmlBlock</a></li><li><a href="/rest/widget/">Widget</a></li><li><a href="/rest/link/">Link</a></li><li><a href="/rest/personalization/">Personalization</a></li><li><a href="/rest/trackingcode/">TrackingCode</a></li><li><a href="/rest/ticket/">Ticket</a></li><li><a href="/rest/user/">User</a></li><li><a href="/rest/setting/">Setting</a></li><li><a href="/rest/notification/">Notification</a></li><li><a href="/rest/mobile/">Mobile</a></li><li><a href="/rest/platform/">Platform</a></li><li><a href="/rest/cargo/">Cargo</a></li><li><a href="/rest/adapter/">Adapter</a></li><li><a href="/rest/hopi/">Hopi</a></li><li><a href="/rest/zubizu/">Zubizu</a></li><li><a href="/rest/routing/">Routing</a></li></ul></details><details class="nav-sec" open><summary>Admin API v3 <span class="count">3</span></summary><ul><li><a href="/admin-api/">Genel bakış</a></li><li><a href="/admin-api/uclar/">Uç listesi</a></li><li><a href="/admin-api/odeme-bildirimi/">Ödeme bildirimi</a></li></ul></details><details class="nav-sec"><summary>Örnek kod <span class="count">5</span></summary><ul><li><a href="/examples/python/tsoft_client/">Python istemci</a></li><li><a href="/examples/python/add_customer/">Üye ekleme</a></li><li><a href="/examples/python/check_group_price/">Grup fiyatı</a></li><li><a href="/examples/python/env/">Ortam değişkenleri</a></li><li><a href="/examples/apps-script/code/">Apps Script</a></li></ul></details><details class="nav-sec"><summary>Eski tema blokları <span class="count">18</span></summary><ul><li><a href="/theme/bloklar/ust/">Üst blok</a></li><li><a href="/theme/bloklar/alt/">Alt blok</a></li><li><a href="/theme/bloklar/yeni-urunler/">Yeni ürünler</a></li><li><a href="/theme/bloklar/kategori-menusu/">Kategori menüsü</a></li><li><a href="/theme/bloklar/kategori-listesi/">Kategori listesi</a></li><li><a href="/theme/bloklar/home-banner/">Ana sayfa banner</a></li><li><a href="/theme/bloklar/home-sale/">Ana sayfa indirim</a></li><li><a href="/theme/bloklar/haberler/">Haberler</a></li><li><a href="/theme/bloklar/benzer-urunler/">Benzer ürünler</a></li><li><a href="/theme/bloklar/model-listesi/">Model listesi</a></li><li><a href="/theme/bloklar/marka-listesi/">Marka listesi</a></li><li><a href="/theme/bloklar/parca-toplama-sihirbazi/">Parça toplama sihirbazı</a></li><li><a href="/theme/bloklar/tedarikci-listesi/">Tedarikçi listesi</a></li><li><a href="/theme/bloklar/firsat-urunleri/">Fırsat ürünleri</a></li><li><a href="/theme/bloklar/ayin-yazari/">Ayın yazarı</a></li><li><a href="/theme/bloklar/gelecek-firsat-urun-listesi/">Gelecek fırsatlar</a></li><li><a href="/theme/bloklar/sss/">SSS</a></li><li><a href="/theme/bloklar/gorsel-vitrin/">Görsel vitrin</a></li></ul></details><details class="nav-sec"><summary>Eski tema değişkenleri <span class="count">5</span></summary><ul><li><a href="/theme/degiskenler/tsoft-product-varriables/">Ürün değişkenleri</a></li><li><a href="/theme/degiskenler/tsoft-header-page-links-varriable/">Sayfa linkleri</a></li><li><a href="/theme/degiskenler/tsoft-header-tabs-varriable/">Üst sekmeler</a></li><li><a href="/theme/degiskenler/tsoft-footer-menu-varriables/">Alt menü</a></li><li><a href="/theme/degiskenler/tsoft-left-right-category-varriables/">Sol ve sağ kategori</a></li></ul></details><details class="nav-sec"><summary>Eski tema şablonları <span class="count">5</span></summary><ul><li><a href="/theme/snippets/bayi-mi-degil-mi/">Bayi hesabı koşulu</a></li><li><a href="/theme/orta/user_bayipanel/">Bayi paneli</a></li><li><a href="/theme/orta/user_bayigirisplasiyer/">Bayi giriş plasiyer</a></li><li><a href="/theme/orta/user_v4tpl/">V4 şablon</a></li><li><a href="/theme/UstAlt/user_tasarimyenimenu/">Tasarım yeni menü</a></li></ul></details></aside>
+<main id="main" class="content">
+<nav class="crumbs" aria-label="Konum"><a href="/">Ana sayfa</a> <span>/</span> <span class="grp">Tema</span></nav>
+<article>
+<h1 id="eski-tema-motoru-smarty"><a class="anchor" href="#eski-tema-motoru-smarty" aria-hidden="true">#</a>Eski tema motoru (Smarty)</h1>
+<p>T-Soft’un klasik vitrini Smarty şablonlarıyla çalışır. Panelde Tasarım → Blok düzenleyicide görülen HTML ve <code>Blok/…/*.tpl</code> dosyaları bu sözdizimini kullanır. Yeni tema motoru Twig’dir ve <a href="/developer/tema/">Tema motoru</a> sayfasında anlatılır. İkisi aynı mağazada aynı anda yayında olmaz; panel iç API’sinde eski motor <code>online-store</code>, yeni motor <code>online-store-2</code> grubundadır (<a href="/admin-api/uclar/#vitrin">uç listesi</a>).</p>
+<p>Bu bölümdeki dosyalar gerçek bir mağazanın bloklarından türetilmiş, kişisel veri temizlenmiş örneklerdir. Lisans GPL-3.0.</p>
+<h2 id="smarty-ile-twig-karşılaştırması"><a class="anchor" href="#smarty-ile-twig-karşılaştırması" aria-hidden="true">#</a>Smarty ile Twig karşılaştırması</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>İş</th>
+<th>Eski (Smarty)</th>
+<th>Yeni (Twig)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Değişken yaz</td>
+<td><code>{$P.TITLE}</code></td>
+<td><code>{{ P.TITLE }}</code></td>
+</tr>
+<tr>
+<td>Koşul</td>
+<td><code>{if $P.IN_STOCK == 1}…{elseif …}…{else}…{/if}</code></td>
+<td><code>{% if P.IN_STOCK %}…{% endif %}</code></td>
+</tr>
+<tr>
+<td>Döngü</td>
+<td><code>{foreach $PRODUCTS as $P}…{foreachelse}…{/foreach}</code></td>
+<td><code>{% for P in PRODUCTS %}…{% else %}…{% endfor %}</code></td>
+</tr>
+<tr>
+<td>Dil metni</td>
+<td><code>{#add_to_cart#}</code></td>
+<td><code>{{ t.add_to_cart }}</code></td>
+</tr>
+<tr>
+<td>Eleman sayısı</td>
+<td><code>$LIST|@count</code></td>
+<td><code>LIST|length</code></td>
+</tr>
+<tr>
+<td>Varsayılan</td>
+<td><code>{$P.MIN_ORDER_COUNT|default:1}</code></td>
+<td><code>{{ P.MIN_ORDER_COUNT|default(1) }}</code></td>
+</tr>
+<tr>
+<td>Değişken ata</td>
+<td><code>{assign var=&quot;X&quot; value=$SHOWCASE.S14}</code></td>
+<td><code>{% set X = … %}</code></td>
+</tr>
+<tr>
+<td>Parça çağır</td>
+<td><code>{include file=&#39;Blok/…/1.tpl&#39; A=$B}</code></td>
+<td><code>{{ snippet(&#39;ad&#39;, { a: b }) }}</code></td>
+</tr>
+<tr>
+<td>Ham JS/CSS</td>
+<td><code>{literal}…{/literal}</code> içinde</td>
+<td><code>assets/js/theme.js</code> dosyasında</td>
+</tr>
+<tr>
+<td>Blok kimliği</td>
+<td><code>{$BLOCK_ID}</code></td>
+<td><code>BLOCK.ID</code></td>
+</tr>
+</tbody></table></div>
+<p>Değişken adları büyük harftir ve iki motorda büyük ölçüde aynıdır (<code>P.PRICE_SELL</code>, <code>P.IMAGE_LIST</code>, <code>P.ADDITIONAL_FIELD_1</code>). Bu, eski bloğu Twig’e taşırken işi kolaylaştırır.</p>
+<h2 id="sözdizimi"><a class="anchor" href="#sözdizimi" aria-hidden="true">#</a>Sözdizimi</h2>
+<pre><code class="language-xml">{* yorum *}
+{if $IS_MEMBER_LOGGED_IN == true}
+  &lt;a href=&quot;/{$PAGE_LINK.MEMBER_ORDERS}&quot;&gt;{#account#}&lt;/a&gt;
+{else}
+  &lt;a href=&quot;/{$PAGE_LINK.MEMBER_LOGIN}&quot;&gt;{#member_login#}&lt;/a&gt;
+{/if}
+
+{foreach $PRODUCT_LIST as $P}
+  &lt;div class=&quot;product&quot; data-id=&quot;{$P.ID}&quot;&gt;
+    &lt;img src=&quot;{$P.IMAGE.SMALL}&quot; alt=&quot;{$P.TITLE}&quot;&gt;
+    {if $P.DISCOUNT_PERCENT &gt; 0}&lt;span&gt;%{$P.DISCOUNT_PERCENT}&lt;/span&gt;{/if}
+    &lt;span&gt;{$P.PRICE_SELL} {$P.TARGET_CURRENCY}&lt;/span&gt;
+  &lt;/div&gt;
+{foreachelse}
+  {#no_result#}
+{/foreach}
+
+{literal}
+&lt;script&gt;
+  if (window.innerWidth &lt; 768) { /* süslü parantez burada güvenli */ }
+&lt;/script&gt;
+{/literal}</code></pre>
+<ul>
+<li>Smarty <code>{</code> ile başlar; bloğa yazılan JavaScript ve CSS’teki süslü parantezler <code>{literal}…{/literal}</code> içine alınmazsa şablon kırılır.</li>
+<li>Dil metni <code>{#anahtar#}</code> panelde Ayarlar → Diller altındaki sözlükten gelir.</li>
+<li>Linkler <code>/{$PAGE_LINK.X}</code> ile kurulur; sayfa adresleri mağaza dilinde ve panelden değiştirilebilir olduğu için elle yazılmaz.</li>
+</ul>
+<p>V4 şablonu Smarty kalıtımını da kullanır: alt tema <code>{block name=&#39;firsat_sayac&#39;}{/block}</code> gibi adlı blokları doldurur.</p>
+<p>Görülen değiştiriciler: <code>|@count</code>, <code>|default:x</code>, <code>|replace:&quot;a&quot;:&quot;b&quot;</code>, <code>|date_format:&#39;Y,m-1,d,H,i,s&#39;</code>. Geri sayım bloklarında <code>date_format</code> JavaScript <code>Date(y, m-1, …)</code> argümanı üretmek için kullanılır.</p>
+<h2 id="global-değişkenler"><a class="anchor" href="#global-değişkenler" aria-hidden="true">#</a>Global değişkenler</h2>
+<p>Bloklarda doğrudan okunan bayraklar. Değerleri <code>1</code> / <code>0</code> veya <code>true</code> / <code>false</code> olabilir; karşılaştırmayı <code>== 1</code> ile yapmak iki durumda da çalışır.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Değişken</th>
+<th>Anlamı</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>$BLOCK_ID</code>, <code>$BLOCK_TITLE</code></td>
+<td>Blok kimliği ve panelde yazılan başlık. Aynı blok sayfada iki kez olabileceği için HTML <code>id</code> değerlerine eklenir.</td>
+</tr>
+<tr>
+<td><code>$IS_MEMBER_LOGGED_IN</code></td>
+<td>Üye girişi var mı</td>
+</tr>
+<tr>
+<td><code>$IS_VENDOR_LOGIN</code></td>
+<td>Bayi girişi mi. Bayiye özel fiyat/menü için. Örnek: <a href="/theme/snippets/bayi-mi-degil-mi/">Bayi hesabı koşulu</a></td>
+</tr>
+<tr>
+<td><code>$IS_CURRENT_ACCOUNT_ACTIVE</code></td>
+<td>Cari hesap modülü açık mı</td>
+</tr>
+<tr>
+<td><code>$IS_LAZY_LOAD_ACTIVE</code>, <code>$LAZY_LOAD_LOADING_IMAGE</code></td>
+<td>Tembel yükleme ve yer tutucu görsel</td>
+</tr>
+<tr>
+<td><code>$IS_HTTPS_ACTIVE</code></td>
+<td>HTTPS</td>
+</tr>
+<tr>
+<td><code>$DISPLAY_CART_BUTTON</code>, <code>$DISPLAY_BRAND</code>, <code>$DISPLAY_FAVOURITE_BUTTON</code>, <code>$DISPLAY_COMPARISON_BUTTON</code>, <code>$DISPLAY_PAGINATION</code>, <code>$DISPLAY_LANGUAGES</code></td>
+<td>Blok ayarlarındaki göster/gizle anahtarları</td>
+</tr>
+<tr>
+<td><code>$IS_ADD_TO_CART_VISIBLE</code>, <code>$IS_CALL_ME_ACTIVE</code>, <code>$IS_COMMENT_POINTS_ACTIVE</code>, <code>$IS_MESSAGE_ACTIVE</code>, <code>$IS_QUICK_MESSAGE_ACTIVE</code>, <code>$IS_RECOMMENDATION_ACTIVE</code>, <code>$IS_REMEMBER_ME_ACTIVE</code>, <code>$IS_SUGGESTION_BOX_ACTIVE</code>, <code>$IS_INLINE_SEARCH_ACTIVE</code></td>
+<td>Modül anahtarları</td>
+</tr>
+<tr>
+<td><code>$SITE_LOGO</code>, <code>$SEARCH_WORD</code>, <code>$CURRENCY</code>, <code>$CURRENCY_LIST</code>, <code>$LANGUAGE_LIST</code></td>
+<td>Üst blok verisi</td>
+</tr>
+<tr>
+<td><code>$MEMBER</code></td>
+<td>Giriş yapmış üyenin özeti</td>
+</tr>
+<tr>
+<td><code>$PAGE_LINK</code></td>
+<td>Sistem sayfalarının adresleri. Bkz. <a href="/theme/degiskenler/tsoft-header-page-links-varriable/">Sayfa linkleri</a></td>
+</tr>
+<tr>
+<td><code>$SHOWCASE</code></td>
+<td>Vitrin bloğu ayarları (<code>S11</code> küçük resim, <code>S14</code> fare tekeri …)</td>
+</tr>
+<tr>
+<td><code>$THEME_V4</code>, <code>$THEME_PRODUCT</code>, <code>$THEME_GENERAL</code>, <code>$SUBTHEME_*</code></td>
+<td>Tema/alt tema seçimi</td>
+</tr>
+</tbody></table></div>
+<p>Aynı veri tarayıcıda JavaScript global’leri olarak da vardır: <code>MEMBER_INFO</code> (<code>FIRST_NAME</code>, <code>LAST_NAME</code> …), <code>PRODUCT_DATA</code>, <code>PAGE_TYPE</code>, <code>CART_INFO</code>.</p>
+<h2 id="ürün-alanları-p"><a class="anchor" href="#ürün-alanları-p" aria-hidden="true">#</a>Ürün alanları (<code>$P</code>)</h2>
+<p>Ürün listelerinde döngü değişkeni çoğunlukla <code>$P</code>, ürün detayında ise aktif ürün yine <code>$P</code> dir. Kısaltılmış örnek: <a href="/theme/degiskenler/tsoft-product-varriables/">Ürün değişkenleri</a>.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Grup</th>
+<th>Alanlar</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Kimlik</td>
+<td><code>ID</code>, <code>PRODUCT_CODE</code>, <code>BARCODE</code>, <code>SUPPLIER_PRODUCT_CODE</code>, <code>URL</code>, <code>TITLE</code>, <code>SHORT_DESCRIPTION</code>, <code>TAGS</code></td>
+</tr>
+<tr>
+<td>Fiyat</td>
+<td><code>PRICE_SELL</code>, <code>PRICE_NOT_DISCOUNTED</code>, <code>PRICE_BUY</code>, <code>VAT</code>, <code>DISPLAY_VAT</code>, <code>DISPLAY_GAIN</code>, <code>TARGET_CURRENCY</code>, <code>DISCOUNT_PERCENT</code>, <code>IS_DISCOUNT_ACTIVE</code>, <code>IS_DISPLAY_DISCOUNTED_ACTIVE</code></td>
+</tr>
+<tr>
+<td>Çoklu indirim</td>
+<td><code>IS_MULTIPLE_DISCOUNT_ACTIVE</code>, <code>MULTIPLE_DISCOUNT[]</code></td>
+</tr>
+<tr>
+<td>Stok</td>
+<td><code>STOCK</code>, <code>IN_STOCK</code>, <code>STOCK_UNIT</code>, <code>STOCK_INCREMENT</code>, <code>MIN_ORDER_COUNT</code></td>
+</tr>
+<tr>
+<td>Marka/model</td>
+<td><code>BRAND</code>, <code>BRAND_URL</code>, <code>MODEL</code>, <code>MODEL_URL</code></td>
+</tr>
+<tr>
+<td>Görsel</td>
+<td><code>IMAGE.SMALL</code> / <code>MEDIUM</code> / <code>BIG</code>, <code>IMAGE_LIST[n].SMALL</code>, <code>IMAGE_COUNT</code>, <code>HAS_MAGNIFIER</code>, <code>IS_VIDEO_ACTIVE</code></td>
+</tr>
+<tr>
+<td>Varyant</td>
+<td><code>HAS_VARIANT</code>, <code>VARIANT_ID</code>, <code>VARIANT_DATA</code>, <code>VARIANT_FEATURE1_TITLE</code>, <code>VARIANT_FEATURE1_LIST</code>, <code>VARIANT_FEATURE1_SELECTED</code>, <code>VARIANT_FEATURE2_LIST</code></td>
+</tr>
+<tr>
+<td>Ek alan</td>
+<td><code>ADDITIONAL_FIELD_1</code> … <code>ADDITIONAL_FIELD_3</code> (panelde ürün ek alanları; REST1 <a href="/rest/product/">product</a> modülünde <code>Additional1</code> … <code>Additional3</code> ile yazılır)</td>
+</tr>
+<tr>
+<td>Fırsat</td>
+<td><code>DEAL_END_DATE</code>, <code>DEAL_PREV_DATE</code>, <code>DEAL_NEXT_DATE</code></td>
+</tr>
+<tr>
+<td>Bilgi</td>
+<td><code>WARRANTY_INFO</code>, <code>DELIVERY_INFO</code>, <code>DOCUMENT_INFO</code>, <code>WEIGHT</code>, <code>WIDTH</code>, <code>COMMENT_RANK</code></td>
+</tr>
+<tr>
+<td>Bayrak</td>
+<td><code>IS_NEW_PRODUCT</code>, <code>IS_DISPLAY_PRODUCT</code>, <code>IS_PERSONALIZATION_ACTIVE</code>, <code>PERSONALIZATION_ID</code>, <code>IS_RELATED_PRODUCTS_ACTIVE</code>, <code>IS_PRODUCT_SIZE_ACTIVE</code>, <code>SELECTED</code></td>
+</tr>
+</tbody></table></div>
+<p><code>IS_DISPLAY_PRODUCT</code> doluysa ürün teşhir ürünüdür (satışa kapalı). Örnek V4 şablonu fiyat ve sepet alanını yalnız <code>{if $P.IS_DISPLAY_PRODUCT == 0}</code> iken basar.</p>
+<h2 id="menü-ve-kategori-ağacı"><a class="anchor" href="#menü-ve-kategori-ağacı" aria-hidden="true">#</a>Menü ve kategori ağacı</h2>
+<p>Menü, kategori ve alt menü blokları aynı ağaç biçimini kullanır:</p>
+<pre><code class="language-json">[
+  { &quot;ID&quot;: &quot;1&quot;, &quot;NAME&quot;: &quot;Kategoriler&quot;, &quot;URL&quot;: &quot;/kategoriler&quot;,
+    &quot;CHILDREN&quot;: [ { &quot;ID&quot;: &quot;2&quot;, &quot;PARENT_ID&quot;: &quot;1&quot;, &quot;NAME&quot;: &quot;Örnek&quot;, &quot;URL&quot;: &quot;/ornek&quot;, &quot;STATUS&quot;: &quot;1&quot; } ] }
+]</code></pre>
+<pre><code class="language-xml">{foreach $TABS as $M}
+  &lt;a href=&quot;{$M.URL}&quot;{if $M.NEWTAB === true} target=&quot;_blank&quot;{/if}&gt;{$M.NAME}&lt;/a&gt;
+  {if $M.CHILDREN|@count &gt; 0}
+    {foreach $M.CHILDREN as $C}
+      &lt;a href=&quot;{$C.URL}&quot;&gt;{$C.NAME}&lt;/a&gt;
+      {foreach $C.CHILDREN as $C2}…{/foreach}
+    {/foreach}
+  {/if}
+{/foreach}</code></pre>
+<p>Örnek JSON’lar: <a href="/theme/degiskenler/tsoft-header-tabs-varriable/">Üst sekmeler</a>, <a href="/theme/degiskenler/tsoft-footer-menu-varriables/">Alt menü</a>, <a href="/theme/degiskenler/tsoft-left-right-category-varriables/">Sol ve sağ kategori</a>.</p>
+<h2 id="blok-kataloğu"><a class="anchor" href="#blok-kataloğu" aria-hidden="true">#</a>Blok kataloğu</h2>
+<p>Her bloğun döngü değişkeni farklıdır. Yeni blok yazarken önce o blok tipinin hangi listeyi verdiğine bakın.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Blok</th>
+<th>Dosya</th>
+<th>Döngü / ana değişken</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Üst (header)</td>
+<td><a href="/theme/bloklar/ust/">ust.html</a></td>
+<td><code>$TABS</code>, <code>$CURRENCY_LIST</code>, <code>$LANGUAGE_LIST</code>, <code>$PAGE_LINK</code></td>
+</tr>
+<tr>
+<td>Alt (footer)</td>
+<td><a href="/theme/bloklar/alt/">alt.html</a></td>
+<td><code>$MENU</code>, <code>$SOCIAL_ICONS</code></td>
+</tr>
+<tr>
+<td>Yeni ürünler (sekmeli vitrin)</td>
+<td><a href="/theme/bloklar/yeni-urunler/">yeni-urunler.html</a></td>
+<td><code>$TAB_LIST</code> (<code>ID</code>, <code>TITLE</code>, <code>SELECTED</code>), ürünler <code>$P</code></td>
+</tr>
+<tr>
+<td>Benzer ürünler</td>
+<td><a href="/theme/bloklar/benzer-urunler/">benzer-urunler.html</a></td>
+<td><code>$P</code></td>
+</tr>
+<tr>
+<td>Fırsat ürünleri</td>
+<td><a href="/theme/bloklar/firsat-urunleri/">firsat-urunleri.html</a></td>
+<td><code>$PRODUCT_LIST</code>, <code>DEAL_END_DATE</code></td>
+</tr>
+<tr>
+<td>Gelecek fırsatlar</td>
+<td><a href="/theme/bloklar/gelecek-firsat-urun-listesi/">gelecek-firsat-urun-listesi.html</a></td>
+<td><code>$P</code>, <code>DEAL_NEXT_DATE</code></td>
+</tr>
+<tr>
+<td>Kategori menüsü</td>
+<td><a href="/theme/bloklar/kategori-menusu/">kategori-menusu.html</a></td>
+<td><code>$CATEGORIES</code> → <code>$CHILD</code></td>
+</tr>
+<tr>
+<td>Kategori listesi</td>
+<td><a href="/theme/bloklar/kategori-listesi/">kategori-listesi.html</a></td>
+<td><code>$DATA_LIST</code></td>
+</tr>
+<tr>
+<td>Marka listesi</td>
+<td><a href="/theme/bloklar/marka-listesi/">marka-listesi.html</a></td>
+<td><code>$DATA_LIST</code>, <code>$LETTERS</code></td>
+</tr>
+<tr>
+<td>Model listesi</td>
+<td><a href="/theme/bloklar/model-listesi/">model-listesi.html</a></td>
+<td><code>$DATA_LIST</code></td>
+</tr>
+<tr>
+<td>Tedarikçi listesi</td>
+<td><a href="/theme/bloklar/tedarikci-listesi/">tedarikci-listesi.html</a></td>
+<td><code>$DATA_LIST</code></td>
+</tr>
+<tr>
+<td>Haberler</td>
+<td><a href="/theme/bloklar/haberler/">haberler.html</a></td>
+<td><code>$NEWS_LIST</code></td>
+</tr>
+<tr>
+<td>SSS</td>
+<td><a href="/theme/bloklar/sss/">sss.html</a></td>
+<td><code>$MESSAGE_LIST</code></td>
+</tr>
+<tr>
+<td>Görsel vitrin (slider)</td>
+<td><a href="/theme/bloklar/gorsel-vitrin/">gorsel-vitrin.html</a></td>
+<td><code>$IMAGE_LIST</code>, <code>$SHOWCASE</code></td>
+</tr>
+<tr>
+<td>Ana sayfa banner</td>
+<td><a href="/theme/bloklar/home-banner/">home-banner.html</a></td>
+<td>Statik HTML</td>
+</tr>
+<tr>
+<td>Ana sayfa indirim</td>
+<td><a href="/theme/bloklar/home-sale/">home-sale.html</a></td>
+<td>Statik HTML</td>
+</tr>
+<tr>
+<td>Ayın yazarı</td>
+<td><a href="/theme/bloklar/ayin-yazari/">ayin-yazari.html</a></td>
+<td>Statik HTML</td>
+</tr>
+<tr>
+<td>Parça toplama sihirbazı</td>
+<td><a href="/theme/bloklar/parca-toplama-sihirbazi/">parca-toplama-sihirbazi.html</a></td>
+<td><code>$CATEGORIES</code></td>
+</tr>
+</tbody></table></div>
+<p>Şablon parçaları (<code>.tpl</code>):</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Dosya</th>
+<th>İş</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="/theme/orta/user_v4tpl/">user_v4tpl.tpl</a></td>
+<td>V4 ürün detay orta alanı. Varyant için <code>{include file=&#39;Blok/UrunDetay/Orta/_alturun/1.tpl&#39; …}</code></td>
+</tr>
+<tr>
+<td><a href="/theme/orta/user_bayipanel/">user_bayipanel.tpl</a></td>
+<td>Bayi paneli; <code>MEMBER_INFO</code> ile ad yazar</td>
+</tr>
+<tr>
+<td><a href="/theme/orta/user_bayigirisplasiyer/">user_bayigirisplasiyer.tpl</a></td>
+<td>Bayi girişinde temsilci (plasiyer) kartı</td>
+</tr>
+<tr>
+<td><a href="/theme/UstAlt/user_tasarimyenimenu/">user_tasarimyenimenu.tpl</a></td>
+<td>Özel üst menü</td>
+</tr>
+<tr>
+<td><a href="/theme/snippets/bayi-mi-degil-mi/">bayi-mi-degil-mi.tpl</a></td>
+<td>Cari hesap ve kartla ödeme düğmeleri</td>
+</tr>
+</tbody></table></div>
+<h2 id="sık-hatalar"><a class="anchor" href="#sık-hatalar" aria-hidden="true">#</a>Sık hatalar</h2>
+<ul>
+<li>Bloğa eklenen <code>&lt;script&gt;</code> içindeki <code>{</code> karakteri: <code>{literal}</code> unutulursa blok boş görünür.</li>
+<li><code>id=&quot;slider&quot;</code> gibi sabit kimlikler: aynı blok iki kez eklenince çakışır; <code>id=&quot;slider-{$BLOCK_ID}&quot;</code> yazın.</li>
+<li>Sabit sayfa adresleri (<code>/uye-girisi</code>): dil veya SEO adresi değişince kırılır; <code>$PAGE_LINK</code> kullanın.</li>
+<li><code>$P.IMAGE_LIST.1.SMALL</code> ikinci görseldir (dizin 0’dan başlar). Hover görseli için önce <code>!= &#39;&#39;</code> kontrolü yapın.</li>
+<li>Fiyatı JavaScript ile hesaplamak: bayi ve grup fiyatı sunucuda <code>PRICE_SELL</code> içine işlenmiş gelir.</li>
+</ul>
+
+</article>
+<nav class="pager" aria-label="Sayfa geçişi"><a class="prev" href="/developer/tema/"><span>← Önceki</span>Tema motoru (Twig)</a><a class="next" href="/rest/"><span>Sonraki →</span>Genel bakış</a></nav>
+<footer class="page-foot"><a href="https://github.com/bahadirdogru/tsoft-documentation-examples/edit/main/content/theme/README.md">GitHub'da düzenle</a> · <a href="/theme.md">Markdown</a> · <a href="/llms.txt">llms.txt</a> · Topluluk belgesidir, T-Soft’un resmî yayını değildir.</footer>
+</main>
+<nav class="toc" aria-label="Bu sayfada"><div class="toc-title">Bu sayfada</div><ul><li class="l2"><a href="#smarty-ile-twig-karşılaştırması">Smarty ile Twig karşılaştırması</a></li><li class="l2"><a href="#sözdizimi">Sözdizimi</a></li><li class="l2"><a href="#global-değişkenler">Global değişkenler</a></li><li class="l2"><a href="#ürün-alanları-p">Ürün alanları ($P)</a></li><li class="l2"><a href="#menü-ve-kategori-ağacı">Menü ve kategori ağacı</a></li><li class="l2"><a href="#blok-kataloğu">Blok kataloğu</a></li><li class="l2"><a href="#sık-hatalar">Sık hatalar</a></li></ul></nav>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/twig.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/http.min.js"></script>
+<script src="/assets/site.js"></script>
+</body>
+</html>

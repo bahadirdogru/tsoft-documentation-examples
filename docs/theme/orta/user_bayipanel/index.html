@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bayi paneli · T-Soft Dokümantasyonu</title>
+<meta name="description" content="T-Soft e-ticaret altyapısı için REST1 web servisi, Admin API v3, uygulama platformu, Storefront API ve Twig/Smarty tema kodlama başvuru dokümantasyonu. İnsanlar ve LLM'ler için.">
+<link rel="canonical" href="https://tsoft.bahadirdogru.com/theme/orta/user_bayipanel/">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%231f6feb%22%2F%3E%3Cpath%20d%3D%22M8%209h16v3.2h-6.4V23h-3.2V12.2H8z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E">
+<meta property="og:title" content="Bayi paneli">
+<meta property="og:description" content="T-Soft e-ticaret altyapısı için REST1 web servisi, Admin API v3, uygulama platformu, Storefront API ve Twig/Smarty tema kodlama başvuru dokümantasyonu. İnsanlar ve LLM'ler için.">
+<meta property="og:url" content="https://tsoft.bahadirdogru.com/theme/orta/user_bayipanel/">
+<meta property="og:type" content="website">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" media="(prefers-color-scheme: light)" id="hl-light">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" media="(prefers-color-scheme: dark)" id="hl-dark">
+</head>
+<body>
+<a class="skip" href="#main">İçeriğe geç</a>
+<header class="top">
+  <button class="menu-btn" aria-label="Menü" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="/"><svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><path d="M8 9h16v3.2h-6.4V23h-3.2V12.2H8z" fill="var(--bg)"/></svg><span>T-Soft Dokümantasyonu</span></a>
+  <div class="search">
+    <input id="q" type="search" placeholder="Ara: metot, uç, değişken, sayfa…  ( / )" autocomplete="off" aria-label="Ara">
+    <ul id="results" role="listbox" hidden></ul>
+  </div>
+  <button class="theme-btn" aria-label="Tema değiştir" title="Tema değiştir">◐</button>
+</header>
+<div class="layout">
+<aside id="sidebar" class="sidebar"><details class="nav-sec" open><summary>Başlangıç <span class="count">3</span></summary><ul><li><a href="/">Ana sayfa</a></li><li><a href="/rehber/">Hangi yüzey?</a></li><li><a href="/llm/">LLM ve ajanlar için</a></li></ul></details><details class="nav-sec" open><summary>Platform <span class="count">4</span></summary><ul><li><a href="/developer/">Platform haritası</a></li><li><a href="/developer/baslarken/">Başlarken</a></li><li><a href="/developer/uygulama/">Uygulama geliştirme</a></li><li><a href="/developer/storefront-api/">Storefront API</a></li></ul></details><details class="nav-sec" open><summary>Tema <span class="count">2</span></summary><ul><li><a href="/developer/tema/">Tema motoru (Twig)</a></li><li><a href="/theme/">Eski tema (Smarty)</a></li></ul></details><details class="nav-sec" open><summary>REST1 <span class="count">2</span></summary><ul><li><a href="/rest/">Genel bakış</a></li><li><a href="/rest/hatalar/">Hatalar ve mesaj kodları</a></li></ul></details><details class="nav-sec"><summary>REST1 modülleri <span class="count">38</span></summary><ul><li><a href="/rest/auth/">Auth</a></li><li><a href="/rest/customer/">Customer</a></li><li><a href="/rest/product/">Product</a></li><li><a href="/rest/subproduct/">SubProduct</a></li><li><a href="/rest/category/">Category</a></li><li><a href="/rest/brand/">Brand</a></li><li><a href="/rest/model/">Model</a></li><li><a href="/rest/filter/">Filter</a></li><li><a href="/rest/catalog/">Catalog</a></li><li><a href="/rest/order/">Order</a></li><li><a href="/rest/order2/">Order2</a></li><li><a href="/rest/cart/">Cart</a></li><li><a href="/rest/campaign/">Campaign</a></li><li><a href="/rest/payment/">Payment</a></li><li><a href="/rest/fundmovement/">FundMovement</a></li><li><a href="/rest/point/">Point</a></li><li><a href="/rest/segment/">Segment</a></li><li><a href="/rest/supplier/">Supplier</a></li><li><a href="/rest/branchoffice/">BranchOffice</a></li><li><a href="/rest/content/">Content</a></li><li><a href="/rest/news/">News</a></li><li><a href="/rest/showcase/">Showcase</a></li><li><a href="/rest/htmlblock/">HtmlBlock</a></li><li><a href="/rest/widget/">Widget</a></li><li><a href="/rest/link/">Link</a></li><li><a href="/rest/personalization/">Personalization</a></li><li><a href="/rest/trackingcode/">TrackingCode</a></li><li><a href="/rest/ticket/">Ticket</a></li><li><a href="/rest/user/">User</a></li><li><a href="/rest/setting/">Setting</a></li><li><a href="/rest/notification/">Notification</a></li><li><a href="/rest/mobile/">Mobile</a></li><li><a href="/rest/platform/">Platform</a></li><li><a href="/rest/cargo/">Cargo</a></li><li><a href="/rest/adapter/">Adapter</a></li><li><a href="/rest/hopi/">Hopi</a></li><li><a href="/rest/zubizu/">Zubizu</a></li><li><a href="/rest/routing/">Routing</a></li></ul></details><details class="nav-sec" open><summary>Admin API v3 <span class="count">3</span></summary><ul><li><a href="/admin-api/">Genel bakış</a></li><li><a href="/admin-api/uclar/">Uç listesi</a></li><li><a href="/admin-api/odeme-bildirimi/">Ödeme bildirimi</a></li></ul></details><details class="nav-sec"><summary>Örnek kod <span class="count">5</span></summary><ul><li><a href="/examples/python/tsoft_client/">Python istemci</a></li><li><a href="/examples/python/add_customer/">Üye ekleme</a></li><li><a href="/examples/python/check_group_price/">Grup fiyatı</a></li><li><a href="/examples/python/env/">Ortam değişkenleri</a></li><li><a href="/examples/apps-script/code/">Apps Script</a></li></ul></details><details class="nav-sec"><summary>Eski tema blokları <span class="count">18</span></summary><ul><li><a href="/theme/bloklar/ust/">Üst blok</a></li><li><a href="/theme/bloklar/alt/">Alt blok</a></li><li><a href="/theme/bloklar/yeni-urunler/">Yeni ürünler</a></li><li><a href="/theme/bloklar/kategori-menusu/">Kategori menüsü</a></li><li><a href="/theme/bloklar/kategori-listesi/">Kategori listesi</a></li><li><a href="/theme/bloklar/home-banner/">Ana sayfa banner</a></li><li><a href="/theme/bloklar/home-sale/">Ana sayfa indirim</a></li><li><a href="/theme/bloklar/haberler/">Haberler</a></li><li><a href="/theme/bloklar/benzer-urunler/">Benzer ürünler</a></li><li><a href="/theme/bloklar/model-listesi/">Model listesi</a></li><li><a href="/theme/bloklar/marka-listesi/">Marka listesi</a></li><li><a href="/theme/bloklar/parca-toplama-sihirbazi/">Parça toplama sihirbazı</a></li><li><a href="/theme/bloklar/tedarikci-listesi/">Tedarikçi listesi</a></li><li><a href="/theme/bloklar/firsat-urunleri/">Fırsat ürünleri</a></li><li><a href="/theme/bloklar/ayin-yazari/">Ayın yazarı</a></li><li><a href="/theme/bloklar/gelecek-firsat-urun-listesi/">Gelecek fırsatlar</a></li><li><a href="/theme/bloklar/sss/">SSS</a></li><li><a href="/theme/bloklar/gorsel-vitrin/">Görsel vitrin</a></li></ul></details><details class="nav-sec"><summary>Eski tema değişkenleri <span class="count">5</span></summary><ul><li><a href="/theme/degiskenler/tsoft-product-varriables/">Ürün değişkenleri</a></li><li><a href="/theme/degiskenler/tsoft-header-page-links-varriable/">Sayfa linkleri</a></li><li><a href="/theme/degiskenler/tsoft-header-tabs-varriable/">Üst sekmeler</a></li><li><a href="/theme/degiskenler/tsoft-footer-menu-varriables/">Alt menü</a></li><li><a href="/theme/degiskenler/tsoft-left-right-category-varriables/">Sol ve sağ kategori</a></li></ul></details><details class="nav-sec" open><summary>Eski tema şablonları <span class="count">5</span></summary><ul><li><a href="/theme/snippets/bayi-mi-degil-mi/">Bayi hesabı koşulu</a></li><li><a href="/theme/orta/user_bayipanel/" aria-current="page">Bayi paneli</a></li><li><a href="/theme/orta/user_bayigirisplasiyer/">Bayi giriş plasiyer</a></li><li><a href="/theme/orta/user_v4tpl/">V4 şablon</a></li><li><a href="/theme/UstAlt/user_tasarimyenimenu/">Tasarım yeni menü</a></li></ul></details></aside>
+<main id="main" class="content">
+<nav class="crumbs" aria-label="Konum"><a href="/">Ana sayfa</a> <span>/</span> <a href="/theme/">Eski tema (Smarty)</a></nav>
+<article>
+<h1 id="bayi-paneli"><a class="anchor" href="#bayi-paneli" aria-hidden="true">#</a>Bayi paneli</h1>
+<p>Dosya: <code>theme/orta/user_bayipanel.tpl</code> · <a href="/theme/orta/user_bayipanel.tpl">Ham dosya</a> · Smarty</p>
+<pre><code class="language-xml">&lt;script&gt;
+    var MEMBER_INFO = window.store.memberInfo;
+    /*var MEMBER_INFO = 
+    {
+        &quot;ID&quot;: 1001,
+        &quot;ID_HASH_SHA&quot;: &quot;&lt;sha256&gt;&quot;,
+        &quot;CODE&quot;: &quot;T1001&quot;,
+        &quot;FIRST_NAME&quot;: &quot;Örnek&quot;,
+        &quot;LAST_NAME&quot;: &quot;Üye&quot;,
+        &quot;BIRTH_DATE&quot;: &quot;0000-00-00&quot;,
+        &quot;GENDER&quot;: &quot;E&quot;,
+        &quot;MAIL&quot;: &quot;ornek@magaza.example&quot;,
+        &quot;MAIL_HASH&quot;: &quot;&lt;md5&gt;&quot;,
+        &quot;MAIL_HASH_SHA&quot;: &quot;&lt;sha256&gt;&quot;,
+        &quot;GROUP&quot;: 6,
+        &quot;MAIL_PERMISSION&quot;: false,
+        &quot;SMS_PERMISSION&quot;: false,
+        &quot;PHONE_PERMISSION&quot;: false,
+        &quot;PHONE&quot;: &quot;+90&quot;,
+        &quot;PHONE_HASH&quot;: &quot;&lt;md5&gt;&quot;,
+        &quot;PHONE_HASH_SHA&quot;: &quot;&lt;sha256&gt;&quot;,
+        &quot;IP&quot;: &quot;203.0.113.10&quot;,
+        &quot;TRANSACTION_COUNT&quot;: 0,
+        &quot;REPRESENTATIVE&quot;: &quot;&quot;,
+        &quot;KVKK&quot;: 0,
+        &quot;MEMBER_COUNTRY&quot;: &quot;tr&quot;,
+        &quot;MEMBER_CITY&quot;: &quot;&quot;,
+        &quot;MEMBER_TOWN&quot;: &quot;&quot;,
+        &quot;MEMBER_ZIP_CODE&quot;: &quot;0&quot;,
+        &quot;COUNTRY&quot;: &quot;TR&quot;,
+        &quot;E_COUNTRY&quot;: &quot;&quot;
+    }*/
+&lt;/script&gt;
+
+&lt;style&gt;
+    
+&lt;/style&gt;
+
+&lt;div class=&quot;col col-12&quot; id=&quot;page-bayi-panel&quot;&gt;
+    &lt;div class=&quot;row mb&quot;&gt;
+        &lt;div class=&quot;col col-12 box-border&quot;&gt;
+            &lt;div class=&quot;row&quot;&gt;
+                &lt;div class=&quot;col col-12 pageTitle&quot;&gt;
+                    &lt;div class=&quot;row mb lightBg cargo&quot;&gt;Bayi Paneline Hoş Geldiniz;
+                        &lt;script&gt;document.write(MEMBER_INFO.FIRST_NAME + ' ' + MEMBER_INFO.LAST_NAME);&lt;/script&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Bölge Müdürü Bilgisi --&gt;
+                &lt;div class=&quot;box col-12&quot;&gt;
+                    &lt;div class=&quot;col col-6 col-md-12 col-sm-12 col-ml-3 col-mr-3&quot;&gt;
+                        &lt;div class=&quot;region-manager-box&quot;&gt;
+                            &lt;div
+                                style=&quot;background-color: gray; color: white; padding: 10px; text-align: center; font-size: 16px; border-radius: 5px 5px 0 0;&quot;&gt;
+                                &lt;strong&gt;Bölge Müdürünüz&lt;/strong&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;manager-content&quot; style=&quot;display: flex; align-items: center; padding: 10px;&quot;&gt;
+                                &lt;div class=&quot;manager-details&quot; style=&quot;flex: 1;&quot;&gt;
+                                    &lt;p style=&quot;margin: 5px 0;&quot;&gt;&lt;strong&gt;Ad Soyad:&lt;/strong&gt; &lt;span id=&quot;rep_name&quot;&gt;Temsilci Bir&lt;/span&gt;&lt;/p&gt;
+                                    &lt;p style=&quot;margin: 5px 0;&quot;&gt;&lt;strong&gt;Telefon:&lt;/strong&gt; &lt;span
+                                            id=&quot;rep_phone&quot;&gt;0500 000 00 01&lt;/span&gt;&lt;/p&gt;
+                                    &lt;p style=&quot;margin: 5px 0;&quot;&gt;&lt;strong&gt;E-mail:&lt;/strong&gt; &lt;span
+                                            id=&quot;rep_email&quot;&gt;ornek@magaza.example&lt;/span&gt;&lt;/p&gt;
+                                &lt;/div&gt;
+                                &lt;div class=&quot;manager-photo&quot; style=&quot;margin-left: 10px;&quot;&gt;
+                                    &lt;img id=&quot;rep_img&quot; src=&quot;https://cdn.magaza.example/PUBLIC/plasiyer/temsilci-1.jpg&quot;
+                                        alt=&quot;Plasiyer Resim&quot; style=&quot;width: 100px; height: auto; border-radius: 5px;&quot;&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Bayi Panel Butonları --&gt;
+                &lt;div class=&quot;box col-12&quot;&gt;
+                    &lt;div class=&quot;col col-6 col-md-12 col-sm-12 col-ml-3 col-mr-3&quot;&gt;
+                        &lt;div class=&quot;box col-4&quot;&gt;
+                            &lt;a href=&quot;/pay&quot; class=&quot;btn col-12 btn-default btn-big btn-upper btn-radius a-center&quot;
+                                target=&quot;_blank&quot;&gt;
+                                Cari Ödeme
+                            &lt;/a&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;box col-4&quot;&gt;
+                            &lt;a href=&quot;/raporlar&quot;
+                                class=&quot;btn col-12 btn-default btn-big btn-upper btn-radius a-center&quot; target=&quot;_blank&quot;&gt;
+                                Cari Hareketler
+                            &lt;/a&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;box col-4&quot;&gt;
+                            &lt;a href=&quot;/raporlar&quot;
+                                class=&quot;btn col-12 btn-default btn-big btn-upper btn-radius a-center&quot; target=&quot;_blank&quot;&gt;
+                                E-Faturalarım
+                            &lt;/a&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;box col-4&quot;&gt;
+                            &lt;a href=&quot;/fiyat-listesi&quot;
+                                class=&quot;btn col-12 btn-default btn-big btn-upper btn-radius a-center&quot;&gt;
+                                Fiyat Listesi
+                            &lt;/a&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;box col-4&quot;&gt;
+                            &lt;a href=&quot;/kataloglar&quot;
+                                class=&quot;btn col-12 btn-default btn-big btn-upper btn-radius a-center&quot;&gt;
+                                Kataloglar
+                            &lt;/a&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;box col-4&quot;&gt;
+                            &lt;a href=&quot;https://magaza.example/dijital-icerikler&quot; target=&quot;_blank&quot; class=&quot;btn col-12 btn-default btn-big btn-upper btn-radius a-center&quot;&gt;
+                                Dijital İçerikler (Akıllı Tahta)
+                            &lt;/a&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+
+                &lt;div class=&quot;box col-12 content-box&quot;&gt;
+                &lt;!-- burası js ile şekillenecek --&gt;
+                &lt;/div&gt;
+
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+</article>
+<nav class="pager" aria-label="Sayfa geçişi"><a class="prev" href="/theme/snippets/bayi-mi-degil-mi/"><span>← Önceki</span>Bayi hesabı koşulu</a><a class="next" href="/theme/orta/user_bayigirisplasiyer/"><span>Sonraki →</span>Bayi giriş plasiyer</a></nav>
+<footer class="page-foot"><a href="https://github.com/bahadirdogru/tsoft-documentation-examples/edit/main/content/theme/orta/user_bayipanel.tpl">GitHub'da düzenle</a> · <a href="/theme/orta/user_bayipanel.tpl">Ham dosya</a> · <a href="/llms.txt">llms.txt</a> · Topluluk belgesidir, T-Soft’un resmî yayını değildir.</footer>
+</main>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/twig.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/http.min.js"></script>
+<script src="/assets/site.js"></script>
+</body>
+</html>

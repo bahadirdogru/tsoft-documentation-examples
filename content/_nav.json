@@ -1,0 +1,307 @@
+[
+  {
+    "title": "Başlangıç",
+    "items": [
+      "index.md",
+      "rehber.md",
+      "llm.md"
+    ]
+  },
+  {
+    "title": "Platform",
+    "items": [
+      "developer/README.md",
+      "developer/baslarken.md",
+      "developer/uygulama.md",
+      "developer/storefront-api.md"
+    ]
+  },
+  {
+    "title": "Tema",
+    "items": [
+      "developer/tema.md",
+      "theme/README.md"
+    ]
+  },
+  {
+    "title": "REST1",
+    "items": [
+      "rest/README.md",
+      "rest/hatalar.md"
+    ]
+  },
+  {
+    "title": "REST1 modülleri",
+    "collapsed": true,
+    "items": [
+      "rest/auth.md",
+      "rest/customer.md",
+      "rest/product.md",
+      "rest/subproduct.md",
+      "rest/category.md",
+      "rest/brand.md",
+      "rest/model.md",
+      "rest/filter.md",
+      "rest/catalog.md",
+      "rest/order.md",
+      "rest/order2.md",
+      "rest/cart.md",
+      "rest/campaign.md",
+      "rest/payment.md",
+      "rest/fundmovement.md",
+      "rest/point.md",
+      "rest/segment.md",
+      "rest/supplier.md",
+      "rest/branchoffice.md",
+      "rest/content.md",
+      "rest/news.md",
+      "rest/showcase.md",
+      "rest/htmlblock.md",
+      "rest/widget.md",
+      "rest/link.md",
+      "rest/personalization.md",
+      "rest/trackingcode.md",
+      "rest/ticket.md",
+      "rest/user.md",
+      "rest/setting.md",
+      "rest/notification.md",
+      "rest/mobile.md",
+      "rest/platform.md",
+      "rest/cargo.md",
+      "rest/adapter.md",
+      "rest/hopi.md",
+      "rest/zubizu.md",
+      "rest/routing.md"
+    ]
+  },
+  {
+    "title": "Admin API v3",
+    "items": [
+      "admin-api/README.md",
+      "admin-api/uclar.md",
+      "admin-api/odeme-bildirimi.md"
+    ]
+  },
+  {
+    "title": "Örnek kod",
+    "collapsed": true,
+    "items": [
+      {
+        "path": "examples/python/tsoft_client.py",
+        "title": "Python istemci",
+        "description": "",
+        "lang": "python"
+      },
+      {
+        "path": "examples/python/add_customer.py",
+        "title": "Üye ekleme",
+        "description": "",
+        "lang": "python"
+      },
+      {
+        "path": "examples/python/check_group_price.py",
+        "title": "Grup fiyatı",
+        "description": "",
+        "lang": "python"
+      },
+      {
+        "path": "examples/python/.env.example",
+        "title": "Ortam değişkenleri",
+        "description": "",
+        "lang": "bash"
+      },
+      {
+        "path": "examples/apps-script/Code.gs",
+        "title": "Apps Script",
+        "description": "",
+        "lang": "js"
+      }
+    ]
+  },
+  {
+    "title": "Eski tema blokları",
+    "collapsed": true,
+    "items": [
+      {
+        "path": "theme/bloklar/ust.html",
+        "title": "Üst blok",
+        "description": "",
+        "lang": "smarty"
+      },
+      {
+        "path": "theme/bloklar/alt.html",
+        "title": "Alt blok",
+        "description": "",
+        "lang": "smarty"
+      },
+      {
+        "path": "theme/bloklar/yeni-urunler.html",
+        "title": "Yeni ürünler",
+        "description": "",
+        "lang": "smarty"
+      },
+      {
+        "path": "theme/bloklar/kategori-menusu.html",
+        "title": "Kategori menüsü",
+        "description": "",
+        "lang": "smarty"
+      },
+      {
+        "path": "theme/bloklar/kategori-listesi.html",
+        "title": "Kategori listesi",
+        "description": "",
+        "lang": "smarty"
+      },
+      {
+        "path": "theme/bloklar/home-banner.html",
+        "title": "Ana sayfa banner",
+        "description": "",
+        "lang": "smarty"
+      },
+      {
+        "path": "theme/bloklar/home-sale.html",
+        "title": "Ana sayfa indirim",
+        "description": "",
+        "lang": "smarty"
+      },
+      {
+        "path": "theme/bloklar/haberler.html",
+        "title": "Haberler",
+        "description": "",
+        "lang": "smarty"
+      },
+      {
+        "path": "theme/bloklar/benzer-urunler.html",
+        "title": "Benzer ürünler",
+        "description": "",
+        "lang": "smarty"
+      },
+      {
+        "path": "theme/bloklar/model-listesi.html",
+        "title": "Model listesi",
+        "description": "",
+        "lang": "smarty"
+      },
+      {
+        "path": "theme/bloklar/marka-listesi.html",
+        "title": "Marka listesi",
+        "description": "",
+        "lang": "smarty"
+      },
+      {
+        "path": "theme/bloklar/parca-toplama-sihirbazi.html",
+        "title": "Parça toplama sihirbazı",
+        "description": "",
+        "lang": "smarty"
+      },
+      {
+        "path": "theme/bloklar/tedarikci-listesi.html",
+        "title": "Tedarikçi listesi",
+        "description": "",
+        "lang": "smarty"
+      },
+      {
+        "path": "theme/bloklar/firsat-urunleri.html",
+        "title": "Fırsat ürünleri",
+        "description": "",
+        "lang": "smarty"
+      },
+      {
+        "path": "theme/bloklar/ayin-yazari.html",
+        "title": "Ayın yazarı",
+        "description": "",
+        "lang": "smarty"
+      },
+      {
+        "path": "theme/bloklar/gelecek-firsat-urun-listesi.html",
+        "title": "Gelecek fırsatlar",
+        "description": "",
+        "lang": "smarty"
+      },
+      {
+        "path": "theme/bloklar/sss.html",
+        "title": "SSS",
+        "description": "",
+        "lang": "smarty"
+      },
+      {
+        "path": "theme/bloklar/gorsel-vitrin.html",
+        "title": "Görsel vitrin",
+        "description": "",
+        "lang": "smarty"
+      }
+    ]
+  },
+  {
+    "title": "Eski tema değişkenleri",
+    "collapsed": true,
+    "items": [
+      {
+        "path": "theme/degiskenler/tsoft-product-varriables.json",
+        "title": "Ürün değişkenleri",
+        "description": "",
+        "lang": "json"
+      },
+      {
+        "path": "theme/degiskenler/tsoft-header-page-links-varriable.json",
+        "title": "Sayfa linkleri",
+        "description": "",
+        "lang": "json"
+      },
+      {
+        "path": "theme/degiskenler/tsoft-header-tabs-varriable.json",
+        "title": "Üst sekmeler",
+        "description": "",
+        "lang": "json"
+      },
+      {
+        "path": "theme/degiskenler/tsoft-footer-menu-varriables.json",
+        "title": "Alt menü",
+        "description": "",
+        "lang": "json"
+      },
+      {
+        "path": "theme/degiskenler/tsoft-left-right-category-varriables.json",
+        "title": "Sol ve sağ kategori",
+        "description": "",
+        "lang": "json"
+      }
+    ]
+  },
+  {
+    "title": "Eski tema şablonları",
+    "collapsed": true,
+    "items": [
+      {
+        "path": "theme/snippets/bayi-mi-degil-mi.tpl",
+        "title": "Bayi hesabı koşulu",
+        "description": "",
+        "lang": "smarty"
+      },
+      {
+        "path": "theme/orta/user_bayipanel.tpl",
+        "title": "Bayi paneli",
+        "description": "",
+        "lang": "smarty"
+      },
+      {
+        "path": "theme/orta/user_bayigirisplasiyer.tpl",
+        "title": "Bayi giriş plasiyer",
+        "description": "",
+        "lang": "smarty"
+      },
+      {
+        "path": "theme/orta/user_v4tpl.tpl",
+        "title": "V4 şablon",
+        "description": "",
+        "lang": "smarty"
+      },
+      {
+        "path": "theme/UstAlt/user_tasarimyenimenu.tpl",
+        "title": "Tasarım yeni menü",
+        "description": "",
+        "lang": "smarty"
+      }
+    ]
+  }
+]

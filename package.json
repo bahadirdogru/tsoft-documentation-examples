@@ -1,0 +1,19 @@
+{
+  "name": "tsoft-documentation",
+  "version": "1.0.0",
+  "private": true,
+  "description": "T-Soft e-ticaret altyapısı için insanlar ve LLM'ler için başvuru dokümantasyonu: REST1, Admin API v3, uygulama platformu, Storefront API, Twig ve Smarty tema.",
+  "scripts": {
+    "build": "node tools/build.js",
+    "serve": "node tools/serve.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bahadirdogru/tsoft-documentation-examples.git"
+  },
+  "homepage": "https://tsoft.bahadirdogru.com",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "marked": "12.0.2"
+  }
+}

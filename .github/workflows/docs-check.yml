@@ -1,0 +1,21 @@
+name: docs-check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      # Kırık bağlantı veya çapa varsa derleme hata verir.
+      - run: npm run build
+      - name: docs/ güncel mi
+        run: test -z "$(git status --porcelain -- docs)" || (git status --short -- docs; echo "content/ değişti ama docs/ yeniden üretilmemiş. npm run build çalıştırıp commit edin." && exit 1)

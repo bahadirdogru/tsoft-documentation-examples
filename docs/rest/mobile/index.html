@@ -1,0 +1,955 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mobile · T-Soft Dokümantasyonu</title>
+<meta name="description" content="Mobil uygulama oturumu (MobileToken) ile sipariş, favori, alarm, adres.">
+<link rel="canonical" href="https://tsoft.bahadirdogru.com/rest/mobile/">
+<link rel="alternate" type="text/markdown" href="/rest/mobile.md" title="Markdown">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%231f6feb%22%2F%3E%3Cpath%20d%3D%22M8%209h16v3.2h-6.4V23h-3.2V12.2H8z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E">
+<meta property="og:title" content="Mobile">
+<meta property="og:description" content="Mobil uygulama oturumu (MobileToken) ile sipariş, favori, alarm, adres.">
+<meta property="og:url" content="https://tsoft.bahadirdogru.com/rest/mobile/">
+<meta property="og:type" content="website">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" media="(prefers-color-scheme: light)" id="hl-light">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" media="(prefers-color-scheme: dark)" id="hl-dark">
+</head>
+<body>
+<a class="skip" href="#main">İçeriğe geç</a>
+<header class="top">
+  <button class="menu-btn" aria-label="Menü" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="/"><svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><path d="M8 9h16v3.2h-6.4V23h-3.2V12.2H8z" fill="var(--bg)"/></svg><span>T-Soft Dokümantasyonu</span></a>
+  <div class="search">
+    <input id="q" type="search" placeholder="Ara: metot, uç, değişken, sayfa…  ( / )" autocomplete="off" aria-label="Ara">
+    <ul id="results" role="listbox" hidden></ul>
+  </div>
+  <button class="theme-btn" aria-label="Tema değiştir" title="Tema değiştir">◐</button>
+</header>
+<div class="layout">
+<aside id="sidebar" class="sidebar"><details class="nav-sec" open><summary>Başlangıç <span class="count">3</span></summary><ul><li><a href="/">Ana sayfa</a></li><li><a href="/rehber/">Hangi yüzey?</a></li><li><a href="/llm/">LLM ve ajanlar için</a></li></ul></details><details class="nav-sec" open><summary>Platform <span class="count">4</span></summary><ul><li><a href="/developer/">Platform haritası</a></li><li><a href="/developer/baslarken/">Başlarken</a></li><li><a href="/developer/uygulama/">Uygulama geliştirme</a></li><li><a href="/developer/storefront-api/">Storefront API</a></li></ul></details><details class="nav-sec" open><summary>Tema <span class="count">2</span></summary><ul><li><a href="/developer/tema/">Tema motoru (Twig)</a></li><li><a href="/theme/">Eski tema (Smarty)</a></li></ul></details><details class="nav-sec" open><summary>REST1 <span class="count">2</span></summary><ul><li><a href="/rest/">Genel bakış</a></li><li><a href="/rest/hatalar/">Hatalar ve mesaj kodları</a></li></ul></details><details class="nav-sec" open><summary>REST1 modülleri <span class="count">38</span></summary><ul><li><a href="/rest/auth/">Auth</a></li><li><a href="/rest/customer/">Customer</a></li><li><a href="/rest/product/">Product</a></li><li><a href="/rest/subproduct/">SubProduct</a></li><li><a href="/rest/category/">Category</a></li><li><a href="/rest/brand/">Brand</a></li><li><a href="/rest/model/">Model</a></li><li><a href="/rest/filter/">Filter</a></li><li><a href="/rest/catalog/">Catalog</a></li><li><a href="/rest/order/">Order</a></li><li><a href="/rest/order2/">Order2</a></li><li><a href="/rest/cart/">Cart</a></li><li><a href="/rest/campaign/">Campaign</a></li><li><a href="/rest/payment/">Payment</a></li><li><a href="/rest/fundmovement/">FundMovement</a></li><li><a href="/rest/point/">Point</a></li><li><a href="/rest/segment/">Segment</a></li><li><a href="/rest/supplier/">Supplier</a></li><li><a href="/rest/branchoffice/">BranchOffice</a></li><li><a href="/rest/content/">Content</a></li><li><a href="/rest/news/">News</a></li><li><a href="/rest/showcase/">Showcase</a></li><li><a href="/rest/htmlblock/">HtmlBlock</a></li><li><a href="/rest/widget/">Widget</a></li><li><a href="/rest/link/">Link</a></li><li><a href="/rest/personalization/">Personalization</a></li><li><a href="/rest/trackingcode/">TrackingCode</a></li><li><a href="/rest/ticket/">Ticket</a></li><li><a href="/rest/user/">User</a></li><li><a href="/rest/setting/">Setting</a></li><li><a href="/rest/notification/">Notification</a></li><li><a href="/rest/mobile/" aria-current="page">Mobile</a></li><li><a href="/rest/platform/">Platform</a></li><li><a href="/rest/cargo/">Cargo</a></li><li><a href="/rest/adapter/">Adapter</a></li><li><a href="/rest/hopi/">Hopi</a></li><li><a href="/rest/zubizu/">Zubizu</a></li><li><a href="/rest/routing/">Routing</a></li></ul></details><details class="nav-sec" open><summary>Admin API v3 <span class="count">3</span></summary><ul><li><a href="/admin-api/">Genel bakış</a></li><li><a href="/admin-api/uclar/">Uç listesi</a></li><li><a href="/admin-api/odeme-bildirimi/">Ödeme bildirimi</a></li></ul></details><details class="nav-sec"><summary>Örnek kod <span class="count">5</span></summary><ul><li><a href="/examples/python/tsoft_client/">Python istemci</a></li><li><a href="/examples/python/add_customer/">Üye ekleme</a></li><li><a href="/examples/python/check_group_price/">Grup fiyatı</a></li><li><a href="/examples/python/env/">Ortam değişkenleri</a></li><li><a href="/examples/apps-script/code/">Apps Script</a></li></ul></details><details class="nav-sec"><summary>Eski tema blokları <span class="count">18</span></summary><ul><li><a href="/theme/bloklar/ust/">Üst blok</a></li><li><a href="/theme/bloklar/alt/">Alt blok</a></li><li><a href="/theme/bloklar/yeni-urunler/">Yeni ürünler</a></li><li><a href="/theme/bloklar/kategori-menusu/">Kategori menüsü</a></li><li><a href="/theme/bloklar/kategori-listesi/">Kategori listesi</a></li><li><a href="/theme/bloklar/home-banner/">Ana sayfa banner</a></li><li><a href="/theme/bloklar/home-sale/">Ana sayfa indirim</a></li><li><a href="/theme/bloklar/haberler/">Haberler</a></li><li><a href="/theme/bloklar/benzer-urunler/">Benzer ürünler</a></li><li><a href="/theme/bloklar/model-listesi/">Model listesi</a></li><li><a href="/theme/bloklar/marka-listesi/">Marka listesi</a></li><li><a href="/theme/bloklar/parca-toplama-sihirbazi/">Parça toplama sihirbazı</a></li><li><a href="/theme/bloklar/tedarikci-listesi/">Tedarikçi listesi</a></li><li><a href="/theme/bloklar/firsat-urunleri/">Fırsat ürünleri</a></li><li><a href="/theme/bloklar/ayin-yazari/">Ayın yazarı</a></li><li><a href="/theme/bloklar/gelecek-firsat-urun-listesi/">Gelecek fırsatlar</a></li><li><a href="/theme/bloklar/sss/">SSS</a></li><li><a href="/theme/bloklar/gorsel-vitrin/">Görsel vitrin</a></li></ul></details><details class="nav-sec"><summary>Eski tema değişkenleri <span class="count">5</span></summary><ul><li><a href="/theme/degiskenler/tsoft-product-varriables/">Ürün değişkenleri</a></li><li><a href="/theme/degiskenler/tsoft-header-page-links-varriable/">Sayfa linkleri</a></li><li><a href="/theme/degiskenler/tsoft-header-tabs-varriable/">Üst sekmeler</a></li><li><a href="/theme/degiskenler/tsoft-footer-menu-varriables/">Alt menü</a></li><li><a href="/theme/degiskenler/tsoft-left-right-category-varriables/">Sol ve sağ kategori</a></li></ul></details><details class="nav-sec"><summary>Eski tema şablonları <span class="count">5</span></summary><ul><li><a href="/theme/snippets/bayi-mi-degil-mi/">Bayi hesabı koşulu</a></li><li><a href="/theme/orta/user_bayipanel/">Bayi paneli</a></li><li><a href="/theme/orta/user_bayigirisplasiyer/">Bayi giriş plasiyer</a></li><li><a href="/theme/orta/user_v4tpl/">V4 şablon</a></li><li><a href="/theme/UstAlt/user_tasarimyenimenu/">Tasarım yeni menü</a></li></ul></details></aside>
+<main id="main" class="content">
+<nav class="crumbs" aria-label="Konum"><a href="/">Ana sayfa</a> <span>/</span> <a href="/rest/">REST1</a></nav>
+<article>
+<h1 id="mobile"><a class="anchor" href="#mobile" aria-hidden="true">#</a>Mobile</h1>
+<p>REST1 modülü · 25 metot · taban <code>https://magaza.example/rest1/mobile/{metot}/</code></p>
+<p>Her çağrı <code>POST</code> ve form gövdesidir; <code>token</code> ayrı alan olarak gider. Ortak kurallar, zarf yapısı ve süzgeç sözdizimi <a href="/rest/#ortak-kurallar">REST1 genel bakış</a> sayfasındadır. Tablodaki &quot;Yer&quot; sütunu: <code>url_param</code> yolun sonuna eklenir, <code>query</code> gövde alanıdır, <code>file</code> dosya yüklemesidir.</p>
+<p>Mobil uygulama oturumu (MobileToken) ile sipariş, favori, alarm, adres.</p>
+<h2 id="mobile-index"><a class="anchor" href="#mobile-index" aria-hidden="true">#</a><code>mobile/index</code></h2>
+<p><code>POST https://magaza.example/rest1/mobile/index/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>fetch_product_detail</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>fetch_installment_list</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>support_v5</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>image_limit</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>new</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td>Yeni vitrin yapısı için gönderilmesi gerekmektedir.</td>
+</tr>
+</tbody></table></div>
+<h2 id="mobile-iframe"><a class="anchor" href="#mobile-iframe" aria-hidden="true">#</a><code>mobile/iframe</code></h2>
+<p><code>POST https://magaza.example/rest1/mobile/iframe/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>application</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Eğer bir uygulama ismi belirtilmezse, sistem SendheapV2, Connectprof ve Smartydata uygulamalarının iframe sahipliğini kontrol ederek sonuç döndürür.</td>
+</tr>
+<tr>
+<td><code>language</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>en,tr</td>
+</tr>
+<tr>
+<td><code>currency</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>USD,TRY veya EUR</td>
+</tr>
+<tr>
+<td><code>theme</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>dark veya light</td>
+</tr>
+</tbody></table></div>
+<h2 id="mobile-link"><a class="anchor" href="#mobile-link" aria-hidden="true">#</a><code>mobile/link</code></h2>
+<p><code>POST https://magaza.example/rest1/mobile/link/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>link</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="mobile-getorders"><a class="anchor" href="#mobile-getorders" aria-hidden="true">#</a><code>mobile/getOrders</code></h2>
+<p><code>POST https://magaza.example/rest1/mobile/getOrders/</code></p>
+<p>Bu metod order/getOrders metodunun aldığı parametrelere ek olarak MobileToken prametresini almaktadır. MobileToken parametresi customer/check metodunda dönmektedir. Bu doğrulama ile sadece giriş yapmış kullanıcının bilgileri çekilebilmektedir.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>MobileToken</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="mobile-getorders2"><a class="anchor" href="#mobile-getorders2" aria-hidden="true">#</a><code>mobile/getOrders2</code></h2>
+<p><code>POST https://magaza.example/rest1/mobile/getOrders2/</code></p>
+<p>Bu metod order2/getOrders metodunun aldığı parametrelere ek olarak MobileToken prametresini almaktadır. MobileToken parametresi customer/check metodunda dönmektedir. Bu doğrulama ile sadece giriş yapmış kullanıcının bilgileri çekilebilmektedir.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>MobileToken</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchShipmentDetail</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="mobile-getcustomer"><a class="anchor" href="#mobile-getcustomer" aria-hidden="true">#</a><code>mobile/getCustomer</code></h2>
+<p><code>POST https://magaza.example/rest1/mobile/getCustomer/</code></p>
+<p>Bu metod customer/getCustomerById metodunun aldığı parametrelere ek olarak MobileToken prametresini almaktadır. MobilToken gönderildidiği için CustomerId gönderilmesine gerek yoktur. MobileToken parametresi customer/check metodunda dönmektedir. Bu doğrulama ile sadece giriş yapmış kullanıcının bilgileri çekilebilmektedir.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>MobileToken</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="mobile-updatecustomer"><a class="anchor" href="#mobile-updatecustomer" aria-hidden="true">#</a><code>mobile/updateCustomer</code></h2>
+<p><code>POST https://magaza.example/rest1/mobile/updateCustomer/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>MobileToken</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<pre><code class="language-json">{
+  &quot;Name&quot;: &quot;&quot;,
+  &quot;Surname&quot;: &quot;&quot;,
+  &quot;Email&quot;: &quot;&quot;,
+  &quot;Password&quot;: &quot;&quot;,
+  &quot;Gender&quot;: &quot;&quot;,
+  &quot;Birthdate&quot;: &quot;&quot;,
+  &quot;Phone&quot;: &quot;&quot;,
+  &quot;Mobile&quot;: &quot;&quot;,
+  &quot;Address&quot;: &quot;&quot;,
+  &quot;Postcode&quot;: &quot;&quot;,
+  &quot;City&quot;: &quot;&quot;,
+  &quot;Town&quot;: &quot;&quot;,
+  &quot;Country&quot;: &quot;&quot;,
+  &quot;TaxOffice&quot;: &quot;&quot;,
+  &quot;TaxNo&quot;: &quot;&quot;,
+  &quot;CompanyName&quot;: &quot;&quot;,
+  &quot;IdentityNo&quot;: &quot;&quot;,
+  &quot;Field1&quot;: &quot;&quot;,
+  &quot;Field2&quot;: &quot;&quot;,
+  &quot;Field3&quot;: &quot;&quot;,
+  &quot;Field4&quot;: &quot;&quot;,
+  &quot;Field5&quot;: &quot;&quot;,
+  &quot;Field6&quot;: &quot;&quot;,
+  &quot;Field7&quot;: &quot;&quot;,
+  &quot;Field8&quot;: &quot;&quot;,
+  &quot;Field9&quot;: &quot;&quot;,
+  &quot;Field10&quot;: &quot;&quot;,
+  &quot;Field11&quot;: &quot;&quot;,
+  &quot;Field12&quot;: &quot;&quot;,
+  &quot;Field13&quot;: &quot;&quot;,
+  &quot;Field14&quot;: &quot;&quot;,
+  &quot;Field15&quot;: &quot;&quot;,
+  &quot;Approval&quot;: &quot;&quot;,
+  &quot;Kvkk&quot;: &quot;&quot;,
+  &quot;IsEmailNotificationOn&quot;: &quot;&quot;,
+  &quot;IsSmsNotificationOn&quot;: &quot;&quot;,
+  &quot;IsPhoneCallNotificationOn&quot;: &quot;&quot;,
+  &quot;EmailApprovalTime&quot;: &quot;&quot;,
+  &quot;SmsApprovalTime&quot;: &quot;&quot;,
+  &quot;PhoneCallApprovalTime&quot;: &quot;&quot;,
+  &quot;CustomerGroupCode&quot;: &quot;&quot;,
+  &quot;RepresentativeCode&quot;: &quot;&quot;,
+  &quot;Credibility&quot;: &quot;&quot;,
+  &quot;PayAtDoor&quot;: 0,
+  &quot;Risked&quot;: 0,
+  &quot;Banned&quot;: 0,
+  &quot;RegistrationPlatform&quot;: &quot;rest1&quot;
+}</code></pre>
+<h2 id="mobile-deletecustomer"><a class="anchor" href="#mobile-deletecustomer" aria-hidden="true">#</a><code>mobile/deleteCustomer</code></h2>
+<p><code>POST https://magaza.example/rest1/mobile/deleteCustomer/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>MobileToken</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="mobile-addtofavoritelist"><a class="anchor" href="#mobile-addtofavoritelist" aria-hidden="true">#</a><code>mobile/addToFavoriteList</code></h2>
+<p><code>POST https://magaza.example/rest1/mobile/addToFavoriteList/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>MobileToken</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ProductId</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>SubProductId</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="mobile-deletefromfavoritelist"><a class="anchor" href="#mobile-deletefromfavoritelist" aria-hidden="true">#</a><code>mobile/deleteFromFavoriteList</code></h2>
+<p><code>POST https://magaza.example/rest1/mobile/deleteFromFavoriteList/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>MobileToken</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ProductId</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>SubProductId</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="mobile-getfavoritelist"><a class="anchor" href="#mobile-getfavoritelist" aria-hidden="true">#</a><code>mobile/getFavoriteList</code></h2>
+<p><code>POST https://magaza.example/rest1/mobile/getFavoriteList/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>MobileToken</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="mobile-init"><a class="anchor" href="#mobile-init" aria-hidden="true">#</a><code>mobile/init</code></h2>
+<p><code>POST https://magaza.example/rest1/mobile/init/</code></p>
+<p>Konsol bu metot için ek parametre listelemiyor. <code>token</code> yine gönderilir.</p>
+<h2 id="mobile-setjsonsettings"><a class="anchor" href="#mobile-setjsonsettings" aria-hidden="true">#</a><code>mobile/setJsonSettings</code></h2>
+<p><code>POST https://magaza.example/rest1/mobile/setJsonSettings/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>key</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>Key</code>, <code>Title</code>, <code>Description</code>, <code>Value</code>, <code>Type</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;Key&quot;: &quot;AyarKey&quot;,
+    &quot;Title&quot;: &quot;Ayar Başlık&quot;,
+    &quot;Description&quot;: &quot;Ayar Açıklaması&quot;,
+    &quot;Value&quot;: &quot;1&quot;,
+    &quot;Type&quot;: &quot;Bool&quot;
+  },
+  {
+    &quot;Key&quot;: &quot;AyarKey2&quot;,
+    &quot;Title&quot;: &quot;Ayar Başlık&quot;,
+    &quot;Description&quot;: &quot;Ayar Açıklaması&quot;,
+    &quot;Value&quot;: &quot;0&quot;,
+    &quot;Type&quot;: &quot;Bool&quot;
+  }
+]</code></pre>
+<h2 id="mobile-getalarmlist"><a class="anchor" href="#mobile-getalarmlist" aria-hidden="true">#</a><code>mobile/getAlarmList</code></h2>
+<p><code>POST https://magaza.example/rest1/mobile/getAlarmList/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>MobileToken</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ProductId</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>SubProductId</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>AlarmType</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Filtreleme için Price veya Stock girilebilir.</td>
+</tr>
+<tr>
+<td><code>start</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>orderby</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Örn: RecordTime DESC</td>
+</tr>
+<tr>
+<td><code>f</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Kullanılabilen operatörler: startwith,endwith,equal,greater,smaller,between,contain. Örn: &quot;RecordTime|1529931531|greater&quot;</td>
+</tr>
+<tr>
+<td><code>f2</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Allowed operators: startwith,endwith,equal,greater,smaller,between,contain. Example: &quot;CustomerName | ahmet | contain&quot;</td>
+</tr>
+<tr>
+<td><code>FetchProductData</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="mobile-addalarm"><a class="anchor" href="#mobile-addalarm" aria-hidden="true">#</a><code>mobile/addAlarm</code></h2>
+<p><code>POST https://magaza.example/rest1/mobile/addAlarm/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>MobileToken</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ProductId</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>SubProductId</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>AlarmType</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Price veya Stock girilmeli.</td>
+</tr>
+<tr>
+<td><code>AlarmDay</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Alarmın kaç gün için geçerli olduğunu belirler.</td>
+</tr>
+<tr>
+<td><code>CurrentPrice</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>O anki fiyat girilebilir, Fiyat alarmı için gerekli parametre. Stok alarmı için gönderilmemeli</td>
+</tr>
+<tr>
+<td><code>AlarmPrice</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Fiyat alarmı için gerekli parametre. Stok alarmı için gönderilmemeli</td>
+</tr>
+<tr>
+<td><code>Currency</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Para birimi. Fiyat alarmı için gerekli parametre. Stok alarmı için gönderilmemeli</td>
+</tr>
+<tr>
+<td><code>VatIncluded</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Kdv dahil ise 1, değilse 0 girilmeli, Fiyat alarmı için gerekli parametre. Stok alarmı için gönderilmemeli.</td>
+</tr>
+<tr>
+<td><code>StockLimit</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Stok alarmı için gerekli parametre. Fiyat alarmı için gönderilmemeli.</td>
+</tr>
+</tbody></table></div>
+<h2 id="mobile-deletealarm"><a class="anchor" href="#mobile-deletealarm" aria-hidden="true">#</a><code>mobile/deleteAlarm</code></h2>
+<p><code>POST https://magaza.example/rest1/mobile/deleteAlarm/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>AlarmId</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>MobileToken</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="mobile-getorderreturn"><a class="anchor" href="#mobile-getorderreturn" aria-hidden="true">#</a><code>mobile/getOrderReturn</code></h2>
+<p><code>POST https://magaza.example/rest1/mobile/getOrderReturn/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>OrderId</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>MobileToken</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>OrderCode</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>OrderId yerine OrderCode gönderilebilir veya boş bırakılabilir.</td>
+</tr>
+</tbody></table></div>
+<h2 id="mobile-setorderreturn"><a class="anchor" href="#mobile-setorderreturn" aria-hidden="true">#</a><code>mobile/setOrderReturn</code></h2>
+<p><code>POST https://magaza.example/rest1/mobile/setOrderReturn/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>MobileToken</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>OrderId yerine OrderCode gönderilebilir</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>OrderId</code>, <code>FirstName</code>, <code>LastName</code>, <code>Email</code>, <code>Adress</code>, <code>ReturnDescription</code>, <code>ReasonId</code>, <code>Products</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;OrderId&quot;: &quot;3&quot;,
+    &quot;FirstName&quot;: &quot;Test&quot;,
+    &quot;LastName&quot;: &quot;Testcik&quot;,
+    &quot;Email&quot;: &quot;ornek@magaza.example&quot;,
+    &quot;Adress&quot;: &quot;Adres&quot;,
+    &quot;ReturnDescription&quot;: &quot;Aciklama&quot;,
+    &quot;ReasonId&quot;: &quot;2&quot;,
+    &quot;Products&quot;: [
+      {
+        &quot;ProductId&quot;: &quot;5&quot;,
+        &quot;Count&quot;: &quot;1&quot;,
+        &quot;Note&quot;: &quot;Not&quot;,
+        &quot;ReasonId&quot;: &quot;1&quot;
+      },
+      {
+        &quot;ProductId&quot;: &quot;6&quot;,
+        &quot;Count&quot;: &quot;1&quot;,
+        &quot;Note&quot;: &quot;Not&quot;,
+        &quot;ReasonId&quot;: &quot;2&quot;
+      }
+    ]
+  }
+]</code></pre>
+<h2 id="mobile-setlocation"><a class="anchor" href="#mobile-setlocation" aria-hidden="true">#</a><code>mobile/setLocation</code></h2>
+<p><code>POST https://magaza.example/rest1/mobile/setLocation/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>MobileToken</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>Kod verileri bulunuyorsa,   CountryCode,StateCode, CityCode, TownCode, DistrictCode  şeklinde de gönderim yapılabilir.</td>
+</tr>
+</tbody></table></div>
+<pre><code class="language-json">{
+  &quot;Country&quot;: &quot;Türkiye&quot;,
+  &quot;State&quot;: &quot;&quot;,
+  &quot;City&quot;: &quot;İstanbul&quot;,
+  &quot;Town&quot;: &quot;Esenler&quot;,
+  &quot;District&quot;: &quot;Davutpaşa Mah&quot;
+}</code></pre>
+<h2 id="mobile-availabledeliverytimes"><a class="anchor" href="#mobile-availabledeliverytimes" aria-hidden="true">#</a><code>mobile/availableDeliveryTimes</code></h2>
+<p><code>POST https://magaza.example/rest1/mobile/availableDeliveryTimes/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>MobileToken</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="mobile-setdeliverytime"><a class="anchor" href="#mobile-setdeliverytime" aria-hidden="true">#</a><code>mobile/setDeliveryTime</code></h2>
+<p><code>POST https://magaza.example/rest1/mobile/setDeliveryTime/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>MobileToken</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Id</code></td>
+<td>query</td>
+<td>int</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Date</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="mobile-getcouponlist"><a class="anchor" href="#mobile-getcouponlist" aria-hidden="true">#</a><code>mobile/getCouponList</code></h2>
+<p><code>POST https://magaza.example/rest1/mobile/getCouponList/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>MobileToken</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="mobile-getaddress"><a class="anchor" href="#mobile-getaddress" aria-hidden="true">#</a><code>mobile/getAddress</code></h2>
+<p><code>POST https://magaza.example/rest1/mobile/getAddress/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>MobileToken</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Page</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>&#39;order&#39; olarak gönderilirse ilgili ülkeye ait siparişler döner</td>
+</tr>
+</tbody></table></div>
+<h2 id="mobile-setaddress"><a class="anchor" href="#mobile-setaddress" aria-hidden="true">#</a><code>mobile/setAddress</code></h2>
+<p><code>POST https://magaza.example/rest1/mobile/setAddress/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>MobileToken</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Adress güncellenmek istendiğinde address_id parametresi sıfırdan büyük bir değer gönderilmelidir.</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>address_id</code>, <code>title</code>, <code>country_code</code>, <code>province_code</code>, <code>city_code</code>, <code>town_code</code>, <code>address</code>, <code>company</code>, <code>district</code>, <code>fullname</code>, <code>is_company_active</code>, <code>mobile_phone</code>, <code>nationality</code>, <code>identity_number</code>, <code>tax_number</code>, <code>tax_office</code>, <code>post_code</code>, <code>has_e_invoice</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;address_id&quot;: 0,
+    &quot;title&quot;: &quot;İş Adresim&quot;,
+    &quot;country_code&quot;: &quot;TR&quot;,
+    &quot;province_code&quot;: &quot;&quot;,
+    &quot;city_code&quot;: &quot;34&quot;,
+    &quot;town_code&quot;: &quot;941&quot;,
+    &quot;address&quot;: &quot;Teknopark No:104&quot;,
+    &quot;company&quot;: &quot;&quot;,
+    &quot;district&quot;: &quot;&quot;,
+    &quot;fullname&quot;: &quot;Kübra K&quot;,
+    &quot;is_company_active&quot;: 0,
+    &quot;mobile_phone&quot;: &quot;905555555555&quot;,
+    &quot;nationality&quot;: 0,
+    &quot;identity_number&quot;: &quot;66666666666&quot;,
+    &quot;tax_number&quot;: &quot;66666666666&quot;,
+    &quot;tax_office&quot;: &quot;&quot;,
+    &quot;post_code&quot;: &quot;34104&quot;,
+    &quot;has_e_invoice&quot;: 0
+  }
+]</code></pre>
+<h2 id="mobile-deleteaddress"><a class="anchor" href="#mobile-deleteaddress" aria-hidden="true">#</a><code>mobile/deleteAddress</code></h2>
+<p><code>POST https://magaza.example/rest1/mobile/deleteAddress/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>AddressId</code></td>
+<td>url_param</td>
+<td>int</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>MobileToken</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+
+</article>
+<nav class="pager" aria-label="Sayfa geçişi"><a class="prev" href="/rest/notification/"><span>← Önceki</span>Notification</a><a class="next" href="/rest/platform/"><span>Sonraki →</span>Platform</a></nav>
+<footer class="page-foot"><a href="https://github.com/bahadirdogru/tsoft-documentation-examples/edit/main/content/rest/mobile.md">GitHub'da düzenle</a> · <a href="/rest/mobile.md">Markdown</a> · <a href="/llms.txt">llms.txt</a> · Topluluk belgesidir, T-Soft’un resmî yayını değildir.</footer>
+</main>
+<nav class="toc" aria-label="Bu sayfada"><div class="toc-title">Bu sayfada</div><ul><li class="l2"><a href="#mobile-index">mobile/index</a></li><li class="l2"><a href="#mobile-iframe">mobile/iframe</a></li><li class="l2"><a href="#mobile-link">mobile/link</a></li><li class="l2"><a href="#mobile-getorders">mobile/getOrders</a></li><li class="l2"><a href="#mobile-getorders2">mobile/getOrders2</a></li><li class="l2"><a href="#mobile-getcustomer">mobile/getCustomer</a></li><li class="l2"><a href="#mobile-updatecustomer">mobile/updateCustomer</a></li><li class="l2"><a href="#mobile-deletecustomer">mobile/deleteCustomer</a></li><li class="l2"><a href="#mobile-addtofavoritelist">mobile/addToFavoriteList</a></li><li class="l2"><a href="#mobile-deletefromfavoritelist">mobile/deleteFromFavoriteList</a></li><li class="l2"><a href="#mobile-getfavoritelist">mobile/getFavoriteList</a></li><li class="l2"><a href="#mobile-init">mobile/init</a></li><li class="l2"><a href="#mobile-setjsonsettings">mobile/setJsonSettings</a></li><li class="l2"><a href="#mobile-getalarmlist">mobile/getAlarmList</a></li><li class="l2"><a href="#mobile-addalarm">mobile/addAlarm</a></li><li class="l2"><a href="#mobile-deletealarm">mobile/deleteAlarm</a></li><li class="l2"><a href="#mobile-getorderreturn">mobile/getOrderReturn</a></li><li class="l2"><a href="#mobile-setorderreturn">mobile/setOrderReturn</a></li><li class="l2"><a href="#mobile-setlocation">mobile/setLocation</a></li><li class="l2"><a href="#mobile-availabledeliverytimes">mobile/availableDeliveryTimes</a></li><li class="l2"><a href="#mobile-setdeliverytime">mobile/setDeliveryTime</a></li><li class="l2"><a href="#mobile-getcouponlist">mobile/getCouponList</a></li><li class="l2"><a href="#mobile-getaddress">mobile/getAddress</a></li><li class="l2"><a href="#mobile-setaddress">mobile/setAddress</a></li><li class="l2"><a href="#mobile-deleteaddress">mobile/deleteAddress</a></li></ul></nav>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/twig.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/http.min.js"></script>
+<script src="/assets/site.js"></script>
+</body>
+</html>

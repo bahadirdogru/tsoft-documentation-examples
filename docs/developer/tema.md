@@ -1,8 +1,13 @@
+---
+title: Tema motoru (Twig)
+url: https://tsoft.bahadirdogru.com/developer/tema/
+---
+
 # Tema geliştirme
 
 Kaynak: [Tema Geliştirme](https://developer.tsoft.com.tr/tema-gelistirme/genel-bakis) (20 Ekim 2026).
 
-Bu depodaki [`theme/`](../theme) klasörü eski blok HTML’i, değişken JSON’u ve `.tpl` parçalarıdır. Aşağıdaki motor Twig section’ları, Tailwind ve `tsoft-cli` ile çalışır. Sayfa sunucuda HTML’e çevrilir. CDN paketi varsa statik dosya dağıtım ağından gelir.
+Bu depodaki [eski tema](../theme/README.md) bölümü Smarty blok HTML’i, değişken JSON’u ve `.tpl` parçalarıdır. Aşağıdaki motor Twig section’ları, Tailwind ve `tsoft-cli` ile çalışır. Sayfa sunucuda HTML’e çevrilir. CDN paketi varsa statik dosya dağıtım ağından gelir.
 
 ## Akış
 

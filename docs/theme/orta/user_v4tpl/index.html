@@ -1,0 +1,875 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>V4 şablon · T-Soft Dokümantasyonu</title>
+<meta name="description" content="T-Soft e-ticaret altyapısı için REST1 web servisi, Admin API v3, uygulama platformu, Storefront API ve Twig/Smarty tema kodlama başvuru dokümantasyonu. İnsanlar ve LLM'ler için.">
+<link rel="canonical" href="https://tsoft.bahadirdogru.com/theme/orta/user_v4tpl/">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%231f6feb%22%2F%3E%3Cpath%20d%3D%22M8%209h16v3.2h-6.4V23h-3.2V12.2H8z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E">
+<meta property="og:title" content="V4 şablon">
+<meta property="og:description" content="T-Soft e-ticaret altyapısı için REST1 web servisi, Admin API v3, uygulama platformu, Storefront API ve Twig/Smarty tema kodlama başvuru dokümantasyonu. İnsanlar ve LLM'ler için.">
+<meta property="og:url" content="https://tsoft.bahadirdogru.com/theme/orta/user_v4tpl/">
+<meta property="og:type" content="website">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" media="(prefers-color-scheme: light)" id="hl-light">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" media="(prefers-color-scheme: dark)" id="hl-dark">
+</head>
+<body>
+<a class="skip" href="#main">İçeriğe geç</a>
+<header class="top">
+  <button class="menu-btn" aria-label="Menü" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="/"><svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><path d="M8 9h16v3.2h-6.4V23h-3.2V12.2H8z" fill="var(--bg)"/></svg><span>T-Soft Dokümantasyonu</span></a>
+  <div class="search">
+    <input id="q" type="search" placeholder="Ara: metot, uç, değişken, sayfa…  ( / )" autocomplete="off" aria-label="Ara">
+    <ul id="results" role="listbox" hidden></ul>
+  </div>
+  <button class="theme-btn" aria-label="Tema değiştir" title="Tema değiştir">◐</button>
+</header>
+<div class="layout">
+<aside id="sidebar" class="sidebar"><details class="nav-sec" open><summary>Başlangıç <span class="count">3</span></summary><ul><li><a href="/">Ana sayfa</a></li><li><a href="/rehber/">Hangi yüzey?</a></li><li><a href="/llm/">LLM ve ajanlar için</a></li></ul></details><details class="nav-sec" open><summary>Platform <span class="count">4</span></summary><ul><li><a href="/developer/">Platform haritası</a></li><li><a href="/developer/baslarken/">Başlarken</a></li><li><a href="/developer/uygulama/">Uygulama geliştirme</a></li><li><a href="/developer/storefront-api/">Storefront API</a></li></ul></details><details class="nav-sec" open><summary>Tema <span class="count">2</span></summary><ul><li><a href="/developer/tema/">Tema motoru (Twig)</a></li><li><a href="/theme/">Eski tema (Smarty)</a></li></ul></details><details class="nav-sec" open><summary>REST1 <span class="count">2</span></summary><ul><li><a href="/rest/">Genel bakış</a></li><li><a href="/rest/hatalar/">Hatalar ve mesaj kodları</a></li></ul></details><details class="nav-sec"><summary>REST1 modülleri <span class="count">38</span></summary><ul><li><a href="/rest/auth/">Auth</a></li><li><a href="/rest/customer/">Customer</a></li><li><a href="/rest/product/">Product</a></li><li><a href="/rest/subproduct/">SubProduct</a></li><li><a href="/rest/category/">Category</a></li><li><a href="/rest/brand/">Brand</a></li><li><a href="/rest/model/">Model</a></li><li><a href="/rest/filter/">Filter</a></li><li><a href="/rest/catalog/">Catalog</a></li><li><a href="/rest/order/">Order</a></li><li><a href="/rest/order2/">Order2</a></li><li><a href="/rest/cart/">Cart</a></li><li><a href="/rest/campaign/">Campaign</a></li><li><a href="/rest/payment/">Payment</a></li><li><a href="/rest/fundmovement/">FundMovement</a></li><li><a href="/rest/point/">Point</a></li><li><a href="/rest/segment/">Segment</a></li><li><a href="/rest/supplier/">Supplier</a></li><li><a href="/rest/branchoffice/">BranchOffice</a></li><li><a href="/rest/content/">Content</a></li><li><a href="/rest/news/">News</a></li><li><a href="/rest/showcase/">Showcase</a></li><li><a href="/rest/htmlblock/">HtmlBlock</a></li><li><a href="/rest/widget/">Widget</a></li><li><a href="/rest/link/">Link</a></li><li><a href="/rest/personalization/">Personalization</a></li><li><a href="/rest/trackingcode/">TrackingCode</a></li><li><a href="/rest/ticket/">Ticket</a></li><li><a href="/rest/user/">User</a></li><li><a href="/rest/setting/">Setting</a></li><li><a href="/rest/notification/">Notification</a></li><li><a href="/rest/mobile/">Mobile</a></li><li><a href="/rest/platform/">Platform</a></li><li><a href="/rest/cargo/">Cargo</a></li><li><a href="/rest/adapter/">Adapter</a></li><li><a href="/rest/hopi/">Hopi</a></li><li><a href="/rest/zubizu/">Zubizu</a></li><li><a href="/rest/routing/">Routing</a></li></ul></details><details class="nav-sec" open><summary>Admin API v3 <span class="count">3</span></summary><ul><li><a href="/admin-api/">Genel bakış</a></li><li><a href="/admin-api/uclar/">Uç listesi</a></li><li><a href="/admin-api/odeme-bildirimi/">Ödeme bildirimi</a></li></ul></details><details class="nav-sec"><summary>Örnek kod <span class="count">5</span></summary><ul><li><a href="/examples/python/tsoft_client/">Python istemci</a></li><li><a href="/examples/python/add_customer/">Üye ekleme</a></li><li><a href="/examples/python/check_group_price/">Grup fiyatı</a></li><li><a href="/examples/python/env/">Ortam değişkenleri</a></li><li><a href="/examples/apps-script/code/">Apps Script</a></li></ul></details><details class="nav-sec"><summary>Eski tema blokları <span class="count">18</span></summary><ul><li><a href="/theme/bloklar/ust/">Üst blok</a></li><li><a href="/theme/bloklar/alt/">Alt blok</a></li><li><a href="/theme/bloklar/yeni-urunler/">Yeni ürünler</a></li><li><a href="/theme/bloklar/kategori-menusu/">Kategori menüsü</a></li><li><a href="/theme/bloklar/kategori-listesi/">Kategori listesi</a></li><li><a href="/theme/bloklar/home-banner/">Ana sayfa banner</a></li><li><a href="/theme/bloklar/home-sale/">Ana sayfa indirim</a></li><li><a href="/theme/bloklar/haberler/">Haberler</a></li><li><a href="/theme/bloklar/benzer-urunler/">Benzer ürünler</a></li><li><a href="/theme/bloklar/model-listesi/">Model listesi</a></li><li><a href="/theme/bloklar/marka-listesi/">Marka listesi</a></li><li><a href="/theme/bloklar/parca-toplama-sihirbazi/">Parça toplama sihirbazı</a></li><li><a href="/theme/bloklar/tedarikci-listesi/">Tedarikçi listesi</a></li><li><a href="/theme/bloklar/firsat-urunleri/">Fırsat ürünleri</a></li><li><a href="/theme/bloklar/ayin-yazari/">Ayın yazarı</a></li><li><a href="/theme/bloklar/gelecek-firsat-urun-listesi/">Gelecek fırsatlar</a></li><li><a href="/theme/bloklar/sss/">SSS</a></li><li><a href="/theme/bloklar/gorsel-vitrin/">Görsel vitrin</a></li></ul></details><details class="nav-sec"><summary>Eski tema değişkenleri <span class="count">5</span></summary><ul><li><a href="/theme/degiskenler/tsoft-product-varriables/">Ürün değişkenleri</a></li><li><a href="/theme/degiskenler/tsoft-header-page-links-varriable/">Sayfa linkleri</a></li><li><a href="/theme/degiskenler/tsoft-header-tabs-varriable/">Üst sekmeler</a></li><li><a href="/theme/degiskenler/tsoft-footer-menu-varriables/">Alt menü</a></li><li><a href="/theme/degiskenler/tsoft-left-right-category-varriables/">Sol ve sağ kategori</a></li></ul></details><details class="nav-sec" open><summary>Eski tema şablonları <span class="count">5</span></summary><ul><li><a href="/theme/snippets/bayi-mi-degil-mi/">Bayi hesabı koşulu</a></li><li><a href="/theme/orta/user_bayipanel/">Bayi paneli</a></li><li><a href="/theme/orta/user_bayigirisplasiyer/">Bayi giriş plasiyer</a></li><li><a href="/theme/orta/user_v4tpl/" aria-current="page">V4 şablon</a></li><li><a href="/theme/UstAlt/user_tasarimyenimenu/">Tasarım yeni menü</a></li></ul></details></aside>
+<main id="main" class="content">
+<nav class="crumbs" aria-label="Konum"><a href="/">Ana sayfa</a> <span>/</span> <a href="/theme/">Eski tema (Smarty)</a></nav>
+<article>
+<h1 id="v4-şablon"><a class="anchor" href="#v4-şablon" aria-hidden="true">#</a>V4 şablon</h1>
+<p>Dosya: <code>theme/orta/user_v4tpl.tpl</code> · <a href="/theme/orta/user_v4tpl.tpl">Ham dosya</a> · Smarty</p>
+<pre><code class="language-xml">&lt;script&gt;
+    document.addEventListener('DOMContentLoaded', function() {
+        var cargoInfo = document.querySelector('.detailCargo');
+        if (window.IS_VENDOR === 0) {
+            cargoInfo.style.display = 'block';
+        } else {
+            cargoInfo.style.display = 'none';
+        }
+    });
+&lt;/script&gt;
+&lt;div class=&quot;col col-12&quot; &gt;
+    &lt;div id=&quot;productDetail&quot; class=&quot;row mb&quot; &gt;
+        &lt;div class=&quot;fl col-12&quot; id=&quot;pageContent&quot;&gt;
+            &lt;!-- #pageContent = Sayfa içinde belirli bir div i popup olarak açmak istediğimizde bu div içerisinden yükleniyor. Hızlı görünüm için gerekli. --&gt;
+            &lt;div class=&quot;box col-12&quot;&gt;
+                &lt;div class=&quot;box p-left col-5 col-sm-12 &quot; id=&quot;productLeft&quot;&gt;
+                    &lt;div class=&quot;fl col-12&quot;&gt;
+                        &lt;div class=&quot;col col-10 fr&quot;&gt;
+                            &lt;div class=&quot;col col-12 p-right detayy&quot;&gt;
+                                &lt;div class=&quot;row mb loaderWrapper&quot;&gt;
+                                    &lt;!--{if $P.ADDITIONAL_FIELD_3 != &quot;&quot;}
+                                        &lt;a href=&quot;javascript:void();&quot; class=&quot;videoo&quot; onClick=&quot;VideoPlay();&quot; style=&quot;display:block;&quot;&gt;
+                                            &lt;div class=&quot;UrunVideoBox&quot;&gt;
+                                                &lt;div class=&quot;UrunVideo&quot; id=&quot;urunVideoId&quot;&gt;
+                                                    {$P.ADDITIONAL_FIELD_3}
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+                                        &lt;/a&gt;
+                                    {/if}--&gt;
+                                    &lt;ul id=&quot;productImage&quot; class=&quot;fl col-12&quot;&gt;
+                                        {if $P.ADDITIONAL_FIELD_3 != &quot;&quot;}
+                                            &lt;li class=&quot;col-12 fl current&quot;&gt;
+                                            &lt;/li&gt;
+                                        {/if}
+                                        {for $i=0; $i&lt;$P.IMAGE_COUNT; $i++}
+                                            &lt;li class=&quot;col-12 fl&quot;&gt;
+                                                &lt;div class=&quot;col col-12 p-left&quot;&gt;
+                                                    &lt;div class=&quot;col col-12&quot;&gt;
+                                                        &lt;div class=&quot;row&quot;&gt;
+                                                            &lt;a href=&quot;{$P.IMAGE_LIST.$i.BIG}&quot; rel=&quot;productImage&quot; data-index=&quot;{$i}&quot; class=&quot;image-wrapper detay fl&quot; data-href=&quot;{$P.IMAGE_LIST.$i.BIG}&quot; data-standard=&quot;{$P.IMAGE_LIST.$i.BIG}&quot;&gt;
+                                                                &lt;span class=&quot;imgInner&quot;&gt;
+                                                                   &lt;img src=&quot;{$P.IMAGE_LIST.$i.BIG}&quot;{if $P.HAS_MAGNIFIER == 1} data-zoom-image=&quot;{$P.IMAGE_LIST.$i.BIG}&quot; id=&quot;zoomImage{$i}&quot;{/if} alt=&quot;{$P.IMAGE_LIST.$i.TITLE} {$P.BRAND}&quot; itemprop=&quot;image&quot; /&gt;
+                                                                &lt;/span&gt;
+                                                            &lt;/a&gt;
+                                                        &lt;/div&gt;
+                                                    &lt;/div&gt;
+                                                &lt;/div&gt;
+                                            &lt;/li&gt;
+                                        {/for}
+                                    &lt;/ul&gt;
+                                    {if $P.IMAGE_COUNT &gt;= 1}
+                                        &lt;div id=&quot;imageControl&quot; class=&quot;col-12 forDesktop&quot;&gt;
+                                            &lt;div class=&quot;col col-12 p-left&quot;&gt;
+                                                &lt;span id=&quot;prevImage&quot; class=&quot;fl ease&quot;&gt;&lt;/span&gt;
+                                                &lt;span id=&quot;nextImage&quot; class=&quot;fr ease&quot;&gt;&lt;/span&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    {/if}
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        {if $P.IMAGE_COUNT &gt;= 1} 
+                            &lt;div class=&quot;box col-2&quot;&gt;
+                                &lt;div class=&quot;row slide-wrapper&quot;&gt;
+                                    &lt;div id=&quot;resimler&quot; class=&quot;col col-12 ease&quot;&gt; 
+                                        &lt;ul id=&quot;productThumbs&quot; class=&quot;fl col-12 ease&quot;&gt;
+                                            {if $P.ADDITIONAL_FIELD_3 != &quot;&quot;}
+                                                &lt;li class=&quot;col-12 fl&quot;&gt;
+                                                    &lt;div class=&quot;box col-12 videoWrap&quot; id=&quot;videoWrap&quot;&gt;
+                                                        &lt;div class=&quot;row ease&quot;&gt;
+                                                            &lt;a class=&quot;image-wrapper video fl&quot; href=&quot;javascript:void(0);&quot; data-video=&quot;0&quot;&gt;
+                                                                &lt;span class=&quot;imgInner&quot; style=&quot;display:none;&quot;&gt;&lt;/span&gt;
+                                                            &lt;/a&gt;
+                                                        &lt;/div&gt;
+                                                    &lt;/div&gt;
+                                                &lt;/li&gt;
+                                            {/if}
+                                            {for $i=0; $i&lt;$P.IMAGE_COUNT; $i++}
+                                                &lt;li class=&quot;col-12 fl&quot; data-type=&quot;{$P.IMAGE_LIST.$i.VARIANT_TYPE_ID}&quot;&gt;
+                                                    &lt;div class=&quot;box col-12&quot;&gt;
+                                                        &lt;div class=&quot;row ease&quot;&gt;
+                                                            &lt;a data-href=&quot;{$P.IMAGE_LIST.$i.BIG}&quot; class=&quot;image-wrapper resim fl&quot; data-standard=&quot;{$P.IMAGE_LIST.$i.BIG}&quot;&gt;
+                                                                &lt;span class=&quot;imgInner&quot;&gt;
+                                                                    &lt;img src=&quot;{$P.IMAGE_LIST.$i.SMALL}&quot; alt=&quot;{$P.IMAGE_LIST.$i.TITLE} - Thumbnail&quot; /&gt;
+                                                                &lt;/span&gt;
+                                                            &lt;/a&gt;
+                                                        &lt;/div&gt;
+                                                    &lt;/div&gt;
+                                                &lt;/li&gt;
+                                            {/for}
+                                        &lt;/ul&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        {/if}
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;box col-7 col-sm-12 loaderWrapper&quot; id=&quot;productRight&quot;&gt;
+                    &lt;div class=&quot;box col-12 p-top&quot; id=&quot;productMobileInfo&quot;&gt;
+                        &lt;div class=&quot;row&quot;&gt;
+                            &lt;div class=&quot;col col-12 p-left&quot; id=&quot;productInfo&quot;&gt;
+                                &lt;h1 class=&quot;fl col-12&quot; id=&quot;productName&quot; &gt;{$P.TITLE}&lt;/h1&gt;
+                                &lt;a href=&quot;/{$P.MODEL_URL}&quot; target=&quot;_blank&quot; title=&quot;Yazar: {$P.MODEL}&quot; style=&quot;color:#14512B&quot;  class=&quot;fl col-lg-6 col-md-12 col-sm-12&quot; id=&quot;productBrandText&quot; &gt;{$P.MODEL}&lt;/a&gt;
+                                &lt;span title=&quot;{$P.BRAND}&quot;  class=&quot;fr col-12&quot; id=&quot;productBrandText&quot; &gt;&lt;a href=&quot;/{$P.BRAND_URL}&quot; target=&quot;_blank&quot; style=&quot;color:#f58120;&quot;&gt;{$P.BRAND}&lt;/a&gt;&lt;/span&gt;
+                                &lt;div class=&quot;fl productComment&quot;&gt;
+                                    &lt;div class=&quot;fr stars&quot;&gt;
+                                        &lt;div class=&quot;fl stars-inner&quot; style=&quot;width:{$P.COMMENT_RANK}%;&quot;&gt;&lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;hideThis&quot;&gt;
+                                {if $P.DEAL == 1}    
+                                    {block name='firsat_sayac'}
+                                        &lt;!--FIRSAT URUNU--&gt;
+                                        &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;{$THEME_V4}css/FirsatUrunSayac.css&quot;/&gt;
+                                        &lt;div class=&quot;col col-12&quot;&gt;
+                                            &lt;div class=&quot;box col-12 fw700 danger&quot;&gt;
+                                                &lt;div class=&quot;row mb&quot;&gt;
+                                                    {if $TOTAL_SALE &gt; 0}
+                                                        Bu fırsatı {$TOTAL_SALE} kişi değerlendirdi.
+                                                    {else}
+                                                        Bu fırsatı ilk sen satın al!
+                                                    {/if}
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+                                            &lt;div class=&quot;box col-12 loaderWrapper&quot;&gt;
+                                                &lt;span id=&quot;tsoft_counter&quot; class=&quot;col col-12 image-band campaign-band&quot;&gt;&lt;/span&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                        &lt;script type=&quot;text/javascript&quot;&gt;
+                                            dateFuture1 = new Date({$P.DEAL_END_DATE|date_format:'Y,m-1,d,H,i,s'});
+                                            GetCount(dateFuture1, 'tsoft_counter');
+                                        &lt;/script&gt;
+                                        &lt;!--FIRSAT URUNU--&gt;                                
+                                    {/block}
+                                {/if}
+                            &lt;/div&gt;
+
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                {block name='firsat_sayac'}{/block}
+                {if $P.IS_DISPLAY_PRODUCT == 0}
+                    &lt;div class=&quot;box col-12 p-left p-right&quot;  id=&quot;productMobilePrices&quot;&gt;
+                        &lt;div class=&quot;fl col-12 mainPrices&quot;&gt;
+                            {if $P.DISCOUNT_PERCENT &gt; 0 &amp;&amp; $P.IS_DISPLAY_DISCOUNTED_ACTIVE == 1}
+                                &lt;div class=&quot;productDiscount fl&quot;&gt;%{$P.DISCOUNT_PERCENT}&lt;/div&gt;
+                            {/if}
+                            &lt;div class=&quot;col p-left priceLine&quot;&gt;
+                                {if $P.IS_DISCOUNT_ACTIVE == 1 &amp;&amp; $P.IS_DISPLAY_DISCOUNTED_ACTIVE == 1}
+                                    &lt;div class=&quot;col discountPrice&quot; data-old=&quot;{$P.PRICE_BUY}&quot;&gt;
+                                        &lt;span class=&quot;product-price&quot;&gt;{vat price=$P.PRICE_SELL  vat=$P.VAT}&lt;/span&gt; {$P.TARGET_CURRENCY}
+                                    &lt;/div&gt;&lt;br /&gt;
+                                    &lt;div class=&quot;col currencyPrice discountedPrice&quot; data-old=&quot;{$P.PRICE_BUY}&quot;&gt;
+                                        &lt;span class=&quot;product-price-not-discounted&quot;&gt;{vat price=$P.PRICE_NOT_DISCOUNTED vat=$P.VAT}&lt;/span&gt;  {$P.TARGET_CURRENCY}
+                                    &lt;/div&gt;
+                                {else} 
+                                    &lt;div class=&quot;col discountPrice&quot; data-old=&quot;{$P.PRICE_BUY}&quot;&gt;
+                                        &lt;span class=&quot;product-price&quot;&gt;{vat price=$P.PRICE_SELL  vat=$P.VAT}&lt;/span&gt; {$P.TARGET_CURRENCY}
+                                    &lt;/div&gt;
+                                {/if}
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;!--&lt;div class=&quot;fl col-12 proDesc&quot;&gt;--&gt;
+                        &lt;!--    {$P.ADDITIONAL_FIELD_1}--&gt;
+                        &lt;!--&lt;/div&gt;--&gt;
+                    &lt;/div&gt;
+                    &lt;input type=&quot;hidden&quot; name=&quot;subPro{$P.ID}&quot; id=&quot;subPro{$P.ID}&quot; value=&quot;0&quot; /&gt;
+                    {if $P.HAS_VARIANT == true}
+                        &lt;div class=&quot;variantOverlay&quot; data-id=&quot;{$P.ID}&quot;&gt;&lt;/div&gt;
+                        &lt;div class=&quot;box col-12 p-left p-right variantWrapper tooltipWrapper&quot;&gt;
+                            &lt;textarea id=&quot;json{$P.ID}&quot; class=&quot;hideThis&quot;&gt;{$P.VARIANT_DATA}&lt;/textarea&gt;
+                            {if $P.VARIANT_FEATURE1_LIST|@count &gt; 0}
+                                &lt;div class=&quot;row variantLine&quot;&gt;
+                                    &lt;div class=&quot;col col-12 variantType2&quot;&gt;{if $P.VARIANT_FEATURE1_TITLE != ''}{$P.VARIANT_FEATURE1_TITLE}{else}Seçiniz{/if}&lt;/div&gt;
+                                    &lt;div class=&quot;col col-12 variantBox subOne&quot; data-order=&quot;1&quot;{if $P.DISPLAY_GAIN &amp;&amp;  $P.DISCOUNT_PERCENT &gt; 0 &amp;&amp; $P.IS_DISPLAY_DISCOUNTED_ACTIVE == 1} data-callback=&quot;changeGain&quot;{/if}&gt;
+                                        &lt;div class=&quot;fl col-12 ease variantList&quot;&gt;
+                                            {include file='Blok/UrunDetay/Orta/_alturun/1.tpl' VARIANT_LIST=$P.VARIANT_FEATURE1_LIST SELECTED=$P.VARIANT_FEATURE1_SELECTED GRUP_TIP_NO=1}
+                                        &lt;/div&gt;
+                                        &lt;div class=&quot;fl col-12 forMobile variantMoreBtn&quot;&gt;&lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            {/if}
+                        &lt;/div&gt;
+                    {/if}
+                    &lt;div class=&quot;box col-12 p-left&quot;&gt;
+                        &lt;div class=&quot;row tooltipWrapper&quot;&gt;
+                            &lt;input type=&quot;hidden&quot; id=&quot;IS_STOCK_NOTIFICATION_SUBPRODUCT&quot; value=&quot;{$IS_STOCK_NOTIFICATION_SUBPRODUCT}&quot;/&gt;
+                            {if $P.HAS_VARIANT == true &amp;&amp; $IS_STOCK_NOTIFICATION_SUBPRODUCT == 1}
+                                &lt;div class=&quot;subProductStockAlert row outStock&quot; style=&quot;display:none&quot;&gt;
+                                    &lt;span class=&quot;box productFunction&quot;&gt;{#out_of_stock#}&lt;/span&gt;
+                                    {if $IS_MEMBER_LOGGED_IN != true}
+                                        {if $IS_HTTPS_ACTIVE == 1}
+                                            &lt;a data-width=&quot;500&quot; data-url=&quot;/srv/service/customer/login-form&quot; class=&quot;popupWin box productFunction popupHide priceAlertLink&quot;&gt;{#stock_notification#}&lt;/a&gt;
+                                        {else}
+                                            &lt;a href=&quot;/{$PAGE_LINK.MEMBER_LOGIN}&quot; class=&quot;box productFunction popupHide priceAlertLink&quot;&gt;{#stock_notification#}&lt;/a&gt;
+                                        {/if}
+                                    {else}
+                                        &lt;a data-width=&quot;450&quot; data-url=&quot;/srv/service/profile/add-to-stock-alarm-list/{$P.ID}&quot; class=&quot;popupWin box productFunction subProductAlert  popupHide priceAlertLink&quot; data-type=&quot;stock&quot;&gt;{#stock_notification#}&lt;/a&gt;
+                                    {/if}
+                                &lt;/div&gt;
+                            {/if}
+                            {if $P.STOCK&lt;1 &amp;&amp; $NEGATIVE_STOCK == 0 &amp;&amp; $P.HAS_VARIANT == false}
+                                &lt;div class=&quot;outStock&quot;&gt;
+                                    &lt;span class=&quot;box productFunction&quot;&gt;{#out_of_stock#}&lt;/span&gt;
+                                    {if $IS_MEMBER_LOGGED_IN != true}
+                                        {if $IS_HTTPS_ACTIVE == 1}
+                                            &lt;a data-width=&quot;500&quot; data-url=&quot;/srv/service/customer/login-form&quot; class=&quot;popupWin box productFunction popupHide priceAlertLink&quot;&gt;{#stock_notification#}&lt;/a&gt;
+                                        {else}
+                                            &lt;a href=&quot;/{$PAGE_LINK.MEMBER_LOGIN}&quot; class=&quot;box productFunction popupHide priceAlertLink&quot;&gt;{#stock_notification#}&lt;/a&gt;
+                                        {/if}
+                                    {else}
+                                        &lt;a data-width=&quot;450&quot; data-url=&quot;/srv/service/profile/add-to-stock-alarm-list/{$P.ID}-{$P.VARIANT_ID}&quot; class=&quot;popupWin box productFunction popupHide priceAlertLink&quot; data-type=&quot;stock&quot;&gt;{#stock_notification#}&lt;/a&gt;
+                                    {/if}
+                                &lt;/div&gt;
+                                &lt;div class=&quot;fl col-12 add-to-cart-win inStock&quot; style=&quot;display:none&quot;&gt;
+                                    &lt;div class=&quot;box col-12 p-top p-left qtyBox&quot;&gt;
+                                        &lt;div class=&quot;box col-12 box-border&quot;&gt;
+                                            &lt;div class=&quot;col col-3 p-left productType&quot;&gt;{if $P.STOCK_UNIT != ''}{$P.STOCK_UNIT}{else}{#count#}{/if}:&lt;/div&gt;
+                                            &lt;div class=&quot;fl col-9 qtyBtns&quot; data-increment=&quot;{$P.STOCK_INCREMENT}&quot;{if $P.IS_MULTIPLE_DISCOUNT_ACTIVE == 1} data-multiple-disc=&quot;true&quot;{/if}&gt;
+                                                &lt;a title=&quot;-&quot; data-id=&quot;{$P.ID}&quot; class=&quot;col-4&quot;&gt;&lt;p&gt;-&lt;/p&gt;&lt;/a&gt;
+                                                &lt;input type=&quot;text&quot; id=&quot;Adet{$P.ID}&quot; name=&quot;Adet{$P.ID}&quot; min=&quot;{$P.MIN_ORDER_COUNT}&quot; value=&quot;{$P.MIN_ORDER_COUNT}&quot; class=&quot;col-4 detayAdet{$P.ID}&quot; /&gt;
+                                                &lt;a title=&quot;+&quot; data-id=&quot;{$P.ID}&quot; class=&quot;col-4&quot;&gt;&lt;p&gt;+&lt;/p&gt;&lt;/a&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                    {if $P.IS_MULTIPLE_DISCOUNT_ACTIVE == 1}
+                                        &lt;div class=&quot;box col-12 p-top p-left discBox&quot;&gt;
+                                            &lt;div class=&quot;col col-12 box-border b-bottom b-right&quot;&gt;
+                                                &lt;div class=&quot;row line-bottom&quot;&gt;
+                                                    &lt;div class=&quot;box col-12 display-flex align-items-center flex-wrap line-right lightBg&quot;&gt;
+                                                        &lt;img src=&quot;{$SUBTHEME}genel/v4/v4/toptan.png&quot; title=&quot;Toptan Alın İndirim Kazanın&quot; class=&quot;fl&quot; /&gt;
+                                                        &lt;div class=&quot;btn btn-small&quot;&gt;
+                                                            {#title_for_multi_products#}
+                                                        &lt;/div&gt;
+                                                    &lt;/div&gt;
+                                                &lt;/div&gt;
+                                                &lt;div class=&quot;row&quot;&gt;
+                                                    &lt;div class=&quot;fl col-3 col-sm-12&quot;&gt;
+                                                        &lt;div class=&quot;box col-12 col-sm-6 line-right line-bottom fw700&quot;&gt;{#amount#}&lt;/div&gt;
+                                                        &lt;div class=&quot;box col-12 col-sm-6 line-right line-bottom fw700&quot;&gt;{#discount#}&lt;/div&gt;
+                                                    &lt;/div&gt;
+                                                    {foreach $P.MULTIPLE_DISCOUNT as $C}
+                                                        {$genis = $P.MULTIPLE_DISCOUNT|@count * 60}
+                                                    {/foreach}
+                                                    &lt;div class=&quot;fl col-9 col-sm-12&quot;&gt;
+                                                        {$count = 0}
+                                                        {foreach $P.MULTIPLE_DISCOUNT as $C}
+                                                            {$count = $count +1}
+                                                            &lt;div class=&quot;fl col-3 col-sm-12 discounts&quot; data-min=&quot;{$C.MIN}&quot; data-max=&quot;{$C.MAX}&quot;&gt;
+                                                                &lt;div class=&quot;box col-12 col-sm-6 line-right line-bottom miktar&quot;&gt;&lt;span class=&quot;basMiktar&quot;&gt;{$C.MIN}&lt;/span&gt; - &lt;span class=&quot;bitMiktar&quot;&gt;{$C.MAX}&lt;/span&gt;&lt;/div&gt;
+                                                                &lt;div class=&quot;box col-12 col-sm-6 line-right line-bottom indirimYuzde&quot;&gt;%{$C.PERCENT}&lt;/div&gt;
+                                                            &lt;/div&gt;
+                                                        {/foreach}
+                                                    &lt;/div&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    {/if}
+                                    &lt;div class=&quot;fl col-12&quot; id=&quot;mobileBuyBtn&quot;&gt;
+                                        &lt;div class=&quot;box col-6 col-sm-12 p-top p-left buyBtn&quot;&gt;
+                                            &lt;a onclick=&quot;Add2Cart({$P.ID}, $('#subPro{$P.ID}').val(), $('.detayAdet{$P.ID}').val());&quot; class=&quot;btn col-12 btn-big btn-default btn-radius&quot; id=&quot;addCartBtn&quot;&gt;
+                                                {#add_to_cart#}
+                                                &lt;span class=&quot;fr icon-basket light-basket&quot;&gt;&lt;/span&gt;
+                                            &lt;/a&gt;
+                                        &lt;/div&gt;
+                                        &lt;div class=&quot;box col-6 col-sm-12  p-top p-left buyBtn&quot;&gt;
+                                            &lt;a onclick=&quot;Add2Cart({$P.ID}, $('#subPro{$P.ID}').val(), $('.detayAdet{$P.ID}').val(), 1);&quot; class=&quot;btn col-12 btn-big btn-warning btn-radius&quot; id=&quot;fastBuyBtn&quot;&gt;
+                                                {#buy_now#}
+                                                &lt;span class=&quot;fr icon-basket light-basket fast&quot;&gt;&lt;/span&gt;
+                                            &lt;/a&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            {elseif $P.DEAL_PREV_DATE != ''}
+                                &lt;div class=&quot;box productFunction priceAlertLink&quot;&gt;Bu ürün için fırsatı {$P.DEAL_PREV_DATE} tarihinde kaçırdınız.&lt;/div&gt;
+                            {elseif $P.DEAL_NEXT_DATE != ''}
+                                &lt;div class=&quot;box productFunction priceAlertLink&quot;&gt;Bu ürün için fırsatı {$P.DEAL_NEXT_DATE} tarihinde yakalayabilirisiniz.&lt;/div&gt;
+                            {elseif $IS_ADD_TO_CART_VISIBLE == 1}
+                                &lt;div class=&quot;fl col-12 add-to-cart-win inStock&quot;&gt;
+                                    {if $P.IS_MULTIPLE_DISCOUNT_ACTIVE == 1}
+                                        &lt;div class=&quot;box col-12 p-top p-left discBox&quot;&gt;
+                                            &lt;div class=&quot;col col-12 box-border b-bottom b-right&quot;&gt;
+                                                &lt;div class=&quot;row line-bottom&quot;&gt;
+                                                    &lt;div class=&quot;box col-12 display-flex align-items-center flex-wrap line-right lightBg&quot;&gt;
+                                                        &lt;img src=&quot;{$SUBTHEME}genel/v4/v4/toptan.png&quot; title=&quot;Toptan Alın İndirim Kazanın&quot; class=&quot;fl&quot; /&gt;
+                                                        &lt;div class=&quot;btn btn-small&quot;&gt;
+                                                            {#title_for_multi_products#}
+                                                        &lt;/div&gt;
+                                                    &lt;/div&gt;
+                                                &lt;/div&gt;
+                                                &lt;div class=&quot;row&quot;&gt;
+                                                    &lt;div class=&quot;fl col-3 col-sm-12&quot;&gt;
+                                                        &lt;div class=&quot;box col-12 col-sm-6 line-right line-bottom fw700&quot;&gt;{#amount#}&lt;/div&gt;
+                                                        &lt;div class=&quot;box col-12 col-sm-6 line-right line-bottom fw700&quot;&gt;{#discount#}&lt;/div&gt;
+                                                    &lt;/div&gt;
+                                                    {foreach $P.MULTIPLE_DISCOUNT as $C}
+                                                        {$genis = $P.MULTIPLE_DISCOUNT|@count * 60}
+                                                    {/foreach}
+                                                    &lt;div class=&quot;fl col-9 col-sm-12&quot;&gt;
+                                                        {$count = 0}
+                                                        {foreach $P.MULTIPLE_DISCOUNT as $C}
+                                                            {$count = $count +1}
+                                                            &lt;div class=&quot;fl col-3 col-sm-12 discounts&quot; data-min=&quot;{$C.MIN}&quot; data-max=&quot;{$C.MAX}&quot;&gt;
+                                                                &lt;div class=&quot;box col-12 col-sm-6 line-right line-bottom miktar&quot;&gt;&lt;span class=&quot;basMiktar&quot;&gt;{$C.MIN}&lt;/span&gt; - &lt;span class=&quot;bitMiktar&quot;&gt;{$C.MAX}&lt;/span&gt;&lt;/div&gt;
+                                                                &lt;div class=&quot;box col-12 col-sm-6 line-right line-bottom indirimYuzde&quot;&gt;%{$C.PERCENT}&lt;/div&gt;
+                                                            &lt;/div&gt;
+                                                        {/foreach}
+                                                    &lt;/div&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    {/if}
+                                    &lt;div class=&quot;fl col-12&quot; style=&quot;margin-top: 1rem&quot;&gt;
+                                        &lt;div class=&quot;col col-2 col-sm-5 qtyBtns&quot;&gt;
+                                            &lt;div class=&quot;col col-12 p-left productType&quot;&gt;{if $P.STOCK_UNIT != ''}{$P.STOCK_UNIT}{else}{#count#}{/if}:&lt;/div&gt;
+                                            &lt;select id=&quot;Adet{$P.ID}&quot; class=&quot;detayAdet detayAdet{$P.ID} col-12&quot;&gt;
+                                                {for $foo=1 to 200}
+                                                    &lt;option value=&quot;{$foo*$P.MIN_ORDER_COUNT}&quot;&gt;{$foo*$P.MIN_ORDER_COUNT}&lt;/option&gt;
+                                                {/for}
+                                            &lt;/select&gt;
+                                        &lt;/div&gt;
+                                        &lt;div class=&quot;box col-5 col-sm-12 p-top buyBtn&quot;&gt;
+                                            &lt;a onclick=&quot;Add2Cart({$P.ID}, $('#subPro{$P.ID}').val(), $('.detayAdet{$P.ID}').val());&quot; class=&quot;btn col-12 btn-big btn-default btn-radius&quot; id=&quot;addCartBtn&quot;&gt;
+                                                {#add_to_cart#}
+                                            &lt;/a&gt;
+                                        &lt;/div&gt;
+                                        &lt;div class=&quot;box col-3 col-sm-12  p-top buyBtn&quot;&gt;
+                                            &lt;a onclick=&quot;Add2Cart({$P.ID}, $('#subPro{$P.ID}').val(), $('.detayAdet{$P.ID}').val(), 1);&quot; class=&quot;btn col-12 btn-big btn-warning btn-radius&quot; id=&quot;fastBuyBtn&quot;&gt;
+                                                {#buy_now#}
+                                            &lt;/a&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class=&quot;fl col-12&quot; id=&quot;bayi-paketici-adet&quot;&gt;
+                                        {if $P.MIN_ORDER_COUNT &gt; 1}
+                                            &lt;div&gt;
+                                                Paket İçi Adet: {$P.MIN_ORDER_COUNT}
+                                            &lt;/div&gt;
+                                        {/if}
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            {/if}
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    {if $P.IS_PERSONALIZATION_ACTIVE}
+                        &lt;div class=&quot;col col-12&quot;&gt;
+                            &lt;div id=&quot;myPersonalizationForm&quot;&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;script&gt;
+                            new PersonalizationForm({
+                                form_id: parseInt('{$P.PERSONALIZATION_ID}'),
+                                product_id: '{$P.ID}',
+                                sub_product_id: '{$P.VARIANT_ID}',
+                                uploadButtonActive: true,
+                                data: [],
+                                selector: '#myPersonalizationForm'
+                            });
+                        &lt;/script&gt;
+                    {/if}
+                {/if}
+                {if $P.IS_DISPLAY_PRODUCT == 0}
+                    &lt;div class=&quot;box col-12 p-left line-bottom&quot;&gt;
+                        &lt;div class=&quot;row&quot;&gt;
+                            {if $IS_MEMBER_LOGGED_IN != true}
+                                {if $IS_HTTPS_ACTIVE == 1}
+                                    &lt;a data-width=&quot;500&quot; data-url=&quot;/srv/service/customer/login-form&quot; class=&quot;popupWin box productFunction popupHide shopListLink&quot; id=&quot;shopListLink&quot;&gt;{#add_to_shopping_list#}&lt;/a&gt;
+                                {else}
+                                    &lt;a href=&quot;/{$PAGE_LINK.MEMBER_LOGIN}&quot; class=&quot;box productFunction popupHide shopListLink&quot; id=&quot;shopListLink&quot;&gt;{#add_to_shopping_list#}&lt;/a&gt;
+                                {/if}
+                            {else}
+                                &lt;a data-width=&quot;700&quot; data-url=&quot;/srv/service/content/get/1014/popup/{$P.ID}-{$P.VARIANT_ID}&quot; class=&quot;popupWin box productFunction popupHide shopListLink&quot; id=&quot;shopListLink&quot; data-type=&quot;shoplist&quot;&gt;{#add_to_shopping_list#}&lt;/a&gt;
+                            {/if}
+                            {if $IS_RECOMMENDATION_ACTIVE == 1}
+                                &lt;a class=&quot;box productFunction popupHide adviceLink TavsiyeEt&quot; id=&quot;adviceBtn&quot;&gt;{#recommended#}&lt;/a&gt;
+                            {/if}
+                            &lt;div class=&quot;fl box smlIconSet&quot;&gt;
+                                &lt;div class=&quot;col shareTitle&quot;&gt;{#share#}:&lt;/div&gt;
+                                &lt;div class=&quot;fl shareBtns&quot;&gt;
+                                    &lt;div class=&quot;col p-left&quot;&gt;
+                                        &lt;a id=&quot;fbShareBtn&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class=&quot;col p-left&quot;&gt;
+                                        &lt;a id=&quot;twBtn&quot; target=&quot;_blank&quot; text=&quot;&quot; href=&quot;http://twitter.com/share?text={$P.TITLE}&amp;url={$smarty.server.REQUEST_SCHEME}://{$smarty.server.HTTP_HOST}{$smarty.server.REQUEST_URI}&quot;&gt;&lt;/a&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class=&quot;col p-left&quot;&gt;
+                                        &lt;script type=&quot;text/javascript&quot; async defer src=&quot;//assets.pinterest.com/js/pinit.js&quot; data-pin-custom=&quot;true&quot;&gt;&lt;/script&gt;
+                                        &lt;a href=&quot;https://www.pinterest.com/pin/create/button/&quot; rel=&quot;nofollow&quot; id=&quot;pinBtn&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                {/if}
+                &lt;div class=&quot;box col-12&quot;&gt;
+                    &lt;div class=&quot;row&quot;&gt;
+                        &lt;div class=&quot;box col-6 col-sm-12 detailCargo&quot;&gt;
+                            &lt;span&gt;Kargoya Verilme&lt;/span&gt;&lt;br /&gt;
+                            &lt;span class=&quot;cargotext&quot;&gt;3 İş Günü İçerisinde Kargolanır.&lt;/span&gt;
+                        &lt;/div&gt;
+                        {if $P.ADDITIONAL_FIELD_2}
+                        &lt;div class=&quot;box fr col-sm-12 pageShow&quot;&gt;
+                           &lt;a href=&quot;{$P.ADDITIONAL_FIELD_2}&quot; target=&quot;_blank&quot;&gt;Sayfaları İncele&lt;/a&gt;
+                        &lt;/div&gt;
+                        {/if}
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                {$ADDTHIS_SOSYAL_ORTAM_BUTON}
+                &lt;div class=&quot;fl col-12 angularTemplate&quot; id=&quot;cmpList&quot; data-url=&quot;/srv/campaign-v2/campaign/get-list-by-type/product/{$P.ID}&quot;&gt;
+                    &lt;div class=&quot;box col-12&quot; ng-if=&quot;CAMPAIGN_LIST.length &gt; 0&quot;&gt;
+                        &lt;div class=&quot;row&quot;&gt;
+                            &lt;div class=&quot;box col-12 btn-upper warning line-top line-bottom&quot;&gt;
+                                &lt;div class=&quot;row&quot;&gt;{#product_campaign#}&lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;col col-12 p-right&quot;&gt;
+                                &lt;div class=&quot;row&quot;&gt;
+                                    {literal}
+                                        &lt;div class=&quot;box col-6 col-sm-12 p-bottom p-left&quot; ng-repeat=&quot;CMP IN CAMPAIGN_LIST&quot;&gt;
+                                            &lt;div class=&quot;box col-12 lightBg box-border&quot;&gt;
+                                                &lt;p class=&quot;fw600&quot;&gt;{{CMP.TITLE}}&lt;/p&gt;
+                                                &lt;p class=&quot;sml p-bottom&quot;&gt;{{CMP.DESCRIPTION}}&lt;/p&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    {/literal}
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;row&quot;&gt;
+    {block name=&quot;tablar&quot;}
+        &lt;div class=&quot;col col-12&quot;&gt;
+            &lt;div id=&quot;urun-tab&quot; class=&quot;row mb&quot;&gt;
+                &lt;div class=&quot;col col-12&quot;&gt;
+                    &lt;div class=&quot;row&quot; id=&quot;mobileTabBtn&quot;&gt;
+                        &lt;ul id=&quot;tabBtn&quot;&gt;
+                            &lt;li class=&quot;box col-sm-12 filter-box loaded&quot;&gt;
+                                &lt;span class=&quot;col&quot;&gt;{#tab_product_features#}&lt;/span&gt;
+                            &lt;/li&gt;
+                            {if $P.IS_DISPLAY_PRODUCT != true}
+                                &lt;li class=&quot;box filter-box&quot; data-href=&quot;/srv/service/product-detail/payment-options/{$P.ID}/{$P.VARIANT_ID}&quot; id=&quot;paymentTab&quot;&gt;
+                                    &lt;span class=&quot;col&quot;&gt;{#tab_payment_options#}&lt;/span&gt;
+                                &lt;/li&gt;
+                            {/if}
+                            &lt;li class=&quot;box filter-box&quot;&gt;
+                                &lt;span class=&quot;col&quot;&gt;Teslimat ve İade Koşulları&lt;/span&gt;
+                            &lt;/li&gt;
+                            &lt;li class=&quot;box filter-box&quot; data-href=&quot;/srv/service/content/get/1004/comment/{$P.ID}&quot; id=&quot;commentTab&quot;&gt;
+                                &lt;span class=&quot;col&quot;&gt;{#tab_comments#} ({$COMMENT_COUNT})
+                                    &lt;span style=&quot;margin:8px&quot; class=&quot;fr stars dn-xs&quot;&gt;
+                                        &lt;span class=&quot;fl stars-inner&quot; style=&quot;width:{$P.COMMENT_RANK}%;&quot;&gt;&lt;/span&gt;
+                                    &lt;/span&gt;
+                                &lt;/span&gt;
+                            &lt;/li&gt;
+                            {if $IS_RECOMMENDATION_ACTIVE == 1}       
+                                &lt;li class=&quot;box filter-box&quot; data-href=&quot;/srv/service/content/get/1004/recommend/{$P.ID}&quot; id=&quot;adviceTab&quot;&gt;
+                                    &lt;span class=&quot;col&quot;&gt;{#tab_recommended#}&lt;/span&gt;
+                                &lt;/li&gt;
+                            {/if}
+                        &lt;/ul&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;row&quot;&gt;
+                        &lt;div class=&quot;box col-12&quot;&gt;
+                            &lt;ul id=&quot;tabPanel&quot; class=&quot;box col-12&quot;&gt;
+                                &lt;li class=&quot;fl ozellik&quot;&gt;
+                                    {block name=&quot;tab1&quot;}
+                                        &lt;div class=&quot;row&quot;&gt;
+                                            &lt;div class=&quot;box col-12&quot; id=&quot;productDetailTab&quot;&gt;
+                                                {$P.DETAIL}
+                                            &lt;/div&gt;
+                                            &lt;div class=&quot;col col-12&quot;&gt;
+                                                &lt;div class=&quot;col col-12 box-border b-bottom&quot;&gt;
+                                                    {if $P.BARCODE != ''}
+                                                        &lt;div class=&quot;row line-bottom&quot;&gt;
+                                                            &lt;div class=&quot;box col-4 line-right fw700&quot;&gt;&lt;i class=&quot;fas fa-barcode mr-1 fa-lg text-dark&quot;&gt;&lt;/i&gt;&amp;nbsp;&amp;nbsp;{'Barkod'}{':'}&lt;/div&gt;
+                                                            &lt;div class=&quot;box col-7&quot;&gt;{$P.BARCODE}&lt;/div&gt;
+                                                        &lt;/div&gt;
+                                                    {/if}
+                                                    {if $P.SHORT_DESCRIPTION != ''}
+                                                        &lt;div class=&quot;row line-bottom&quot;&gt;
+                                                            &lt;div class=&quot;box col-4 line-right fw700&quot;&gt;&lt;i class=&quot;fas fa-hashtag mr-1 fa-lg text-primary&quot; style=&quot;color:brown;&quot;&gt;&lt;/i&gt;&amp;nbsp;&amp;nbsp;{'Yayın Numarası'}{':'}&lt;/div&gt;
+                                                            &lt;div class=&quot;box col-7&quot;&gt;{$P.SHORT_DESCRIPTION}&lt;/div&gt;
+                                                        &lt;/div&gt;
+                                                    {/if}
+                                                    {if $FILTER_PROPERTY_LIST|@count &gt; 0}
+                                                    &lt;div class=&quot;&quot;&gt;
+                                                        {foreach $FILTER_PROPERTY_LIST as $F}
+                                                            {if $F.VALUE != ''}
+                                                                &lt;div class=&quot;row line-bottom&quot;&gt;
+                                                                    &lt;div class=&quot;box col-4 line-right fw700&quot;&gt;&lt;i class=&quot;fas fa-filter mr-1 fa-lg text-primary&quot;&gt;&lt;/i&gt;&amp;nbsp;&amp;nbsp;{$F.KEY}{':'}&lt;/div&gt;
+                                                                    &lt;div class=&quot;box col-7&quot;&gt;{$F.VALUE}&lt;/div&gt;&amp;nbsp;
+                                                                &lt;/div&gt;
+                                                            {/if}
+                                                        {/foreach}
+                                                    &lt;/div&gt;
+                                                    {/if}
+                                                    {if $P.IS_PRODUCT_SIZE_ACTIVE == true}
+                                                        &lt;div class=&quot;row line-bottom&quot;&gt;
+                                                            &lt;div class=&quot;box col-4 line-right fw700&quot;&gt;&lt;i class=&quot;fas fa-ruler fa-md text-danger&quot; style=&quot;color:red&quot;&gt;&lt;/i&gt;&amp;nbsp;&amp;nbsp;{'Boyut'}{':'}&lt;/div&gt;
+                                                            &lt;div class=&quot;box col-7&quot;&gt;{$P.WIDTH} x {$P.HEIGHT} x {$P.DEPTH}&amp;nbsp{'cm'}&lt;/div&gt;
+                                                        &lt;/div&gt;
+                                                    {/if}
+                                                    {if $P.WEIGHT != ''}
+                                                        &lt;div class=&quot;row line-bottom&quot;&gt;
+                                                            &lt;div class=&quot;box col-4 line-right fw700&quot;&gt;&lt;i class=&quot;fas fa-weight mr-1 fa-lg text-danger&quot; style=&quot;color:#434945;&quot;&gt;&lt;/i&gt;&amp;nbsp;&amp;nbsp;{#weight#}{':'}&lt;/div&gt;
+                                                            &lt;div class=&quot;box col-7&quot;&gt;{$P.WEIGHT}&lt;/div&gt;
+                                                        &lt;/div&gt;
+                                                    {/if}
+                                                    {if $P.DOCUMENT_INFO != ''}
+                                                        &lt;div class=&quot;row line-bottom&quot;&gt;
+                                                            &lt;div class=&quot;box col-4 line-right fw700&quot;&gt;&lt;i class=&quot;fas fa-book-open mr-1 fa-lg text-primary&quot; style=&quot;color:purple;&quot;&gt;&lt;/i&gt;&amp;nbsp;&amp;nbsp;{'Sayfa Sayısı'}{':'}&lt;/div&gt;
+                                                            &lt;div class=&quot;box col-7&quot;&gt;{$P.DOCUMENT_INFO}&lt;/div&gt;
+                                                        &lt;/div&gt;
+                                                    {/if}
+                                                    {if $P.ADDITIONAL_FIELD_1 != ''}
+                                                        &lt;div class=&quot;row line-bottom&quot;&gt;
+                                                            &lt;div class=&quot;box col-4 line-right fw700&quot;&gt;&lt;i class=&quot;fas fa-file mr-1 fa-lg text-primary&quot; style=&quot;color:green;&quot;&gt;&lt;/i&gt;&amp;nbsp;&amp;nbsp;{'Kağıt Bilgisi'}{':'}&lt;/div&gt;
+                                                            &lt;div class=&quot;box col-7&quot;&gt;{$P.ADDITIONAL_FIELD_1}&lt;/div&gt;
+                                                        &lt;/div&gt;
+                                                    {/if}
+                                                    {if $P.MODEL != ''}
+                                                        &lt;div class=&quot;row line-bottom&quot;&gt;
+                                                            &lt;div class=&quot;box col-4 line-right fw700&quot;&gt;&lt;i class=&quot;fas fa-user-edit fa-lg text-primary&quot; style=&quot;color:blue;&quot;&gt;&lt;/i&gt;&amp;nbsp;{'Yazar'}{':'}&lt;/div&gt;
+                                                            &lt;div class=&quot;box col-7&quot;&gt;&lt;a href=&quot;/{$P.MODEL_URL}&quot; target=&quot;_blank&quot;&gt;{$P.MODEL}&lt;/a&gt;&lt;/div&gt;
+                                                        &lt;/div&gt;
+                                                    {/if}
+                                                    {if $P.BRAND != ''}
+                                                        &lt;div class=&quot;row line-bottom&quot;&gt;
+                                                            &lt;div class=&quot;box col-4 line-right fw700&quot;&gt;&lt;i class=&quot;fa fa-copyright mr-1 fa-lg text-dark&quot; style=&quot;color:#14512B;&quot;&gt;&lt;/i&gt;&amp;nbsp;&amp;nbsp;{'Yayın'}{':'}&lt;/div&gt;
+                                                            &lt;div class=&quot;box col-7&quot;&gt;&lt;a href=&quot;/{$P.BRAND_URL}&quot; target=&quot;_blank&quot;&gt;{$P.BRAND}&lt;/a&gt;&lt;/div&gt;
+                                                        &lt;/div&gt;
+                                                    {/if}
+                                                    {if $P.WARRANTY_INFO != ''}
+                                                        &lt;div class=&quot;row line-bottom&quot;&gt;
+                                                            &lt;div class=&quot;box col-4 fw700&quot;&gt;{#warranty#}&lt;/div&gt;
+                                                            &lt;div class=&quot;box col-1 line-right fw700&quot;&gt;:&lt;/div&gt;
+                                                            &lt;div class=&quot;box col-7&quot;&gt;{$P.WARRANTY_INFO}&lt;/div&gt;
+                                                        &lt;/div&gt;
+                                                    {/if}
+                                                    {if $P.DELIVERY_INFO != ''}
+                                                        &lt;div class=&quot;row line-bottom&quot;&gt;
+                                                            &lt;div class=&quot;box col-4 fw700&quot;&gt;{#delivery#}&lt;/div&gt;
+                                                            &lt;div class=&quot;box col-1 line-right fw700&quot;&gt;:&lt;/div&gt;
+                                                            &lt;div class=&quot;box col-7&quot;&gt;{$P.DELIVERY_INFO}&lt;/div&gt;
+                                                        &lt;/div&gt;
+                                                    {/if}
+                                                &lt;/div&gt;
+                                                {if $P.TAGS|@count &gt;0}
+                                                    &lt;div class=&quot;box col-12 line-bottom p-bottom&quot;&gt;
+                                                        &lt;div class=&quot;row box-border b-bottom&quot;&gt;
+                                                            &lt;div class=&quot;box col-12 fw700&quot;&gt;{#product_tags#}&lt;/div&gt;
+                                                        &lt;/div&gt;
+                                                        &lt;div class=&quot;row box-border b-bottom&quot;&gt;
+                                                            {foreach name=outer item=TAG from=$P.TAGS}
+                                                                {if !$smarty.foreach.outer.first}
+                                                                    &lt;span class=&quot;box p-left&quot;&gt;,&lt;/span&gt; 
+                                                                {/if}
+                                                                &lt;a class=&quot;box&quot; href=&quot;/{$TAG.URL}&quot; target=&quot;_blank&quot;&gt;{$TAG.TITLE}&lt;/a&gt; 
+                                                            {/foreach}
+                                                        &lt;/div&gt;
+                                                    &lt;/div&gt;
+                                                {/if}
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    {/block}
+                                &lt;/li&gt;
+                                {if $P.IS_DISPLAY_PRODUCT != true}
+                                    &lt;li class=&quot;fl loaderWrapper&quot;&gt;&lt;/li&gt;
+                                    {/if}
+                                &lt;li class=&quot;fl loaderWrapper&quot;&gt;&lt;p&gt;Siparişleriniz, banka onayı alındıktan sonra 3 iş g&amp;uuml;n&amp;uuml; (Pazartesi-Cuma) i&amp;ccedil;erisinde kargoya teslim
+                                    edilir. Teslimat adresinin lojistik merkezimizin uzaklığına g&amp;ouml;re de kargo şirketi 1-3 g&amp;uuml;n
+                                    i&amp;ccedil;erisinde siparişinizi size ulaştıracaktır.&lt;/p&gt;
+                                &lt;p&gt;&amp;Ouml;zel &amp;uuml;retim &amp;uuml;r&amp;uuml;nlerin teslim s&amp;uuml;releri imalat zamanına g&amp;ouml;re farklılık
+                                    g&amp;ouml;stermektedir. Bu t&amp;uuml;r &amp;uuml;r&amp;uuml;nlerin teslimat bilgileri ve s&amp;uuml;releri &amp;uuml;r&amp;uuml;n sayfalarında
+                                    belirtilmiştir.&lt;/p&gt;
+                                &lt;p&gt;Tarafımızdan kaynaklanan bir aksilik olması halinde ise size &amp;uuml;yelik bilgilerinizden yola &amp;ccedil;ıkılarak haber
+                                    verilecektir. Bu y&amp;uuml;zden &amp;uuml;yelik bilgilerinizin eksiksiz ve doğru olması &amp;ouml;nemlidir. Bayram ve tatil
+                                    g&amp;uuml;nlerinde teslimat yapılmamaktadır.&lt;/p&gt;
+                                &lt;p&gt;Se&amp;ccedil;tiğiniz &amp;uuml;r&amp;uuml;nlerin tamamı anlaşmalı olduğumuz&amp;nbsp; kargo şirketleri tarafından size teslim
+                                    edilecektir.&lt;/p&gt;
+                                &lt;p&gt;Satın aldığınız &amp;uuml;r&amp;uuml;nler bir teyit e-posta'sı ile tarafınıza bildirilecektir. Se&amp;ccedil;tiğiniz
+                                    &amp;uuml;r&amp;uuml;nlerden herhangi birinin stokta mevcut olmaması durumunda konu ile ilgili bir e-posta size yollanacak
+                                    ve &amp;uuml;r&amp;uuml;n&amp;uuml;n ilk stoklara gireceği tarih tarafınıza bildirilecektir.&lt;/p&gt;
+                                &lt;p&gt;magaza.example online alışveriş sitesidir. Aynı anda birden &amp;ccedil;ok kullanıcıya alışveriş yapma imkanı
+                                    tanır. Enderde olsa t&amp;uuml;keticinin aynı &amp;uuml;r&amp;uuml;n&amp;uuml; alması s&amp;ouml;z konusudur ve &amp;uuml;r&amp;uuml;n stoklarda
+                                    t&amp;uuml;kenmektedir bu durumda ;&lt;/p&gt;
+                                &lt;p&gt;&amp;Ouml;demesini internet &amp;uuml;zerinden yaptınız &amp;uuml;r&amp;uuml;n eğer stoklarmızda kalmamış ise en az 4 (D&amp;ouml;rt) en
+                                    fazla 30 (otuz) g&amp;uuml;n bekeleme s&amp;uuml;resi vardır. &amp;Uuml;r&amp;uuml;n bu tarihleri arasında t&amp;uuml;keticiye verilemez
+                                    ise yaptığı &amp;ouml;deme kendisine iade edilir.&lt;/p&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;fl loaderWrapper&quot;&gt;&lt;/li&gt;
+                                &lt;li class=&quot;fl loaderWrapper&quot;&gt;&lt;/li&gt;
+                                    {if $P.DOCUMENT_INFO != ''}
+                                    &lt;li class=&quot;fl loaderWrapper&quot;&gt;
+                                        &lt;div class=&quot;row&quot;&gt;
+                                            &lt;div class=&quot;box col-12&quot;&gt;
+                                                {$P.DOCUMENT_INFO}
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/li&gt;
+                                {/if}
+                                &lt;!--{if $P.IS_RELATED_PRODUCTS_ACTIVE != ''}
+                                    &lt;li class=&quot;fl loaderWrapper&quot;&gt;&lt;/li&gt;
+                                {/if}--&gt;
+                                    {if $P.IS_VIDEO_ACTIVE == 1}
+                                        &lt;li class=&quot;fl loaderWrapper&quot; id=&quot;videoPanel&quot; data-url=&quot;/srv/service/gallery/video-detail/{$P.ID}&quot;&gt;
+                                            {literal}
+                                                {{EMBED}}
+                                            {/literal}
+                                        &lt;/li&gt;
+                                    {/if}
+                                    {if $IS_CALL_ME_ACTIVE == 1}
+                                        &lt;li class=&quot;fl loaderWrapper&quot;&gt;&lt;/li&gt;
+                                    {/if}
+                                    {if $IS_QUICK_MESSAGE_ACTIVE == 1}
+                                        &lt;li class=&quot;fl loaderWrapper&quot;&gt;&lt;/li&gt;
+                                    {/if}
+                                    {if $IS_SUGGESTION_BOX_ACTIVE == 1}
+                                        &lt;li class=&quot;fl loaderWrapper&quot;&gt;&lt;/li&gt;
+                                    {/if}
+                                &lt;/ul&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        {/block}
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;pageScripts&quot;&gt;
+    &lt;input type=&quot;hidden&quot; id=&quot;urun-id&quot; value=&quot;{$P.ID}&quot; /&gt;
+    &lt;input type=&quot;hidden&quot; id=&quot;urun-ad&quot; value=&quot;{$P.TITLE}&quot; /&gt;
+    &lt;input type=&quot;hidden&quot; id=&quot;urun-kategori&quot; value=&quot;{$P.CATEGORY_NAME}&quot; /&gt;
+    &lt;input type=&quot;hidden&quot; id=&quot;urun-kur&quot; value=&quot;{$P.CURRENCY}&quot; /&gt;
+    &lt;input type=&quot;hidden&quot; id=&quot;urun-fiyat&quot; value=&quot;{$P.PRICE_SELL}&quot; /&gt;
+    &lt;input type=&quot;hidden&quot; id=&quot;urun-tedarikci-kod&quot; value=&quot;{$P.SUPPLIER_PRODUCT_CODE}&quot; /&gt;
+    &lt;input type=&quot;hidden&quot; id=&quot;urun-stock-status&quot; value=&quot;{if $P.STOCK&gt;0}1{else}0{/if}&quot; /&gt;  
+    &lt;input type=&quot;hidden&quot; id=&quot;urun-kategoriler&quot; value=&quot;{$P.CATEGORY_IDS}&quot; /&gt; 
+    &lt;!-- #pageScripts = Sayfa scriptleri bu div içerisinden yükleniyor. Hızlı görünüm için gerekli. --&gt;
+    &lt;link rel=&quot;stylesheet&quot; property=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/theme/{$THEME_PRODUCT|default:v4}/sub_theme/urundetay/{$SUBTHEME_PRODUCT}/urundetay.css&quot; /&gt;
+    &lt;link rel=&quot;stylesheet&quot; property=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;{$THEME_GENERAL}/sub_theme/genel/{$SUBTHEME_GENERAL}/photoGallery.css&quot; /&gt;
+    &lt;link rel=&quot;stylesheet&quot; property=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/js/lightbox/css/lightbox.css&quot; /&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;/srv/service/conf/load/Blok_UrunDetay/1&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;/js/lightbox/js/lightbox.js&quot;&gt;&lt;/script&gt;
+    {if $P.HAS_MAGNIFIER==1}
+        &lt;script type=&quot;text/javascript&quot; src=&quot;/theme/standart/js/elevatezoom.js&quot;&gt;&lt;/script&gt;
+        &lt;script type=&quot;text/javascript&quot;&gt;
+            $(document).ready(function () {
+                if(!/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)){
+                    $('.zoomContainer').remove();
+                    $('#productLeft img').removeData('elevateZoom');
+                    $('#zoomImage0').elevateZoom({
+                        /*zoomType: &quot;inner&quot;,*/ /* zoomType: &quot;inner&quot; ise &quot;scrollZoom&quot; pasif olmak zorunda */
+                        cursor: &quot;crosshair&quot;,
+                        easing: true,
+                        scrollZoom: true,
+                        zoomWindowPosition: &quot;productRight&quot;,
+                        zoomWindowFadeIn: 500,
+                        zoomWindowFadeOut: 750
+                    });
+                }
+            });
+            function changeSubProImg(parent, subIndex) {
+                if(!/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)){
+                    $('.zoomContainer').remove();
+                    $('#productLeft img').removeData('elevateZoom');
+                    $('#zoomImage' + subIndex).elevateZoom({
+                        /*zoomType: &quot;inner&quot;,*/ /* zoomType: &quot;inner&quot; ise &quot;scrollZoom&quot; pasif olmak zorunda */
+                        cursor: &quot;crosshair&quot;,
+                        easing: true,
+                        scrollZoom: true,
+                        zoomWindowPosition: &quot;productRight&quot;,
+                        zoomWindowFadeIn: 500,
+                        zoomWindowFadeOut: 750
+                    });
+                }
+            }
+        &lt;/script&gt;
+    {/if}
+    &lt;script type=&quot;text/javascript&quot; src=&quot;/theme/standart/js/blok-v4/product-detail.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        {if $P.IS_DISPLAY_PRODUCT == 0 &amp;&amp; $P.HAS_VARIANT == true}
+            var variant = JSON.parse($('#json{$P.ID}').val());
+        {/if}
+            
+        $(window).load(function() {
+            {if $P.ADDITIONAL_FIELD_3 !=&quot;&quot;}
+                var VideoLink = '{$P.ADDITIONAL_FIELD_3}';
+                
+                $('#videoWrap').addClass('Video');
+                
+                $('ul#productImage li:nth-child(1)').text('');
+            
+                $('ul#productImage li:nth-child(1)').append(VideoLink);
+            {/if}
+        });
+        $(document).ready(function () {
+            /*var videokontrol = $(&quot;.UrunVideo&quot;).html();
+            if(videokontrol != &quot;&quot;){
+            $(&quot;.videobtn&quot;).show();
+            }
+            $(&quot;.videoWrap&quot;).click(function () {
+                $('body').addClass('videoActive');
+                $(&quot;.UrunVideoBox&quot;).addClass(&quot;open&quot;);
+            });
+
+            var sizeChart = '';
+            sizeChart = '{$P.ADDITIONAL_FIELD_3}';
+            $('.beden').click(function(e) {
+                e.preventDefault();
+                var sizeTable = new Message({
+                    html: sizeChart,
+                    width: 962,
+                    maxHeight: 452,
+                    openingCallback: function(){
+                        $('.pWin:last').addClass('overflow').width(1100);
+                        $('.pWin:last').addClass('overflow').height(495);
+                    }
+                });
+                sizeTable.show();
+            });*/ 
+
+            $('#productImage').slide({
+                {if $IS_MINI_FOTO_SLIDE_ACTIVE == 1}
+                    isAuto: true,
+                {else}
+                    isAuto: false,
+                {/if}
+                slideCtrl: {
+                    showCtrl: true,
+                    wrapCtrl: '#imageControl',
+                    nextBtn: '#nextImage',
+                    prevBtn: '#prevImage'
+                },
+                {if $IS_CLICK_PHOTO_CHANGE_ACTIVE != 1}
+                    changeOnMouse: true,
+                {/if}
+                slidePaging: {
+                    showPaging: true,
+                    wrapPaging: '#productThumbs'
+                },
+                changeFn: function (e) {
+                {if $P.HAS_MAGNIFIER==1}
+                    changeSubProImg('#productThumbs', e);
+                {/if}
+                }
+            });
+            $('#tabPanel').slide({
+                isAuto: false,
+                touchEnabled: false,
+                slidePaging: {
+                    showPaging: true,
+                    wrapPaging: '#tabBtn'
+                }
+            });
+            $('a[rel=&quot;productImage&quot;]').lightbox();
+            
+            if(typeof $(&quot;#productThumbs li:eq(0) span.imgInner img&quot;).attr(&quot;alt&quot;) != 'undefined') {
+                $(&quot;.lb-image&quot;).attr(&quot;alt&quot;, $(&quot;#productThumbs li:eq(0) span.imgInner img&quot;).attr(&quot;alt&quot;).replace(' - Thumbnail',''));
+            }
+            
+            $('.variantList').each(function () {
+                if ($(this).find('a').length &lt; 5) {
+                    $(this).next().remove();
+                }
+            });
+            $('.variantMoreBtn').click(function () {
+                $(this).prev().toggleClass('active');
+            });
+            $('#fbShareBtn').click(function () {
+                var shareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(location.href);
+                var winOpts = ['width=590', 'height=430', 'status=no', 'resizable=yes', 'toolbar=no', 'menubar=no', 'scrollbars=yes'].join(',');
+                window.open(shareUrl, 'Share on Facebook', winOpts);
+            });
+            $('#gpBtn').click(function () {
+                var shareUrl = 'https://plus.google.com/share?url=' + encodeURIComponent(location.href);
+                var winOpts = ['width=525', 'height=430', 'status=no', 'resizable=yes', 'toolbar=no', 'menubar=no', 'scrollbars=yes'].join(',');
+                window.open(shareUrl, 'Share on Google', winOpts);
+            });
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+                $('#tabBtn li').click(function () {
+                    $('html, body').animate({
+                        scrollTop: $(this).offset().top - 20
+                    }, 500);
+                });
+            }
+            {if $P.HAS_VARIANT==1}
+                $('.subOne a[data-id].selected,.subTwo a[data-id].selected').trigger('click');
+            {/if}
+        });
+        function zoomCallback() {
+
+        }
+        function lightCallback() {
+            var img = $('#lightContent img');
+            img.on('load', function() {
+                var contentHeight = $('#lightContent img').height();
+                var contentWidth = $('#lightContent img').width();
+                setTimeout(function() {
+                    var maxH = $('.pWin:last').height();
+                    if (contentHeight &gt; maxH) {
+                        $('.pWin:last').addClass('overflow').width(contentWidth + 10);
+                    }
+                }, 500);
+            });
+        }
+        {if $P.DISPLAY_GAIN &amp;&amp;  $P.DISCOUNT_PERCENT &gt; 0 &amp;&amp; $P.IS_DISPLAY_DISCOUNTED_ACTIVE == 1}
+            {if $P.DISPLAY_VAT == 1}
+                function changeGain(data){
+                    console.log($('.product-price-not-discounted').html());
+                    console.log($('.product-price').html());
+                    $('#gain').html(format(parseFloat($('.product-price-not-discounted').html()) - parseFloat($('.product-price').html())));
+                }
+            {else}
+                function changeGain(data){
+                    console.log($('.product-price-not-discounted-not-vat').html());
+                    console.log($('.product-price-not-vat').html());
+                    $('#gain').html(format(parseFloat($('.product-price-not-discounted-not-vat').html()) - parseFloat($('.product-price-not-vat').html())));
+                }
+            {/if}
+        {/if}
+    &lt;/script&gt;
+&lt;/div&gt;</code></pre>
+
+</article>
+<nav class="pager" aria-label="Sayfa geçişi"><a class="prev" href="/theme/orta/user_bayigirisplasiyer/"><span>← Önceki</span>Bayi giriş plasiyer</a><a class="next" href="/theme/UstAlt/user_tasarimyenimenu/"><span>Sonraki →</span>Tasarım yeni menü</a></nav>
+<footer class="page-foot"><a href="https://github.com/bahadirdogru/tsoft-documentation-examples/edit/main/content/theme/orta/user_v4tpl.tpl">GitHub'da düzenle</a> · <a href="/theme/orta/user_v4tpl.tpl">Ham dosya</a> · <a href="/llms.txt">llms.txt</a> · Topluluk belgesidir, T-Soft’un resmî yayını değildir.</footer>
+</main>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/twig.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/http.min.js"></script>
+<script src="/assets/site.js"></script>
+</body>
+</html>

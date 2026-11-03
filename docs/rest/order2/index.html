@@ -1,0 +1,1240 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Order2 · T-Soft Dokümantasyonu</title>
+<meta name="description" content="Sipariş oluşturma ve durum güncelleme. Eski sipariş sınıfı.">
+<link rel="canonical" href="https://tsoft.bahadirdogru.com/rest/order2/">
+<link rel="alternate" type="text/markdown" href="/rest/order2.md" title="Markdown">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%231f6feb%22%2F%3E%3Cpath%20d%3D%22M8%209h16v3.2h-6.4V23h-3.2V12.2H8z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E">
+<meta property="og:title" content="Order2">
+<meta property="og:description" content="Sipariş oluşturma ve durum güncelleme. Eski sipariş sınıfı.">
+<meta property="og:url" content="https://tsoft.bahadirdogru.com/rest/order2/">
+<meta property="og:type" content="website">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" media="(prefers-color-scheme: light)" id="hl-light">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" media="(prefers-color-scheme: dark)" id="hl-dark">
+</head>
+<body>
+<a class="skip" href="#main">İçeriğe geç</a>
+<header class="top">
+  <button class="menu-btn" aria-label="Menü" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="/"><svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><path d="M8 9h16v3.2h-6.4V23h-3.2V12.2H8z" fill="var(--bg)"/></svg><span>T-Soft Dokümantasyonu</span></a>
+  <div class="search">
+    <input id="q" type="search" placeholder="Ara: metot, uç, değişken, sayfa…  ( / )" autocomplete="off" aria-label="Ara">
+    <ul id="results" role="listbox" hidden></ul>
+  </div>
+  <button class="theme-btn" aria-label="Tema değiştir" title="Tema değiştir">◐</button>
+</header>
+<div class="layout">
+<aside id="sidebar" class="sidebar"><details class="nav-sec" open><summary>Başlangıç <span class="count">3</span></summary><ul><li><a href="/">Ana sayfa</a></li><li><a href="/rehber/">Hangi yüzey?</a></li><li><a href="/llm/">LLM ve ajanlar için</a></li></ul></details><details class="nav-sec" open><summary>Platform <span class="count">4</span></summary><ul><li><a href="/developer/">Platform haritası</a></li><li><a href="/developer/baslarken/">Başlarken</a></li><li><a href="/developer/uygulama/">Uygulama geliştirme</a></li><li><a href="/developer/storefront-api/">Storefront API</a></li></ul></details><details class="nav-sec" open><summary>Tema <span class="count">2</span></summary><ul><li><a href="/developer/tema/">Tema motoru (Twig)</a></li><li><a href="/theme/">Eski tema (Smarty)</a></li></ul></details><details class="nav-sec" open><summary>REST1 <span class="count">2</span></summary><ul><li><a href="/rest/">Genel bakış</a></li><li><a href="/rest/hatalar/">Hatalar ve mesaj kodları</a></li></ul></details><details class="nav-sec" open><summary>REST1 modülleri <span class="count">38</span></summary><ul><li><a href="/rest/auth/">Auth</a></li><li><a href="/rest/customer/">Customer</a></li><li><a href="/rest/product/">Product</a></li><li><a href="/rest/subproduct/">SubProduct</a></li><li><a href="/rest/category/">Category</a></li><li><a href="/rest/brand/">Brand</a></li><li><a href="/rest/model/">Model</a></li><li><a href="/rest/filter/">Filter</a></li><li><a href="/rest/catalog/">Catalog</a></li><li><a href="/rest/order/">Order</a></li><li><a href="/rest/order2/" aria-current="page">Order2</a></li><li><a href="/rest/cart/">Cart</a></li><li><a href="/rest/campaign/">Campaign</a></li><li><a href="/rest/payment/">Payment</a></li><li><a href="/rest/fundmovement/">FundMovement</a></li><li><a href="/rest/point/">Point</a></li><li><a href="/rest/segment/">Segment</a></li><li><a href="/rest/supplier/">Supplier</a></li><li><a href="/rest/branchoffice/">BranchOffice</a></li><li><a href="/rest/content/">Content</a></li><li><a href="/rest/news/">News</a></li><li><a href="/rest/showcase/">Showcase</a></li><li><a href="/rest/htmlblock/">HtmlBlock</a></li><li><a href="/rest/widget/">Widget</a></li><li><a href="/rest/link/">Link</a></li><li><a href="/rest/personalization/">Personalization</a></li><li><a href="/rest/trackingcode/">TrackingCode</a></li><li><a href="/rest/ticket/">Ticket</a></li><li><a href="/rest/user/">User</a></li><li><a href="/rest/setting/">Setting</a></li><li><a href="/rest/notification/">Notification</a></li><li><a href="/rest/mobile/">Mobile</a></li><li><a href="/rest/platform/">Platform</a></li><li><a href="/rest/cargo/">Cargo</a></li><li><a href="/rest/adapter/">Adapter</a></li><li><a href="/rest/hopi/">Hopi</a></li><li><a href="/rest/zubizu/">Zubizu</a></li><li><a href="/rest/routing/">Routing</a></li></ul></details><details class="nav-sec" open><summary>Admin API v3 <span class="count">3</span></summary><ul><li><a href="/admin-api/">Genel bakış</a></li><li><a href="/admin-api/uclar/">Uç listesi</a></li><li><a href="/admin-api/odeme-bildirimi/">Ödeme bildirimi</a></li></ul></details><details class="nav-sec"><summary>Örnek kod <span class="count">5</span></summary><ul><li><a href="/examples/python/tsoft_client/">Python istemci</a></li><li><a href="/examples/python/add_customer/">Üye ekleme</a></li><li><a href="/examples/python/check_group_price/">Grup fiyatı</a></li><li><a href="/examples/python/env/">Ortam değişkenleri</a></li><li><a href="/examples/apps-script/code/">Apps Script</a></li></ul></details><details class="nav-sec"><summary>Eski tema blokları <span class="count">18</span></summary><ul><li><a href="/theme/bloklar/ust/">Üst blok</a></li><li><a href="/theme/bloklar/alt/">Alt blok</a></li><li><a href="/theme/bloklar/yeni-urunler/">Yeni ürünler</a></li><li><a href="/theme/bloklar/kategori-menusu/">Kategori menüsü</a></li><li><a href="/theme/bloklar/kategori-listesi/">Kategori listesi</a></li><li><a href="/theme/bloklar/home-banner/">Ana sayfa banner</a></li><li><a href="/theme/bloklar/home-sale/">Ana sayfa indirim</a></li><li><a href="/theme/bloklar/haberler/">Haberler</a></li><li><a href="/theme/bloklar/benzer-urunler/">Benzer ürünler</a></li><li><a href="/theme/bloklar/model-listesi/">Model listesi</a></li><li><a href="/theme/bloklar/marka-listesi/">Marka listesi</a></li><li><a href="/theme/bloklar/parca-toplama-sihirbazi/">Parça toplama sihirbazı</a></li><li><a href="/theme/bloklar/tedarikci-listesi/">Tedarikçi listesi</a></li><li><a href="/theme/bloklar/firsat-urunleri/">Fırsat ürünleri</a></li><li><a href="/theme/bloklar/ayin-yazari/">Ayın yazarı</a></li><li><a href="/theme/bloklar/gelecek-firsat-urun-listesi/">Gelecek fırsatlar</a></li><li><a href="/theme/bloklar/sss/">SSS</a></li><li><a href="/theme/bloklar/gorsel-vitrin/">Görsel vitrin</a></li></ul></details><details class="nav-sec"><summary>Eski tema değişkenleri <span class="count">5</span></summary><ul><li><a href="/theme/degiskenler/tsoft-product-varriables/">Ürün değişkenleri</a></li><li><a href="/theme/degiskenler/tsoft-header-page-links-varriable/">Sayfa linkleri</a></li><li><a href="/theme/degiskenler/tsoft-header-tabs-varriable/">Üst sekmeler</a></li><li><a href="/theme/degiskenler/tsoft-footer-menu-varriables/">Alt menü</a></li><li><a href="/theme/degiskenler/tsoft-left-right-category-varriables/">Sol ve sağ kategori</a></li></ul></details><details class="nav-sec"><summary>Eski tema şablonları <span class="count">5</span></summary><ul><li><a href="/theme/snippets/bayi-mi-degil-mi/">Bayi hesabı koşulu</a></li><li><a href="/theme/orta/user_bayipanel/">Bayi paneli</a></li><li><a href="/theme/orta/user_bayigirisplasiyer/">Bayi giriş plasiyer</a></li><li><a href="/theme/orta/user_v4tpl/">V4 şablon</a></li><li><a href="/theme/UstAlt/user_tasarimyenimenu/">Tasarım yeni menü</a></li></ul></details></aside>
+<main id="main" class="content">
+<nav class="crumbs" aria-label="Konum"><a href="/">Ana sayfa</a> <span>/</span> <a href="/rest/">REST1</a></nav>
+<article>
+<h1 id="order2"><a class="anchor" href="#order2" aria-hidden="true">#</a>Order2</h1>
+<p>REST1 modülü · 26 metot · taban <code>https://magaza.example/rest1/order2/{metot}/</code></p>
+<p>Her çağrı <code>POST</code> ve form gövdesidir; <code>token</code> ayrı alan olarak gider. Ortak kurallar, zarf yapısı ve süzgeç sözdizimi <a href="/rest/#ortak-kurallar">REST1 genel bakış</a> sayfasındadır. Tablodaki &quot;Yer&quot; sütunu: <code>url_param</code> yolun sonuna eklenir, <code>query</code> gövde alanıdır, <code>file</code> dosya yüklemesidir.</p>
+<p>Sipariş oluşturma ve durum güncelleme. Eski sipariş sınıfı.</p>
+<h2 id="order2-createorders-alpha"><a class="anchor" href="#order2-createorders-alpha" aria-hidden="true">#</a><code>order2/createOrders</code> (alpha)</h2>
+<p><code>POST https://magaza.example/rest1/order2/createOrders/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>Üyeliksiz alışverişte CustomerId yerine CustomerCode,CustomerName,CustomerSurname,CustomerEmail parametreleri gönderilebilir.    İlgili json verisi içinde SendMailAdmin=1 olarak gönderilirse yöneticiye eposta gönderimi sağlanır.   SendMailAdminAddress verisi ile hangi mail adresine mail gönderileceği de belirlenebilir. Bu parametre belirtilmezse eposta adresini otomatik olarak sistemden alacaktır.    İlgili json verisiyle birlikte CheckBasketProducts ve PaymentUrlFetch parametreleri true gönderilirse addToCart metodu ile sepete eklenmiş ürünleri product olarak alır ve ödeme sayfasında giden webview url&#39;ini döner.    İlgili json verisi içerisinde ürüne ait hediye paketi varsa GiftPackage parametresini 1 yoksa 0 olarak gönderilmelidir.</td>
+</tr>
+<tr>
+<td><code>CheckOrderCode</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td>Bir platformda birden çok aynı platform sipariş kodu olması istenmiyorsa true gönderilmelidir.</td>
+</tr>
+<tr>
+<td><code>PaymentUrlFetch</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>PaymentUrlSendEmail</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>PaymentUrlSendSms</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>CheckBasketProducts</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>OrderCode</code>, <code>CustomerCode</code>, <code>CustomerId</code>, <code>Currency</code>, <code>PaymentTypeId</code>, <code>SubPaymentTypeId</code>, <code>OrderStatusId</code>, <code>InvoiceAddressId</code>, <code>InvoiceTitle</code>, <code>InvoiceName</code>, <code>InvoiceIdentityNumber</code>, <code>InvoiceTaxOffice</code>, <code>InvoiceTaxNumber</code>, <code>InvoiceMobile</code>, <code>InvoiceOtherPhone</code>, <code>InvoiceCountry</code>, <code>InvoiceCountryCode</code>, <code>InvoiceProvince</code>, <code>InvoiceCity</code>, <code>InvoiceTown</code>, <code>InvoiceDistrict</code>, <code>InvoiceAddress</code>, <code>InvoiceZipcode</code>, <code>InvoiceCoordinateY</code>, <code>InvoiceCoordinateX</code>, <code>DeliveryAddressId</code>, <code>DeliveryTitle</code>, <code>DeliveryName</code>, <code>DeliveryMobile</code>, <code>DeliveryOtherPhone</code>, <code>DeliveryCountry</code>, <code>DeliveryCountryCode</code>, <code>DeliveryProvince</code>, <code>DeliveryCity</code>, <code>DeliveryTown</code>, <code>DeliveryDistrict</code>, <code>DeliveryAddress</code>, <code>DeliveryZipcode</code>, <code>DeliveryCoordinateY</code>, <code>DeliveryCoordinateX</code>, <code>OrderTotalPrice</code>, <code>CargoCode</code>, <code>GeneralOrderNote</code>, <code>UtmSource</code>, <code>UtmMedium</code>, <code>MicroExport</code>, <code>OrderDate</code>, <code>Products</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;OrderCode&quot;: &quot;SC6391830&quot;,
+    &quot;CustomerCode&quot;: &quot;T110&quot;,
+    &quot;CustomerId&quot;: &quot;234723&quot;,
+    &quot;Currency&quot;: &quot;TL&quot;,
+    &quot;PaymentTypeId&quot;: &quot;-2&quot;,
+    &quot;SubPaymentTypeId&quot;: &quot;&quot;,
+    &quot;OrderStatusId&quot;: &quot;4&quot;,
+    &quot;InvoiceAddressId&quot;: &quot;&quot;,
+    &quot;InvoiceTitle&quot;: &quot;İş Adresim&quot;,
+    &quot;InvoiceName&quot;: &quot;Kübra K.&quot;,
+    &quot;InvoiceIdentityNumber&quot;: &quot;&quot;,
+    &quot;InvoiceTaxOffice&quot;: &quot;&quot;,
+    &quot;InvoiceTaxNumber&quot;: &quot;12324445&quot;,
+    &quot;InvoiceMobile&quot;: &quot;5070251250&quot;,
+    &quot;InvoiceOtherPhone&quot;: &quot;&quot;,
+    &quot;InvoiceCountry&quot;: &quot;Türkiye&quot;,
+    &quot;InvoiceCountryCode&quot;: &quot;TR&quot;,
+    &quot;InvoiceProvince&quot;: &quot;&quot;,
+    &quot;InvoiceCity&quot;: &quot;İstanbul&quot;,
+    &quot;InvoiceTown&quot;: &quot;Esenler&quot;,
+    &quot;InvoiceDistrict&quot;: &quot;&quot;,
+    &quot;InvoiceAddress&quot;: &quot;Yıldız Teknik Üniversitesi Davutpaşa Kampüsü&quot;,
+    &quot;InvoiceZipcode&quot;: &quot;&quot;,
+    &quot;InvoiceCoordinateY&quot;: &quot;&quot;,
+    &quot;InvoiceCoordinateX&quot;: &quot;&quot;,
+    &quot;DeliveryAddressId&quot;: &quot;&quot;,
+    &quot;DeliveryTitle&quot;: &quot;İş adresim&quot;,
+    &quot;DeliveryName&quot;: &quot;Kübra K.&quot;,
+    &quot;DeliveryMobile&quot;: &quot;5070251250&quot;,
+    &quot;DeliveryOtherPhone&quot;: &quot;&quot;,
+    &quot;DeliveryCountry&quot;: &quot;Türkiye&quot;,
+    &quot;DeliveryCountryCode&quot;: &quot;TR&quot;,
+    &quot;DeliveryProvince&quot;: &quot;&quot;,
+    &quot;DeliveryCity&quot;: &quot;İstanbul&quot;,
+    &quot;DeliveryTown&quot;: &quot;Esenler&quot;,
+    &quot;DeliveryDistrict&quot;: &quot;&quot;,
+    &quot;DeliveryAddress&quot;: &quot;Yıldız Teknik Üniversitesi Davutpaşa Kampüsü&quot;,
+    &quot;DeliveryZipcode&quot;: &quot;&quot;,
+    &quot;DeliveryCoordinateY&quot;: &quot;&quot;,
+    &quot;DeliveryCoordinateX&quot;: &quot;&quot;,
+    &quot;OrderTotalPrice&quot;: &quot;250&quot;,
+    &quot;CargoCode&quot;: &quot;&quot;,
+    &quot;GeneralOrderNote&quot;: &quot;&quot;,
+    &quot;UtmSource&quot;: &quot;&quot;,
+    &quot;UtmMedium&quot;: &quot;&quot;,
+    &quot;MicroExport&quot;: &quot;0&quot;,
+    &quot;OrderDate&quot;: &quot;1429855185&quot;,
+    &quot;Products&quot;: [
+      {
+        &quot;ProductCode&quot;: &quot;T625&quot;,
+        &quot;VariantType1&quot;: &quot;&quot;,
+        &quot;VariantType2&quot;: &quot;&quot;,
+        &quot;SubProductCode&quot;: &quot;&quot;,
+        &quot;Quantity&quot;: &quot;1&quot;,
+        &quot;OrderNote&quot;: &quot;&quot;,
+        &quot;GiftPackage&quot;: &quot;0&quot;
+      }
+    ]
+  }
+]</code></pre>
+<h2 id="order2-deleteorders"><a class="anchor" href="#order2-deleteorders" aria-hidden="true">#</a><code>order2/deleteOrders</code></h2>
+<p><code>POST https://magaza.example/rest1/order2/deleteOrders/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>OrderId</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;OrderId&quot;: &quot;&quot;
+  }
+]</code></pre>
+<h2 id="order2-getcargocompanylist"><a class="anchor" href="#order2-getcargocompanylist" aria-hidden="true">#</a><code>order2/getCargoCompanyList</code></h2>
+<p><code>POST https://magaza.example/rest1/order2/getCargoCompanyList/</code></p>
+<p>Kargo firmalarını listeler. Her firma için döndürülen alanlar:</p>
+<ul>
+<li>Id, Code, Name, Type, ListNo</li>
+<li>IsActiveForCustomer: Üye için aktif mi (true/false)</li>
+<li>IsActiveForVendor: Bayi için aktif mi (true/false)</li>
+<li>Returnable: Kargo firması iade için kullanılabilir mi (true/false)</li>
+<li>Integrator: Kargo entegrasyonu adı (örn. yurtici, hepsijet)</li>
+<li>RequiresPickDate: Randevulu alım gerektirir mi (true/false). true ise platform/getReturnPickDates üzerinden uygun tarih listesi çekilmelidir.</li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Name</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Kargo firması adına göre filtreler. Kısmi eşleşme yapılır, gönderilen değeri içeren tüm kargo firmaları listelenir. Örnek: Name=Yurtiçi</td>
+</tr>
+</tbody></table></div>
+<h2 id="order2-setcargocompany"><a class="anchor" href="#order2-setcargocompany" aria-hidden="true">#</a><code>order2/setCargoCompany</code></h2>
+<p><code>POST https://magaza.example/rest1/order2/setCargoCompany/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>CalculateType: Kargo firmasının hesaplama türü. Desi, Kg, Desi2, Fiyat olarak gönderilebilir.  ListNo: Kargo firması için tanımlı liste numarasıdır. IsActiveForCustomer,IsActiveForVendor,IsPaymentTypeActive,IsDefaultCargo değerleri true(1) yada false(0) gönderilebilir  Örnek: {&quot;CompanyCode&quot;:&quot;T1&quot;,&quot;CalculateType&quot;:&quot;Desi&quot;,&quot;ListNo&quot;:&quot;99&quot;}</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>CompanyCode</code>, <code>CompanyName</code>, <code>CalculateType</code>, <code>IsActiveForCustomer</code>, <code>IsActiveForVendor</code>, <code>IsPaymentTypeActive</code>, <code>IsDefaultCargo</code>, <code>ListNo</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;CompanyCode&quot;: &quot;T1&quot;,
+    &quot;CompanyName&quot;: &quot;&quot;,
+    &quot;CalculateType&quot;: &quot;Desi&quot;,
+    &quot;IsActiveForCustomer&quot;: 0,
+    &quot;IsActiveForVendor&quot;: 0,
+    &quot;IsPaymentTypeActive&quot;: 0,
+    &quot;IsDefaultCargo&quot;: 0,
+    &quot;ListNo&quot;: &quot;99&quot;
+  }
+]</code></pre>
+<h2 id="order2-getcargopricing"><a class="anchor" href="#order2-getcargopricing" aria-hidden="true">#</a><code>order2/getCargoPricing</code></h2>
+<p><code>POST https://magaza.example/rest1/order2/getCargoPricing/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CompanyId</code></td>
+<td>url_param</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Name</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Kargo firması adına göre filtreler. Kısmi eşleşme yapılır, gönderilen değeri içeren tüm kargo firmaları listelenir. CompanyId ile birlikte gönderilirse, ilgili firma yalnızca adı da eşleşiyorsa döner. Örnek: Name=Yurtiçi</td>
+</tr>
+</tbody></table></div>
+<h2 id="order2-getcustomeridoforder"><a class="anchor" href="#order2-getcustomeridoforder" aria-hidden="true">#</a><code>order2/getCustomerIdOfOrder</code></h2>
+<p><code>POST https://magaza.example/rest1/order2/getCustomerIdOfOrder/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>OrderId</code></td>
+<td>url_param</td>
+<td>int</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="order2-getorderdetails"><a class="anchor" href="#order2-getorderdetails" aria-hidden="true">#</a><code>order2/getOrderDetails</code></h2>
+<p><code>POST https://magaza.example/rest1/order2/getOrderDetails/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>OrderStatusId</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Default gelen süreçler: 2,3,4,5,6,7,8,11,12,13 İptal edildi için 9, İade Edildi için 10 durumlarını da ekleyin.</td>
+</tr>
+<tr>
+<td><code>Archive</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Arşivlenmiş siparişler için 1 gönderiniz</td>
+</tr>
+<tr>
+<td><code>start</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Default:50, Max:500</td>
+</tr>
+<tr>
+<td><code>columns</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Example: &quot;OrderId,OrderCode,OrderDate&quot;</td>
+</tr>
+<tr>
+<td><code>f</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Allowed operators: startwith,endwith,equal,greater,smaller,between,contain. Example: &quot;CustomerName | kubra | contain&quot;</td>
+</tr>
+<tr>
+<td><code>f2</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Allowed operators: startwith,endwith,equal,greater,smaller,between,contain. Example: &quot;CustomerName | ahmet | contain&quot;</td>
+</tr>
+<tr>
+<td><code>orderby</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Example: &quot;OrderId ASC&quot;</td>
+</tr>
+</tbody></table></div>
+<h2 id="order2-getorderdetailsbyorderid"><a class="anchor" href="#order2-getorderdetailsbyorderid" aria-hidden="true">#</a><code>order2/getOrderDetailsByOrderId</code></h2>
+<p><code>POST https://magaza.example/rest1/order2/getOrderDetailsByOrderId/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>OrderId</code></td>
+<td>url_param</td>
+<td>int</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Archive</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Arşivlenmiş siparişler için 1 gönderiniz</td>
+</tr>
+<tr>
+<td><code>start</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>columns</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>f</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>f2</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Allowed operators: startwith,endwith,equal,greater,smaller,between,contain. Example: &quot;CustomerName | ahmet | contain&quot;</td>
+</tr>
+<tr>
+<td><code>orderby</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="order2-getorders"><a class="anchor" href="#order2-getorders" aria-hidden="true">#</a><code>order2/getOrders</code></h2>
+<p><code>POST https://magaza.example/rest1/order2/getOrders/</code></p>
+<p>Bu metoda alternatif olarak yeni geliştirilen order/get metodu mevcuttur. order/get metodunun kullanılması önerilir. Bkz. <a href="/rest/order/#order-get"><code>order/get</code></a>.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>OrderDateTimeStart</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Example: &quot;2011-07-21T20:09:00Z&quot;, 1374475843</td>
+</tr>
+<tr>
+<td><code>OrderDateTimeEnd</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>UpdateDateTimeStart</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>UpdateDateTimeEnd</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>OrderCode</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>OrderStatusId</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Default gelen süreçler: 2,3,4,5,6,7,8,11,12,13 İptal edildi için 9, İade Edildi için 10 durumlarını da ekleyin.</td>
+</tr>
+<tr>
+<td><code>IsTransferred</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Aktarılanlar için &#39;1&#39;, aktarılmayanlar için &#39;0&#39; girilmeli</td>
+</tr>
+<tr>
+<td><code>Archive</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Arşivlenmiş siparişler için 1 gönderiniz</td>
+</tr>
+<tr>
+<td><code>FetchCustomerGroupInfo</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>IsVendor</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>CustomerGroupCode</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchInvoiceDetails</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>InvoiceNumber</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>InvoiceDateTimeStart</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Example: &quot;2014-07-21T20:09:00Z&quot;, 1374475843</td>
+</tr>
+<tr>
+<td><code>InvoiceDateTimeEnd</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Example: &quot;2014-08-21T20:09:00Z&quot;, 1374475843</td>
+</tr>
+<tr>
+<td><code>noDetails</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchProductData</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchProductDetail</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchPackageContent</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchCampaignData</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchAdditionalCustomerData</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchAdditionalCustomerAllData</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchAdditionalCCNumber</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchOrderContract</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchAdditionalTransaction</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchOrderReferrer</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchAddressCode</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchCurrenciesFromHistory</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>start</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Default:50, Max:500</td>
+</tr>
+<tr>
+<td><code>columns</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Example: &quot;OrderId,OrderCode,OrderDate&quot;</td>
+</tr>
+<tr>
+<td><code>f</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Allowed operators: startwith,endwith,equal,greater,smaller,between,contain. Example: &quot;CustomerName | kubra | contain&quot;</td>
+</tr>
+<tr>
+<td><code>f2</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Allowed operators: startwith,endwith,equal,greater,smaller,between,contain. Example: &quot;CustomerName | ahmet | contain&quot;</td>
+</tr>
+<tr>
+<td><code>orderby</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Example: &quot;OrderId ASC&quot;</td>
+</tr>
+</tbody></table></div>
+<p>Postman B2C çağrısı <code>IsVendor=false</code> ve <code>OrderDateTimeEnd={{currentdate}}</code> gönderir. B2B çağrısı <code>IsVendor=true</code> ve <code>OrderDateTimeEnd=2024-05-19</code> gönderir. İkisinde <code>OrderDateTimeStart={{tendaysago}}</code>, <code>OrderStatusId=3</code>, <code>FetchCustomerGroupInfo=true</code>, <code>FetchAdditionalCCNumber=true</code>, <code>orderby=OrderDate DESC</code>.</p>
+<h2 id="order2-getorderstatuslist"><a class="anchor" href="#order2-getorderstatuslist" aria-hidden="true">#</a><code>order2/getOrderStatusList</code></h2>
+<p><code>POST https://magaza.example/rest1/order2/getOrderStatusList/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code> </code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchOrderCount</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchWithPassive</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>Postman bu uca <code>data</code> içinde <code>OrderCode</code> (<code>SP08034</code>) gönderir. Konsol parametre listesinde <code>data</code> yoktur.</p>
+<h2 id="order2-getpaymenttypelist"><a class="anchor" href="#order2-getpaymenttypelist" aria-hidden="true">#</a><code>order2/getPaymentTypeList</code></h2>
+<p><code>POST https://magaza.example/rest1/order2/getPaymentTypeList/</code></p>
+<p>Konsol bu metot için ek parametre listelemiyor. <code>token</code> yine gönderilir.</p>
+<h2 id="order2-getpoststatus"><a class="anchor" href="#order2-getpoststatus" aria-hidden="true">#</a><code>order2/getPostStatus</code></h2>
+<p><code>POST https://magaza.example/rest1/order2/getPostStatus/</code></p>
+<p>Konsol bu metot için ek parametre listelemiyor. <code>token</code> yine gönderilir.</p>
+<h2 id="order2-setpoststatus"><a class="anchor" href="#order2-setpoststatus" aria-hidden="true">#</a><code>order2/setPostStatus</code></h2>
+<p><code>POST https://magaza.example/rest1/order2/setPostStatus/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>order</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>query</td>
+<td>int</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>postNote</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>order</code> alanları: <code>orderId</code>, <code>productId</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;orderId&quot;: &quot;98&quot;,
+    &quot;productId&quot;: &quot;689&quot;
+  }
+]</code></pre>
+<pre><code class="language-json">&quot;2&quot;</code></pre>
+<pre><code class="language-json">&quot;Stokta kalmadı&quot;</code></pre>
+<h2 id="order2-setaddress-alpha"><a class="anchor" href="#order2-setaddress-alpha" aria-hidden="true">#</a><code>order2/setAddress</code> (alpha)</h2>
+<p><code>POST https://magaza.example/rest1/order2/setAddress/</code></p>
+<p>LisansEihracat lisansının açıklığına göre set edilemeyecek adreslerin kontrolü kullanıcıya bırakılmıştır. platform/getAvaliableAddress metodundan kontrol sağlanabilir.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>Adres Tipleri:   1: sadece teslimat adresi   2: sadece fatura adresi   3: hem teslimat, hem fatura adresi</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>customer_id</code>, <code>address_type</code>, <code>address_id</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;customer_id&quot;: &quot;110&quot;,
+    &quot;address_type&quot;: &quot;2&quot;,
+    &quot;address_id&quot;: &quot;5&quot;
+  }
+]</code></pre>
+<h2 id="order2-setsupplystatus"><a class="anchor" href="#order2-setsupplystatus" aria-hidden="true">#</a><code>order2/setSupplyStatus</code></h2>
+<p><code>POST https://magaza.example/rest1/order2/setSupplyStatus/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>&quot;Status&quot; verisinin alabileceği değerler.  0: Oluşturuldu  1:Tedarik Edilecek  2:Tedarik Bildirildi  3:Tedarik Edildi  4:Tedarik Edilmedi  5:İptal Edildi    OrderCode yerine OrderId, ProductCode yerine ProductId gönderilebilir.   Alt ürünlerde güncelleme için SubProductCode ve ya SubProductId gönderilebilir</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>OrderCode</code>, <code>ProductCode</code>, <code>Status</code>, <code>StatusNote</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;OrderCode&quot;: &quot;TS06057441&quot;,
+    &quot;ProductCode&quot;: &quot;T689&quot;,
+    &quot;Status&quot;: 5,
+    &quot;StatusNote&quot;: &quot;&quot;
+  }
+]</code></pre>
+<h2 id="order2-setcargopricing"><a class="anchor" href="#order2-setcargopricing" aria-hidden="true">#</a><code>order2/setCargoPricing</code></h2>
+<p><code>POST https://magaza.example/rest1/order2/setCargoPricing/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>PriceId gönderilirse güncelleme yapılır. PriceId gönderilmezse, ilgili kargo firması için aynı alt/üst limit aralığına sahip kayıt varsa güncelleme, yoksa yeni kayıt eklenir. PriceId değeri getCargoPricing servisinden alınabilir.  Yeni kayıt eklenirken kargo firmasının kimliği (CompanyId veya CompanyCode) zorunludur.</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>PriceId</code>, <code>LowerLimit</code>, <code>UpperLimit</code>, <code>LocalPrice</code>, <code>IntercityPrice</code>, <code>InternationalPrice</code>, <code>Region1</code>, <code>Region2</code>, <code>Region3</code>, <code>Region4</code>, <code>Region5</code>, <code>Region6</code>, <code>Region7</code>, <code>Region8</code>, <code>Region9</code>, <code>Region10</code>, <code>Region11</code>, <code>Region12</code>, <code>Region13</code>, <code>Region14</code>, <code>Region15</code>, <code>Region16</code>, <code>Region17</code>, <code>Region18</code>, <code>Region19</code>, <code>Region20</code>, <code>Region21</code>, <code>Region22</code>, <code>Region23</code>, <code>Region24</code>, <code>Region25</code>, <code>Region26</code>, <code>Region27</code>, <code>Region28</code>, <code>Region29</code>, <code>Region30</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;PriceId&quot;: &quot;&quot;,
+    &quot;LowerLimit&quot;: &quot;&quot;,
+    &quot;UpperLimit&quot;: &quot;&quot;,
+    &quot;LocalPrice&quot;: &quot;&quot;,
+    &quot;IntercityPrice&quot;: &quot;&quot;,
+    &quot;InternationalPrice&quot;: &quot;&quot;,
+    &quot;Region1&quot;: &quot;0.00&quot;,
+    &quot;Region2&quot;: &quot;0.00&quot;,
+    &quot;Region3&quot;: &quot;0.00&quot;,
+    &quot;Region4&quot;: &quot;0.00&quot;,
+    &quot;Region5&quot;: &quot;0.00&quot;,
+    &quot;Region6&quot;: &quot;0.00&quot;,
+    &quot;Region7&quot;: &quot;0.00&quot;,
+    &quot;Region8&quot;: &quot;0.00&quot;,
+    &quot;Region9&quot;: &quot;0.00&quot;,
+    &quot;Region10&quot;: &quot;0.00&quot;,
+    &quot;Region11&quot;: &quot;0.00&quot;,
+    &quot;Region12&quot;: &quot;0.00&quot;,
+    &quot;Region13&quot;: &quot;0.00&quot;,
+    &quot;Region14&quot;: &quot;0.00&quot;,
+    &quot;Region15&quot;: &quot;0.00&quot;,
+    &quot;Region16&quot;: &quot;0.00&quot;,
+    &quot;Region17&quot;: &quot;0.00&quot;,
+    &quot;Region18&quot;: &quot;0.00&quot;,
+    &quot;Region19&quot;: &quot;0.00&quot;,
+    &quot;Region20&quot;: &quot;0.00&quot;,
+    &quot;Region21&quot;: &quot;0.00&quot;,
+    &quot;Region22&quot;: &quot;0.00&quot;,
+    &quot;Region23&quot;: &quot;0.00&quot;,
+    &quot;Region24&quot;: &quot;0.00&quot;,
+    &quot;Region25&quot;: &quot;0.00&quot;,
+    &quot;Region26&quot;: &quot;0.00&quot;,
+    &quot;Region27&quot;: &quot;0.00&quot;,
+    &quot;Region28&quot;: &quot;0.00&quot;,
+    &quot;Region29&quot;: &quot;0.00&quot;,
+    &quot;Region30&quot;: &quot;0.00&quot;
+  }
+]</code></pre>
+<h2 id="order2-updateinvoicedetails"><a class="anchor" href="#order2-updateinvoicedetails" aria-hidden="true">#</a><code>order2/updateInvoiceDetails</code></h2>
+<p><code>POST https://magaza.example/rest1/order2/updateInvoiceDetails/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>InvoiceDate example:  &quot;2015-10-12T07:09:00Z&quot;, 1444622940   EarchiveUuid bu parametre Digital Planet tarafından e fatura ya da e arşiv kesildiği zaman Digiltal Planet tarafından iletilen fatura id bilgisidir.  IsEarchive parametresi ise fatura tipinin ne olduğunu belirlemektedir &quot; IsEarchive &quot; versinin alabileceği değerler.  0: Normal   1: E-Arşiv   2: E-Fatura</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>OrderCode</code>, <code>InvoiceDate</code>, <code>InvoiceNumber</code>, <code>WaybillNumber</code>, <code>IsInvoiced</code>, <code>EInvoiceLink</code>, <code>IsEarchive</code>, <code>EarchiveUuid</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;OrderCode&quot;: &quot;SP0210195&quot;,
+    &quot;InvoiceDate&quot;: &quot;2015-10-12T07:09:00Z&quot;,
+    &quot;InvoiceNumber&quot;: &quot;1111&quot;,
+    &quot;WaybillNumber&quot;: &quot;2222&quot;,
+    &quot;IsInvoiced&quot;: &quot;1&quot;,
+    &quot;EInvoiceLink&quot;: &quot;https://ornek.com/ornekfatura123.pdf&quot;,
+    &quot;IsEarchive&quot;: &quot;1&quot;,
+    &quot;EarchiveUuid&quot;: &quot;1A1886B8-87SAD-4F1D-9F1D-1A1886B8&quot;
+  }
+]</code></pre>
+<h2 id="order2-updateorderstatusascancelled"><a class="anchor" href="#order2-updateorderstatusascancelled" aria-hidden="true">#</a><code>order2/updateOrderStatusAsCancelled</code></h2>
+<p><code>POST https://magaza.example/rest1/order2/updateOrderStatusAsCancelled/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Archive</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Arşivlenmiş siparişler için 1 gönderiniz</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>OrderCode</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;OrderCode&quot;: &quot;SP08034&quot;
+  }
+]</code></pre>
+<h2 id="order2-updateorderstatusascargoready"><a class="anchor" href="#order2-updateorderstatusascargoready" aria-hidden="true">#</a><code>order2/updateOrderStatusAsCargoReady</code></h2>
+<p><code>POST https://magaza.example/rest1/order2/updateOrderStatusAsCargoReady/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Archive</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Arşivlenmiş siparişler için 1 gönderiniz</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>OrderCode</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;OrderCode&quot;: &quot;SP08034&quot;
+  }
+]</code></pre>
+<p>Postman <code>updateOrderStatusAsCargoReady</code> aynı <code>OrderCode</code> değerini gönderir.</p>
+<h2 id="order2-updateorderstatusasdelivered"><a class="anchor" href="#order2-updateorderstatusasdelivered" aria-hidden="true">#</a><code>order2/updateOrderStatusAsDelivered</code></h2>
+<p><code>POST https://magaza.example/rest1/order2/updateOrderStatusAsDelivered/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Archive</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Arşivlenmiş siparişler için 1 gönderiniz</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>OrderCode</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;OrderCode&quot;: &quot;SP08034&quot;
+  }
+]</code></pre>
+<h2 id="order2-updateorderstatusassenttocargo"><a class="anchor" href="#order2-updateorderstatusassenttocargo" aria-hidden="true">#</a><code>order2/updateOrderStatusAsSentToCargo</code></h2>
+<p><code>POST https://magaza.example/rest1/order2/updateOrderStatusAsSentToCargo/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Archive</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Arşivlenmiş siparişler için 1 gönderiniz</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>OrderCode</code>, <code>CargoCode</code>, <code>CargoTrackingCode</code>, <code>Shipment</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;OrderCode&quot;: &quot;SP08034&quot;,
+    &quot;CargoCode&quot;: &quot;T1&quot;,
+    &quot;CargoTrackingCode&quot;: &quot;ER34342&quot;,
+    &quot;Shipment&quot;: {
+      &quot;CargoKey&quot;: &quot;789654&quot;,
+      &quot;CargoTrackingNo&quot;: &quot;CR789654&quot;,
+      &quot;CargoTrackingUrl&quot;: &quot;http://cargocampany.com/tracking/CR789654&quot;,
+      &quot;BarcodeLink&quot;: &quot;http://cargocampany.com/tracking/CR789654&quot;
+    }
+  }
+]</code></pre>
+<h2 id="order2-updateorderstatusas"><a class="anchor" href="#order2-updateorderstatusas" aria-hidden="true">#</a><code>order2/updateOrderStatusAs</code></h2>
+<p><code>POST https://magaza.example/rest1/order2/updateOrderStatusAs/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>OrderStatusId</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td>Bu parametre data içinde yine OrderStatusId şeklinde her sipariş için ayrı gönderilebilir.   NOT : data içinde gönderilirse burada boş bırakılmalıdır. (gönderilmemelidir)</td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Archive</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Arşivlenmiş siparişler için 1 gönderiniz</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>OrderCode</code>, <code>CargoCode</code>, <code>CargoTrackingCode</code>, <code>Shipment</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;OrderCode&quot;: &quot;TS1703182&quot;,
+    &quot;CargoCode&quot;: &quot;T1&quot;,
+    &quot;CargoTrackingCode&quot;: &quot;ER34342&quot;,
+    &quot;Shipment&quot;: {
+      &quot;CargoKey&quot;: &quot;789654&quot;,
+      &quot;CargoTrackingNo&quot;: &quot;CR789654&quot;,
+      &quot;CargoTrackingUrl&quot;: &quot;http://cargocampany.com/tracking/CR789654&quot;,
+      &quot;BarcodeLink&quot;: &quot;http://cargocampany.com/tracking/CR789654&quot;
+    }
+  }
+]</code></pre>
+<h2 id="order2-settransferredstatus"><a class="anchor" href="#order2-settransferredstatus" aria-hidden="true">#</a><code>order2/setTransferredStatus</code></h2>
+<p><code>POST https://magaza.example/rest1/order2/setTransferredStatus/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>OrderId veya OrderCode gönderilebilir.</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>OrderCode</code>, <code>IsTransferred</code>, <code>TransferNote</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;OrderCode&quot;: &quot;TS1703182&quot;,
+    &quot;IsTransferred&quot;: &quot;0&quot;,
+    &quot;TransferNote&quot;: &quot;&quot;
+  }
+]</code></pre>
+<h2 id="order2-cargotracking"><a class="anchor" href="#order2-cargotracking" aria-hidden="true">#</a><code>order2/cargoTracking</code></h2>
+<p><code>POST https://magaza.example/rest1/order2/cargoTracking/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>OrderId</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="order2-getordernote"><a class="anchor" href="#order2-getordernote" aria-hidden="true">#</a><code>order2/getOrderNote</code></h2>
+<p><code>POST https://magaza.example/rest1/order2/getOrderNote/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>OrderId</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>OrderCode</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>f</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>İzin Verilen İşlemler: startwith,endwith,equal,greater,smaller,between,contain. Example: &quot;IsNote | 1 | equal&quot;</td>
+</tr>
+<tr>
+<td><code>Archive</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Arşivlenmiş siparişler için 1 gönderiniz</td>
+</tr>
+</tbody></table></div>
+<h2 id="order2-setordernote"><a class="anchor" href="#order2-setordernote" aria-hidden="true">#</a><code>order2/setOrderNote</code></h2>
+<p><code>POST https://magaza.example/rest1/order2/setOrderNote/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>OrderId</code>, <code>AdminId</code>, <code>CustomerId</code>, <code>Text</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;OrderId&quot;: &quot;168&quot;,
+    &quot;AdminId&quot;: &quot;123&quot;,
+    &quot;CustomerId&quot;: &quot;231&quot;,
+    &quot;Text&quot;: &quot;Sipariş notunuz&quot;
+  }
+]</code></pre>
+
+</article>
+<nav class="pager" aria-label="Sayfa geçişi"><a class="prev" href="/rest/order/"><span>← Önceki</span>Order</a><a class="next" href="/rest/cart/"><span>Sonraki →</span>Cart</a></nav>
+<footer class="page-foot"><a href="https://github.com/bahadirdogru/tsoft-documentation-examples/edit/main/content/rest/order2.md">GitHub'da düzenle</a> · <a href="/rest/order2.md">Markdown</a> · <a href="/llms.txt">llms.txt</a> · Topluluk belgesidir, T-Soft’un resmî yayını değildir.</footer>
+</main>
+<nav class="toc" aria-label="Bu sayfada"><div class="toc-title">Bu sayfada</div><ul><li class="l2"><a href="#order2-createorders-alpha">order2/createOrders (alpha)</a></li><li class="l2"><a href="#order2-deleteorders">order2/deleteOrders</a></li><li class="l2"><a href="#order2-getcargocompanylist">order2/getCargoCompanyList</a></li><li class="l2"><a href="#order2-setcargocompany">order2/setCargoCompany</a></li><li class="l2"><a href="#order2-getcargopricing">order2/getCargoPricing</a></li><li class="l2"><a href="#order2-getcustomeridoforder">order2/getCustomerIdOfOrder</a></li><li class="l2"><a href="#order2-getorderdetails">order2/getOrderDetails</a></li><li class="l2"><a href="#order2-getorderdetailsbyorderid">order2/getOrderDetailsByOrderId</a></li><li class="l2"><a href="#order2-getorders">order2/getOrders</a></li><li class="l2"><a href="#order2-getorderstatuslist">order2/getOrderStatusList</a></li><li class="l2"><a href="#order2-getpaymenttypelist">order2/getPaymentTypeList</a></li><li class="l2"><a href="#order2-getpoststatus">order2/getPostStatus</a></li><li class="l2"><a href="#order2-setpoststatus">order2/setPostStatus</a></li><li class="l2"><a href="#order2-setaddress-alpha">order2/setAddress (alpha)</a></li><li class="l2"><a href="#order2-setsupplystatus">order2/setSupplyStatus</a></li><li class="l2"><a href="#order2-setcargopricing">order2/setCargoPricing</a></li><li class="l2"><a href="#order2-updateinvoicedetails">order2/updateInvoiceDetails</a></li><li class="l2"><a href="#order2-updateorderstatusascancelled">order2/updateOrderStatusAsCancelled</a></li><li class="l2"><a href="#order2-updateorderstatusascargoready">order2/updateOrderStatusAsCargoReady</a></li><li class="l2"><a href="#order2-updateorderstatusasdelivered">order2/updateOrderStatusAsDelivered</a></li><li class="l2"><a href="#order2-updateorderstatusassenttocargo">order2/updateOrderStatusAsSentToCargo</a></li><li class="l2"><a href="#order2-updateorderstatusas">order2/updateOrderStatusAs</a></li><li class="l2"><a href="#order2-settransferredstatus">order2/setTransferredStatus</a></li><li class="l2"><a href="#order2-cargotracking">order2/cargoTracking</a></li><li class="l2"><a href="#order2-getordernote">order2/getOrderNote</a></li><li class="l2"><a href="#order2-setordernote">order2/setOrderNote</a></li></ul></nav>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/twig.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/http.min.js"></script>
+<script src="/assets/site.js"></script>
+</body>
+</html>

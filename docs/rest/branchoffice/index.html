@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BranchOffice · T-Soft Dokümantasyonu</title>
+<meta name="description" content="Mağaza / şube kayıtlarını okuma ve yazma.">
+<link rel="canonical" href="https://tsoft.bahadirdogru.com/rest/branchoffice/">
+<link rel="alternate" type="text/markdown" href="/rest/branchoffice.md" title="Markdown">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%231f6feb%22%2F%3E%3Cpath%20d%3D%22M8%209h16v3.2h-6.4V23h-3.2V12.2H8z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E">
+<meta property="og:title" content="BranchOffice">
+<meta property="og:description" content="Mağaza / şube kayıtlarını okuma ve yazma.">
+<meta property="og:url" content="https://tsoft.bahadirdogru.com/rest/branchoffice/">
+<meta property="og:type" content="website">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" media="(prefers-color-scheme: light)" id="hl-light">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" media="(prefers-color-scheme: dark)" id="hl-dark">
+</head>
+<body>
+<a class="skip" href="#main">İçeriğe geç</a>
+<header class="top">
+  <button class="menu-btn" aria-label="Menü" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="/"><svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><path d="M8 9h16v3.2h-6.4V23h-3.2V12.2H8z" fill="var(--bg)"/></svg><span>T-Soft Dokümantasyonu</span></a>
+  <div class="search">
+    <input id="q" type="search" placeholder="Ara: metot, uç, değişken, sayfa…  ( / )" autocomplete="off" aria-label="Ara">
+    <ul id="results" role="listbox" hidden></ul>
+  </div>
+  <button class="theme-btn" aria-label="Tema değiştir" title="Tema değiştir">◐</button>
+</header>
+<div class="layout">
+<aside id="sidebar" class="sidebar"><details class="nav-sec" open><summary>Başlangıç <span class="count">3</span></summary><ul><li><a href="/">Ana sayfa</a></li><li><a href="/rehber/">Hangi yüzey?</a></li><li><a href="/llm/">LLM ve ajanlar için</a></li></ul></details><details class="nav-sec" open><summary>Platform <span class="count">4</span></summary><ul><li><a href="/developer/">Platform haritası</a></li><li><a href="/developer/baslarken/">Başlarken</a></li><li><a href="/developer/uygulama/">Uygulama geliştirme</a></li><li><a href="/developer/storefront-api/">Storefront API</a></li></ul></details><details class="nav-sec" open><summary>Tema <span class="count">2</span></summary><ul><li><a href="/developer/tema/">Tema motoru (Twig)</a></li><li><a href="/theme/">Eski tema (Smarty)</a></li></ul></details><details class="nav-sec" open><summary>REST1 <span class="count">2</span></summary><ul><li><a href="/rest/">Genel bakış</a></li><li><a href="/rest/hatalar/">Hatalar ve mesaj kodları</a></li></ul></details><details class="nav-sec" open><summary>REST1 modülleri <span class="count">38</span></summary><ul><li><a href="/rest/auth/">Auth</a></li><li><a href="/rest/customer/">Customer</a></li><li><a href="/rest/product/">Product</a></li><li><a href="/rest/subproduct/">SubProduct</a></li><li><a href="/rest/category/">Category</a></li><li><a href="/rest/brand/">Brand</a></li><li><a href="/rest/model/">Model</a></li><li><a href="/rest/filter/">Filter</a></li><li><a href="/rest/catalog/">Catalog</a></li><li><a href="/rest/order/">Order</a></li><li><a href="/rest/order2/">Order2</a></li><li><a href="/rest/cart/">Cart</a></li><li><a href="/rest/campaign/">Campaign</a></li><li><a href="/rest/payment/">Payment</a></li><li><a href="/rest/fundmovement/">FundMovement</a></li><li><a href="/rest/point/">Point</a></li><li><a href="/rest/segment/">Segment</a></li><li><a href="/rest/supplier/">Supplier</a></li><li><a href="/rest/branchoffice/" aria-current="page">BranchOffice</a></li><li><a href="/rest/content/">Content</a></li><li><a href="/rest/news/">News</a></li><li><a href="/rest/showcase/">Showcase</a></li><li><a href="/rest/htmlblock/">HtmlBlock</a></li><li><a href="/rest/widget/">Widget</a></li><li><a href="/rest/link/">Link</a></li><li><a href="/rest/personalization/">Personalization</a></li><li><a href="/rest/trackingcode/">TrackingCode</a></li><li><a href="/rest/ticket/">Ticket</a></li><li><a href="/rest/user/">User</a></li><li><a href="/rest/setting/">Setting</a></li><li><a href="/rest/notification/">Notification</a></li><li><a href="/rest/mobile/">Mobile</a></li><li><a href="/rest/platform/">Platform</a></li><li><a href="/rest/cargo/">Cargo</a></li><li><a href="/rest/adapter/">Adapter</a></li><li><a href="/rest/hopi/">Hopi</a></li><li><a href="/rest/zubizu/">Zubizu</a></li><li><a href="/rest/routing/">Routing</a></li></ul></details><details class="nav-sec" open><summary>Admin API v3 <span class="count">3</span></summary><ul><li><a href="/admin-api/">Genel bakış</a></li><li><a href="/admin-api/uclar/">Uç listesi</a></li><li><a href="/admin-api/odeme-bildirimi/">Ödeme bildirimi</a></li></ul></details><details class="nav-sec"><summary>Örnek kod <span class="count">5</span></summary><ul><li><a href="/examples/python/tsoft_client/">Python istemci</a></li><li><a href="/examples/python/add_customer/">Üye ekleme</a></li><li><a href="/examples/python/check_group_price/">Grup fiyatı</a></li><li><a href="/examples/python/env/">Ortam değişkenleri</a></li><li><a href="/examples/apps-script/code/">Apps Script</a></li></ul></details><details class="nav-sec"><summary>Eski tema blokları <span class="count">18</span></summary><ul><li><a href="/theme/bloklar/ust/">Üst blok</a></li><li><a href="/theme/bloklar/alt/">Alt blok</a></li><li><a href="/theme/bloklar/yeni-urunler/">Yeni ürünler</a></li><li><a href="/theme/bloklar/kategori-menusu/">Kategori menüsü</a></li><li><a href="/theme/bloklar/kategori-listesi/">Kategori listesi</a></li><li><a href="/theme/bloklar/home-banner/">Ana sayfa banner</a></li><li><a href="/theme/bloklar/home-sale/">Ana sayfa indirim</a></li><li><a href="/theme/bloklar/haberler/">Haberler</a></li><li><a href="/theme/bloklar/benzer-urunler/">Benzer ürünler</a></li><li><a href="/theme/bloklar/model-listesi/">Model listesi</a></li><li><a href="/theme/bloklar/marka-listesi/">Marka listesi</a></li><li><a href="/theme/bloklar/parca-toplama-sihirbazi/">Parça toplama sihirbazı</a></li><li><a href="/theme/bloklar/tedarikci-listesi/">Tedarikçi listesi</a></li><li><a href="/theme/bloklar/firsat-urunleri/">Fırsat ürünleri</a></li><li><a href="/theme/bloklar/ayin-yazari/">Ayın yazarı</a></li><li><a href="/theme/bloklar/gelecek-firsat-urun-listesi/">Gelecek fırsatlar</a></li><li><a href="/theme/bloklar/sss/">SSS</a></li><li><a href="/theme/bloklar/gorsel-vitrin/">Görsel vitrin</a></li></ul></details><details class="nav-sec"><summary>Eski tema değişkenleri <span class="count">5</span></summary><ul><li><a href="/theme/degiskenler/tsoft-product-varriables/">Ürün değişkenleri</a></li><li><a href="/theme/degiskenler/tsoft-header-page-links-varriable/">Sayfa linkleri</a></li><li><a href="/theme/degiskenler/tsoft-header-tabs-varriable/">Üst sekmeler</a></li><li><a href="/theme/degiskenler/tsoft-footer-menu-varriables/">Alt menü</a></li><li><a href="/theme/degiskenler/tsoft-left-right-category-varriables/">Sol ve sağ kategori</a></li></ul></details><details class="nav-sec"><summary>Eski tema şablonları <span class="count">5</span></summary><ul><li><a href="/theme/snippets/bayi-mi-degil-mi/">Bayi hesabı koşulu</a></li><li><a href="/theme/orta/user_bayipanel/">Bayi paneli</a></li><li><a href="/theme/orta/user_bayigirisplasiyer/">Bayi giriş plasiyer</a></li><li><a href="/theme/orta/user_v4tpl/">V4 şablon</a></li><li><a href="/theme/UstAlt/user_tasarimyenimenu/">Tasarım yeni menü</a></li></ul></details></aside>
+<main id="main" class="content">
+<nav class="crumbs" aria-label="Konum"><a href="/">Ana sayfa</a> <span>/</span> <a href="/rest/">REST1</a></nav>
+<article>
+<h1 id="branchoffice"><a class="anchor" href="#branchoffice" aria-hidden="true">#</a>BranchOffice</h1>
+<p>REST1 modülü · 5 metot · taban <code>https://magaza.example/rest1/branchOffice/{metot}/</code></p>
+<p>Her çağrı <code>POST</code> ve form gövdesidir; <code>token</code> ayrı alan olarak gider. Ortak kurallar, zarf yapısı ve süzgeç sözdizimi <a href="/rest/#ortak-kurallar">REST1 genel bakış</a> sayfasındadır. Tablodaki &quot;Yer&quot; sütunu: <code>url_param</code> yolun sonuna eklenir, <code>query</code> gövde alanıdır, <code>file</code> dosya yüklemesidir.</p>
+<p>Mağaza / şube kayıtlarını okuma ve yazma.</p>
+<h2 id="branchoffice-getbranchofficebycode"><a class="anchor" href="#branchoffice-getbranchofficebycode" aria-hidden="true">#</a><code>branchOffice/getBranchOfficeByCode</code></h2>
+<p><code>POST https://magaza.example/rest1/branchOffice/getBranchOfficeByCode/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>BranchOfficeCode</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="branchoffice-getbranchofficebyid"><a class="anchor" href="#branchoffice-getbranchofficebyid" aria-hidden="true">#</a><code>branchOffice/getBranchOfficeById</code></h2>
+<p><code>POST https://magaza.example/rest1/branchOffice/getBranchOfficeById/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>BranchOfficeId</code></td>
+<td>url_param</td>
+<td>int</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="branchoffice-getbranchofficebyname"><a class="anchor" href="#branchoffice-getbranchofficebyname" aria-hidden="true">#</a><code>branchOffice/getBranchOfficeByName</code></h2>
+<p><code>POST https://magaza.example/rest1/branchOffice/getBranchOfficeByName/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>BranchOfficeName</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="branchoffice-getbranchoffices"><a class="anchor" href="#branchoffice-getbranchoffices" aria-hidden="true">#</a><code>branchOffice/getBranchOffices</code></h2>
+<p><code>POST https://magaza.example/rest1/branchOffice/getBranchOffices/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>IsActive</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td>Sadece aktif mağazaların getirilmesi için bu alanı şeçili olarak göndermeniz gerekli</td>
+</tr>
+<tr>
+<td><code>f</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>start</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>orderby</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Örn: BranchOfficeId DESC</td>
+</tr>
+</tbody></table></div>
+<h2 id="branchoffice-setbranchoffices"><a class="anchor" href="#branchoffice-setbranchoffices" aria-hidden="true">#</a><code>branchOffice/setBranchOffices</code></h2>
+<p><code>POST https://magaza.example/rest1/branchOffice/setBranchOffices/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>BranchOfficeCode</code>, <code>BranchOfficeName</code>, <code>BranchOfficeGroupCode</code>, <code>IsActive</code>, <code>Address</code>, <code>Country</code>, <code>City</code>, <code>District</code>, <code>Neighbourhood</code>, <code>Tel1</code>, <code>Fax</code>, <code>Email</code>, <code>ListNo</code>, <code>Latitude</code>, <code>Longitude</code>, <code>IframeEmbed</code>, <code>Additional1</code>, <code>Additional2</code>, <code>Additional3</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;BranchOfficeCode&quot;: &quot;T2&quot;,
+    &quot;BranchOfficeName&quot;: &quot;Harbiye&quot;,
+    &quot;BranchOfficeGroupCode&quot;: &quot;T1&quot;,
+    &quot;IsActive&quot;: &quot;1&quot;,
+    &quot;Address&quot;: &quot;&quot;,
+    &quot;Country&quot;: &quot;&quot;,
+    &quot;City&quot;: &quot;&quot;,
+    &quot;District&quot;: &quot;Şişli&quot;,
+    &quot;Neighbourhood&quot;: &quot;Harbiye&quot;,
+    &quot;Tel1&quot;: &quot;&quot;,
+    &quot;Fax&quot;: &quot;&quot;,
+    &quot;Email&quot;: &quot;&quot;,
+    &quot;ListNo&quot;: &quot;&quot;,
+    &quot;Latitude&quot;: &quot;&quot;,
+    &quot;Longitude&quot;: &quot;&quot;,
+    &quot;IframeEmbed&quot;: &quot;&quot;,
+    &quot;Additional1&quot;: &quot;&quot;,
+    &quot;Additional2&quot;: &quot;&quot;,
+    &quot;Additional3&quot;: &quot;&quot;
+  }
+]</code></pre>
+
+</article>
+<nav class="pager" aria-label="Sayfa geçişi"><a class="prev" href="/rest/supplier/"><span>← Önceki</span>Supplier</a><a class="next" href="/rest/content/"><span>Sonraki →</span>Content</a></nav>
+<footer class="page-foot"><a href="https://github.com/bahadirdogru/tsoft-documentation-examples/edit/main/content/rest/branchoffice.md">GitHub'da düzenle</a> · <a href="/rest/branchoffice.md">Markdown</a> · <a href="/llms.txt">llms.txt</a> · Topluluk belgesidir, T-Soft’un resmî yayını değildir.</footer>
+</main>
+<nav class="toc" aria-label="Bu sayfada"><div class="toc-title">Bu sayfada</div><ul><li class="l2"><a href="#branchoffice-getbranchofficebycode">branchOffice/getBranchOfficeByCode</a></li><li class="l2"><a href="#branchoffice-getbranchofficebyid">branchOffice/getBranchOfficeById</a></li><li class="l2"><a href="#branchoffice-getbranchofficebyname">branchOffice/getBranchOfficeByName</a></li><li class="l2"><a href="#branchoffice-getbranchoffices">branchOffice/getBranchOffices</a></li><li class="l2"><a href="#branchoffice-setbranchoffices">branchOffice/setBranchOffices</a></li></ul></nav>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/twig.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/http.min.js"></script>
+<script src="/assets/site.js"></script>
+</body>
+</html>

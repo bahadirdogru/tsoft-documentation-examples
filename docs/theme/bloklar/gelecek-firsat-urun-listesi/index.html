@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gelecek fırsatlar · T-Soft Dokümantasyonu</title>
+<meta name="description" content="T-Soft e-ticaret altyapısı için REST1 web servisi, Admin API v3, uygulama platformu, Storefront API ve Twig/Smarty tema kodlama başvuru dokümantasyonu. İnsanlar ve LLM'ler için.">
+<link rel="canonical" href="https://tsoft.bahadirdogru.com/theme/bloklar/gelecek-firsat-urun-listesi/">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%231f6feb%22%2F%3E%3Cpath%20d%3D%22M8%209h16v3.2h-6.4V23h-3.2V12.2H8z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E">
+<meta property="og:title" content="Gelecek fırsatlar">
+<meta property="og:description" content="T-Soft e-ticaret altyapısı için REST1 web servisi, Admin API v3, uygulama platformu, Storefront API ve Twig/Smarty tema kodlama başvuru dokümantasyonu. İnsanlar ve LLM'ler için.">
+<meta property="og:url" content="https://tsoft.bahadirdogru.com/theme/bloklar/gelecek-firsat-urun-listesi/">
+<meta property="og:type" content="website">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" media="(prefers-color-scheme: light)" id="hl-light">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" media="(prefers-color-scheme: dark)" id="hl-dark">
+</head>
+<body>
+<a class="skip" href="#main">İçeriğe geç</a>
+<header class="top">
+  <button class="menu-btn" aria-label="Menü" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="/"><svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><path d="M8 9h16v3.2h-6.4V23h-3.2V12.2H8z" fill="var(--bg)"/></svg><span>T-Soft Dokümantasyonu</span></a>
+  <div class="search">
+    <input id="q" type="search" placeholder="Ara: metot, uç, değişken, sayfa…  ( / )" autocomplete="off" aria-label="Ara">
+    <ul id="results" role="listbox" hidden></ul>
+  </div>
+  <button class="theme-btn" aria-label="Tema değiştir" title="Tema değiştir">◐</button>
+</header>
+<div class="layout">
+<aside id="sidebar" class="sidebar"><details class="nav-sec" open><summary>Başlangıç <span class="count">3</span></summary><ul><li><a href="/">Ana sayfa</a></li><li><a href="/rehber/">Hangi yüzey?</a></li><li><a href="/llm/">LLM ve ajanlar için</a></li></ul></details><details class="nav-sec" open><summary>Platform <span class="count">4</span></summary><ul><li><a href="/developer/">Platform haritası</a></li><li><a href="/developer/baslarken/">Başlarken</a></li><li><a href="/developer/uygulama/">Uygulama geliştirme</a></li><li><a href="/developer/storefront-api/">Storefront API</a></li></ul></details><details class="nav-sec" open><summary>Tema <span class="count">2</span></summary><ul><li><a href="/developer/tema/">Tema motoru (Twig)</a></li><li><a href="/theme/">Eski tema (Smarty)</a></li></ul></details><details class="nav-sec" open><summary>REST1 <span class="count">2</span></summary><ul><li><a href="/rest/">Genel bakış</a></li><li><a href="/rest/hatalar/">Hatalar ve mesaj kodları</a></li></ul></details><details class="nav-sec"><summary>REST1 modülleri <span class="count">38</span></summary><ul><li><a href="/rest/auth/">Auth</a></li><li><a href="/rest/customer/">Customer</a></li><li><a href="/rest/product/">Product</a></li><li><a href="/rest/subproduct/">SubProduct</a></li><li><a href="/rest/category/">Category</a></li><li><a href="/rest/brand/">Brand</a></li><li><a href="/rest/model/">Model</a></li><li><a href="/rest/filter/">Filter</a></li><li><a href="/rest/catalog/">Catalog</a></li><li><a href="/rest/order/">Order</a></li><li><a href="/rest/order2/">Order2</a></li><li><a href="/rest/cart/">Cart</a></li><li><a href="/rest/campaign/">Campaign</a></li><li><a href="/rest/payment/">Payment</a></li><li><a href="/rest/fundmovement/">FundMovement</a></li><li><a href="/rest/point/">Point</a></li><li><a href="/rest/segment/">Segment</a></li><li><a href="/rest/supplier/">Supplier</a></li><li><a href="/rest/branchoffice/">BranchOffice</a></li><li><a href="/rest/content/">Content</a></li><li><a href="/rest/news/">News</a></li><li><a href="/rest/showcase/">Showcase</a></li><li><a href="/rest/htmlblock/">HtmlBlock</a></li><li><a href="/rest/widget/">Widget</a></li><li><a href="/rest/link/">Link</a></li><li><a href="/rest/personalization/">Personalization</a></li><li><a href="/rest/trackingcode/">TrackingCode</a></li><li><a href="/rest/ticket/">Ticket</a></li><li><a href="/rest/user/">User</a></li><li><a href="/rest/setting/">Setting</a></li><li><a href="/rest/notification/">Notification</a></li><li><a href="/rest/mobile/">Mobile</a></li><li><a href="/rest/platform/">Platform</a></li><li><a href="/rest/cargo/">Cargo</a></li><li><a href="/rest/adapter/">Adapter</a></li><li><a href="/rest/hopi/">Hopi</a></li><li><a href="/rest/zubizu/">Zubizu</a></li><li><a href="/rest/routing/">Routing</a></li></ul></details><details class="nav-sec" open><summary>Admin API v3 <span class="count">3</span></summary><ul><li><a href="/admin-api/">Genel bakış</a></li><li><a href="/admin-api/uclar/">Uç listesi</a></li><li><a href="/admin-api/odeme-bildirimi/">Ödeme bildirimi</a></li></ul></details><details class="nav-sec"><summary>Örnek kod <span class="count">5</span></summary><ul><li><a href="/examples/python/tsoft_client/">Python istemci</a></li><li><a href="/examples/python/add_customer/">Üye ekleme</a></li><li><a href="/examples/python/check_group_price/">Grup fiyatı</a></li><li><a href="/examples/python/env/">Ortam değişkenleri</a></li><li><a href="/examples/apps-script/code/">Apps Script</a></li></ul></details><details class="nav-sec" open><summary>Eski tema blokları <span class="count">18</span></summary><ul><li><a href="/theme/bloklar/ust/">Üst blok</a></li><li><a href="/theme/bloklar/alt/">Alt blok</a></li><li><a href="/theme/bloklar/yeni-urunler/">Yeni ürünler</a></li><li><a href="/theme/bloklar/kategori-menusu/">Kategori menüsü</a></li><li><a href="/theme/bloklar/kategori-listesi/">Kategori listesi</a></li><li><a href="/theme/bloklar/home-banner/">Ana sayfa banner</a></li><li><a href="/theme/bloklar/home-sale/">Ana sayfa indirim</a></li><li><a href="/theme/bloklar/haberler/">Haberler</a></li><li><a href="/theme/bloklar/benzer-urunler/">Benzer ürünler</a></li><li><a href="/theme/bloklar/model-listesi/">Model listesi</a></li><li><a href="/theme/bloklar/marka-listesi/">Marka listesi</a></li><li><a href="/theme/bloklar/parca-toplama-sihirbazi/">Parça toplama sihirbazı</a></li><li><a href="/theme/bloklar/tedarikci-listesi/">Tedarikçi listesi</a></li><li><a href="/theme/bloklar/firsat-urunleri/">Fırsat ürünleri</a></li><li><a href="/theme/bloklar/ayin-yazari/">Ayın yazarı</a></li><li><a href="/theme/bloklar/gelecek-firsat-urun-listesi/" aria-current="page">Gelecek fırsatlar</a></li><li><a href="/theme/bloklar/sss/">SSS</a></li><li><a href="/theme/bloklar/gorsel-vitrin/">Görsel vitrin</a></li></ul></details><details class="nav-sec"><summary>Eski tema değişkenleri <span class="count">5</span></summary><ul><li><a href="/theme/degiskenler/tsoft-product-varriables/">Ürün değişkenleri</a></li><li><a href="/theme/degiskenler/tsoft-header-page-links-varriable/">Sayfa linkleri</a></li><li><a href="/theme/degiskenler/tsoft-header-tabs-varriable/">Üst sekmeler</a></li><li><a href="/theme/degiskenler/tsoft-footer-menu-varriables/">Alt menü</a></li><li><a href="/theme/degiskenler/tsoft-left-right-category-varriables/">Sol ve sağ kategori</a></li></ul></details><details class="nav-sec"><summary>Eski tema şablonları <span class="count">5</span></summary><ul><li><a href="/theme/snippets/bayi-mi-degil-mi/">Bayi hesabı koşulu</a></li><li><a href="/theme/orta/user_bayipanel/">Bayi paneli</a></li><li><a href="/theme/orta/user_bayigirisplasiyer/">Bayi giriş plasiyer</a></li><li><a href="/theme/orta/user_v4tpl/">V4 şablon</a></li><li><a href="/theme/UstAlt/user_tasarimyenimenu/">Tasarım yeni menü</a></li></ul></details></aside>
+<main id="main" class="content">
+<nav class="crumbs" aria-label="Konum"><a href="/">Ana sayfa</a> <span>/</span> <a href="/theme/">Eski tema (Smarty)</a></nav>
+<article>
+<h1 id="gelecek-fırsatlar"><a class="anchor" href="#gelecek-fırsatlar" aria-hidden="true">#</a>Gelecek fırsatlar</h1>
+<p>Dosya: <code>theme/bloklar/gelecek-firsat-urun-listesi.html</code> · <a href="/theme/bloklar/gelecek-firsat-urun-listesi.html">Ham dosya</a> · Smarty</p>
+<pre><code class="language-xml">{if $HEADER==1}
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        $(document).ready(function () {
+            $('#list-slide{$BLOCK_ID}').slide({
+                slideType: 'carousel',
+                slideCtrl: {
+                    showCtrl: true,
+                    wrapCtrl: '#productCampaign-left',
+                    nextBtn: '#nextCampaign-left',
+                    prevBtn: '#prevCampaign-left'
+                }
+            });
+            $('.timer-block').each(function(i,el){
+                var dateParse = el.dataset.date.split(',');
+                convertDate = new Date(dateParse[0] + '-' + dateParse[1] + '-' + dateParse[2] + ' ' + dateParse[3] + ':' + dateParse[4] + ':' + dateParse[5]);
+                GetCount(convertDate, el.id);
+            });
+        });
+    &lt;/script&gt;
+    &lt;div class=&quot;col col-12&quot;&gt;
+        &lt;div id=&quot;campaign-products-left{$BLOCK_ID}&quot; class=&quot;row mb box-border&quot;&gt;
+            &lt;div class=&quot;box col-12&quot;&gt;
+                &lt;div class=&quot;col col-12 btn-upper col-title&quot;&gt;{$BLOCK_TITLE}&lt;/div&gt;
+                &lt;div class=&quot;box col-12&quot;&gt;
+                    &lt;div class=&quot;row&quot;&gt;
+                        &lt;div&gt;
+                            &lt;ul id=&quot;list-slide{$BLOCK_ID}&quot; class=&quot;notClear&quot;&gt;
+                            {/if}
+                            {if $LOOP==1}
+                                &lt;li class=&quot;fl col-12 col-sm-6 productColItem&quot;&gt;         
+                                    &lt;a href=&quot;/?B=Firsat&amp;Uid={$P.ID}&quot; class=&quot;image-wrapper fl{if $P.IMAGE_LIST.1.SMALL != ''} imgGallery{/if}&quot;&gt;                           
+                                        {if $P.DISCOUNT_PERCENT &gt; 0 &amp;&amp; $P.IS_DISPLAY_DISCOUNTED_ACTIVE == 1}       
+                                            &lt;div class=&quot;productDiscount&quot;&gt;&lt;span&gt;%{$P.DISCOUNT_PERCENT}&lt;/span&gt;{#discounted#}&lt;/div&gt;         
+                                        {/if}
+                                        {if $P.IS_NEW_PRODUCT == true}  
+                                            &lt;span class=&quot;icon-new&quot; data-text=&quot;{#new#}&quot;&gt;&lt;/span&gt;
+                                        {/if}      
+                                        {if $P.IN_STOCK == false}
+                                            &lt;span class=&quot;out-of-stock&quot;&gt;{#out_of_stock#}&lt;/span&gt;
+                                        {/if}                  
+                                        &lt;!--{if {$P.PRICE_SELL / 1} &gt; 100}         
+                                            &lt;span class=&quot;icon-cargo&quot;&gt;&lt;/span&gt;             
+                                    {/if}--&gt;
+                                    &lt;span class=&quot;imgInner&quot;&gt;
+                                        &lt;img {if $IS_LAZY_LOAD_ACTIVE == '1'}data-src=&quot;{$P.IMAGE.SMALL}&quot; src=&quot;{$LAZY_LOAD_LOADING_IMAGE}&quot; class=&quot;lazy&quot; {else}src=&quot;{$P.IMAGE.SMALL}&quot; class=&quot;active&quot; {/if}alt=&quot;{$P.BRAND} - {$P.TITLE}&quot; title=&quot;{$P.BRAND} - {$P.TITLE}&quot; /&gt;
+                                    &lt;/span&gt;
+                                    {if $P.IMAGE_LIST.1.SMALL != ''}
+                                        &lt;span class=&quot;imgInner&quot;&gt;
+                                            &lt;img {if $IS_LAZY_LOAD_ACTIVE == '1'}data-src=&quot;{$P.IMAGE_LIST.1.SMALL}&quot; src=&quot;{$LAZY_LOAD_LOADING_IMAGE}&quot; class=&quot;ease ndImage lazy&quot; {else}src=&quot;{$P.IMAGE_LIST.1.SMALL}&quot; class=&quot;ease ndImage&quot; {/if} alt=&quot;{$P.BRAND} - {$P.TITLE} (1)&quot; title=&quot;{$P.BRAND} - {$P.TITLE} (1)&quot; /&gt;
+                                        &lt;/span&gt;
+                                    {/if}
+                                    &lt;span id=&quot;side-counter-{$P.ID}&quot; data-date=&quot;{$P.DEAL_END_DATE|date_format:'Y,m,d,H,i,s'}&quot; class=&quot;col col-12 image-band campaign-band timer-block&quot;&gt;&lt;/span&gt;                   
+                                &lt;/a&gt;                     
+                                &lt;div class=&quot;box col-12 p-bottom loaderWrapper&quot;&gt;      
+                                    &lt;div class=&quot;row&quot;&gt;              
+                                        &lt;div class=&quot;box col-12&quot;&gt;              
+                                            &lt;div class=&quot;row&quot;&gt;             
+                                                {if $DISPLAY_BRAND == 1}
+                                                    &lt;a href=&quot;/{$P.BRAND_URL}&quot; title=&quot;{$P.BRAND} {$P.TITLE}&quot; class=&quot;col col-12 productBrand&quot;&gt;{$P.BRAND}&lt;/a&gt;
+                                                {/if}              
+                                                &lt;a href=&quot;/?B=Firsat&amp;Uid={$P.ID}&quot; title=&quot;{$P.TITLE}&quot; class=&quot;col col-12 productDescription&quot;&gt;{$P.TITLE}&lt;/a&gt;     
+                                            &lt;/div&gt;             
+                                        &lt;/div&gt;
+                                        {if $P.IS_DISPLAY_PRODUCT == 0}
+                                            &lt;div class=&quot;variantOverlay&quot; data-id=&quot;{$P.ID}{$BLOCK_ID}&quot;&gt;&lt;/div&gt;
+                                            &lt;div class=&quot;fl col-12 variantWrapper tooltipWrapper&quot;&gt;
+                                                &lt;input type=&quot;hidden&quot; name=&quot;subPro{$P.ID}{$BLOCK_ID}&quot; id=&quot;subPro{$P.ID}{$BLOCK_ID}&quot; value=&quot;0&quot; /&gt;    
+                                                {if $P.HAS_VARIANT == true}
+                                                    &lt;textarea id=&quot;json{$P.ID}{$BLOCK_ID}&quot; style=&quot;display:none;&quot;&gt;{$P.VARIANT_DATA}&lt;/textarea&gt;
+                                                    {if $P.VARIANT_FEATURE1_LIST|@count &gt; 0}
+                                                        &lt;div class=&quot;box col-12 productOption&quot;&gt;
+                                                            &lt;span&gt;{#color#} :
+                                                            &lt;/span&gt;
+                                                            &lt;div class=&quot;optionBox fr subProWrapper subOne&quot; data-order=&quot;1&quot;&gt;
+                                                                {foreach $P.VARIANT_FEATURE1_LIST as $A1}
+                                                                    {if $A1.IN_STOCK == true}
+                                                                        &lt;a data-id=&quot;{$A1.TYPE_ID}&quot; data-target=&quot;{$P.ID}{$BLOCK_ID}&quot;&gt;
+                                                                            &lt;p&gt;{$A1.TYPE}&lt;/p&gt;
+                                                                        &lt;/a&gt;
+                                                                    {/if}
+                                                                {/foreach}
+                                                            &lt;/div&gt;
+                                                        &lt;/div&gt;
+                                                    {/if}
+                                                    {if $P.VARIANT_FEATURE2_LIST|@count &gt; 0}
+                                                        &lt;div class=&quot;box col-12 productOption&quot;&gt;
+                                                            &lt;span&gt;{#size#} :
+                                                            &lt;/span&gt;
+                                                            &lt;div class=&quot;optionBox fr subProWrapper subTwo&quot; data-order=&quot;2&quot;&gt;
+                                                                &lt;select name=&quot;subPro{$P.ID}&quot;&gt;
+                                                                    &lt;option value=&quot;&quot; data-id=&quot;&quot; data-target=&quot;{$P.ID}{$BLOCK_ID}&quot;&gt;
+                                                                        {#select#}...
+                                                                    &lt;/option&gt;
+                                                                    {foreach $P.VARIANT_FEATURE2_LIST as $A2}
+                                                                        {if $A2.IN_STOCK == true}
+                                                                            &lt;option value=&quot;{$A2.TYPE_ID}&quot; data-id=&quot;{$A2.TYPE_ID}&quot; data-target=&quot;{$P.ID}{$BLOCK_ID}&quot;&gt;
+                                                                                {$A2.TYPE}
+                                                                            &lt;/option&gt;
+                                                                        {/if}
+                                                                    {/foreach}
+                                                                &lt;/select&gt;
+                                                            &lt;/div&gt;
+                                                        &lt;/div&gt;
+                                                    {/if}
+                                                {/if}                                       
+                                            &lt;/div&gt;
+                                            &lt;div class=&quot;box col-12 p-bottom&quot;&gt;       
+                                                &lt;div class=&quot;row tooltipWrapper&quot;&gt;      
+                                                    &lt;div class=&quot;fl dn-xs&quot;&gt;
+                                                        &lt;input type=&quot;hidden&quot; id=&quot;Adet{$P.ID}{$BLOCK_ID}&quot; name=&quot;Adet{$P.ID}{$BLOCK_ID}&quot; value=&quot;{$P.MIN_ORDER_COUNT|default:1}&quot; /&gt;
+                                                        {if $DISPLAY_CART_BUTTON == 1}
+                                                            &lt;a onclick=&quot;Add2Cart({$P.ID}, $('#subPro{$P.ID}{$BLOCK_ID}').val(), $('#Adet{$P.ID}{$BLOCK_ID}').val());&quot; class=&quot;productBtn fl basketBtn&quot; data-parent=&quot;{$P.ID}{$BLOCK_ID}&quot;&gt;&lt;/a&gt;
+                                                        {/if}
+                                                        {if $DISPLAY_FAVOURITE_BUTTON == 1}
+                                                            {if $IS_MEMBER_LOGGED_IN != true}
+                                                                {if $IS_HTTPS_ACTIVE == 1}
+                                                                    &lt;a data-width=&quot;500&quot; data-url=&quot;/srv/service/customer/login-form&quot; class=&quot;popupWin productBtn fl favouriteBtn loginPopupBtn&quot;&gt;&lt;/a&gt;
+                                                                {else}
+                                                                    &lt;a href=&quot;{$PAGE_LINK.MEMBER_LOGIN}&quot; class=&quot;productBtn fl favouriteBtn loginPopupBtn&quot;&gt;&lt;/a&gt;
+                                                                {/if}
+                                                            {else}
+                                                                &lt;a data-width=&quot;700&quot; data-url=&quot;/srv/service/content/get/1014/popup/{$P.ID}-{$P.VARIANT_ID}&quot; class=&quot;popupWin productBtn fl favouriteBtn&quot;&gt;&lt;/a&gt;
+                                                            {/if}
+                                                        {/if}     
+                                                    &lt;/div&gt;         
+                                                    &lt;div class=&quot;productPrice fr&quot;&gt;              
+                                                        &lt;div class=&quot;priceWrapper&quot;&gt;                            
+                                                            {if $P.DISCOUNT_PERCENT &gt; 0 &amp;&amp; $P.IS_DISPLAY_DISCOUNTED_ACTIVE == 1}                          
+                                                                &lt;div class=&quot;discountedPrice&quot;&gt;{vat price=$P.PRICE_NOT_DISCOUNTED vat=$P.VAT} {$P.TARGET_CURRENCY}&lt;/div&gt;             
+                                                            {/if}                                           
+                                                            &lt;div class=&quot;currentPrice&quot;&gt;
+                                                                {if $P.DISPLAY_VAT === &quot;1&quot;}
+                                                                    {vat price=$P.PRICE_SELL vat=$P.VAT}
+                                                                    {$P.TARGET_CURRENCY}
+                                                                {else} 
+                                                                    {format price=$P.PRICE_SELL} {$P.TARGET_CURRENCY}
+                                                                    + {#kdv#}
+                                                                {/if}
+                                                            &lt;/div&gt;     
+                                                        &lt;/div&gt;                      
+                                                    &lt;/div&gt;              
+                                                &lt;/div&gt;                  
+                                            &lt;/div&gt;
+                                        {/if}
+                                        &lt;/div&gt;         
+                                    &lt;/div&gt;            
+                                &lt;/li&gt;
+                            {/if}
+                            {if $FOOTER==1}
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;colControl&quot; id=&quot;productCampaign-left&quot;&gt;
+                            &lt;span id=&quot;prevCampaign-left&quot; class=&quot;fl colPrev&quot;&gt;&lt;/span&gt;
+                            &lt;span id=&quot;nextCampaign-left&quot; class=&quot;fr colNext&quot;&gt;&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+{/if}</code></pre>
+
+</article>
+<nav class="pager" aria-label="Sayfa geçişi"><a class="prev" href="/theme/bloklar/ayin-yazari/"><span>← Önceki</span>Ayın yazarı</a><a class="next" href="/theme/bloklar/sss/"><span>Sonraki →</span>SSS</a></nav>
+<footer class="page-foot"><a href="https://github.com/bahadirdogru/tsoft-documentation-examples/edit/main/content/theme/bloklar/gelecek-firsat-urun-listesi.html">GitHub'da düzenle</a> · <a href="/theme/bloklar/gelecek-firsat-urun-listesi.html">Ham dosya</a> · <a href="/llms.txt">llms.txt</a> · Topluluk belgesidir, T-Soft’un resmî yayını değildir.</footer>
+</main>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/twig.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/http.min.js"></script>
+<script src="/assets/site.js"></script>
+</body>
+</html>

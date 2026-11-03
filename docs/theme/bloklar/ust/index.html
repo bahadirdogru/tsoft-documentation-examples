@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Üst blok · T-Soft Dokümantasyonu</title>
+<meta name="description" content="T-Soft e-ticaret altyapısı için REST1 web servisi, Admin API v3, uygulama platformu, Storefront API ve Twig/Smarty tema kodlama başvuru dokümantasyonu. İnsanlar ve LLM'ler için.">
+<link rel="canonical" href="https://tsoft.bahadirdogru.com/theme/bloklar/ust/">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%231f6feb%22%2F%3E%3Cpath%20d%3D%22M8%209h16v3.2h-6.4V23h-3.2V12.2H8z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E">
+<meta property="og:title" content="Üst blok">
+<meta property="og:description" content="T-Soft e-ticaret altyapısı için REST1 web servisi, Admin API v3, uygulama platformu, Storefront API ve Twig/Smarty tema kodlama başvuru dokümantasyonu. İnsanlar ve LLM'ler için.">
+<meta property="og:url" content="https://tsoft.bahadirdogru.com/theme/bloklar/ust/">
+<meta property="og:type" content="website">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" media="(prefers-color-scheme: light)" id="hl-light">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" media="(prefers-color-scheme: dark)" id="hl-dark">
+</head>
+<body>
+<a class="skip" href="#main">İçeriğe geç</a>
+<header class="top">
+  <button class="menu-btn" aria-label="Menü" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="/"><svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><path d="M8 9h16v3.2h-6.4V23h-3.2V12.2H8z" fill="var(--bg)"/></svg><span>T-Soft Dokümantasyonu</span></a>
+  <div class="search">
+    <input id="q" type="search" placeholder="Ara: metot, uç, değişken, sayfa…  ( / )" autocomplete="off" aria-label="Ara">
+    <ul id="results" role="listbox" hidden></ul>
+  </div>
+  <button class="theme-btn" aria-label="Tema değiştir" title="Tema değiştir">◐</button>
+</header>
+<div class="layout">
+<aside id="sidebar" class="sidebar"><details class="nav-sec" open><summary>Başlangıç <span class="count">3</span></summary><ul><li><a href="/">Ana sayfa</a></li><li><a href="/rehber/">Hangi yüzey?</a></li><li><a href="/llm/">LLM ve ajanlar için</a></li></ul></details><details class="nav-sec" open><summary>Platform <span class="count">4</span></summary><ul><li><a href="/developer/">Platform haritası</a></li><li><a href="/developer/baslarken/">Başlarken</a></li><li><a href="/developer/uygulama/">Uygulama geliştirme</a></li><li><a href="/developer/storefront-api/">Storefront API</a></li></ul></details><details class="nav-sec" open><summary>Tema <span class="count">2</span></summary><ul><li><a href="/developer/tema/">Tema motoru (Twig)</a></li><li><a href="/theme/">Eski tema (Smarty)</a></li></ul></details><details class="nav-sec" open><summary>REST1 <span class="count">2</span></summary><ul><li><a href="/rest/">Genel bakış</a></li><li><a href="/rest/hatalar/">Hatalar ve mesaj kodları</a></li></ul></details><details class="nav-sec"><summary>REST1 modülleri <span class="count">38</span></summary><ul><li><a href="/rest/auth/">Auth</a></li><li><a href="/rest/customer/">Customer</a></li><li><a href="/rest/product/">Product</a></li><li><a href="/rest/subproduct/">SubProduct</a></li><li><a href="/rest/category/">Category</a></li><li><a href="/rest/brand/">Brand</a></li><li><a href="/rest/model/">Model</a></li><li><a href="/rest/filter/">Filter</a></li><li><a href="/rest/catalog/">Catalog</a></li><li><a href="/rest/order/">Order</a></li><li><a href="/rest/order2/">Order2</a></li><li><a href="/rest/cart/">Cart</a></li><li><a href="/rest/campaign/">Campaign</a></li><li><a href="/rest/payment/">Payment</a></li><li><a href="/rest/fundmovement/">FundMovement</a></li><li><a href="/rest/point/">Point</a></li><li><a href="/rest/segment/">Segment</a></li><li><a href="/rest/supplier/">Supplier</a></li><li><a href="/rest/branchoffice/">BranchOffice</a></li><li><a href="/rest/content/">Content</a></li><li><a href="/rest/news/">News</a></li><li><a href="/rest/showcase/">Showcase</a></li><li><a href="/rest/htmlblock/">HtmlBlock</a></li><li><a href="/rest/widget/">Widget</a></li><li><a href="/rest/link/">Link</a></li><li><a href="/rest/personalization/">Personalization</a></li><li><a href="/rest/trackingcode/">TrackingCode</a></li><li><a href="/rest/ticket/">Ticket</a></li><li><a href="/rest/user/">User</a></li><li><a href="/rest/setting/">Setting</a></li><li><a href="/rest/notification/">Notification</a></li><li><a href="/rest/mobile/">Mobile</a></li><li><a href="/rest/platform/">Platform</a></li><li><a href="/rest/cargo/">Cargo</a></li><li><a href="/rest/adapter/">Adapter</a></li><li><a href="/rest/hopi/">Hopi</a></li><li><a href="/rest/zubizu/">Zubizu</a></li><li><a href="/rest/routing/">Routing</a></li></ul></details><details class="nav-sec" open><summary>Admin API v3 <span class="count">3</span></summary><ul><li><a href="/admin-api/">Genel bakış</a></li><li><a href="/admin-api/uclar/">Uç listesi</a></li><li><a href="/admin-api/odeme-bildirimi/">Ödeme bildirimi</a></li></ul></details><details class="nav-sec"><summary>Örnek kod <span class="count">5</span></summary><ul><li><a href="/examples/python/tsoft_client/">Python istemci</a></li><li><a href="/examples/python/add_customer/">Üye ekleme</a></li><li><a href="/examples/python/check_group_price/">Grup fiyatı</a></li><li><a href="/examples/python/env/">Ortam değişkenleri</a></li><li><a href="/examples/apps-script/code/">Apps Script</a></li></ul></details><details class="nav-sec" open><summary>Eski tema blokları <span class="count">18</span></summary><ul><li><a href="/theme/bloklar/ust/" aria-current="page">Üst blok</a></li><li><a href="/theme/bloklar/alt/">Alt blok</a></li><li><a href="/theme/bloklar/yeni-urunler/">Yeni ürünler</a></li><li><a href="/theme/bloklar/kategori-menusu/">Kategori menüsü</a></li><li><a href="/theme/bloklar/kategori-listesi/">Kategori listesi</a></li><li><a href="/theme/bloklar/home-banner/">Ana sayfa banner</a></li><li><a href="/theme/bloklar/home-sale/">Ana sayfa indirim</a></li><li><a href="/theme/bloklar/haberler/">Haberler</a></li><li><a href="/theme/bloklar/benzer-urunler/">Benzer ürünler</a></li><li><a href="/theme/bloklar/model-listesi/">Model listesi</a></li><li><a href="/theme/bloklar/marka-listesi/">Marka listesi</a></li><li><a href="/theme/bloklar/parca-toplama-sihirbazi/">Parça toplama sihirbazı</a></li><li><a href="/theme/bloklar/tedarikci-listesi/">Tedarikçi listesi</a></li><li><a href="/theme/bloklar/firsat-urunleri/">Fırsat ürünleri</a></li><li><a href="/theme/bloklar/ayin-yazari/">Ayın yazarı</a></li><li><a href="/theme/bloklar/gelecek-firsat-urun-listesi/">Gelecek fırsatlar</a></li><li><a href="/theme/bloklar/sss/">SSS</a></li><li><a href="/theme/bloklar/gorsel-vitrin/">Görsel vitrin</a></li></ul></details><details class="nav-sec"><summary>Eski tema değişkenleri <span class="count">5</span></summary><ul><li><a href="/theme/degiskenler/tsoft-product-varriables/">Ürün değişkenleri</a></li><li><a href="/theme/degiskenler/tsoft-header-page-links-varriable/">Sayfa linkleri</a></li><li><a href="/theme/degiskenler/tsoft-header-tabs-varriable/">Üst sekmeler</a></li><li><a href="/theme/degiskenler/tsoft-footer-menu-varriables/">Alt menü</a></li><li><a href="/theme/degiskenler/tsoft-left-right-category-varriables/">Sol ve sağ kategori</a></li></ul></details><details class="nav-sec"><summary>Eski tema şablonları <span class="count">5</span></summary><ul><li><a href="/theme/snippets/bayi-mi-degil-mi/">Bayi hesabı koşulu</a></li><li><a href="/theme/orta/user_bayipanel/">Bayi paneli</a></li><li><a href="/theme/orta/user_bayigirisplasiyer/">Bayi giriş plasiyer</a></li><li><a href="/theme/orta/user_v4tpl/">V4 şablon</a></li><li><a href="/theme/UstAlt/user_tasarimyenimenu/">Tasarım yeni menü</a></li></ul></details></aside>
+<main id="main" class="content">
+<nav class="crumbs" aria-label="Konum"><a href="/">Ana sayfa</a> <span>/</span> <a href="/theme/">Eski tema (Smarty)</a></nav>
+<article>
+<h1 id="üst-blok"><a class="anchor" href="#üst-blok" aria-hidden="true">#</a>Üst blok</h1>
+<p>Dosya: <code>theme/bloklar/ust.html</code> · <a href="/theme/bloklar/ust.html">Ham dosya</a> · Smarty</p>
+<pre><code class="language-xml">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://use.fontawesome.com/releases/v5.15.4/css/all.css&quot; crossorigin=&quot;anonymous&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.magaza.example/Data/EditorFiles/css/stil.css&quot; media=&quot;all&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
+&lt;!-- Android app uyarı --&gt;
+{if $MobileAppRedirect!=false &amp;&amp; $AppMarketLink!='' &amp;&amp; $PAGE_ID == 1}
+&lt;script type=&quot;text/javascript&quot;&gt;
+  var isSafari = false;
+&lt;/script&gt;
+&lt;style&gt;
+  #mobileAppNotify, .MobileAppNotify{
+    display : none;
+  }
+&lt;/style&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+  isSafari = (navigator.userAgent.toLowerCase().indexOf('android') != -1 &amp;&amp; navigator.userAgent.toLowerCase().indexOf('safari') != -1 &amp;&amp; navigator.userAgent.toLowerCase().indexOf('chrome') == -1) ||
+  (navigator.vendor &amp;&amp; navigator.vendor.indexOf('Apple') &gt; -1 &amp;&amp; navigator.userAgent &amp;&amp; !navigator.userAgent.match('CriOS'));
+  
+  $(document).ready(function () {
+    
+    if (!isSafari) {
+      $('#mobileAppNotify').show();
+      $('.MobileAppNotify').show();
+    }
+    
+    $('#appNotifyClose').click(function () {
+      $('#mobileAppNotify').fadeOut();
+      setCookie('mobileApp', false);
+    });
+    if(getCookie('mobileApp') == undefined || getCookie('mobileApp') == null || getCookie('mobileApp') == ''){
+      $('#mobileAppNotify').fadeIn();
+    }
+    else{
+      $('#mobileAppNotify').remove();
+    }
+    
+  });
+  {if $MobileAppRedirect=='ios'}
+  var storeUrl = &quot;https://itunes.apple.com/app/id{$AppMarketLink}&quot;;
+  var appUrl = &quot;{$OpenAppLink}://&quot;;
+  {else if $MobileAppRedirect=='android'}
+  var storeUrl = &quot;market://details?id={$AppMarketLink}&quot;;
+  var appUrl = &quot;{$OpenAppLink}://&quot;;
+  {/if}
+  $('head').append('&lt;meta name=&quot;apple-itunes-app&quot; content=&quot;app-id={$AppMarketLink}, affiliate-data=myAffiliateData, app-argument={$OpenAppLink}://&quot;&gt;');
+  var timeout;
+  function openInApplication() {
+    timeout = setTimeout(function () {
+      document.location.href = storeUrl;
+    }, 2000);
+    
+    document.location.href = appUrl;
+  }
+  
+    $(document).ready(function () {
+        timeout = setTimeout(function () {
+          $('#tsoft-ecommerce-systems').remove();
+        }, 2000);
+    });
+      
+&lt;/script&gt;
+
+&lt;div class=&quot;box col-12 whiteBg&quot; id=&quot;mobileAppNotify&quot;&gt;
+  &lt;div class=&quot;fl col-12&quot; id=&quot;appNotify&quot;&gt;
+    &lt;span class=&quot;box&quot; id=&quot;appNotifyClose&quot;&gt;×&lt;/span&gt;
+    &lt;span class=&quot;fl btn-radius&quot; id=&quot;appLogo&quot;&gt;
+      {$SITE_LOGO}
+    &lt;/span&gt;
+    {if $MobileAppRedirect=='ios' || $MobileAppRedirect=='android'}
+    &lt;span id=&quot;appText&quot; class=&quot;box&quot;&gt;
+      {#mobile_app_download#} - {if $MobileAppRedirect=='ios'}{#in_appstore#}{else}{#in_playstore#}{/if}
+    &lt;/span&gt;
+    &lt;a href=&quot;javascript:openInApplication()&quot; class=&quot;fr btn btn-medium btn-link btn-radius&quot; id=&quot;appBtn&quot;&gt;{#mobile_app#}&lt;/a&gt;
+    {/if}
+  &lt;/div&gt;
+&lt;/div&gt;
+{/if}
+&lt;!-- Android app uyarı --&gt;
+&lt;div id=&quot;pageOverlay&quot; class=&quot;col-12 animate&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;mobileMenu&quot; class=&quot;box forMobile&quot;&gt;
+  &lt;div class=&quot;box col-12 p-top&quot;&gt;
+    &lt;div id=&quot;closeMobileMenu&quot; class=&quot;col col-12 btn-upper&quot;&gt;
+      &lt;div class=&quot;row mb&quot;&gt;{#hide_menu#}&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;box col-12 p-top&quot;&gt;
+      &lt;div id=&quot;mobileSearch&quot; class=&quot;row mb&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;btn btn-big col-12 btn-light btn-upper fw600 passive&quot;&gt;
+      &lt;div class=&quot;row&quot;&gt;{#categories#}&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;ul class=&quot;fl col-12 line-top&quot;&gt;
+      &lt;li class=&quot;fl col-12 line-bottom&quot;&gt;
+        &lt;a href=&quot;/&quot; title=&quot;{#home#}&quot; class=&quot;col col-12&quot;&gt;{#home#}&lt;/a&gt;
+      &lt;/li&gt;
+      {foreach $TABS as $M}
+      {if $M.CHILDREN|@count &gt; 0}
+      &lt;li class=&quot;fl col-12 line-bottom&quot;&gt;
+        &lt;span class=&quot;col col-12 ease&quot;&gt;&lt;i class=&quot;mdi mdi-{$M.URL|replace:&quot;/&quot;:&quot;&quot;}&quot;&gt;&lt;/i&gt;{$M.NAME}&lt;/span&gt;
+        &lt;ul class=&quot;box col-12 p-top line-top&quot;&gt;
+          {foreach $M.CHILDREN as $C}
+          {if $C.CHILDREN|@count &gt; 0}
+          &lt;li class=&quot;fl col-12&quot;&gt;
+            &lt;span class=&quot;col col-12&quot;&gt;{$C.NAME}&lt;/span&gt;
+            &lt;ul class=&quot;box col-12 line-top&quot;&gt;
+              {foreach $C.CHILDREN as $C2}
+              &lt;li class=&quot;fl col-12&quot;&gt;
+                &lt;a  {if $M.NEWTAB === true} target=&quot;_blank&quot; {/if} href=&quot;{$C2.URL}&quot; title=&quot;{$C2.NAME}&quot; class=&quot;col col-12&quot;&gt;{$C2.NAME}&lt;/a&gt;
+              &lt;/li&gt;
+              {/foreach}
+              &lt;li class=&quot;fl col-12&quot;&gt;
+                &lt;a href=&quot;{$C.URL}&quot; class=&quot;col col-12&quot;&gt;{#show_all#} »&lt;/a&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          {else}
+          &lt;li class=&quot;fl col-12&quot;&gt;
+            &lt;a {if $M.NEWTAB === true} target=&quot;_blank&quot; {/if} href=&quot;{$C.URL}&quot; title=&quot;{$C.NAME}&quot; class=&quot;col col-12&quot;&gt;{$C.NAME}&lt;/a&gt;
+          &lt;/li&gt;
+          {/if}
+          {/foreach}
+          &lt;li class=&quot;fl col-12&quot;&gt;
+            &lt;a href=&quot;{$M.URL}&quot; class=&quot;col col-12&quot;&gt;{#show_all#} »&lt;/a&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      {else}
+      &lt;li class=&quot;fl col-12 line-bottom&quot;&gt;
+        &lt;a {if $M.NEWTAB === true} target=&quot;_blank&quot; {/if} href=&quot;{$M.URL}&quot; title=&quot;{$M.NAME}&quot; class=&quot;col col-12&quot;&gt;&lt;i class=&quot;mdi mdi-{$M.URL|replace:&quot;/&quot;:&quot;&quot;}&quot;&gt;&lt;/i&gt;{$M.NAME}&lt;/a&gt;
+      &lt;/li&gt;
+      {/if}
+      {/foreach}
+    &lt;/ul&gt;
+    &lt;div class=&quot;col col-12 lightBg&quot; id=&quot;mobileOptions&quot;&gt;
+      &lt;div class=&quot;row&quot;&gt;
+        {if $DISPLAY_LANGUAGES == 1}
+        &lt;div class=&quot;box col-12 line-bottom&quot;&gt;
+          &lt;label for=&quot;langMobile&quot; class=&quot;col col-12&quot;&gt;
+            &lt;div class=&quot;fl col-5&quot;&gt;{#select_language#}&lt;/div&gt;
+            &lt;div class=&quot;fl col-1&quot;&gt;:&lt;/div&gt;
+            &lt;div class=&quot;col col-6 p-right&quot;&gt;
+              &lt;select id=&quot;langMobile&quot; class=&quot;col col-12 language&quot;&gt;
+                {foreach $LANGUAGE_LIST as $L}
+                &lt;option value=&quot;{$L.CODE}&quot;{if $LANGUAGE == $L.CODE} selected{/if}&gt;{$L.TITLE}&lt;/option&gt;
+                {/foreach}
+              &lt;/select&gt;
+            &lt;/div&gt;
+          &lt;/label&gt;
+        &lt;/div&gt;
+        {/if}
+        {if count($CURRENCY_LIST) &gt; 1}
+        &lt;div class=&quot;box col-12 line-bottom&quot;&gt;
+          &lt;label for=&quot;curMobile&quot; class=&quot;col col-12&quot;&gt;
+            &lt;div class=&quot;fl col-5&quot;&gt;{#currency#}&lt;/div&gt;
+            &lt;div class=&quot;fl col-1&quot;&gt;:&lt;/div&gt;
+            &lt;div class=&quot;col col-6 p-right&quot;&gt;
+              &lt;select id=&quot;curMobile&quot; class=&quot;col col-12 currency p-top&quot;&gt;
+                {foreach $CURRENCY_LIST as $P}
+                &lt;option {if $P.SELECTED==1}selected{/if} value=&quot;{$P.TITLE}&quot;&gt;{$P.TITLE}&lt;/option&gt;
+                {/foreach}
+              &lt;/select&gt;
+            &lt;/div&gt;
+          &lt;/label&gt;
+        &lt;/div&gt;
+        {/if}
+        &lt;div class=&quot;box col-12 line-bottom&quot;&gt;
+          &lt;div id=&quot;basketMobile&quot; class=&quot;col col-12&quot;&gt;
+            &lt;div class=&quot;fl col-5&quot;&gt;
+              &lt;a href=&quot;/{$PAGE_LINK.CART}&quot; class=&quot;fl col-12 bgNone&quot; id=&quot;mobileBasketBtn&quot;&gt;
+                &lt;span class=&quot;bgNone&quot;&gt;{#basket#} (&lt;/span&gt;
+                &lt;span class=&quot;bgNone cart-soft-count&quot;&gt;0&lt;/span&gt;
+                &lt;span&gt;)&lt;/span&gt;
+              &lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;fl col-1&quot;&gt;
+              &lt;a href=&quot;/{$PAGE_LINK.CART}&quot; class=&quot;fl col-12 bgNone&quot;&gt;:&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;col col-6 p-right&quot;&gt;
+              &lt;a href=&quot;/{$PAGE_LINK.CART}&quot; class=&quot;col col-12 bgNone&quot;&gt;
+                &lt;label class=&quot;bgNone cart-soft-price&quot;&gt;0,00&lt;/label&gt; {$CURRENCY}
+              &lt;/a&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        {if $IS_MEMBER_LOGGED_IN == true}
+        &lt;div class=&quot;box col-12 line-bottom&quot;&gt;
+          &lt;a id=&quot;loginMobile&quot; href=&quot;/{$PAGE_LINK.MEMBER_LOGIN}&quot; class=&quot;col col-12&quot;&gt;{#account#}&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;box col-12&quot;&gt;
+          &lt;a id=&quot;favMobile&quot; href=&quot;/{$PAGE_LINK.MEMBER_SHOPPING_LIST}&quot; class=&quot;col col-12&quot;&gt;{#my_favorites#}&lt;/a&gt;
+        &lt;/div&gt;
+        {else}
+        &lt;div class=&quot;box col-12 line-bottom&quot;&gt;
+          &lt;a id=&quot;loginMobile&quot; href=&quot;/{$PAGE_LINK.MEMBER_LOGIN}&quot; class=&quot;col col-12&quot;&gt;{#member_login#}&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;box col-12&quot;&gt;
+          &lt;a id=&quot;regisMobile&quot; href=&quot;/{$PAGE_LINK.MEMBER_REGISTER}&quot; class=&quot;col col-12&quot;&gt;{#member_register#}&lt;/a&gt;
+        &lt;/div&gt;
+        {/if}
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;span id=&quot;backToTop&quot;&gt;{#back_to_top#}&lt;/span&gt;
+&lt;div class=&quot;col col-12 dn-xs&quot;&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;a href=&quot;/&quot; class=&quot;fl col-12&quot;&gt;
+      &lt;img src=&quot;/Data/EditorFiles/v4-ozel/ust/kargo-zemin.svg&quot; /&gt; &lt;!-- &lt;img src=&quot;/theme/v4-dkitap/sub_theme/ust/v4/v4/topBanner.svg&quot; alt=&quot;&quot;&gt; --&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;!--whatsapp kulakçığı--&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css&quot;&gt;
+&lt;!--whatsapp kulakçığı--&gt;
+&lt;div class=&quot;inner&quot;&gt;
+  &lt;div id=&quot;headerMain&quot; class=&quot;col col-12 ease&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;span id=&quot;hmLinks&quot; class=&quot;col col-3 col-sm-4 col-xs-3 fr&quot;&gt;
+        &lt;a href=&quot;/{$PAGE_LINK.CART}&quot; class=&quot;col fr basketLink&quot; id=&quot;cart-soft-count&quot;&gt;
+          &lt;strong class=&quot;col dn-xs&quot;&gt;{#basket#} (&lt;span class=&quot;cart-soft-count&quot;&gt;0&lt;/span&gt;)&lt;/strong&gt;&lt;br /&gt;
+          &lt;span class=&quot;col dn-xs basketPrice&quot;&gt;&lt;span class=&quot;cart-soft-price&quot;&gt;0,00&lt;/span&gt;TL&lt;/span&gt;
+        &lt;/a&gt;
+        {if $IS_MEMBER_LOGGED_IN == true}
+        &lt;a href=&quot;/{$PAGE_LINK.MEMBER_LOGIN}&quot; class=&quot;col fr authorLink&quot; id=&quot;desktopMemberBtn&quot;&gt;
+          &lt;strong class=&quot;col dn-xs&quot;&gt;{#account#}&lt;/strong&gt;&lt;br /&gt;
+          &lt;span class=&quot;col dn-xs account-name&quot;&gt;{$MEMBER.NAME} {$MEMBER.SURNAME}&lt;/span&gt;
+        &lt;/a&gt;
+        {else}
+        &lt;a data-width=&quot;500&quot; data-url=&quot;/srv/service/customer/login-form&quot; href=&quot;#&quot; class=&quot;col fr authorLink authorLink2 popupWin&quot; id=&quot;desktopMemberBtn&quot;&gt;
+          &lt;strong class=&quot;col dn-xs&quot;&gt;{#account#}&lt;/strong&gt;&lt;br /&gt;
+          &lt;span class=&quot;col dn-xs&quot;&gt;veya Üye Ol&lt;/span&gt;
+        &lt;/a&gt;
+        {/if}
+      &lt;/span&gt;
+      &lt;div class=&quot;box col-sm-4 forMobile&quot;&gt;
+        &lt;span class=&quot;fl&quot; id=&quot;menuBtn&quot;&gt;&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div id=&quot;logo&quot; class=&quot;col col-2 col-sm-4 a-center&quot;&gt;
+        &lt;a href=&quot;/&quot;&gt;
+          {$SITE_LOGO}
+        &lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;fl col-1 pos-r allCat&quot;&gt;
+        &lt;ul class=&quot;menu fl col-12&quot;&gt;
+          &lt;li class=&quot;col-12 parentLink fl allFirst&quot;&gt;
+            &lt;span class=&quot;fl&quot;&gt;MENÜ&lt;/span&gt;
+            &lt;nav class=&quot;pos-r fl col-12 col-md-11&quot; id=&quot;mainMenu&quot;&gt;
+              &lt;ul class=&quot;fl col-12 menu&quot;&gt;
+                {foreach $TABS as $M}
+                &lt;li class=&quot;fl col-12{if $M.CHILDREN|@count &gt; 0} drop-down hover parentLink{/if}&quot;&gt;
+                    &lt;a class=&quot;fl col-12&quot; lang=&quot;tr&quot; {if $M.NEWTAB === true} target=&quot;_blank&quot;{/if} href=&quot;{$M.URL}&quot; title=&quot;{$M.NAME}&quot;&gt;&lt;i class=&quot;mdi mdi-{$M.URL|replace:&quot;/&quot;:&quot;&quot;}&quot;&gt;&lt;/i&gt;{$M.NAME}&lt;/a&gt;
+                  {if $M.CHILDREN|@count &gt; 0}                     
+                  &lt;ul&gt;
+                    {foreach $M.CHILDREN as $C}
+                    &lt;li class=&quot;fl col-12 d-flex mainCategory&quot;&gt;
+                      &lt;a {if $M.NEWTAB === true} target=&quot;_blank&quot;{/if} href=&quot;{$C.URL}&quot; title=&quot;{$C.NAME}&quot; class=&quot;fl col-12&quot;&gt;{$C.NAME}&lt;/a&gt;
+                      {if $C.CHILDREN|@count &gt; 0}
+                      &lt;ul&gt;
+                        {foreach from=$C.CHILDREN item='C2' name='children'}
+                        &lt;li class=&quot;fl col-12&quot;&gt;
+                          &lt;a {if $M.NEWTAB === true} target=&quot;_blank&quot;{/if} href=&quot;{$C2.URL}&quot; title=&quot;{$C2.NAME}&quot; class=&quot;fl col-12&quot;&gt;{$C2.NAME}{if $C2@iteration != $C.CHILDREN|@count} {/if}&lt;/a&gt;
+                          {if $C2.CHILDREN|@count &gt; 0}
+                          &lt;ul&gt;
+                            {foreach from=$C2.CHILDREN item='C3' name='children'}
+                            &lt;li class=&quot;fl col-12&quot;&gt;
+                              &lt;a {if $M.NEWTAB === true} target=&quot;_blank&quot;{/if} href=&quot;{$C3.URL}&quot; title=&quot;{$C3.NAME}&quot; class=&quot;fl col-12&quot;&gt;{$C3.NAME}&lt;/a&gt;
+                            &lt;/li&gt;
+                            {/foreach}
+                          &lt;/ul&gt;
+                          {/if}
+                        &lt;/li&gt;
+                        {/foreach}
+                      &lt;/ul&gt;
+                      {/if}
+                    &lt;/li&gt;
+                    {/foreach}                                          
+                  &lt;/ul&gt;
+                  {/if}
+                  &lt;div class=&quot;pos-f pos-top pos-right pos-bottom pos-left overlay&quot;&gt;&lt;/div&gt;
+                &lt;/li&gt;
+                {/foreach}
+              &lt;/ul&gt;
+            &lt;/nav&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+        
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;search&quot; class=&quot;col col-6 col-sm-12&quot;&gt;
+        &lt;span class=&quot;fl col-12 searchItem dn-xs&quot;&gt;
+          &lt;a class=&quot;col p-left&quot; href=&quot;/siparis-takip&quot;&gt;Kargo Takip&lt;/a&gt;
+          &lt;a class=&quot;col p-left&quot; href=&quot;/kataloglar&quot;&gt;Kataloglar&lt;/a&gt;
+          &lt;a class=&quot;col p-left&quot; href=&quot;/fiyat-listesi&quot;&gt;Fiyat Listesi&lt;/a&gt;
+          &lt;!--&lt;a class=&quot;col p-left&quot; href=&quot;/indirimli-urunler&quot;&gt;İndirimdekiler&lt;/a&gt;          --&gt;
+          &lt;!--&lt;a class=&quot;col p-left&quot; href=&quot;/yeni-urunler&quot;&gt;Yeni Ürünler&lt;/a&gt;--&gt;
+          &lt;a class=&quot;col p-left&quot; href=&quot;/iletisim&quot;&gt;İletişim&lt;/a&gt;
+          &lt;a class=&quot;col p-left&quot; href=&quot;/hakkimizda&quot;&gt;Hakkımızda&lt;/a&gt;
+          &lt;a class=&quot;col p-left&quot; target=&quot;_blank&quot; href=&quot;https://magaza.example/foreign-rights&quot;&gt;Foreign Rights&lt;/a&gt;
+          &lt;a href=&quot;https://magaza.example&quot;&gt;E-Damla&lt;/a&gt;
+          
+          
+          &lt;/span&gt;
+        &lt;/span&gt;
+        &lt;!--&lt;span class=&quot;col p-right&quot;&gt;&lt;a class=&quot;col p-right&quot; href=&quot;/&quot;&gt;Kargo Takip&lt;/a&gt;&lt;/span&gt;--&gt;
+        &lt;form id=&quot;FormAra&quot; name=&quot;FormAra&quot; action=&quot;/{$PAGE_LINK.SEARCH}&quot; method=&quot;get&quot; class=&quot;row&quot;&gt;
+          &lt;input id=&quot;live-search&quot; autocomplete=&quot;OFF&quot; class=&quot;arakelime&quot; name=&quot;q&quot; type=&quot;text&quot; placeholder=&quot;{#search_placeholder#}&quot; http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
+          &lt;span id=&quot;searchRight&quot; class=&quot;box fr&quot;&gt;
+            &lt;input type=&quot;submit&quot; class=&quot;btn-default fr&quot; value=&quot;ARA&quot; id=&quot;searchBtn&quot; /&gt;
+          &lt;/span&gt;
+          {if $IS_INLINE_SEARCH_ACTIVE==1}
+          &lt;script type=&quot;text/javascript&quot; src=&quot;/theme/standart/js/blok-v4/live-search.js&quot;&gt;&lt;/script&gt;
+          &lt;div id=&quot;live-search-box&quot;&gt;&lt;/div&gt;  
+          {/if}
+        &lt;/form&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col col-12 hideThis&quot;&gt;
+  &lt;div class=&quot;row&quot; id=&quot;mainMenu&quot;&gt;
+    &lt;ul class=&quot;inner menu forDesktop&quot;&gt;
+      &lt;li id=&quot;homeLink&quot;&gt;
+        &lt;a href=&quot;/&quot;&gt;&lt;/a&gt;
+      &lt;/li&gt;
+      {foreach $TABS as $M}
+      &lt;li class=&quot;ease{if $M.CHILDREN|@count &gt; 0} parentLink{/if}&quot;&gt;
+        &lt;a {if $M.NEWTAB === true} target=&quot;_blank&quot;{/if} href=&quot;{$M.URL}&quot; title=&quot;{$M.NAME}&quot;&gt;{$M.NAME}&lt;/a&gt;
+        {if $M.CHILDREN|@count &gt; 0}                     
+        &lt;div class=&quot;box whiteBg subMenu&quot;&gt;
+          &lt;div class=&quot;box {if $M.IMAGE != ''}col-8{else}col-12{/if}&quot;&gt;
+            &lt;div class=&quot;box col-12 dynamicMenu&quot;&gt;
+              &lt;div class=&quot;col col-12 btn-upper menuTitle&quot;&gt;{#categories#}&lt;/div&gt;
+              &lt;ul class=&quot;fl col-12 notClear&quot;&gt;
+                {foreach $M.CHILDREN as $C}
+                &lt;li class=&quot;col col-4&quot;&gt;
+                  &lt;a {if $M.NEWTAB === true} target=&quot;_blank&quot;{/if} href=&quot;{$C.URL}&quot; title=&quot;{$C.NAME}&quot; class=&quot;line-bottom{if $C.CHILDREN|@count &gt; 0} fw600{/if}&quot;&gt;{$C.NAME}&lt;/a&gt;    
+                  {if $C.CHILDREN|@count &gt; 0}
+                  &lt;ul class=&quot;box col-12&quot;&gt;
+                    {foreach $C.CHILDREN as $C2}
+                    &lt;li class=&quot;row&quot;&gt;
+                      &lt;a {if $M.NEWTAB === true} target=&quot;_blank&quot;{/if} href=&quot;{$C2.URL}&quot; title=&quot;{$C2.NAME}&quot; class=&quot;col col-12&quot;&gt;{$C2.NAME}&lt;/a&gt;
+                    &lt;/li&gt;
+                    {/foreach}
+                  &lt;/ul&gt;
+                  {/if}
+                &lt;/li&gt;
+                {/foreach}                                          
+              &lt;/ul&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          {if $M.IMAGE != ''}
+          &lt;div class=&quot;box col-4 catImgWrapper&quot;&gt;
+            &lt;img src=&quot;{$M.IMAGE}&quot; alt=&quot;{$M.NAME}&quot;/&gt;
+          &lt;/div&gt;
+          {/if}
+        &lt;/div&gt;
+        {/if}
+      &lt;/li&gt;
+      {/foreach}
+    &lt;/ul&gt;
+    &lt;ul class=&quot;inner menu forMobile&quot; id=&quot;slideMenu&quot;&gt;
+      {foreach $TABS as $M}
+      &lt;li class=&quot;ease&quot;&gt;
+        &lt;a {if $M.NEWTAB === true} target=&quot;_blank&quot;{/if} href=&quot;{$M.URL}&quot; title=&quot;{$M.NAME}&quot;&gt;{$M.NAME}&lt;/a&gt;
+      &lt;/li&gt;
+      {/foreach}
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+{if $LICENCE_PERSONALIZATION_ACTIVE == 1 }
+&lt;script type=&quot;text/javascript&quot; src=&quot;/theme/standart/js/blok-v4/personalization.js&quot;&gt;&lt;/script&gt;
+{/if}
+&lt;script type=&quot;text/javascript&quot;&gt;
+  function popupCallback() {
+    
+  }
+  function placeCaller(id) {
+    if (navigator.appVersion.indexOf('Trident') &gt; -1 &amp;&amp; navigator.appVersion.indexOf('Edge') == -1) {
+      var wrapID = id || '';
+      if (wrapID != '') {
+        $('#' + wrapID).find('.withPlace').removeClass('withPlace');
+        placeholder();
+      }
+    }
+  }
+  
+  $(document).ready(function () {
+    //Scroll Aşağıya Kaydıkça Menuyü Yukarıya Sabitler------------
+    if ($(window).width() &gt; 768) {
+      var ustheights = $(&quot;#header&quot;).height();
+      $(window).scroll(function (e) {
+        if ($(document).scrollTop() &lt; ustheights + 150) {
+          $(&quot;#headerMain&quot;).removeClass(&quot;menuscroll&quot;);
+          $('#search').addClass('col-6');
+          $(&quot;#headerMain &gt; .row&quot;).removeClass(&quot;inner&quot;);
+          $('#headerMain &gt; .inner').addClass('row');
+        } else {
+          $('#search').addClass('col-8');
+          $('#search').removeClass('col-6');
+          $(&quot;#headerMain&quot;).addClass(&quot;menuscroll&quot;);
+          $(&quot;#headerMain &gt; .row&quot;).addClass(&quot;inner&quot;);
+          $('#headerMain &gt; .inner').removeClass('row');
+        }
+      });
+    }
+    //Scroll Aşağıya Kaydıkça Menuyü Yukarıya Sabitler------------
+    $('.menuItem').click(function(){
+      if (!$(&quot;.menuItem&quot;).hasClass(&quot;menuActive&quot;)) {
+        $(this).addClass('menuActive');
+      } else {
+        $(this).removeClass('menuActive');
+      }
+      $(this).next().slideToggle();
+    });
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+      if ($(window).width() &lt; 769) {
+        // $('#search').appendTo('#mobileSearch');
+      }
+      if (/webOS|iPhone|iPad|iPod/i.test(navigator.userAgent)){
+        $('option[disabled]').remove();
+      }
+      $('.parentLink &gt; a, .parent &gt; a').click(function (e) {
+        e.preventDefault();
+        $(this).next('ul').slideToggle();
+      });
+      var currentPage = location.pathname;
+      $('#slideMenu a[href=&quot;' + currentPage + '&quot;]').parent().addClass('current');
+    } else {
+      if (navigator.appVersion.indexOf('Trident') &gt; -1 &amp;&amp; navigator.appVersion.indexOf('Edge') == -1) {
+        placeholder();
+      }
+    }
+    $.getJSON('/srv/service/category/get', function (result) {
+      var catList = $('#raventi_select');
+      var url1 = window.location.href;
+      $.each(result, function () {
+        var re = new RegExp('category=' + this.ID + '(\&amp;|$)', 'g');
+        var selected = re.test(url1) ? 'selected' : '';
+        catList.append('&lt;option value=&quot;' + this.ID + '&quot; ' + selected + '&gt;' + this.TITLE + '&lt;/option&gt;');
+      });
+    });
+    if (/^.*?[\?\&amp;]q=/ig.test(window.location.href)) {
+      var sWord = window.location.href.replace(/^.*?[\?\&amp;]q=/ig, '');
+      sWord = sWord.replace(/\&amp;.*?$/ig, '').replace(/\+/ig, ' ');
+      $('#live-search').val(decodeURIComponent(sWord));
+    }
+    var mobileAppCookie = getaCookie('MobileNotifyClose');
+    
+    if (mobileAppCookie == null &amp;&amp; !isSafari) {
+      $('.MobileAppNotify').fadeIn();
+      
+    }
+    $('.MobileNotifyClose').click(function () {
+      setaCookie('MobileNotifyClose', 'Closed', 3);
+      $('.MobileAppNotify').fadeOut();
+      
+    });
+  });
+  function setaCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = &quot;expires=&quot; + d.toUTCString();
+    document.cookie = cname + &quot;=&quot; + cvalue + &quot;; &quot; + expires;
+  }
+  function getaCookie(name) {
+    var dc = document.cookie;
+    var prefix = name + &quot;=&quot;;
+    var begin = dc.indexOf(&quot;; &quot; + prefix);
+    if (begin == -1) {
+      begin = dc.indexOf(prefix);
+      if (begin != 0)
+      return null;
+    } else {
+      begin += 2;
+      var end = document.cookie.indexOf(&quot;;&quot;, begin);
+      if (end == -1) {
+        end = dc.length;
+      }
+    }
+    return unescape(dc.substring(begin + prefix.length, end));
+  }
+  
+  {if $IS_MEMBER_LOGGED_IN == true}
+  $(function () {
+    $.ajax({
+      url: '/srv/service/customer/getmessagecount',
+      type: 'POST',
+      dataType: 'json',
+      success: function (result) {
+        var messageCount = parseInt(result);
+        if(messageCount &gt; 0){
+          $('#hmLinks').append('&lt;a href=&quot;/{$PAGE_LINK.MEMBER_MESSAGES}&quot; class=&quot;col fr messageLink&quot;&gt;&lt;span class=&quot;message-count&quot;&gt;' + result + '&lt;/span&gt;&lt;strong class=&quot;col dn-xs&quot;&gt;{#message#}&lt;/strong&gt;&lt;/a&gt;');
+          $('#hmLinks .authorLink').addClass('forDesktop');
+        }
+      }
+    });
+  });
+  {/if}
+&lt;/script&gt;</code></pre>
+
+</article>
+<nav class="pager" aria-label="Sayfa geçişi"><a class="prev" href="/examples/apps-script/code/"><span>← Önceki</span>Apps Script</a><a class="next" href="/theme/bloklar/alt/"><span>Sonraki →</span>Alt blok</a></nav>
+<footer class="page-foot"><a href="https://github.com/bahadirdogru/tsoft-documentation-examples/edit/main/content/theme/bloklar/ust.html">GitHub'da düzenle</a> · <a href="/theme/bloklar/ust.html">Ham dosya</a> · <a href="/llms.txt">llms.txt</a> · Topluluk belgesidir, T-Soft’un resmî yayını değildir.</footer>
+</main>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/twig.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/http.min.js"></script>
+<script src="/assets/site.js"></script>
+</body>
+</html>

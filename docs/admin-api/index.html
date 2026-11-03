@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Genel bakış · T-Soft Dokümantasyonu</title>
+<meta name="description" content="Panel iç API’si: taban, başlık, sayfalama, hata, yetki">
+<link rel="canonical" href="https://tsoft.bahadirdogru.com/admin-api/">
+<link rel="alternate" type="text/markdown" href="/admin-api.md" title="Markdown">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%231f6feb%22%2F%3E%3Cpath%20d%3D%22M8%209h16v3.2h-6.4V23h-3.2V12.2H8z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E">
+<meta property="og:title" content="Genel bakış">
+<meta property="og:description" content="Panel iç API’si: taban, başlık, sayfalama, hata, yetki">
+<meta property="og:url" content="https://tsoft.bahadirdogru.com/admin-api/">
+<meta property="og:type" content="website">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" media="(prefers-color-scheme: light)" id="hl-light">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" media="(prefers-color-scheme: dark)" id="hl-dark">
+</head>
+<body>
+<a class="skip" href="#main">İçeriğe geç</a>
+<header class="top">
+  <button class="menu-btn" aria-label="Menü" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="/"><svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><path d="M8 9h16v3.2h-6.4V23h-3.2V12.2H8z" fill="var(--bg)"/></svg><span>T-Soft Dokümantasyonu</span></a>
+  <div class="search">
+    <input id="q" type="search" placeholder="Ara: metot, uç, değişken, sayfa…  ( / )" autocomplete="off" aria-label="Ara">
+    <ul id="results" role="listbox" hidden></ul>
+  </div>
+  <button class="theme-btn" aria-label="Tema değiştir" title="Tema değiştir">◐</button>
+</header>
+<div class="layout">
+<aside id="sidebar" class="sidebar"><details class="nav-sec" open><summary>Başlangıç <span class="count">3</span></summary><ul><li><a href="/">Ana sayfa</a></li><li><a href="/rehber/">Hangi yüzey?</a></li><li><a href="/llm/">LLM ve ajanlar için</a></li></ul></details><details class="nav-sec" open><summary>Platform <span class="count">4</span></summary><ul><li><a href="/developer/">Platform haritası</a></li><li><a href="/developer/baslarken/">Başlarken</a></li><li><a href="/developer/uygulama/">Uygulama geliştirme</a></li><li><a href="/developer/storefront-api/">Storefront API</a></li></ul></details><details class="nav-sec" open><summary>Tema <span class="count">2</span></summary><ul><li><a href="/developer/tema/">Tema motoru (Twig)</a></li><li><a href="/theme/">Eski tema (Smarty)</a></li></ul></details><details class="nav-sec" open><summary>REST1 <span class="count">2</span></summary><ul><li><a href="/rest/">Genel bakış</a></li><li><a href="/rest/hatalar/">Hatalar ve mesaj kodları</a></li></ul></details><details class="nav-sec"><summary>REST1 modülleri <span class="count">38</span></summary><ul><li><a href="/rest/auth/">Auth</a></li><li><a href="/rest/customer/">Customer</a></li><li><a href="/rest/product/">Product</a></li><li><a href="/rest/subproduct/">SubProduct</a></li><li><a href="/rest/category/">Category</a></li><li><a href="/rest/brand/">Brand</a></li><li><a href="/rest/model/">Model</a></li><li><a href="/rest/filter/">Filter</a></li><li><a href="/rest/catalog/">Catalog</a></li><li><a href="/rest/order/">Order</a></li><li><a href="/rest/order2/">Order2</a></li><li><a href="/rest/cart/">Cart</a></li><li><a href="/rest/campaign/">Campaign</a></li><li><a href="/rest/payment/">Payment</a></li><li><a href="/rest/fundmovement/">FundMovement</a></li><li><a href="/rest/point/">Point</a></li><li><a href="/rest/segment/">Segment</a></li><li><a href="/rest/supplier/">Supplier</a></li><li><a href="/rest/branchoffice/">BranchOffice</a></li><li><a href="/rest/content/">Content</a></li><li><a href="/rest/news/">News</a></li><li><a href="/rest/showcase/">Showcase</a></li><li><a href="/rest/htmlblock/">HtmlBlock</a></li><li><a href="/rest/widget/">Widget</a></li><li><a href="/rest/link/">Link</a></li><li><a href="/rest/personalization/">Personalization</a></li><li><a href="/rest/trackingcode/">TrackingCode</a></li><li><a href="/rest/ticket/">Ticket</a></li><li><a href="/rest/user/">User</a></li><li><a href="/rest/setting/">Setting</a></li><li><a href="/rest/notification/">Notification</a></li><li><a href="/rest/mobile/">Mobile</a></li><li><a href="/rest/platform/">Platform</a></li><li><a href="/rest/cargo/">Cargo</a></li><li><a href="/rest/adapter/">Adapter</a></li><li><a href="/rest/hopi/">Hopi</a></li><li><a href="/rest/zubizu/">Zubizu</a></li><li><a href="/rest/routing/">Routing</a></li></ul></details><details class="nav-sec" open><summary>Admin API v3 <span class="count">3</span></summary><ul><li><a href="/admin-api/" aria-current="page">Genel bakış</a></li><li><a href="/admin-api/uclar/">Uç listesi</a></li><li><a href="/admin-api/odeme-bildirimi/">Ödeme bildirimi</a></li></ul></details><details class="nav-sec"><summary>Örnek kod <span class="count">5</span></summary><ul><li><a href="/examples/python/tsoft_client/">Python istemci</a></li><li><a href="/examples/python/add_customer/">Üye ekleme</a></li><li><a href="/examples/python/check_group_price/">Grup fiyatı</a></li><li><a href="/examples/python/env/">Ortam değişkenleri</a></li><li><a href="/examples/apps-script/code/">Apps Script</a></li></ul></details><details class="nav-sec"><summary>Eski tema blokları <span class="count">18</span></summary><ul><li><a href="/theme/bloklar/ust/">Üst blok</a></li><li><a href="/theme/bloklar/alt/">Alt blok</a></li><li><a href="/theme/bloklar/yeni-urunler/">Yeni ürünler</a></li><li><a href="/theme/bloklar/kategori-menusu/">Kategori menüsü</a></li><li><a href="/theme/bloklar/kategori-listesi/">Kategori listesi</a></li><li><a href="/theme/bloklar/home-banner/">Ana sayfa banner</a></li><li><a href="/theme/bloklar/home-sale/">Ana sayfa indirim</a></li><li><a href="/theme/bloklar/haberler/">Haberler</a></li><li><a href="/theme/bloklar/benzer-urunler/">Benzer ürünler</a></li><li><a href="/theme/bloklar/model-listesi/">Model listesi</a></li><li><a href="/theme/bloklar/marka-listesi/">Marka listesi</a></li><li><a href="/theme/bloklar/parca-toplama-sihirbazi/">Parça toplama sihirbazı</a></li><li><a href="/theme/bloklar/tedarikci-listesi/">Tedarikçi listesi</a></li><li><a href="/theme/bloklar/firsat-urunleri/">Fırsat ürünleri</a></li><li><a href="/theme/bloklar/ayin-yazari/">Ayın yazarı</a></li><li><a href="/theme/bloklar/gelecek-firsat-urun-listesi/">Gelecek fırsatlar</a></li><li><a href="/theme/bloklar/sss/">SSS</a></li><li><a href="/theme/bloklar/gorsel-vitrin/">Görsel vitrin</a></li></ul></details><details class="nav-sec"><summary>Eski tema değişkenleri <span class="count">5</span></summary><ul><li><a href="/theme/degiskenler/tsoft-product-varriables/">Ürün değişkenleri</a></li><li><a href="/theme/degiskenler/tsoft-header-page-links-varriable/">Sayfa linkleri</a></li><li><a href="/theme/degiskenler/tsoft-header-tabs-varriable/">Üst sekmeler</a></li><li><a href="/theme/degiskenler/tsoft-footer-menu-varriables/">Alt menü</a></li><li><a href="/theme/degiskenler/tsoft-left-right-category-varriables/">Sol ve sağ kategori</a></li></ul></details><details class="nav-sec"><summary>Eski tema şablonları <span class="count">5</span></summary><ul><li><a href="/theme/snippets/bayi-mi-degil-mi/">Bayi hesabı koşulu</a></li><li><a href="/theme/orta/user_bayipanel/">Bayi paneli</a></li><li><a href="/theme/orta/user_bayigirisplasiyer/">Bayi giriş plasiyer</a></li><li><a href="/theme/orta/user_v4tpl/">V4 şablon</a></li><li><a href="/theme/UstAlt/user_tasarimyenimenu/">Tasarım yeni menü</a></li></ul></details></aside>
+<main id="main" class="content">
+<nav class="crumbs" aria-label="Konum"><a href="/">Ana sayfa</a> <span>/</span> <span class="grp">Admin API v3</span></nav>
+<article>
+<h1 id="admin-api-v3"><a class="anchor" href="#admin-api-v3" aria-hidden="true">#</a>Admin API v3</h1>
+<p>T-Soft yönetim paneli (<code>*.tsoftpanel.com</code>, Nuxt ön yüzü) kendi verisini mağaza alan adındaki <code>/api/v3/admin/*</code> uçlarından okur ve yazar. Bu sayfa o uçların genel kurallarını anlatır. Uç listesi <a href="/admin-api/uclar/">Uç listesi</a>, çalışılmış bir örnek <a href="/admin-api/odeme-bildirimi/">Ödeme bildirimi</a> sayfasındadır.</p>
+<p>Kaynak: panel sürümü <code>v5.0.273</code> ön yüz paketi ve bu paketin çağırdığı 627 ekran parçası (24 Ekim 2026). Yollar panel kodunda sabit duran adreslerdir; tarama sırasında uçlar tek tek çağrılmadı. Resmi <a href="https://developer.tsoft.com.tr/" rel="noopener" target="_blank">T-SOFT Geliştirici Platformu</a> bu listeyi yayımlamıyor (&quot;API Dokümanı · Yakında&quot;).</p>
+<h2 id="iki-farklı-admin-api"><a class="anchor" href="#iki-farklı-admin-api" aria-hidden="true">#</a>İki farklı Admin API</h2>
+<p>Aynı önek iki ayrı yüzeyi taşır. Karıştırmayın.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>Panel iç API’si</th>
+<th>Uygulama Admin API’si</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Yol</td>
+<td><code>https://&lt;mağaza&gt;/api/v3/admin/&lt;grup&gt;/&lt;kaynak&gt;</code></td>
+<td><code>https://&lt;mağaza&gt;/api/v3/admin/2026-01/&lt;kaynak&gt;</code></td>
+</tr>
+<tr>
+<td>Sürüm</td>
+<td>Yolda yok. Panel sürümüyle birlikte değişir.</td>
+<td>Tarihli (<code>2026-01</code>). Kırıcı değişiklik yeni tarihte gelir.</td>
+</tr>
+<tr>
+<td>Kimlik</td>
+<td>Panel oturumunun <code>Authorization: Bearer &lt;panel token&gt;</code></td>
+<td>OAuth <code>client_credentials</code> ile alınan token. Bkz. <a href="/developer/uygulama/">Uygulama geliştirme</a>.</td>
+</tr>
+<tr>
+<td>Biçim</td>
+<td>Laravel JSON. <code>Accept: application/json</code></td>
+<td>JSON:API. <code>Accept: application/vnd.api+json</code>; başka değer <strong>406</strong></td>
+</tr>
+<tr>
+<td>Yetki</td>
+<td>Panel kullanıcısının rolündeki izinler (<code>order:read</code> …)</td>
+<td>Uygulamanın onaylanmış kapsamları (<code>read_orders</code> …)</td>
+</tr>
+<tr>
+<td>Belge</td>
+<td>Bu depo</td>
+<td>Resmi site (henüz kapalı)</td>
+</tr>
+<tr>
+<td>Kararlılık</td>
+<td>Garanti yok. Panel güncellemesi bozabilir.</td>
+<td>Sözleşmeli</td>
+</tr>
+</tbody></table></div>
+<p><strong>Kural:</strong> Kalıcı entegrasyon, mağaza dışı sunucu ve satışa çıkacak uygulama için uygulama Admin API’si veya <a href="/rest/">REST1</a> kullanılır. Panel iç API’si, panelde elle yapılan bir işi otomatikleştirmek, eksik bir REST1 metodunu doldurmak ya da panelin ne gönderdiğini anlamak içindir.</p>
+<h2 id="taban-ve-başlıklar"><a class="anchor" href="#taban-ve-başlıklar" aria-hidden="true">#</a>Taban ve başlıklar</h2>
+<pre><code class="language-http">GET /api/v3/admin/customers/payment-notification?sort=-id&amp;limit=10 HTTP/1.1
+Host: magaza.example
+Authorization: Bearer &lt;panel token&gt;
+Accept: application/json</code></pre>
+<ul>
+<li>Taban adres <strong>panel alan adı değil</strong>, mağaza alan adıdır: <code>https://www.magaza.example</code>.</li>
+<li>Panel oturumunda token tarayıcı deposundaki <code>t-softpanel-auth</code> nesnesinin <code>laraToken</code> alanındadır (iki adımlı doğrulama açıksa erişim token’ı). Token kişiseldir; kodda, depoda ve paylaşılan belgede tutulmaz.</li>
+<li>Yazma isteklerinde <code>Content-Type: application/json</code> ve JSON gövde gider.</li>
+<li>Giriş uçları <code>api/v3/admin/auth/*</code> altındadır (<code>login</code>, <code>login-by-jwt</code>, <code>token</code>, <code>token-validate</code>, <code>two-factor</code>, <code>oauth/refresh</code>).</li>
+</ul>
+<h2 id="http-metotları"><a class="anchor" href="#http-metotları" aria-hidden="true">#</a>HTTP metotları</h2>
+<p>Panel kodu metodu her çağrıda yazmaz. Gözlenen örnekler: liste <code>GET</code>, yeni kayıt <code>POST</code>, kimliği olan form kaydı <code>PUT</code>. Tablonun geri kalanı Laravel kaynak denetleyicisi kalıbından beklenen davranıştır; <code>DELETE</code> bu taramada denenmedi.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>İş</th>
+<th>Metot</th>
+<th>Yol</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Liste</td>
+<td><code>GET</code></td>
+<td><code>/api/v3/admin/&lt;kaynak&gt;</code></td>
+</tr>
+<tr>
+<td>Tek kayıt</td>
+<td><code>GET</code></td>
+<td><code>/api/v3/admin/&lt;kaynak&gt;/{id}</code></td>
+</tr>
+<tr>
+<td>Oluştur</td>
+<td><code>POST</code></td>
+<td><code>/api/v3/admin/&lt;kaynak&gt;</code></td>
+</tr>
+<tr>
+<td>Güncelle</td>
+<td><code>PUT</code></td>
+<td><code>/api/v3/admin/&lt;kaynak&gt;/{id}</code></td>
+</tr>
+<tr>
+<td>Sil</td>
+<td><code>DELETE</code></td>
+<td><code>/api/v3/admin/&lt;kaynak&gt;/{id}</code></td>
+</tr>
+<tr>
+<td>Toplu iş</td>
+<td><code>POST</code></td>
+<td><code>/api/v3/admin/&lt;kaynak&gt;/batch</code> veya <code>.../batch-&lt;iş&gt;</code></td>
+</tr>
+<tr>
+<td>Sıralama</td>
+<td><code>POST</code> / <code>PUT</code></td>
+<td><code>/api/v3/admin/&lt;kaynak&gt;/sortable</code></td>
+</tr>
+</tbody></table></div>
+<p>Sonu <code>/</code> ile biten yollar (ör. <code>orders/order/</code>) kimliği sona ekleyerek çağrılır. Liste <a href="/admin-api/uclar/#kimlik-eklenen-yollar">Uç listesi</a> sayfasında.</p>
+<h2 id="liste-cevabı"><a class="anchor" href="#liste-cevabı" aria-hidden="true">#</a>Liste cevabı</h2>
+<p>Liste uçları Laravel sayfalaması döner:</p>
+<pre><code class="language-json">{
+  &quot;status&quot;: true,
+  &quot;data&quot;: [ { &quot;id&quot;: 29, &quot;createdAt&quot;: 1761313860 } ],
+  &quot;links&quot;: { &quot;first&quot;: &quot;...?page=1&quot;, &quot;last&quot;: &quot;...?page=3&quot;, &quot;prev&quot;: null, &quot;next&quot;: &quot;...?page=2&quot; },
+  &quot;meta&quot;: { &quot;current_page&quot;: 1, &quot;last_page&quot;: 3, &quot;per_page&quot;: 10, &quot;total&quot;: 27 },
+  &quot;sortable&quot;: [&quot;id&quot;, &quot;createdAt&quot;]
+}</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Sorgu</th>
+<th>Anlamı</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>limit</code></td>
+<td>Sayfa boyutu</td>
+</tr>
+<tr>
+<td><code>page</code></td>
+<td>Sayfa numarası, 1’den başlar</td>
+</tr>
+<tr>
+<td><code>sort</code></td>
+<td>Alan adı; başında <code>-</code> azalan sıradır (<code>sort=-id</code>). İzinli alanlar cevaptaki <code>sortable</code> dizisindedir.</td>
+</tr>
+<tr>
+<td><code>filter[alan]</code></td>
+<td>Her uçta çalışmaz. <code>payment-notification</code> üzerinde <code>filter[customerId]</code> süzmedi; ilk sayfa döndü. Süzgeç kullanmadan önce sonucu kontrol edin.</td>
+</tr>
+</tbody></table></div>
+<p>Ortak gözlemler:</p>
+<ul>
+<li>Zaman alanları (<code>createdAt</code>) <strong>unix saniyesi</strong>dir.</li>
+<li>Para alanları listede string (<code>&quot;3000.00&quot;</code>), yazarken sayı gider.</li>
+<li>Anahtar/bayrak alanları JSON boolean değil <code>0</code> / <code>1</code> tamsayıdır.</li>
+<li>Alan adları camelCase’tir (<code>customerId</code>, <code>formId</code>). REST1’deki PascalCase (<code>CustomerId</code>) ile aynı değildir.</li>
+</ul>
+<h2 id="hata-cevapları"><a class="anchor" href="#hata-cevapları" aria-hidden="true">#</a>Hata cevapları</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>HTTP</th>
+<th>Gövde</th>
+<th>Anlamı</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>401</td>
+<td>Laravel varsayılanı <code>{&quot;message&quot;:&quot;Unauthenticated.&quot;}</code> (bu taramada gözlenmedi)</td>
+<td>Token yok veya süresi dolmuş</td>
+</tr>
+<tr>
+<td>403</td>
+<td>— (gözlenmedi)</td>
+<td>Rol bu izni vermiyor</td>
+</tr>
+<tr>
+<td>422</td>
+<td><code>{&quot;message&quot;: &quot;...&quot;, &quot;errors&quot;: {&quot;alan&quot;: [&quot;...&quot;]}}</code></td>
+<td>Laravel doğrulaması. <code>errors</code> alan bazında dizidir.</td>
+</tr>
+<tr>
+<td>429</td>
+<td><code>Too Many Attempts.</code></td>
+<td>Hız sınırı. Cevapta <code>retryAfter</code> (saniye) ve <code>throttle.limit</code> vardır. <code>batch-recreate</code> için sınır 5 idi.</td>
+</tr>
+<tr>
+<td>500</td>
+<td><code>{&quot;message&quot;:&quot;Server Error&quot;}</code></td>
+<td>Sunucu kaydı işlerken düştü. Alan adı söylemez; gövdeyi panelin gönderdiğiyle karşılaştırın.</td>
+</tr>
+</tbody></table></div>
+<h2 id="yetki-adları"><a class="anchor" href="#yetki-adları" aria-hidden="true">#</a>Yetki adları</h2>
+<p>Panel kodu 30 yol için gereken izni yanında taşır. Biçim <code>&lt;alan&gt;:&lt;kaynak&gt;:&lt;eylem&gt;</code>; <code>read</code> okuma, <code>manage</code> yönetim, <code>create</code> / <code>update</code> yazmadır. Rol, panelde Ayarlar → Kullanıcılar ve İzinler altında atanır.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Yol</th>
+<th>İzin</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>api/v3/admin/analytics/report</code></td>
+<td><code>analytics:report:read</code></td>
+</tr>
+<tr>
+<td><code>api/v3/admin/analytics/log</code></td>
+<td><code>analytics:log:read</code></td>
+</tr>
+<tr>
+<td><code>api/v3/admin/analytics/risk</code></td>
+<td><code>analytics:report:read</code></td>
+</tr>
+<tr>
+<td><code>api/v3/admin/orders/order</code></td>
+<td><code>order:read</code>, <code>order:update</code></td>
+</tr>
+<tr>
+<td><code>api/v3/admin/orders/product</code></td>
+<td><code>order:read</code></td>
+</tr>
+<tr>
+<td><code>api/v3/admin/orders/status</code></td>
+<td><code>order:status:read</code>, <code>order:status:manage</code></td>
+</tr>
+<tr>
+<td><code>api/v3/admin/orders/return</code></td>
+<td><code>order:return:manage</code>, <code>order:read</code></td>
+</tr>
+<tr>
+<td><code>api/v3/admin/orders/refund</code></td>
+<td><code>order:refund:manage</code>, <code>order:read</code></td>
+</tr>
+<tr>
+<td><code>api/v3/admin/orders/transaction</code></td>
+<td><code>order:transactions:read</code>, <code>order:read</code></td>
+</tr>
+<tr>
+<td><code>api/v3/admin/orders/static/platform</code></td>
+<td><code>order:read</code></td>
+</tr>
+<tr>
+<td><code>api/v3/admin/orders/cargo/company</code></td>
+<td><code>config:cargo_company:read</code>, <code>config:cargo_company:manage</code></td>
+</tr>
+<tr>
+<td><code>api/v3/admin/orders/payment/method</code></td>
+<td><code>config:payment_method:read</code>, <code>config:payment_method:manage</code></td>
+</tr>
+<tr>
+<td><code>api/v3/admin/orders/address-field</code></td>
+<td><code>config:address_fields:manage</code></td>
+</tr>
+<tr>
+<td><code>api/v3/admin/catalog/products</code></td>
+<td><code>catalog:product:read</code>, <code>catalog:product:update</code>, <code>catalog:product:create</code></td>
+</tr>
+<tr>
+<td><code>api/v3/admin/catalog/comments</code></td>
+<td><code>catalog:comment:read</code>, <code>catalog:comment:manage</code></td>
+</tr>
+<tr>
+<td><code>api/v3/admin/catalog/alarm</code></td>
+<td><code>catalog:product:alarm</code></td>
+</tr>
+<tr>
+<td><code>api/v3/admin/catalog/definitions/categories</code></td>
+<td><code>catalog:category:read</code>, <code>catalog:category:manage</code></td>
+</tr>
+<tr>
+<td><code>api/v3/admin/catalog/definitions/brands</code></td>
+<td><code>catalog:brand:read</code>, <code>catalog:brand:manage</code></td>
+</tr>
+<tr>
+<td><code>api/v3/admin/catalog/definitions/models</code></td>
+<td><code>catalog:model:read</code>, <code>catalog:model:manage</code></td>
+</tr>
+<tr>
+<td><code>api/v3/admin/catalog/definitions/filter</code></td>
+<td><code>catalog:attribute:read</code>, <code>catalog:attribute:manage</code></td>
+</tr>
+<tr>
+<td><code>api/v3/admin/catalog/definitions/personalization</code></td>
+<td><code>catalog:personalization:read</code>, <code>catalog:personalization:manage</code></td>
+</tr>
+<tr>
+<td><code>api/v3/admin/customers/customer</code></td>
+<td><code>customer:read</code>, <code>customer:update</code>, <code>customer:create</code></td>
+</tr>
+<tr>
+<td><code>api/v3/admin/customers/cart</code></td>
+<td><code>customer:read</code></td>
+</tr>
+<tr>
+<td><code>api/v3/admin/customers/group</code></td>
+<td><code>customer:group:read</code>, <code>customer:group:manage</code></td>
+</tr>
+<tr>
+<td><code>api/v3/admin/customers/segment</code></td>
+<td><code>customer:segment:read</code>, <code>customer:segment:manage</code></td>
+</tr>
+<tr>
+<td><code>api/v3/admin/customers/messages</code></td>
+<td><code>customer:message:read</code>, <code>customer:message:manage</code></td>
+</tr>
+<tr>
+<td><code>api/v3/admin/customers/payment-notification</code></td>
+<td><code>customer:payment_notification:read</code>, <code>customer:payment_notification:manage</code></td>
+</tr>
+<tr>
+<td><code>api/v3/admin/customers/fields</code></td>
+<td><code>config:member_field:read</code>, <code>config:member_field:manage</code></td>
+</tr>
+<tr>
+<td><code>api/v3/admin/customers/billing/account-balance</code></td>
+<td><code>customer:account:read</code>, <code>customer:account:manage</code></td>
+</tr>
+<tr>
+<td><code>api/v3/admin/campaigns</code></td>
+<td><code>campaign:read</code>, <code>campaign:manage</code></td>
+</tr>
+</tbody></table></div>
+<h2 id="uç-gruplarının-özeti"><a class="anchor" href="#uç-gruplarının-özeti" aria-hidden="true">#</a>Uç gruplarının özeti</h2>
+<p>Toplam 357 uç ve kimlik eklenerek kullanılan 35 yol.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Grup</th>
+<th align="right">Uç</th>
+<th>Ne işe yarar</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="/admin-api/uclar/#analitik">analytics</a></td>
+<td align="right">30</td>
+<td>Rapor, canlı ziyaretçi, arama boşluğu, personel ve fiyat/stok logu, risk</td>
+</tr>
+<tr>
+<td><a href="/admin-api/uclar/#oturum">auth</a></td>
+<td align="right">24</td>
+<td>Giriş, jeton, iki adım, panel kullanıcısı ve rol</td>
+</tr>
+<tr>
+<td><a href="/admin-api/uclar/#kampanya">campaigns</a></td>
+<td align="right">6</td>
+<td>Kampanya, hediye kodu, puan ve öneri</td>
+</tr>
+<tr>
+<td><a href="/admin-api/uclar/#katalog">catalog</a></td>
+<td align="right">41</td>
+<td>Ürün, kategori, marka, varyant, grup fiyatı, görsel ve yorum</td>
+</tr>
+<tr>
+<td><a href="/admin-api/uclar/#içerik">cms</a></td>
+<td align="right">12</td>
+<td>Blog, haber, SSS, galeri ve içerik</td>
+</tr>
+<tr>
+<td><a href="/admin-api/uclar/#ayarlar">configuration</a></td>
+<td align="right">69</td>
+<td>Dil, para, bölge, POS, bildirim şablonu, yönlendirme, webhook, önbellek</td>
+</tr>
+<tr>
+<td><a href="/admin-api/uclar/#crm">crm</a></td>
+<td align="right">6</td>
+<td>Mağaza, destek bileti ve ziyaretçi defteri</td>
+</tr>
+<tr>
+<td><a href="/admin-api/uclar/#üye">customers</a></td>
+<td align="right">23</td>
+<td>Üye, grup, segment, sepet, sadakat, mesaj, cari bakiye, ödeme bildirimi</td>
+</tr>
+<tr>
+<td><a href="/admin-api/uclar/#dosya">file-manager</a></td>
+<td align="right">1</td>
+<td>Dosya yöneticisi</td>
+</tr>
+<tr>
+<td><a href="/admin-api/uclar/#entegrasyon">integration</a></td>
+<td align="right">45</td>
+<td>Nova (yapay zekâ), Sendheap, T-Soft Apps, Hotnoc, Nilcare</td>
+</tr>
+<tr>
+<td><a href="/admin-api/uclar/#pazarlama">marketing</a></td>
+<td align="right">5</td>
+<td>İşbirliği ve affiliate</td>
+</tr>
+<tr>
+<td><a href="/admin-api/uclar/#vitrin">online-store</a></td>
+<td align="right">10</td>
+<td>Eski tema motoru: sayfa, menü, blok, tema</td>
+</tr>
+<tr>
+<td><a href="/admin-api/uclar/#yeni-vitrin">online-store-2</a></td>
+<td align="right">25</td>
+<td>Yeni (Twig) tema, vitrin satır/sütun, geliştirici çalışma alanı</td>
+</tr>
+<tr>
+<td><a href="/admin-api/uclar/#sipariş">orders</a></td>
+<td align="right">44</td>
+<td>Sipariş, kargo, iade, iade ödemesi, taksit, POS, depo</td>
+</tr>
+<tr>
+<td><a href="/admin-api/uclar/#diğer">packages, partner, supplier, tool, oauth, public</a></td>
+<td align="right">16</td>
+<td>Form uygulaması, partner erişimi, tedarikçi paneli, araçlar</td>
+</tr>
+</tbody></table></div>
+<h2 id="bir-panel-ekranının-uçlarını-bulmak"><a class="anchor" href="#bir-panel-ekranının-uçlarını-bulmak" aria-hidden="true">#</a>Bir panel ekranının uçlarını bulmak</h2>
+<p>Liste her ekranın gövdesini anlatmaz. Gövdeyi öğrenmenin güvenli yolu:</p>
+<ol>
+<li>Panelde ilgili ekranı açın, tarayıcı geliştirici araçlarında <strong>Network</strong> sekmesini <code>api/v3/admin</code> ile süzün.</li>
+<li>Ekranda işlemi bir kez elle yapın ve giden isteğin metodunu, yolunu ve gövdesini kaydedin.</li>
+<li>Aynı gövdeyle önce test mağazasında deneyin. 422 cevabındaki <code>errors</code> zorunlu alanları verir.</li>
+<li>Token’ı ve kişisel veriyi notlara yazmayın.</li>
+</ol>
+<p><a href="/admin-api/odeme-bildirimi/">Ödeme bildirimi</a> sayfası bu yöntemle çıkarılmış tam bir örnektir.</p>
+
+</article>
+<nav class="pager" aria-label="Sayfa geçişi"><a class="prev" href="/rest/routing/"><span>← Önceki</span>Routing</a><a class="next" href="/admin-api/uclar/"><span>Sonraki →</span>Uç listesi</a></nav>
+<footer class="page-foot"><a href="https://github.com/bahadirdogru/tsoft-documentation-examples/edit/main/content/admin-api/README.md">GitHub'da düzenle</a> · <a href="/admin-api.md">Markdown</a> · <a href="/llms.txt">llms.txt</a> · Topluluk belgesidir, T-Soft’un resmî yayını değildir.</footer>
+</main>
+<nav class="toc" aria-label="Bu sayfada"><div class="toc-title">Bu sayfada</div><ul><li class="l2"><a href="#iki-farklı-admin-api">İki farklı Admin API</a></li><li class="l2"><a href="#taban-ve-başlıklar">Taban ve başlıklar</a></li><li class="l2"><a href="#http-metotları">HTTP metotları</a></li><li class="l2"><a href="#liste-cevabı">Liste cevabı</a></li><li class="l2"><a href="#hata-cevapları">Hata cevapları</a></li><li class="l2"><a href="#yetki-adları">Yetki adları</a></li><li class="l2"><a href="#uç-gruplarının-özeti">Uç gruplarının özeti</a></li><li class="l2"><a href="#bir-panel-ekranının-uçlarını-bulmak">Bir panel ekranının uçlarını bulmak</a></li></ul></nav>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/twig.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/http.min.js"></script>
+<script src="/assets/site.js"></script>
+</body>
+</html>

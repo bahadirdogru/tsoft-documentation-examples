@@ -1,8 +1,13 @@
+---
+title: Storefront API
+url: https://tsoft.bahadirdogru.com/developer/storefront-api/
+---
+
 # Storefront API
 
 Kaynak: [Storefront API](https://developer.tsoft.com.tr/storefront-api/genel-bakis). Anlık: doküman **1.9.0** (18 Eylül 2026 günlüğü), API yolu **2026-01**. Alan listeleri resmi sayfadadır.
 
-Bu depodaki [REST1](../tsoft.rest.md) panel web servisidir (`/rest1`, form gövdesi, `token`). Storefront vitrin ve mobil istemci içindir.
+Bu depodaki [REST1](../rest/README.md) panel web servisidir (`/rest1`, form gövdesi, `token`). Storefront vitrin ve mobil istemci içindir.
 
 ## Sözleşme
 

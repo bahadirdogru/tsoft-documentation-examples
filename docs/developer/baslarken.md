@@ -1,3 +1,8 @@
+---
+title: Başlarken
+url: https://tsoft.bahadirdogru.com/developer/baslarken/
+---
+
 # Başlarken
 
 Resmi sayfalar: [Genel bakış](https://developer.tsoft.com.tr/baslarken/genel-bakis), [Hızlı başlangıç](https://developer.tsoft.com.tr/baslarken/hizli-baslangic). Ayrıntılı CLI adımları [Kurulum](https://developer.tsoft.com.tr/tema-gelistirme/kurulum) sayfasındadır.
@@ -8,10 +13,10 @@ Resmi genel bakış geliştirmeyi dört yüzeye ayırır:
 
 | Yüzey | İş | 20 Ekim 2026 |
 | --- | --- | --- |
-| Admin API | Ürün, sipariş, müşteri ve stok okuma/yazma | Doküman kapalı. Bu depodaki REST1 notu ayrı bir panel servisidir. |
+| Admin API | Ürün, sipariş, müşteri ve stok okuma/yazma | Resmi referans kapalı. OAuth ve kapsamlar [Uygulama geliştirme](uygulama.md) sayfasında; panelin iç uçları [Admin API v3](../admin-api/README.md). |
 | Tema motoru | Şablon ve section ile vitrin | Açık. Bkz. [tema.md](tema.md). |
-| Uygulama platformu | OAuth, panele gömülü uygulama, App Store | Kapalı |
-| Webhook | Olay bildirimi | Kapalı |
+| Uygulama platformu | OAuth, panele gömülü uygulama, App Store | Açık (3 Kasım 2026). Bkz. [uygulama.md](uygulama.md). |
+| Webhook | Olay bildirimi | Uygulama bölümünde 15 olay. Bkz. [Webhook](uygulama.md#webhook). |
 
 ## İlk tema
 

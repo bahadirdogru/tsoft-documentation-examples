@@ -1,0 +1,2154 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Platform · T-Soft Dokümantasyonu</title>
+<meta name="description" content="Mobil/platform oturumu (CustomerHash): üye, sepet, sipariş, adres, iade.">
+<link rel="canonical" href="https://tsoft.bahadirdogru.com/rest/platform/">
+<link rel="alternate" type="text/markdown" href="/rest/platform.md" title="Markdown">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%231f6feb%22%2F%3E%3Cpath%20d%3D%22M8%209h16v3.2h-6.4V23h-3.2V12.2H8z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E">
+<meta property="og:title" content="Platform">
+<meta property="og:description" content="Mobil/platform oturumu (CustomerHash): üye, sepet, sipariş, adres, iade.">
+<meta property="og:url" content="https://tsoft.bahadirdogru.com/rest/platform/">
+<meta property="og:type" content="website">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" media="(prefers-color-scheme: light)" id="hl-light">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" media="(prefers-color-scheme: dark)" id="hl-dark">
+</head>
+<body>
+<a class="skip" href="#main">İçeriğe geç</a>
+<header class="top">
+  <button class="menu-btn" aria-label="Menü" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="/"><svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><path d="M8 9h16v3.2h-6.4V23h-3.2V12.2H8z" fill="var(--bg)"/></svg><span>T-Soft Dokümantasyonu</span></a>
+  <div class="search">
+    <input id="q" type="search" placeholder="Ara: metot, uç, değişken, sayfa…  ( / )" autocomplete="off" aria-label="Ara">
+    <ul id="results" role="listbox" hidden></ul>
+  </div>
+  <button class="theme-btn" aria-label="Tema değiştir" title="Tema değiştir">◐</button>
+</header>
+<div class="layout">
+<aside id="sidebar" class="sidebar"><details class="nav-sec" open><summary>Başlangıç <span class="count">3</span></summary><ul><li><a href="/">Ana sayfa</a></li><li><a href="/rehber/">Hangi yüzey?</a></li><li><a href="/llm/">LLM ve ajanlar için</a></li></ul></details><details class="nav-sec" open><summary>Platform <span class="count">4</span></summary><ul><li><a href="/developer/">Platform haritası</a></li><li><a href="/developer/baslarken/">Başlarken</a></li><li><a href="/developer/uygulama/">Uygulama geliştirme</a></li><li><a href="/developer/storefront-api/">Storefront API</a></li></ul></details><details class="nav-sec" open><summary>Tema <span class="count">2</span></summary><ul><li><a href="/developer/tema/">Tema motoru (Twig)</a></li><li><a href="/theme/">Eski tema (Smarty)</a></li></ul></details><details class="nav-sec" open><summary>REST1 <span class="count">2</span></summary><ul><li><a href="/rest/">Genel bakış</a></li><li><a href="/rest/hatalar/">Hatalar ve mesaj kodları</a></li></ul></details><details class="nav-sec" open><summary>REST1 modülleri <span class="count">38</span></summary><ul><li><a href="/rest/auth/">Auth</a></li><li><a href="/rest/customer/">Customer</a></li><li><a href="/rest/product/">Product</a></li><li><a href="/rest/subproduct/">SubProduct</a></li><li><a href="/rest/category/">Category</a></li><li><a href="/rest/brand/">Brand</a></li><li><a href="/rest/model/">Model</a></li><li><a href="/rest/filter/">Filter</a></li><li><a href="/rest/catalog/">Catalog</a></li><li><a href="/rest/order/">Order</a></li><li><a href="/rest/order2/">Order2</a></li><li><a href="/rest/cart/">Cart</a></li><li><a href="/rest/campaign/">Campaign</a></li><li><a href="/rest/payment/">Payment</a></li><li><a href="/rest/fundmovement/">FundMovement</a></li><li><a href="/rest/point/">Point</a></li><li><a href="/rest/segment/">Segment</a></li><li><a href="/rest/supplier/">Supplier</a></li><li><a href="/rest/branchoffice/">BranchOffice</a></li><li><a href="/rest/content/">Content</a></li><li><a href="/rest/news/">News</a></li><li><a href="/rest/showcase/">Showcase</a></li><li><a href="/rest/htmlblock/">HtmlBlock</a></li><li><a href="/rest/widget/">Widget</a></li><li><a href="/rest/link/">Link</a></li><li><a href="/rest/personalization/">Personalization</a></li><li><a href="/rest/trackingcode/">TrackingCode</a></li><li><a href="/rest/ticket/">Ticket</a></li><li><a href="/rest/user/">User</a></li><li><a href="/rest/setting/">Setting</a></li><li><a href="/rest/notification/">Notification</a></li><li><a href="/rest/mobile/">Mobile</a></li><li><a href="/rest/platform/" aria-current="page">Platform</a></li><li><a href="/rest/cargo/">Cargo</a></li><li><a href="/rest/adapter/">Adapter</a></li><li><a href="/rest/hopi/">Hopi</a></li><li><a href="/rest/zubizu/">Zubizu</a></li><li><a href="/rest/routing/">Routing</a></li></ul></details><details class="nav-sec" open><summary>Admin API v3 <span class="count">3</span></summary><ul><li><a href="/admin-api/">Genel bakış</a></li><li><a href="/admin-api/uclar/">Uç listesi</a></li><li><a href="/admin-api/odeme-bildirimi/">Ödeme bildirimi</a></li></ul></details><details class="nav-sec"><summary>Örnek kod <span class="count">5</span></summary><ul><li><a href="/examples/python/tsoft_client/">Python istemci</a></li><li><a href="/examples/python/add_customer/">Üye ekleme</a></li><li><a href="/examples/python/check_group_price/">Grup fiyatı</a></li><li><a href="/examples/python/env/">Ortam değişkenleri</a></li><li><a href="/examples/apps-script/code/">Apps Script</a></li></ul></details><details class="nav-sec"><summary>Eski tema blokları <span class="count">18</span></summary><ul><li><a href="/theme/bloklar/ust/">Üst blok</a></li><li><a href="/theme/bloklar/alt/">Alt blok</a></li><li><a href="/theme/bloklar/yeni-urunler/">Yeni ürünler</a></li><li><a href="/theme/bloklar/kategori-menusu/">Kategori menüsü</a></li><li><a href="/theme/bloklar/kategori-listesi/">Kategori listesi</a></li><li><a href="/theme/bloklar/home-banner/">Ana sayfa banner</a></li><li><a href="/theme/bloklar/home-sale/">Ana sayfa indirim</a></li><li><a href="/theme/bloklar/haberler/">Haberler</a></li><li><a href="/theme/bloklar/benzer-urunler/">Benzer ürünler</a></li><li><a href="/theme/bloklar/model-listesi/">Model listesi</a></li><li><a href="/theme/bloklar/marka-listesi/">Marka listesi</a></li><li><a href="/theme/bloklar/parca-toplama-sihirbazi/">Parça toplama sihirbazı</a></li><li><a href="/theme/bloklar/tedarikci-listesi/">Tedarikçi listesi</a></li><li><a href="/theme/bloklar/firsat-urunleri/">Fırsat ürünleri</a></li><li><a href="/theme/bloklar/ayin-yazari/">Ayın yazarı</a></li><li><a href="/theme/bloklar/gelecek-firsat-urun-listesi/">Gelecek fırsatlar</a></li><li><a href="/theme/bloklar/sss/">SSS</a></li><li><a href="/theme/bloklar/gorsel-vitrin/">Görsel vitrin</a></li></ul></details><details class="nav-sec"><summary>Eski tema değişkenleri <span class="count">5</span></summary><ul><li><a href="/theme/degiskenler/tsoft-product-varriables/">Ürün değişkenleri</a></li><li><a href="/theme/degiskenler/tsoft-header-page-links-varriable/">Sayfa linkleri</a></li><li><a href="/theme/degiskenler/tsoft-header-tabs-varriable/">Üst sekmeler</a></li><li><a href="/theme/degiskenler/tsoft-footer-menu-varriables/">Alt menü</a></li><li><a href="/theme/degiskenler/tsoft-left-right-category-varriables/">Sol ve sağ kategori</a></li></ul></details><details class="nav-sec"><summary>Eski tema şablonları <span class="count">5</span></summary><ul><li><a href="/theme/snippets/bayi-mi-degil-mi/">Bayi hesabı koşulu</a></li><li><a href="/theme/orta/user_bayipanel/">Bayi paneli</a></li><li><a href="/theme/orta/user_bayigirisplasiyer/">Bayi giriş plasiyer</a></li><li><a href="/theme/orta/user_v4tpl/">V4 şablon</a></li><li><a href="/theme/UstAlt/user_tasarimyenimenu/">Tasarım yeni menü</a></li></ul></details></aside>
+<main id="main" class="content">
+<nav class="crumbs" aria-label="Konum"><a href="/">Ana sayfa</a> <span>/</span> <a href="/rest/">REST1</a></nav>
+<article>
+<h1 id="platform"><a class="anchor" href="#platform" aria-hidden="true">#</a>Platform</h1>
+<p>REST1 modülü · 47 metot · taban <code>https://magaza.example/rest1/platform/{metot}/</code></p>
+<p>Her çağrı <code>POST</code> ve form gövdesidir; <code>token</code> ayrı alan olarak gider. Ortak kurallar, zarf yapısı ve süzgeç sözdizimi <a href="/rest/#ortak-kurallar">REST1 genel bakış</a> sayfasındadır. Tablodaki &quot;Yer&quot; sütunu: <code>url_param</code> yolun sonuna eklenir, <code>query</code> gövde alanıdır, <code>file</code> dosya yüklemesidir.</p>
+<p>Mobil/platform oturumu (CustomerHash): üye, sepet, sipariş, adres, iade.</p>
+<h2 id="platform-login"><a class="anchor" href="#platform-login" aria-hidden="true">#</a><code>platform/login</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/login/</code></p>
+<p>E-posta, parola ve platform bilgileri ile kayıt varsa döner. Üye Girişi OTP Doğrulama (OtpSmsGiris) ayarı SMS veya E-posta seçiliyken web giriş ekranında hem doğrulama kodu hem e-posta/parola seçeneği sunulur; aynı şekilde bu metot da iki yolu birlikte destekler ve hangisinin kullanıldığı LoginType ile bildirilir. LoginType=otp gönderildiğinde giriş iki adımlıdır: kanal SMS ise yalnızca Phone, kanal E-posta ise yalnızca Email gönderilen istek 6 haneli kodu ilgili adrese yollayıp extra.otpRequired=true döner, aynı istek Otp ile tekrarlandığında oturum açılır. Kod SMS kanalında 120, e-posta kanalında 300 saniye geçerlidir ve 5 hatalı denemede geçersiz olur (CUE040). LoginType gönderilmediğinde Email/Phone + Password akışı çalışır ve ayardan bağımsız olarak değişmez. Uygulamanın hangi seçenekleri göstereceğini ve kod için telefon mu e-posta mı isteyeceğini mobile/init cevabındaki otp_login_channel alanı (none | sms | email) belirler.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Email</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Phone</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Telefonla giriş aktif ise telefon ile girebilmek için email paramtresinin yerine kullanılabilir. SMS ile Giriş ayarı açıkken zorunludur ve Email/Password dikkate alınmaz.</td>
+</tr>
+<tr>
+<td><code>Password</code></td>
+<td>query</td>
+<td>pass</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>LoginType</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>otp gönderilirse doğrulama kodu ile giriş yapılır. Kanal SMS iken Phone, kanal E-posta iken Email zorunludur; Password dikkate alınmaz. Gönderilmezse veya başka bir değer gönderilirse e-posta/telefon + parola akışı çalışır. OTP doğrulama kapalıyken otp gönderilirse CUE041 döner.</td>
+</tr>
+<tr>
+<td><code>Otp</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>LoginType=otp iken telefona (SMS kanalı) veya e-posta adresine (E-posta kanalı) gönderilen 6 haneli doğrulama kodu. Boş bırakılan ilk istek kodu gönderir, ikinci istekte kod ile birlikte gönderilir.</td>
+</tr>
+<tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Sepet yenileme işlemleri için gönderilmelidir.</td>
+</tr>
+</tbody></table></div>
+<h2 id="platform-sociallogin"><a class="anchor" href="#platform-sociallogin" aria-hidden="true">#</a><code>platform/socialLogin</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/socialLogin/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>SocialPlatform</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td>Hangi sosyal platform üzerinden giriş yapılacaksa o platform girilmelidir. facebook, google, apple gibi</td>
+</tr>
+<tr>
+<td><code>SocialToken</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>id</code>, <code>name</code>, <code>email</code>, <code>gender</code>, <code>picture_url</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;id&quot;: &quot;12345678&quot;,
+    &quot;name&quot;: &quot;rumeysa&quot;,
+    &quot;email&quot;: &quot;ornek@magaza.example&quot;,
+    &quot;gender&quot;: &quot;female&quot;,
+    &quot;picture_url&quot;: &quot;&quot;
+  }
+]</code></pre>
+<h2 id="platform-connectlinker"><a class="anchor" href="#platform-connectlinker" aria-hidden="true">#</a><code>platform/connectLinker</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/connectLinker/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>RedirectUrl</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="platform-personalizationsendimage"><a class="anchor" href="#platform-personalizationsendimage" aria-hidden="true">#</a><code>platform/personalizationSendImage</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/personalizationSendImage/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Image</code></td>
+<td>file</td>
+<td>file</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ProductId</code></td>
+<td>query</td>
+<td>int</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="platform-updateorderstatusas"><a class="anchor" href="#platform-updateorderstatusas" aria-hidden="true">#</a><code>platform/updateOrderStatusAs</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/updateOrderStatusAs/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>OrderStatusId</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td>Bu parametre data içinde yine OrderStatusId şeklinde her sipariş için ayrı gönderilebilir.   NOT : data içinde gönderilirse burada boş bırakılmalıdır. (gönderilmemelidir)</td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Archive</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Arşivlenmiş siparişler için 1 gönderiniz</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>OrderCode</code>, <code>CargoCode</code>, <code>CargoTrackingCode</code>, <code>Shipment</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;OrderCode&quot;: &quot;TS1703182&quot;,
+    &quot;CargoCode&quot;: &quot;T1&quot;,
+    &quot;CargoTrackingCode&quot;: &quot;ER34342&quot;,
+    &quot;Shipment&quot;: {
+      &quot;CargoKey&quot;: &quot;789654&quot;,
+      &quot;CargoTrackingNo&quot;: &quot;CR789654&quot;,
+      &quot;CargoTrackingUrl&quot;: &quot;http://cargocampany.com/tracking/CR789654&quot;,
+      &quot;BarcodeLink&quot;: &quot;http://cargocampany.com/tracking/CR789654&quot;
+    }
+  }
+]</code></pre>
+<h2 id="platform-reorder"><a class="anchor" href="#platform-reorder" aria-hidden="true">#</a><code>platform/reorder</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/reorder/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>OrderId</code></td>
+<td>query</td>
+<td>int</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="platform-ordertracking"><a class="anchor" href="#platform-ordertracking" aria-hidden="true">#</a><code>platform/orderTracking</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/orderTracking/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>OrderCode</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Email</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Phone</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="platform-getsubscribelist"><a class="anchor" href="#platform-getsubscribelist" aria-hidden="true">#</a><code>platform/getSubscribeList</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/getSubscribeList/</code></p>
+<p>Müşterinin abonelik siparişlerini listeler.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>start</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Sayfalama başlangıç indeksi</td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Sayfa başına kayıt sayısı</td>
+</tr>
+</tbody></table></div>
+<h2 id="platform-getcustomer"><a class="anchor" href="#platform-getcustomer" aria-hidden="true">#</a><code>platform/getCustomer</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/getCustomer/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="platform-getorders"><a class="anchor" href="#platform-getorders" aria-hidden="true">#</a><code>platform/getOrders</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/getOrders/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchProductData</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchProductDetail</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchProductAdditionalData</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchPackageContent</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchWithArchive</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchCustomerData</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchInvoiceAddress</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchDeliveryAddress</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchCampaignData</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchOrderContract</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchCargoDetail</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchShipmentDetail</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchDeleteds</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="platform-ordertracking-2"><a class="anchor" href="#platform-ordertracking-2" aria-hidden="true">#</a><code>platform/orderTracking</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/orderTracking/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>OrderCode</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Email</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Phone</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="platform-deletecustomer"><a class="anchor" href="#platform-deletecustomer" aria-hidden="true">#</a><code>platform/deleteCustomer</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/deleteCustomer/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="platform-setcustomer"><a class="anchor" href="#platform-setcustomer" aria-hidden="true">#</a><code>platform/setCustomer</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/setCustomer/</code></p>
+<p>Oturumdaki üyeyi günceller; oturum yoksa yeni üye kaydı açar. Üye Girişi OTP Doğrulama (OtpSmsGiris) ayarı açıkken yeni kayıt doğrulama gerektirir: Otp gönderilmeyen istek, kanal SMS ise data içindeki Mobile numarasına, kanal E-posta ise data içindeki Email adresine 6 haneli kod yollayıp extra.otpRequired=true döner; aynı istek Otp ile tekrarlandığında kayıt tamamlanır. Bu durumda kayıt ekranında parola alanı olmadığı için (customer/getFields parola alanını döndürmez) parola gönderilmesi gerekmez, üye girişini doğrulama kodu ile yapar. Mevcut üyenin güncellemesi bu doğrulamadan etkilenmez.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Otp</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>OTP doğrulama açıkken yeni üye kaydında telefona (SMS kanalı) veya e-posta adresine (E-posta kanalı) gönderilen 6 haneli doğrulama kodu. Kod SMS kanalında 120, e-posta kanalında 300 saniye geçerlidir; 5 hatalı denemede geçersiz olur (CUE040). Güncelleme isteklerinde kullanılmaz.</td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>Name</code>, <code>Surname</code>, <code>Email</code>, <code>Password</code>, <code>Gender</code>, <code>Birthdate</code>, <code>Phone</code>, <code>Mobile</code>, <code>OfficePhone</code>, <code>Address</code>, <code>Postcode</code>, <code>City</code>, <code>Town</code>, <code>Country</code>, <code>TaxOffice</code>, <code>TaxNo</code>, <code>CompanyName</code>, <code>IdentityNo</code>, <code>Field1</code>, <code>Field2</code>, <code>Field3</code>, <code>Field4</code>, <code>Field5</code>, <code>Field6</code>, <code>Field7</code>, <code>Field8</code>, <code>Field9</code>, <code>Field10</code>, <code>Field11</code>, <code>Field12</code>, <code>Field13</code>, <code>Field14</code>, <code>Field15</code>, <code>Approval</code>, <code>IsEmailNotificationOn</code>, <code>IsSmsNotificationOn</code>, <code>IsPhoneCallNotificationOn</code>, <code>EmailApprovalTime</code>, <code>SmsApprovalTime</code>, <code>PhoneCallApprovalTime</code>, <code>NotificationApprovalIp</code>, <code>SmsNotificationApprovalIp</code>, <code>PhoneNotificationApprovalIp</code>, <code>CustomerGroupCode</code>, <code>RepresentativeCode</code>, <code>Credibility</code>, <code>PayAtDoor</code>, <code>Risked</code>, <code>Banned</code>, <code>PriceField</code>, <code>CargoFree</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;Name&quot;: &quot;&quot;,
+    &quot;Surname&quot;: &quot;&quot;,
+    &quot;Email&quot;: &quot;&quot;,
+    &quot;Password&quot;: &quot;&quot;,
+    &quot;Gender&quot;: &quot;&quot;,
+    &quot;Birthdate&quot;: &quot;&quot;,
+    &quot;Phone&quot;: &quot;&quot;,
+    &quot;Mobile&quot;: &quot;&quot;,
+    &quot;OfficePhone&quot;: &quot;&quot;,
+    &quot;Address&quot;: &quot;&quot;,
+    &quot;Postcode&quot;: &quot;&quot;,
+    &quot;City&quot;: &quot;&quot;,
+    &quot;Town&quot;: &quot;&quot;,
+    &quot;Country&quot;: &quot;&quot;,
+    &quot;TaxOffice&quot;: &quot;&quot;,
+    &quot;TaxNo&quot;: &quot;&quot;,
+    &quot;CompanyName&quot;: &quot;&quot;,
+    &quot;IdentityNo&quot;: &quot;&quot;,
+    &quot;Field1&quot;: &quot;&quot;,
+    &quot;Field2&quot;: &quot;&quot;,
+    &quot;Field3&quot;: &quot;&quot;,
+    &quot;Field4&quot;: &quot;&quot;,
+    &quot;Field5&quot;: &quot;&quot;,
+    &quot;Field6&quot;: &quot;&quot;,
+    &quot;Field7&quot;: &quot;&quot;,
+    &quot;Field8&quot;: &quot;&quot;,
+    &quot;Field9&quot;: &quot;&quot;,
+    &quot;Field10&quot;: &quot;&quot;,
+    &quot;Field11&quot;: &quot;&quot;,
+    &quot;Field12&quot;: &quot;&quot;,
+    &quot;Field13&quot;: &quot;&quot;,
+    &quot;Field14&quot;: &quot;&quot;,
+    &quot;Field15&quot;: &quot;&quot;,
+    &quot;Approval&quot;: &quot;&quot;,
+    &quot;IsEmailNotificationOn&quot;: &quot;&quot;,
+    &quot;IsSmsNotificationOn&quot;: &quot;&quot;,
+    &quot;IsPhoneCallNotificationOn&quot;: &quot;&quot;,
+    &quot;EmailApprovalTime&quot;: &quot;&quot;,
+    &quot;SmsApprovalTime&quot;: &quot;&quot;,
+    &quot;PhoneCallApprovalTime&quot;: &quot;&quot;,
+    &quot;NotificationApprovalIp&quot;: &quot;&quot;,
+    &quot;SmsNotificationApprovalIp&quot;: &quot;&quot;,
+    &quot;PhoneNotificationApprovalIp&quot;: &quot;&quot;,
+    &quot;CustomerGroupCode&quot;: &quot;&quot;,
+    &quot;RepresentativeCode&quot;: &quot;&quot;,
+    &quot;Credibility&quot;: &quot;&quot;,
+    &quot;PayAtDoor&quot;: 0,
+    &quot;Risked&quot;: 0,
+    &quot;Banned&quot;: 0,
+    &quot;PriceField&quot;: &quot;&quot;,
+    &quot;CargoFree&quot;: 0
+  }
+]</code></pre>
+<h2 id="platform-getfavoritelist"><a class="anchor" href="#platform-getfavoritelist" aria-hidden="true">#</a><code>platform/getFavoriteList</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/getFavoriteList/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="platform-addtofavoritelist"><a class="anchor" href="#platform-addtofavoritelist" aria-hidden="true">#</a><code>platform/addToFavoriteList</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/addToFavoriteList/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ProductId</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>SubProductId</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="platform-deletefromfavoritelist"><a class="anchor" href="#platform-deletefromfavoritelist" aria-hidden="true">#</a><code>platform/deleteFromFavoriteList</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/deleteFromFavoriteList/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ProductId</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>SubProductId</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="platform-getalarmlist"><a class="anchor" href="#platform-getalarmlist" aria-hidden="true">#</a><code>platform/getAlarmList</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/getAlarmList/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ProductId</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>SubProductId</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>AlarmType</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Filtreleme için Price veya Stock girilebilir.</td>
+</tr>
+<tr>
+<td><code>start</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>orderby</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Örn: RecordTime DESC</td>
+</tr>
+<tr>
+<td><code>f</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Kullanılabilen operatörler: startwith,endwith,equal,greater,smaller,between,contain. Örn: &quot;RecordTime|1529931531|greater&quot;</td>
+</tr>
+<tr>
+<td><code>f2</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Allowed operators: startwith,endwith,equal,greater,smaller,between,contain. Example: &quot;CustomerName | ahmet | contain&quot;</td>
+</tr>
+<tr>
+<td><code>FetchProductData</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="platform-addalarm"><a class="anchor" href="#platform-addalarm" aria-hidden="true">#</a><code>platform/addAlarm</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/addAlarm/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ProductId</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>SubProductId</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>AlarmType</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Price veya Stock girilmeli.</td>
+</tr>
+<tr>
+<td><code>AlarmDay</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Alarmın kaç gün için geçerli olduğunu belirler.</td>
+</tr>
+<tr>
+<td><code>CurrentPrice</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>O anki fiyat girilebilir, Fiyat alarmı için gerekli parametre. Stok alarmı için gönderilmemeli</td>
+</tr>
+<tr>
+<td><code>AlarmPrice</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Fiyat alarmı için gerekli parametre. Stok alarmı için gönderilmemeli</td>
+</tr>
+<tr>
+<td><code>Currency</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Para birimi. Fiyat alarmı için gerekli parametre. Stok alarmı için gönderilmemeli</td>
+</tr>
+<tr>
+<td><code>VatIncluded</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Kdv dahil ise 1, değilse 0 girilmeli, Fiyat alarmı için gerekli parametre. Stok alarmı için gönderilmemeli.</td>
+</tr>
+<tr>
+<td><code>StockLimit</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Stok alarmı için gerekli parametre. Fiyat alarmı için gönderilmemeli.</td>
+</tr>
+</tbody></table></div>
+<h2 id="platform-deletealarm"><a class="anchor" href="#platform-deletealarm" aria-hidden="true">#</a><code>platform/deleteAlarm</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/deleteAlarm/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>AlarmId</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="platform-getaddress"><a class="anchor" href="#platform-getaddress" aria-hidden="true">#</a><code>platform/getAddress</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/getAddress/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Page</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>&#39;order&#39; olarak gönderilirse ilgili ülkeye ait siparişler döner</td>
+</tr>
+</tbody></table></div>
+<h2 id="platform-setaddress"><a class="anchor" href="#platform-setaddress" aria-hidden="true">#</a><code>platform/setAddress</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/setAddress/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Adress güncellenmek istendiğinde address_id parametresi sıfırdan büyük bir değer gönderilmelidir.</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>address_id</code>, <code>title</code>, <code>country_code</code>, <code>city_code</code>, <code>town_code</code>, <code>city</code>, <code>town</code>, <code>address</code>, <code>company</code>, <code>district</code>, <code>fullname</code>, <code>is_company_active</code>, <code>mobile_phone</code>, <code>nationality</code>, <code>identity_number</code>, <code>tax_number</code>, <code>tax_office</code>, <code>post_code</code>, <code>has_e_invoice</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;address_id&quot;: 0,
+    &quot;title&quot;: &quot;İş Adresim&quot;,
+    &quot;country_code&quot;: &quot;TR&quot;,
+    &quot;city_code&quot;: &quot;34&quot;,
+    &quot;town_code&quot;: &quot;941&quot;,
+    &quot;city&quot;: &quot;İstanbul&quot;,
+    &quot;town&quot;: &quot;Fatih&quot;,
+    &quot;address&quot;: &quot;Teknopark No:104&quot;,
+    &quot;company&quot;: &quot;&quot;,
+    &quot;district&quot;: &quot;&quot;,
+    &quot;fullname&quot;: &quot;Kübra K&quot;,
+    &quot;is_company_active&quot;: 0,
+    &quot;mobile_phone&quot;: &quot;905555555555&quot;,
+    &quot;nationality&quot;: 0,
+    &quot;identity_number&quot;: &quot;66666666666&quot;,
+    &quot;tax_number&quot;: &quot;66666666666&quot;,
+    &quot;tax_office&quot;: &quot;&quot;,
+    &quot;post_code&quot;: &quot;34104&quot;,
+    &quot;has_e_invoice&quot;: 0
+  }
+]</code></pre>
+<h2 id="platform-setorderaddress"><a class="anchor" href="#platform-setorderaddress" aria-hidden="true">#</a><code>platform/setOrderAddress</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/setOrderAddress/</code></p>
+<p>LisansEihracat lisansının açıklığına göre set edilemeyecek adreslerin kontrolü kullanıcıya bırakılmıştır. platform/getAvaliableAddress metodundan kontrol sağlanabilir.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>Adres Tipleri:   1: sadece teslimat adresi   2: sadece fatura adresi   3: hem teslimat, hem fatura adresi</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>address_type</code>, <code>address_id</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;address_type&quot;: &quot;2&quot;,
+    &quot;address_id&quot;: &quot;5&quot;
+  }
+]</code></pre>
+<h2 id="platform-deleteaddress"><a class="anchor" href="#platform-deleteaddress" aria-hidden="true">#</a><code>platform/deleteAddress</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/deleteAddress/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>AddressId</code></td>
+<td>url_param</td>
+<td>int</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="platform-getorderreturn"><a class="anchor" href="#platform-getorderreturn" aria-hidden="true">#</a><code>platform/getOrderReturn</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/getOrderReturn/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>OrderId</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>OrderCode</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>OrderId yerine OrderCode gönderilebilir veya boş bırakılabilir.</td>
+</tr>
+</tbody></table></div>
+<h2 id="platform-setorderreturn"><a class="anchor" href="#platform-setorderreturn" aria-hidden="true">#</a><code>platform/setOrderReturn</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/setOrderReturn/</code></p>
+<p>Müşteriye ait iade talebini oluşturur/günceller. CargoCompanyId gönderilmezse siparişin kendi kargo firması kullanılır. Hepsijet gibi randevulu kargolarda PickDate zorunludur (uygun tarih listesi platform/getReturnPickDates ile çekilir).</p>
+<p>Cevap (data): OrderId, ReturnId, ShipmentCode, TrackingNumber, CargoKey alanlarını içerir. Shipment oluşmadıysa ilgili alanlar null döner.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>OrderId yerine OrderCode gönderilebilir.  Opsiyonel alanlar: - CargoCompanyId (int): Müşterinin iade için seçtiği kargo firmasının ID&#39;si (kargo__firma.id). Gönderilmezse siparişin orijinal kargo firması kullanılır. - PickDate (YYYY-MM-DD): Randevulu çalışan kargolarda (örn. hepsijet) zorunludur. Uygun tarihler platform/getReturnPickDates&#39;ten alınır. - Iban: İade tutarının yatırılacağı IBAN.</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>OrderId</code>, <code>FirstName</code>, <code>LastName</code>, <code>Email</code>, <code>Adress</code>, <code>ReturnDescription</code>, <code>ReasonId</code>, <code>Iban</code>, <code>CargoCompanyId</code>, <code>PickDate</code>, <code>Products</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;OrderId&quot;: &quot;3&quot;,
+    &quot;FirstName&quot;: &quot;Test&quot;,
+    &quot;LastName&quot;: &quot;Testcik&quot;,
+    &quot;Email&quot;: &quot;ornek@magaza.example&quot;,
+    &quot;Adress&quot;: &quot;Adres&quot;,
+    &quot;ReturnDescription&quot;: &quot;Aciklama&quot;,
+    &quot;ReasonId&quot;: &quot;2&quot;,
+    &quot;Iban&quot;: &quot;TR420001009010038831705001&quot;,
+    &quot;CargoCompanyId&quot;: 3,
+    &quot;PickDate&quot;: &quot;&quot;,
+    &quot;Products&quot;: [
+      {
+        &quot;ProductId&quot;: &quot;5&quot;,
+        &quot;Count&quot;: &quot;1&quot;,
+        &quot;Note&quot;: &quot;Not&quot;,
+        &quot;ReasonId&quot;: &quot;1&quot;
+      },
+      {
+        &quot;ProductId&quot;: &quot;6&quot;,
+        &quot;Count&quot;: &quot;1&quot;,
+        &quot;Note&quot;: &quot;Not&quot;,
+        &quot;ReasonId&quot;: &quot;2&quot;
+      }
+    ]
+  }
+]</code></pre>
+<h2 id="platform-getreturnpickdates"><a class="anchor" href="#platform-getreturnpickdates" aria-hidden="true">#</a><code>platform/getReturnPickDates</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/getReturnPickDates/</code></p>
+<p>Hepsijet gibi randevulu çalışan kargo firmaları için, kargo şirketinin sunduğu uygun alım tarihlerini döndürür. Randevulu olmayan kargolarda RequiresPickDate=false ve boş Dates listesi döner.</p>
+<p>Cevap (data): { &quot;RequiresPickDate&quot;: true|false, &quot;Dates&quot;: [ &quot;YYYY-MM-DD&quot;, ... ] }</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>OrderId</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Sipariş ID. OrderId veya OrderCode&#39;dan biri zorunludur.</td>
+</tr>
+<tr>
+<td><code>OrderCode</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Sipariş numarası. OrderId yerine kullanılabilir.</td>
+</tr>
+<tr>
+<td><code>CargoCompanyId</code></td>
+<td>query</td>
+<td>int</td>
+<td>evet</td>
+<td>Kargo firmasının ID&#39;si (kargo__firma.id). order2/getCargoCompanyList listesinden seçilir.</td>
+</tr>
+</tbody></table></div>
+<h2 id="platform-setlocation"><a class="anchor" href="#platform-setlocation" aria-hidden="true">#</a><code>platform/setLocation</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/setLocation/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>Kod verileri bulunuyorsa,   CountryCode,StateCode, CityCode, TownCode, DistrictCode  şeklinde de gönderim yapılabilir.</td>
+</tr>
+</tbody></table></div>
+<pre><code class="language-json">{
+  &quot;Country&quot;: &quot;Türkiye&quot;,
+  &quot;State&quot;: &quot;&quot;,
+  &quot;City&quot;: &quot;İstanbul&quot;,
+  &quot;Town&quot;: &quot;Esenler&quot;,
+  &quot;District&quot;: &quot;Davutpaşa Mah&quot;
+}</code></pre>
+<h2 id="platform-availabledeliverytimes"><a class="anchor" href="#platform-availabledeliverytimes" aria-hidden="true">#</a><code>platform/availableDeliveryTimes</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/availableDeliveryTimes/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="platform-setdeliverytime"><a class="anchor" href="#platform-setdeliverytime" aria-hidden="true">#</a><code>platform/setDeliveryTime</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/setDeliveryTime/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Id</code></td>
+<td>query</td>
+<td>int</td>
+<td>evet</td>
+<td>Teslimat Zamanı id&#39;si</td>
+</tr>
+<tr>
+<td><code>Date</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td>teslimat zamanı tarihi (2018-10-27)</td>
+</tr>
+</tbody></table></div>
+<h2 id="platform-getcouponlist"><a class="anchor" href="#platform-getcouponlist" aria-hidden="true">#</a><code>platform/getCouponList</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/getCouponList/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="platform-addtocart"><a class="anchor" href="#platform-addtocart" aria-hidden="true">#</a><code>platform/addToCart</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/addToCart/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>cart_index</code>, <code>product_id</code>, <code>variant_id</code>, <code>count</code>, <code>personalization</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;cart_index&quot;: &quot;-1&quot;,
+    &quot;product_id&quot;: &quot;147&quot;,
+    &quot;variant_id&quot;: &quot;&quot;,
+    &quot;count&quot;: &quot;2&quot;,
+    &quot;personalization&quot;: {
+      &quot;form_id&quot;: &quot;11&quot;,
+      &quot;data&quot;: [
+        {
+          &quot;title&quot;: &quot;1. resim&quot;,
+          &quot;value&quot;: &quot;test.jpg&quot;,
+          &quot;index&quot;: 0
+        },
+        {
+          &quot;title&quot;: &quot;2. resim&quot;,
+          &quot;value&quot;: &quot;test2.jpg&quot;,
+          &quot;index&quot;: 1
+        }
+      ]
+    }
+  }
+]</code></pre>
+<h2 id="platform-getcart"><a class="anchor" href="#platform-getcart" aria-hidden="true">#</a><code>platform/getCart</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/getCart/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="platform-removeall-alpha"><a class="anchor" href="#platform-removeall-alpha" aria-hidden="true">#</a><code>platform/removeAll</code> (alpha)</h2>
+<p><code>POST https://magaza.example/rest1/platform/removeAll/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="platform-removeitems-alpha"><a class="anchor" href="#platform-removeitems-alpha" aria-hidden="true">#</a><code>platform/removeItems</code> (alpha)</h2>
+<p><code>POST https://magaza.example/rest1/platform/removeItems/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>CartIndex</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="platform-selectcampaign-alpha"><a class="anchor" href="#platform-selectcampaign-alpha" aria-hidden="true">#</a><code>platform/selectCampaign</code> (alpha)</h2>
+<p><code>POST https://magaza.example/rest1/platform/selectCampaign/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>Seçili kampanyayı iptal etmek için campaign_id sıfır (0) gönderilmelidir.</td>
+</tr>
+<tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>campaign_group_id</code>, <code>campaign_id</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;campaign_group_id&quot;: &quot;1&quot;,
+    &quot;campaign_id&quot;: &quot;4&quot;
+  }
+]</code></pre>
+<h2 id="platform-setcouponcode-alpha"><a class="anchor" href="#platform-setcouponcode-alpha" aria-hidden="true">#</a><code>platform/setCouponCode</code> (alpha)</h2>
+<p><code>POST https://magaza.example/rest1/platform/setCouponCode/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>code</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;code&quot;: &quot;1BNQGVPVNJ&quot;
+  }
+]</code></pre>
+<h2 id="platform-productrecommend"><a class="anchor" href="#platform-productrecommend" aria-hidden="true">#</a><code>platform/productRecommend</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/productRecommend/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>ProductId</code>, <code>Message</code>, <code>ToMail</code>, <code>ToName</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;ProductId&quot;: &quot;656&quot;,
+    &quot;Message&quot;: &quot;&quot;,
+    &quot;ToMail&quot;: &quot;ornek@magaza.example&quot;,
+    &quot;ToName&quot;: &quot;Rumeysa&quot;
+  }
+]</code></pre>
+<h2 id="platform-getavaliableaddress"><a class="anchor" href="#platform-getavaliableaddress" aria-hidden="true">#</a><code>platform/getAvaliableAddress</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/getAvaliableAddress/</code></p>
+<p>MobileToken öncelikli kontrolü mevcuttur. CountryCode gönderilmediği durumlarda sitenin default country&#39;sine ait adresler getirilmektedir.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>MobileToken</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>CountryCode</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="platform-refreshtoken"><a class="anchor" href="#platform-refreshtoken" aria-hidden="true">#</a><code>platform/refreshToken</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/refreshToken/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="platform-sendimagenotes"><a class="anchor" href="#platform-sendimagenotes" aria-hidden="true">#</a><code>platform/sendImageNotes</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/sendImageNotes/</code></p>
+<p>Üyenin yüklediği resimleri ve sepet ürün bilgilerini yönetici e‑postasına gönderir</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>notes1</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>file</code></td>
+<td>file</td>
+<td>file</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="platform-getcampaigns"><a class="anchor" href="#platform-getcampaigns" aria-hidden="true">#</a><code>platform/getCampaigns</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/getCampaigns/</code></p>
+<p>Oturum açan müşteriye uygun ve mobil uygulamada görünür aktif kampanyaları listeler.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>start</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Sayfalama başlangıç indeksi</td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Sayfa başına kayıt sayısı</td>
+</tr>
+</tbody></table></div>
+<h2 id="platform-getcustomerpoints"><a class="anchor" href="#platform-getcustomerpoints" aria-hidden="true">#</a><code>platform/getCustomerPoints</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/getCustomerPoints/</code></p>
+<p>Müşterinin kendi puan hareketlerini listeler. Müşteri CustomerHash üzerinden zorlanır.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Sayfa başına kayıt sayısı</td>
+</tr>
+<tr>
+<td><code>start</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Sayfalama başlangıç indeksi</td>
+</tr>
+<tr>
+<td><code>f</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>f2</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Allowed operators: startwith,endwith,equal,greater,smaller,between,contain.</td>
+</tr>
+</tbody></table></div>
+<h2 id="platform-sendproductcomment"><a class="anchor" href="#platform-sendproductcomment" aria-hidden="true">#</a><code>platform/sendProductComment</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/sendProductComment/</code></p>
+<p>Ürüne yorum/soru ekler. Yorum sahibi (CustomerId) istek gövdesinden değil CustomerHash üzerinden belirlenir. Ürüne yorum için type:comment, soru için type:question gönderilir.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>image</code></td>
+<td>file</td>
+<td>file</td>
+<td>hayır</td>
+<td>Gerekli lisansa sahip olmalısınız (Ürün yorumlarında resim ekleme).</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>ProductId</code>, <code>Type</code>, <code>Comment</code>, <code>Title</code>, <code>Rate</code>, <code>IsNameDisplayed</code>, <code>ImageUrl</code>, <code>DateTimeStamp</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;ProductId&quot;: &quot;68&quot;,
+    &quot;Type&quot;: &quot;comment&quot;,
+    &quot;Comment&quot;: &quot;test message&quot;,
+    &quot;Title&quot;: &quot;test title&quot;,
+    &quot;Rate&quot;: &quot;3&quot;,
+    &quot;IsNameDisplayed&quot;: &quot;&quot;,
+    &quot;ImageUrl&quot;: &quot;&quot;,
+    &quot;DateTimeStamp&quot;: &quot;&quot;
+  }
+]</code></pre>
+<h2 id="platform-getaddressfields"><a class="anchor" href="#platform-getaddressfields" aria-hidden="true">#</a><code>platform/getAddressFields</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/getAddressFields/</code></p>
+<p>Adres formu alanlarını döner.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="platform-getsubscriptions"><a class="anchor" href="#platform-getsubscriptions" aria-hidden="true">#</a><code>platform/getSubscriptions</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/getSubscriptions/</code></p>
+<p>Müşterinin abonelik siparişlerini listeler.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>start</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Sayfalama başlangıç indeksi</td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Sayfa başına kayıt sayısı</td>
+</tr>
+</tbody></table></div>
+<h2 id="platform-getticketdetails"><a class="anchor" href="#platform-getticketdetails" aria-hidden="true">#</a><code>platform/getTicketDetails</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/getTicketDetails/</code></p>
+<p>Müşterinin kendi talebinin (ticket) detayını döner. Talep müşteriye ait değilse bilgi sızdırmamak için &#39;kayıt bulunamadı&#39; yanıtı verilir.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>TicketId</code></td>
+<td>url_param</td>
+<td>int</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="platform-getticketdepartments"><a class="anchor" href="#platform-getticketdepartments" aria-hidden="true">#</a><code>platform/getTicketDepartments</code></h2>
+<p><code>POST https://magaza.example/rest1/platform/getTicketDepartments/</code></p>
+<p>Talep departmanlarını listeler.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerHash</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Platform</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+
+</article>
+<nav class="pager" aria-label="Sayfa geçişi"><a class="prev" href="/rest/mobile/"><span>← Önceki</span>Mobile</a><a class="next" href="/rest/cargo/"><span>Sonraki →</span>Cargo</a></nav>
+<footer class="page-foot"><a href="https://github.com/bahadirdogru/tsoft-documentation-examples/edit/main/content/rest/platform.md">GitHub'da düzenle</a> · <a href="/rest/platform.md">Markdown</a> · <a href="/llms.txt">llms.txt</a> · Topluluk belgesidir, T-Soft’un resmî yayını değildir.</footer>
+</main>
+<nav class="toc" aria-label="Bu sayfada"><div class="toc-title">Bu sayfada</div><ul><li class="l2"><a href="#platform-login">platform/login</a></li><li class="l2"><a href="#platform-sociallogin">platform/socialLogin</a></li><li class="l2"><a href="#platform-connectlinker">platform/connectLinker</a></li><li class="l2"><a href="#platform-personalizationsendimage">platform/personalizationSendImage</a></li><li class="l2"><a href="#platform-updateorderstatusas">platform/updateOrderStatusAs</a></li><li class="l2"><a href="#platform-reorder">platform/reorder</a></li><li class="l2"><a href="#platform-ordertracking">platform/orderTracking</a></li><li class="l2"><a href="#platform-getsubscribelist">platform/getSubscribeList</a></li><li class="l2"><a href="#platform-getcustomer">platform/getCustomer</a></li><li class="l2"><a href="#platform-getorders">platform/getOrders</a></li><li class="l2"><a href="#platform-ordertracking-2">platform/orderTracking</a></li><li class="l2"><a href="#platform-deletecustomer">platform/deleteCustomer</a></li><li class="l2"><a href="#platform-setcustomer">platform/setCustomer</a></li><li class="l2"><a href="#platform-getfavoritelist">platform/getFavoriteList</a></li><li class="l2"><a href="#platform-addtofavoritelist">platform/addToFavoriteList</a></li><li class="l2"><a href="#platform-deletefromfavoritelist">platform/deleteFromFavoriteList</a></li><li class="l2"><a href="#platform-getalarmlist">platform/getAlarmList</a></li><li class="l2"><a href="#platform-addalarm">platform/addAlarm</a></li><li class="l2"><a href="#platform-deletealarm">platform/deleteAlarm</a></li><li class="l2"><a href="#platform-getaddress">platform/getAddress</a></li><li class="l2"><a href="#platform-setaddress">platform/setAddress</a></li><li class="l2"><a href="#platform-setorderaddress">platform/setOrderAddress</a></li><li class="l2"><a href="#platform-deleteaddress">platform/deleteAddress</a></li><li class="l2"><a href="#platform-getorderreturn">platform/getOrderReturn</a></li><li class="l2"><a href="#platform-setorderreturn">platform/setOrderReturn</a></li><li class="l2"><a href="#platform-getreturnpickdates">platform/getReturnPickDates</a></li><li class="l2"><a href="#platform-setlocation">platform/setLocation</a></li><li class="l2"><a href="#platform-availabledeliverytimes">platform/availableDeliveryTimes</a></li><li class="l2"><a href="#platform-setdeliverytime">platform/setDeliveryTime</a></li><li class="l2"><a href="#platform-getcouponlist">platform/getCouponList</a></li><li class="l2"><a href="#platform-addtocart">platform/addToCart</a></li><li class="l2"><a href="#platform-getcart">platform/getCart</a></li><li class="l2"><a href="#platform-removeall-alpha">platform/removeAll (alpha)</a></li><li class="l2"><a href="#platform-removeitems-alpha">platform/removeItems (alpha)</a></li><li class="l2"><a href="#platform-selectcampaign-alpha">platform/selectCampaign (alpha)</a></li><li class="l2"><a href="#platform-setcouponcode-alpha">platform/setCouponCode (alpha)</a></li><li class="l2"><a href="#platform-productrecommend">platform/productRecommend</a></li><li class="l2"><a href="#platform-getavaliableaddress">platform/getAvaliableAddress</a></li><li class="l2"><a href="#platform-refreshtoken">platform/refreshToken</a></li><li class="l2"><a href="#platform-sendimagenotes">platform/sendImageNotes</a></li><li class="l2"><a href="#platform-getcampaigns">platform/getCampaigns</a></li><li class="l2"><a href="#platform-getcustomerpoints">platform/getCustomerPoints</a></li><li class="l2"><a href="#platform-sendproductcomment">platform/sendProductComment</a></li><li class="l2"><a href="#platform-getaddressfields">platform/getAddressFields</a></li><li class="l2"><a href="#platform-getsubscriptions">platform/getSubscriptions</a></li><li class="l2"><a href="#platform-getticketdetails">platform/getTicketDetails</a></li><li class="l2"><a href="#platform-getticketdepartments">platform/getTicketDepartments</a></li></ul></nav>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/twig.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/http.min.js"></script>
+<script src="/assets/site.js"></script>
+</body>
+</html>

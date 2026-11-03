@@ -176,8 +176,8 @@
                                 </div>
                                 <div class="manager-content" style="display: flex; align-items: center; padding: 10px;">
                                     <div class="manager-details" style="flex: 1;">
-                                         <p style="margin: 5px 0;"><strong>Ad Soyad:</strong> <span id="rep_name">Damla Yayınevi</span></p>
-                                        <p style="margin: 5px 0;"><strong>Telefon:</strong> <span id="rep_phone">02125142828</span></p>
+                                         <p style="margin: 5px 0;"><strong>Ad Soyad:</strong> <span id="rep_name">Genel Merkez</span></p>
+                                        <p style="margin: 5px 0;"><strong>Telefon:</strong> <span id="rep_phone">02120000000</span></p>
                                         <p style="margin: 5px 0;"><strong>E-mail:</strong> <span id="rep_email">ornek@magaza.example</span></p>
                                     </div>
                                     <div class="manager-photo" style="margin-left: 10px;">

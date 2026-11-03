@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Genel bakış · T-Soft Dokümantasyonu</title>
+<meta name="description" content="Ortak kurallar, canlı çağrı notları, Postman, modül özeti">
+<link rel="canonical" href="https://tsoft.bahadirdogru.com/rest/">
+<link rel="alternate" type="text/markdown" href="/rest.md" title="Markdown">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%231f6feb%22%2F%3E%3Cpath%20d%3D%22M8%209h16v3.2h-6.4V23h-3.2V12.2H8z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E">
+<meta property="og:title" content="Genel bakış">
+<meta property="og:description" content="Ortak kurallar, canlı çağrı notları, Postman, modül özeti">
+<meta property="og:url" content="https://tsoft.bahadirdogru.com/rest/">
+<meta property="og:type" content="website">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" media="(prefers-color-scheme: light)" id="hl-light">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" media="(prefers-color-scheme: dark)" id="hl-dark">
+</head>
+<body>
+<a class="skip" href="#main">İçeriğe geç</a>
+<header class="top">
+  <button class="menu-btn" aria-label="Menü" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="/"><svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><path d="M8 9h16v3.2h-6.4V23h-3.2V12.2H8z" fill="var(--bg)"/></svg><span>T-Soft Dokümantasyonu</span></a>
+  <div class="search">
+    <input id="q" type="search" placeholder="Ara: metot, uç, değişken, sayfa…  ( / )" autocomplete="off" aria-label="Ara">
+    <ul id="results" role="listbox" hidden></ul>
+  </div>
+  <button class="theme-btn" aria-label="Tema değiştir" title="Tema değiştir">◐</button>
+</header>
+<div class="layout">
+<aside id="sidebar" class="sidebar"><details class="nav-sec" open><summary>Başlangıç <span class="count">3</span></summary><ul><li><a href="/">Ana sayfa</a></li><li><a href="/rehber/">Hangi yüzey?</a></li><li><a href="/llm/">LLM ve ajanlar için</a></li></ul></details><details class="nav-sec" open><summary>Platform <span class="count">4</span></summary><ul><li><a href="/developer/">Platform haritası</a></li><li><a href="/developer/baslarken/">Başlarken</a></li><li><a href="/developer/uygulama/">Uygulama geliştirme</a></li><li><a href="/developer/storefront-api/">Storefront API</a></li></ul></details><details class="nav-sec" open><summary>Tema <span class="count">2</span></summary><ul><li><a href="/developer/tema/">Tema motoru (Twig)</a></li><li><a href="/theme/">Eski tema (Smarty)</a></li></ul></details><details class="nav-sec" open><summary>REST1 <span class="count">2</span></summary><ul><li><a href="/rest/" aria-current="page">Genel bakış</a></li><li><a href="/rest/hatalar/">Hatalar ve mesaj kodları</a></li></ul></details><details class="nav-sec"><summary>REST1 modülleri <span class="count">38</span></summary><ul><li><a href="/rest/auth/">Auth</a></li><li><a href="/rest/customer/">Customer</a></li><li><a href="/rest/product/">Product</a></li><li><a href="/rest/subproduct/">SubProduct</a></li><li><a href="/rest/category/">Category</a></li><li><a href="/rest/brand/">Brand</a></li><li><a href="/rest/model/">Model</a></li><li><a href="/rest/filter/">Filter</a></li><li><a href="/rest/catalog/">Catalog</a></li><li><a href="/rest/order/">Order</a></li><li><a href="/rest/order2/">Order2</a></li><li><a href="/rest/cart/">Cart</a></li><li><a href="/rest/campaign/">Campaign</a></li><li><a href="/rest/payment/">Payment</a></li><li><a href="/rest/fundmovement/">FundMovement</a></li><li><a href="/rest/point/">Point</a></li><li><a href="/rest/segment/">Segment</a></li><li><a href="/rest/supplier/">Supplier</a></li><li><a href="/rest/branchoffice/">BranchOffice</a></li><li><a href="/rest/content/">Content</a></li><li><a href="/rest/news/">News</a></li><li><a href="/rest/showcase/">Showcase</a></li><li><a href="/rest/htmlblock/">HtmlBlock</a></li><li><a href="/rest/widget/">Widget</a></li><li><a href="/rest/link/">Link</a></li><li><a href="/rest/personalization/">Personalization</a></li><li><a href="/rest/trackingcode/">TrackingCode</a></li><li><a href="/rest/ticket/">Ticket</a></li><li><a href="/rest/user/">User</a></li><li><a href="/rest/setting/">Setting</a></li><li><a href="/rest/notification/">Notification</a></li><li><a href="/rest/mobile/">Mobile</a></li><li><a href="/rest/platform/">Platform</a></li><li><a href="/rest/cargo/">Cargo</a></li><li><a href="/rest/adapter/">Adapter</a></li><li><a href="/rest/hopi/">Hopi</a></li><li><a href="/rest/zubizu/">Zubizu</a></li><li><a href="/rest/routing/">Routing</a></li></ul></details><details class="nav-sec" open><summary>Admin API v3 <span class="count">3</span></summary><ul><li><a href="/admin-api/">Genel bakış</a></li><li><a href="/admin-api/uclar/">Uç listesi</a></li><li><a href="/admin-api/odeme-bildirimi/">Ödeme bildirimi</a></li></ul></details><details class="nav-sec"><summary>Örnek kod <span class="count">5</span></summary><ul><li><a href="/examples/python/tsoft_client/">Python istemci</a></li><li><a href="/examples/python/add_customer/">Üye ekleme</a></li><li><a href="/examples/python/check_group_price/">Grup fiyatı</a></li><li><a href="/examples/python/env/">Ortam değişkenleri</a></li><li><a href="/examples/apps-script/code/">Apps Script</a></li></ul></details><details class="nav-sec"><summary>Eski tema blokları <span class="count">18</span></summary><ul><li><a href="/theme/bloklar/ust/">Üst blok</a></li><li><a href="/theme/bloklar/alt/">Alt blok</a></li><li><a href="/theme/bloklar/yeni-urunler/">Yeni ürünler</a></li><li><a href="/theme/bloklar/kategori-menusu/">Kategori menüsü</a></li><li><a href="/theme/bloklar/kategori-listesi/">Kategori listesi</a></li><li><a href="/theme/bloklar/home-banner/">Ana sayfa banner</a></li><li><a href="/theme/bloklar/home-sale/">Ana sayfa indirim</a></li><li><a href="/theme/bloklar/haberler/">Haberler</a></li><li><a href="/theme/bloklar/benzer-urunler/">Benzer ürünler</a></li><li><a href="/theme/bloklar/model-listesi/">Model listesi</a></li><li><a href="/theme/bloklar/marka-listesi/">Marka listesi</a></li><li><a href="/theme/bloklar/parca-toplama-sihirbazi/">Parça toplama sihirbazı</a></li><li><a href="/theme/bloklar/tedarikci-listesi/">Tedarikçi listesi</a></li><li><a href="/theme/bloklar/firsat-urunleri/">Fırsat ürünleri</a></li><li><a href="/theme/bloklar/ayin-yazari/">Ayın yazarı</a></li><li><a href="/theme/bloklar/gelecek-firsat-urun-listesi/">Gelecek fırsatlar</a></li><li><a href="/theme/bloklar/sss/">SSS</a></li><li><a href="/theme/bloklar/gorsel-vitrin/">Görsel vitrin</a></li></ul></details><details class="nav-sec"><summary>Eski tema değişkenleri <span class="count">5</span></summary><ul><li><a href="/theme/degiskenler/tsoft-product-varriables/">Ürün değişkenleri</a></li><li><a href="/theme/degiskenler/tsoft-header-page-links-varriable/">Sayfa linkleri</a></li><li><a href="/theme/degiskenler/tsoft-header-tabs-varriable/">Üst sekmeler</a></li><li><a href="/theme/degiskenler/tsoft-footer-menu-varriables/">Alt menü</a></li><li><a href="/theme/degiskenler/tsoft-left-right-category-varriables/">Sol ve sağ kategori</a></li></ul></details><details class="nav-sec"><summary>Eski tema şablonları <span class="count">5</span></summary><ul><li><a href="/theme/snippets/bayi-mi-degil-mi/">Bayi hesabı koşulu</a></li><li><a href="/theme/orta/user_bayipanel/">Bayi paneli</a></li><li><a href="/theme/orta/user_bayigirisplasiyer/">Bayi giriş plasiyer</a></li><li><a href="/theme/orta/user_v4tpl/">V4 şablon</a></li><li><a href="/theme/UstAlt/user_tasarimyenimenu/">Tasarım yeni menü</a></li></ul></details></aside>
+<main id="main" class="content">
+<nav class="crumbs" aria-label="Konum"><a href="/">Ana sayfa</a> <span>/</span> <span class="grp">REST1</span></nav>
+<article>
+<h1 id="rest1-web-servisi"><a class="anchor" href="#rest1-web-servisi" aria-hidden="true">#</a>REST1 web servisi</h1>
+<p>Kaynaklar:</p>
+<ul>
+<li>Konsol kataloğu: <code>https://magaza.example/rest1/console</code>, <code>POST /rest1/ConsoleHelper/getApiDetails/tr</code> (19 Ekim 2026). 38 modül, 428 metot.</li>
+<li>Postman koleksiyonu: <a href="https://documenter.getpostman.com/view/426050/2sBYHSygRy" rel="noopener" target="_blank">Tsoft</a> (yayın 19 Ekim 2026). Açıklaması: olması gereken restapi kullanımı. 19 istek var. Kayıtlı örnek yanıt yok.</li>
+</ul>
+<p>Bu dosya konsolun yayınladığı istek şemasını yazar. Konsol yanıt gövdesi vermiyorsa yanıt alanı uydurulmamıştır. Postman bölümü koleksiyondaki istek gövdelerini aktarır. 20 Ekim 2026 çağrıları aşağıda ayrı durur; o notlar bu mağazada görülen yanıttır. Genel T-Soft PDF’i bu mağazadaki <code>Cart</code> sınıfını ve <code>customer/login</code> metodunu içermez.</p>
+<p>Vitrin istemcisi ayrı bir yüzeydir. 20 Ekim 2026’da <a href="https://developer.tsoft.com.tr/storefront-api/genel-bakis" rel="noopener" target="_blank">Storefront API</a> yolu <code>https://&lt;domain&gt;/api/v3/storefront/2026-01</code> dir. Bu depodaki özet <a href="/developer/storefront-api/">Storefront API</a> dosyasındadır. Admin API, uygulama platformu ve tema servisleri aynı tarihte geliştirici sitesinde 404 döner.</p>
+<h2 id="ortak-kurallar"><a class="anchor" href="#ortak-kurallar" aria-hidden="true">#</a>Ortak kurallar</h2>
+<ul>
+<li>Taban adres: <code>https://magaza.example/rest1/{modul}/{metot}/</code></li>
+<li><code>auth/login</code> yolu kullanıcı adını URL’ye koyar: <code>POST /rest1/auth/login/{user}</code> ve gövdede <code>pass</code>. Dönüşte <code>token</code>, <code>secretKey</code>, <code>expirationTime</code> beklenir; süre <code>expirationTime</code> ile sınırlıdır.</li>
+<li>Diğer metotlar web servis <code>token</code> değerini ister. Katalogdaki parametre listesinde <code>token</code> çoğu zaman ayrıca yazılmaz; konsol arayüzü onu her isteğe ekler.</li>
+<li>Yazma metotlarında asıl kayıt <code>data</code> içindedir ve JSON dizisidir.</li>
+<li><code>url_param</code> tarzındaki alanlar yolun sonuna eklenir. <code>query</code> alanları POST veya GET gövdesindedir. Postman koleksiyonu bunları <code>multipart/form-data</code> alanları olarak gönderir. <code>data</code> alanı JSON dizi metnidir. <code>token</code> aynı gövdede ayrı alandır.</li>
+<li>Listeleme metotlarında sık görülen süzgeçler: <code>start</code>, <code>limit</code>, <code>columns</code>, <code>orderby</code>, <code>f</code>, <code>f2</code>. <code>f</code> / <code>f2</code> operatörleri: <code>startwith</code>, <code>endwith</code>, <code>equal</code>, <code>greater</code>, <code>smaller</code>, <code>between</code>, <code>contain</code>. Örnek: <code>Email | ornek@magaza.example | equal</code>.</li>
+<li><code>alpha</code> ve <code>beta</code> konsolun olgunluk işaretidir. <code>yalnız destek kullanıcısı</code> olan metotlar normal web servis kullanıcısının menüsünde gizlenir (<code>supportUser = 1</code>).</li>
+<li>IP kısıtı, metot yetkisi ve lisans (örneğin telefonla üyelik) paneldeki web servis kullanıcısına bağlıdır. Katalogda olması, bu kullanıcının çağırabileceği anlamına gelmez.</li>
+<li>İstek <code>application/x-www-form-urlencoded</code> gövdesiyle geçti. <code>User-Agent</code> başlığı yokken Cloudflare HTTP 403 ve gövde <code>error code: 1010</code> döndü. Tarayıcı <code>User-Agent</code> ile aynı çağrı geçti.</li>
+<li>Ortak zarf: <code>success</code>, <code>data</code>, <code>message</code>, bazen <code>summary</code>. <code>message</code> dizi olur. Öğe alanları <code>type</code>, <code>code</code>, <code>index</code>, <code>id</code>, <code>subid</code>, <code>text</code>, <code>errorField</code>. <code>text</code> dizi olur. <code>type</code> 1 başarı, <code>type</code> 2 hatadır. <code>summary.totalRecordCount</code> kayıt sayısını string tutar.</li>
+<li><code>success: true</code> ve <code>data: null</code> boş sonuçtur. Kayıt bulunamadı anlamına gelir; işlem hatası değildir.</li>
+</ul>
+<h2 id="20-ekim-2026-canlı-çağrı"><a class="anchor" href="#20-ekim-2026-canlı-çağrı" aria-hidden="true">#</a>20 Ekim 2026 canlı çağrı</h2>
+<p>Öğretmen aktarımı ve yüzde 35 grup fiyatı bu mağazada çağrıldı. Parola ve token buraya yazılmadı.</p>
+<ul>
+<li><code>auth/login</code> form alanı <code>pass</code>. Dönüş <code>data[0]</code> içinde <code>userId</code>, <code>username</code>, <code>token</code>, <code>secretKey</code>, <code>expirationTime</code>, <code>limited</code>, <code>type</code>, <code>tableId</code>. Mesaj kodu <code>AUI001</code>, metin <code>Giriş yapıldı!</code>. <code>expirationTime</code> biçimi <code>GG-AA-YYYY SS:DD:SS</code>. 20 Ekim 2026 01:46 girişinin süresi 21 Ekim 2026 01:46 idi.</li>
+<li><code>customer/getCustomerGroups</code> yalnız <code>token</code> ile döndü. Satır alanları <code>Id</code>, <code>Code</code>, <code>Name</code>, <code>IsVendor</code>. <code>ogretmenler</code> satırı <code>Id</code> <code>17</code>, <code>Name</code> <code>[Öğretmenler]</code>, <code>IsVendor</code> <code>1</code>. Mesaj kodu <code>GNI001</code>.</li>
+<li><code>customer/getCustomers</code> süzgeci <code>Email | adres | equal</code> bilinen üyeyi döndürür. <code>f</code> alanı <code>CustomerGroupCode</code> olunca yanıt <code>Field CustomerGroupCode not found.</code> Grup listesi <code>CustomerGroupId | 17 | equal</code> ile geldi; <code>summary.totalRecordCount</code> <code>1362</code> idi. <code>FetchCustomerGroup=true</code> kayıtta <code>CustomerGroupCode</code>, <code>CustomerGroupId</code> ve <code>CustomerGroup</code> nesnesini doldurur. Tam kayıtta <code>Password</code> de vardır; <code>columns</code> ile dışarıda bırakılır.</li>
+<li><code>customer/addCustomers</code> 10 haneli <code>5xxxxxxxxx</code> cep numarasını kabul etti. <code>CustomerGroupCode</code> <code>ogretmenler</code> okumada duruyordu. <code>Field2</code>, <code>Field3</code>, <code>Field4</code> yazıldığı gibi durdu. <code>Field1</code> boş kaldı. <code>Approval</code> metin <code>true</code> idi. Başarı kodu <code>CUI002</code>, metin <code>Müşteri başarıyla oluşturuldu!</code>. <code>message.id</code> müşteri kodu, <code>data</code> içinde <code>CustomerId</code> ve <code>MobileToken</code> var.</li>
+<li>Aynı e-posta varsa <code>addCustomers</code> güncellemez. Hata metni <code>Sistemde bu Email ile kayıt mevcut!</code> ve gerekirse <code>Sistemde bu CustomerCode ile kayıt mevcut!</code>. <code>errorField</code> <code>Email</code> ve <code>CustomerCode</code> olur. Kırk kayıtlık partide <code>success</code> false olsa da <code>CUI002</code> alan satırlar açılmış kaldı; parti geri alınmadı.</li>
+<li>Ziyaretçi grubundaki altı e-posta (<code>CustomerGroupCode</code> <code>TZ0</code>, kodlar <code>T1001</code>, <code>T1006</code>, <code>T1002</code>, <code>T1003</code>, <code>T1004</code>, <code>T1005</code>) <code>addCustomers</code> ile gruba geçmedi. E-posta süzgeci o turda onları döndürmedi. Boş süzgeç, adresin boş olduğu anlamına gelmez. Aynı gece <code>setCustomers</code> mevcut <code>T</code> koduyla çağrıldı. Gövde <code>CustomerGroupCode</code> <code>ogretmenler</code>, <code>CompanyName</code>, <code>Field2</code>, <code>Field3</code>, <code>Field4</code> taşıdı. Altısı da <code>ogretmenler</code> oldu. Ad, e-posta ve cep değişmedi. Başarı kodu <code>CUI001</code>, metin <code>Müşteri başarıyla güncellendi!</code>.</li>
+<li><code>customer/setCustomers</code> gövdesi yalnız <code>CustomerCode</code> ve <code>CustomerGroupCode</code> iken yedi üyenin grubu <code>ogretmenler</code> oldu. İlk okumada ad, e-posta, cep ve firma aynı kaldı. Güncelleme kodu <code>CUI001</code>, oluşturma kodu <code>CUI002</code> dir.</li>
+<li><code>product/updateCustomerGroupPrice</code> gövdesi <code>DiscountType</code> <code>1</code>, <code>Percentage</code> <code>-35</code>, <code>IsVisible</code> false, <code>CustomerGroupCode</code> <code>ogretmenler</code>. Başarı kodu <code>PRI019</code>. <code>message.id</code> ürün kodu, <code>subid</code> grup kodu. 1089 ürün yazıldı.</li>
+<li>Grup fiyatı <code>product/get</code> ile okunur: <code>CustomerGroupCode=ogretmenler</code> ve <code>FetchDiscountedPriceDetail=true</code>. <code>SellingPrice</code> raf fiyatı kalır. Grup satırı <code>DiscountedPrices</code> içindedir: <code>DiscountedPrice</code>, <code>DiscountedPriceVatIncluded</code>, <code>DiscountPercent</code> <code>-35</code>, <code>PriceType</code> <code>1</code>, <code>PriceTypeDescription</code> <code>Satis Üzerinden %</code>. Örnek: <code>ORNEK-001</code> raf <code>85</code>, grup <code>55.25</code>. Raf fiyatı <code>0</code> olan <code>ORNEK-002</code> için yüzde tabanı yoktu. Diğer 1088 ürün yüzde 35 ile uyuştu.</li>
+</ul>
+<h2 id="öğretmen-senkronu-için-kullanılan-ve-bilinçli-bırakılan-uçlar"><a class="anchor" href="#öğretmen-senkronu-için-kullanılan-ve-bilinçli-bırakılan-uçlar" aria-hidden="true">#</a>Öğretmen senkronu için kullanılan ve bilinçli bırakılan uçlar</h2>
+<p>Başvuru sayfası sütunları: <code>basvuru_id</code>, <code>gonderim_zamani</code>, <code>ad</code>, <code>soyad</code>, <code>okul_adi</code>, <code>il</code>, <code>ilce</code>, <code>branslar</code>, <code>siniflar</code>, <code>telefon</code>, <code>eposta</code>, <code>whatsapp</code>, <code>instagram</code>, <code>x_hesabi</code>, <code>kvkk_onay</code>, <code>kaynak_url</code>, <code>user_agent</code>. Dolu başvuru 1610 satırdır. 984 satır boştur. 127 e-posta mükerrerdir.</p>
+<h3 id="üye-yazma"><a class="anchor" href="#üye-yazma" aria-hidden="true">#</a>Üye yazma</h3>
+<p><code>POST /rest1/customer/setCustomers/</code> e-posta ile tek çağrıda ekler veya günceller.</p>
+<ul>
+<li><code>MatchWithEmail=true</code> ve <code>CustomerCode</code> gönderilmeden: e-posta kayıtlıysa günceller, değilse ekler.</li>
+<li><code>MatchWithMobile=true</code> aynı işi <code>Mobile</code> ile yapar.</li>
+<li><code>SearchInArchive=true</code> arşivdeki üyeyi de arar.</li>
+<li><code>SendPasswordResetEmail=true</code> üyeye şifre sıfırlama e-postası gönderir. Öğretmen senkronu bunu göndermez.</li>
+<li><code>data</code> alanları arasında <code>CustomerCode</code>, <code>Name</code>, <code>Surname</code>, <code>Email</code>, <code>Password</code>, <code>Phone</code>, <code>Mobile</code>, <code>City</code>, <code>Town</code>, <code>CompanyName</code>, <code>Field1</code>–<code>Field15</code>, <code>Approval</code>, <code>CustomerGroupCode</code> vardır. Bildirim alanları <code>IsEmailNotificationOn</code>, <code>IsSmsNotificationOn</code>, <code>IsPhoneCallNotificationOn</code> ayrıdır; KVKK onayı pazarlama izni sayılmaz.</li>
+<li><code>POST /rest1/customer/addCustomers/</code> yalnız oluşturur. <code>SendPasswordResetEmail</code> burada da vardır.</li>
+<li><code>POST /rest1/customer/getCustomerGroups/</code> grupları listeler. <code>f</code> ile ada göre süzülür. Öğretmenler grubunun web servis kodu grup adının kendisi olmayabilir.</li>
+<li><code>POST /rest1/customer/setCustomerGroups/</code> grup yazar. Örnek alanlar: <code>Code</code>, <code>Name</code>, <code>IsVendor</code>.</li>
+</ul>
+<p>Senkron eşlemesi: <code>CustomerCode</code> = <code>basvuru_id</code>, <code>Name</code> / <code>Surname</code> = <code>ad</code> / <code>soyad</code>, <code>Email</code> = <code>eposta</code>, <code>Mobile</code> = normalize telefon, <code>CompanyName</code> = <code>okul_adi</code>, <code>City</code> / <code>Town</code> = <code>il</code> / <code>ilce</code>, <code>Field1</code> = <code>branslar</code>, <code>Field2</code> = <code>siniflar</code>, <code>CustomerGroupCode</code> = Öğretmenler web servis kodu, <code>Approval</code> = true. Sosyal hesaplar ve <code>user_agent</code> gitmez. Yeni üyede rastgele parola üretilir ve sayfaya yazılmaz. Kayıtlı e-postada parola gönderilmez.</p>
+<p>Postman koleksiyonu B2B üyeyi <code>f=Field1||notequal</code>, B2C üyeyi <code>f=Field1||equal</code> ile ayırır. <code>Field1</code> branşla doldurulursa o üye B2B süzgecine girer.</p>
+<h3 id="giriş-linki"><a class="anchor" href="#giriş-linki" aria-hidden="true">#</a>Giriş linki</h3>
+<p><code>POST /rest1/customer/login</code> parola istemez. <code>customerId</code> veya <code>customerCode</code> zorunludur, <code>loginRedirectUrl</code> opsiyoneldir. Konsol açıklaması: &quot;Customer ID veya Code alanlarından birinin doldurulması zorunludur.&quot; Yanıtta dönen alanın adı ve linkin ömrü katalogda yoktur; sheet’e link yazmadan önce token ile tek deneme gerekir.</p>
+<p>Aynı kalıp panel içindir: <code>POST /rest1/user/loginAsPanelAdmin</code> (<code>AdminId</code> veya <code>AdminCode</code>, <code>RedirectUrl</code>). Bu vitrin üyesi açmaz.</p>
+<p><code>customer/check</code> e-posta veya telefon artı parola ister ve kayıt varsa döner. <code>customer/forgotPassword</code> sıfırlama bağlantısını e-posta ile gönderir; bağlantının kendisini API döndürmez. Telefonda, lisans varsa, 6 haneli kod gider. <code>customer/forgotPasswordOtpReset</code> o kod ve yeni parola ile şifreyi değiştirir; açıklamasına göre başarılı işlemde oturum açılmaz.</p>
+<p><code>platform/login</code> platform uygulamaları içindir (<code>Email</code>, <code>Platform</code>, <code>Password</code>, isteğe bağlı <code>LoginType=otp</code>). <code>platform/connectLinker</code> <code>CustomerHash</code> ve <code>RedirectUrl</code> alır. İkisi de web servisten toplu öğretmen linki üretmek için katalogda anlatılmamıştır.</p>
+<h3 id="sepet"><a class="anchor" href="#sepet" aria-hidden="true">#</a>Sepet</h3>
+<p><code>cart/*</code> metotları alpha’dır.</p>
+<ul>
+<li><code>cart/addToCart</code> gövdesi <code>data</code> dizisidir. Örnek satır alanları: <code>customer_id</code>, <code>cart_index</code>, <code>product_id</code>, <code>variant_id</code>, <code>count</code>, <code>personalization</code>. Yeni satırda <code>cart_index</code> <code>-1</code> gönderilir. <code>new=true</code> iken güncelleme <code>product_id</code> ile birlikte <code>cart_index</code> ister ve <code>count</code> sepetteki güncel adettir.</li>
+<li><code>cart/getCart</code> yol parametresi <code>customer_id</code>. İsteğe bağlı: <code>new</code>, <code>mobile_app</code>, <code>fetch_product_detail</code>, <code>fetch_installment_list</code>, <code>image_limit</code>.</li>
+<li><code>cart/removeAll</code> yol parametresi <code>customer_id</code>. <code>cart/removeItems</code> <code>data</code> ister.</li>
+<li><code>cart/getAll</code> <code>UpdateDate</code> ve <code>Email</code> ile sepetleri listeler ve yalnız destek kullanıcısına açıktır.</li>
+<li><code>customer/getCart</code> başka bir okuma ucudur: <code>CustomerCode</code>, <code>ProductCode</code> ve liste süzgeçleri.</li>
+<li><code>link/setLinks</code> SEO alanlarıdır (<code>Type</code>, <code>TableId</code>, <code>Language</code>, <code>Title</code>, sitemap ve canonical). <code>link/setReferralLinks</code> örneği <code>Link</code> ve <code>RedirectLink</code> taşır. İkisi de üye sepeti linki değildir.</li>
+</ul>
+<p>Üye başına kalıcı sepet URL’si katalogda yoktur. Doğrulanırsa birleşik kullanım: <code>cart/addToCart</code> ile ürün yaz, ardından <code>customer/login</code> ve <code>loginRedirectUrl</code> olarak sepet yolu ver. Ürün kimliği sayısal <code>product_id</code> ister.</p>
+<p><code>order2/createOrders</code> sepet değil sipariş açar. İsteğe bağlı <code>PaymentUrlFetch</code>, <code>PaymentUrlSendEmail</code>, <code>PaymentUrlSendSms</code> vardır. Yanıt şekli katalogda yoktur.</p>
+<h2 id="postman-koleksiyonu"><a class="anchor" href="#postman-koleksiyonu" aria-hidden="true">#</a>Postman koleksiyonu</h2>
+<p>Kaynak: <a href="https://documenter.getpostman.com/view/426050/2sBYHSygRy" rel="noopener" target="_blank">Tsoft</a>. Mağaza tabanı <code>https://magaza.example/rest1</code>. Değişkenler: <code>user_name</code>, <code>user_password</code>, <code>token</code>, <code>tendaysago</code>, <code>currentdate</code>. Koleksiyondaki parola ve T.C. kimlik numarası buraya yazılmadı.</p>
+<p>Üç isteğin adı ile URL’si uyuşmuyor. Gövde istek adının anlattığı işi taşır; adres başka metoda gider:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>İstek adı</th>
+<th>Gittiği uç</th>
+<th>Not</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>getProducts</code></td>
+<td><code>product/setProducts</code></td>
+<td><code>setProducts</code> ile aynı <code>data</code>. Okuma ucu <code>product/getProducts</code>.</td>
+</tr>
+<tr>
+<td><code>getProductsCount</code></td>
+<td><code>product/setProducts</code></td>
+<td>Aynı gövde. Sayım ucu <code>product/getProductTotal</code>; konsol ek parametre listelemiyor.</td>
+</tr>
+<tr>
+<td><code>setCustomerGroups</code></td>
+<td><code>customer/setCustomers</code></td>
+<td>Grup kartı yazmaz. Üyenin vergi, firma ve grup alanlarını günceller. <code>data</code> metninde <code>RepresentativeCode</code> satırından sonra fazladan virgül var. Grup kartı ucu <code>customer/setCustomerGroups</code>.</td>
+</tr>
+</tbody></table></div>
+<h3 id="login"><a class="anchor" href="#login" aria-hidden="true">#</a><code>login</code></h3>
+<p><code>POST /rest1/auth/login/{{user_name}}</code>. Form alanı: <code>pass={{user_password}}</code>.</p>
+<h3 id="setcustomer"><a class="anchor" href="#setcustomer" aria-hidden="true">#</a><code>setCustomer</code></h3>
+<p><code>POST /rest1/customer/setCustomers</code>. Form alanları: <code>token</code>, <code>data</code>. Konsol örnek listesinde olmayan alan: <code>CustomerType</code> (<code>KURUMSAL</code>). Dolu örnekteki grup kodu <code>00</code>, temsilci kodu <code>ABD</code>, <code>Credibility</code> <code>1000</code>, <code>Country</code> <code>TR</code>, <code>Approval</code> ve bildirim alanları <code>&quot;true&quot;</code> metnidir.</p>
+<pre><code class="language-json">[
+  {
+    &quot;CustomerCode&quot;: &quot;12001-01-BM0007&quot;,
+    &quot;Name&quot;: &quot;BMT AHMET BURAK&quot;,
+    &quot;Surname&quot;: &quot;DOĞRU&quot;,
+    &quot;Email&quot;: &quot;ornek@magaza.example&quot;,
+    &quot;Password&quot;: &quot;&quot;,
+    &quot;Phone&quot;: &quot;05550000000&quot;,
+    &quot;Mobile&quot;: &quot;05550000000&quot;,
+    &quot;OfficePhone&quot;: &quot;02120000000&quot;,
+    &quot;Address&quot;: &quot;SULTANAHMET&quot;,
+    &quot;Postcode&quot;: &quot;34122&quot;,
+    &quot;City&quot;: &quot;ISTANBUL&quot;,
+    &quot;Town&quot;: &quot;FATIH&quot;,
+    &quot;Country&quot;: &quot;TR&quot;,
+    &quot;TaxOffice&quot;: &quot;SAHIS&quot;,
+    &quot;TaxNo&quot;: &quot;&quot;,
+    &quot;CompanyName&quot;: &quot;BMT-AHMET BURAK DOĞRU&quot;,
+    &quot;IdentityNo&quot;: &quot;&quot;,
+    &quot;CustomerType&quot;: &quot;KURUMSAL&quot;,
+    &quot;Field1&quot;: &quot;&quot;,
+    &quot;Field2&quot;: &quot;&quot;,
+    &quot;Field3&quot;: &quot;&quot;,
+    &quot;Field4&quot;: &quot;&quot;,
+    &quot;Field5&quot;: &quot;&quot;,
+    &quot;Field6&quot;: &quot;&quot;,
+    &quot;Field7&quot;: &quot;&quot;,
+    &quot;Field8&quot;: &quot;&quot;,
+    &quot;Field9&quot;: &quot;&quot;,
+    &quot;Field10&quot;: &quot;&quot;,
+    &quot;Field11&quot;: &quot;&quot;,
+    &quot;Field12&quot;: &quot;&quot;,
+    &quot;Field13&quot;: &quot;&quot;,
+    &quot;Field14&quot;: &quot;&quot;,
+    &quot;Field15&quot;: &quot;&quot;,
+    &quot;Approval&quot;: &quot;true&quot;,
+    &quot;IsEmailNotificationOn&quot;: &quot;true&quot;,
+    &quot;IsSmsNotificationOn&quot;: &quot;true&quot;,
+    &quot;IsPhoneCallNotificationOn&quot;: &quot;true&quot;,
+    &quot;CustomerGroupCode&quot;: &quot;00&quot;,
+    &quot;RepresentativeCode&quot;: &quot;ABD&quot;,
+    &quot;Credibility&quot;: &quot;1000&quot;
+  }
+]</code></pre>
+<h3 id="setcredibility"><a class="anchor" href="#setcredibility" aria-hidden="true">#</a><code>setCredibility</code></h3>
+<p>Aynı uç. Yalnız <code>CustomerCode</code> ve <code>Credibility</code> gider. Örnekte ikisi <code>12001-01-BM0007</code> ve <code>1000</code>.</p>
+<h3 id="setcustomergroups-adlı-istek"><a class="anchor" href="#setcustomergroups-adlı-istek" aria-hidden="true">#</a><code>setCustomerGroups</code> adlı istek</h3>
+<p>Aynı uç. Gönderilen alanlar: <code>CustomerCode</code>, <code>TaxOffice</code>, <code>TaxNo</code>, <code>CompanyName</code>, <code>IdentityNo</code>, <code>CustomerType</code>, <code>CustomerGroupCode</code>, <code>RepresentativeCode</code>.</p>
+<h3 id="getcustomersb2b-getcustomersb2c-getcustomersid"><a class="anchor" href="#getcustomersb2b-getcustomersb2c-getcustomersid" aria-hidden="true">#</a><code>getCustomersB2B</code>, <code>getCustomersB2C</code>, <code>getCustomersID</code></h3>
+<p><code>POST /rest1/customer/getCustomers</code>. Üçünde <code>token</code> ve <code>FetchCustomerGroup=true</code>.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>İstek</th>
+<th>Ek alan</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>getCustomersB2B</code></td>
+<td><code>f=Field1||notequal</code></td>
+</tr>
+<tr>
+<td><code>getCustomersB2C</code></td>
+<td><code>f=Field1||equal</code></td>
+</tr>
+<tr>
+<td><code>getCustomersID</code></td>
+<td><code>f=Field1||notequal</code>, <code>columns=CustomerId,CustomerCode,CompanyName</code></td>
+</tr>
+</tbody></table></div>
+<p><code>notequal</code> konsolun <code>f</code> operatör listesinde yoktur. Konsol örneği tek boru ve üç parçadır (<code>alan \| değer \| operatör</code>). Bu üç istek çift boru kullanır ve değer parçasını boş bırakır.</p>
+<h3 id="getcustomergroups"><a class="anchor" href="#getcustomergroups" aria-hidden="true">#</a><code>getCustomerGroups</code></h3>
+<p><code>POST /rest1/customer/getCustomerGroups</code>. Yalnız <code>token</code>.</p>
+<h3 id="setproducts"><a class="anchor" href="#setproducts" aria-hidden="true">#</a><code>setProducts</code></h3>
+<p><code>POST /rest1/product/setProducts</code>. <code>data</code>, konsoldaki <code>T582</code> örneğinin kısa halidir. Konsol alan listesinde olmayan anahtar: <code>SeoKeywords</code> (koleksiyonda boş).</p>
+<h3 id="updatecustomergroupprice"><a class="anchor" href="#updatecustomergroupprice" aria-hidden="true">#</a><code>updateCustomerGroupPrice</code></h3>
+<p><code>POST /rest1/product/updateCustomerGroupPrice</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;ProductCode&quot;: &quot;15201-ICA0001&quot;,
+    &quot;CustomerGroupCode&quot;: &quot;01&quot;,
+    &quot;DiscountType&quot;: &quot;1&quot;,
+    &quot;Percentage&quot;: &quot;-10&quot;,
+    &quot;IsVisible&quot;: true,
+    &quot;OnSale&quot;: true
+  }
+]</code></pre>
+<p><code>DiscountType=1</code> satış fiyatı üzerinden orandır. <code>Percentage</code> negatif olduğu için fiyat düşer.</p>
+<h3 id="getordersb2c-ve-getordersb2b"><a class="anchor" href="#getordersb2c-ve-getordersb2b" aria-hidden="true">#</a><code>getOrdersB2C</code> ve <code>getOrdersB2B</code></h3>
+<p><code>POST /rest1/order2/getOrders</code>. Ortak alanlar: <code>token</code>, <code>OrderDateTimeStart={{tendaysago}}</code>, <code>OrderStatusId=3</code>, <code>FetchCustomerGroupInfo=true</code>, <code>orderby=OrderDate DESC</code>, <code>FetchAdditionalCCNumber=true</code>. <code>UpdateDateTimeStart</code>, <code>UpdateDateTimeEnd</code>, <code>OrderCode</code>, <code>IsTransferred</code>, <code>Archive</code>, <code>CustomerGroupCode</code> boş gönderilir.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>İstek</th>
+<th>Ayrılan alan</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>getOrdersB2C</code></td>
+<td><code>OrderDateTimeEnd={{currentdate}}</code>, <code>IsVendor=false</code></td>
+</tr>
+<tr>
+<td><code>getOrdersB2B</code></td>
+<td><code>OrderDateTimeEnd=2024-05-19</code>, <code>IsVendor=true</code></td>
+</tr>
+</tbody></table></div>
+<h3 id="getorderstatuslist"><a class="anchor" href="#getorderstatuslist" aria-hidden="true">#</a><code>getOrderStatusList</code></h3>
+<p><code>POST /rest1/order2/getOrderStatusList</code>. Koleksiyon <code>data</code> içinde <code>OrderCode</code> (<code>SP08034</code>) gönderir. Konsol bu metot için <code>data</code> listelemez. Konsol alanları adı boş bir sorgu alanı, <code>FetchOrderCount</code> ve <code>FetchWithPassive</code> parametreleridir.</p>
+<h3 id="updateorderstatusascargoready"><a class="anchor" href="#updateorderstatusascargoready" aria-hidden="true">#</a><code>updateOrderStatusAsCargoReady</code></h3>
+<p><code>POST /rest1/order2/updateOrderStatusAsCargoReady</code>. <code>data</code> konsol örneğiyle aynıdır: <code>OrderCode</code> <code>SP08034</code>.</p>
+<h3 id="setaddress"><a class="anchor" href="#setaddress" aria-hidden="true">#</a><code>setAddress</code></h3>
+<p><code>POST /rest1/customer/address/</code>. <code>customer_id</code> ve <code>type</code> bu istekte kapalıdır. Kayıt <code>data</code> içindedir. Konsol örneğinde olmayan alanlar: <code>type</code>, <code>ws_address_code</code>, <code>partner</code>, <code>partnerparams</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;customer_id&quot;: 33015,
+    &quot;ws_address_code&quot;: &quot;12001-01-GU1125&quot;,
+    &quot;title&quot;: &quot;Farkli Teslimat&quot;,
+    &quot;type&quot;: 0,
+    &quot;country_code&quot;: &quot;TR&quot;,
+    &quot;city_code&quot;: &quot;43&quot;,
+    &quot;town_code&quot;: &quot;621&quot;,
+    &quot;address&quot;: &quot;DURAK MAH. TAHSİN BURUK CAD. AKAY İŞ MERKEZİ NO:101&quot;,
+    &quot;address_id&quot;: 0,
+    &quot;also_invoice&quot;: 1,
+    &quot;company_name&quot;: &quot;GÜVEN KIRTASİYE - OZAN TUNCEL (TAVŞANLI FARKLI TESLİMAT)&quot;,
+    &quot;district&quot;: &quot;TAVSANLI&quot;,
+    &quot;name&quot;: &quot;GÜVEN KIRTASİYE - OZAN TUNCEL (TAVŞANLI FARKLI TESLİMAT)&quot;,
+    &quot;invoice_type&quot;: 0,
+    &quot;mobile_phone&quot;: &quot;905555555555&quot;,
+    &quot;nationality&quot;: 0,
+    &quot;other_phone&quot;: &quot;&quot;,
+    &quot;tax_number&quot;: &quot;&quot;,
+    &quot;tax_office&quot;: &quot;&quot;,
+    &quot;zip&quot;: &quot;43000&quot;,
+    &quot;has_e_invoice&quot;: 0,
+    &quot;partner&quot;: &quot;Netsis&quot;,
+    &quot;partnerparams&quot;: &quot;12001-01-GU1125&quot;
+  }
+]</code></pre>
+<p><code>type</code> 0 teslimat adresidir. <code>address_id</code> 0 yeni kayıttır. <code>invoice_type</code> 0 şahıstır. <code>partner</code> <code>Netsis</code>, <code>partnerparams</code> cari kodudur.</p>
+<h3 id="getaddress"><a class="anchor" href="#getaddress" aria-hidden="true">#</a><code>getAddress</code></h3>
+<p><code>POST /rest1/customer/address/</code>. <code>customer_id=30708</code>. <code>type</code> kapalıdır. İstek ayrıca bir <code>data</code> dizisi taşır; dizi konsoldaki iş adresi örneğine yakındır (<code>address_id</code> 0, <code>town</code> <code>Üsküdar</code>).</p>
+<h3 id="getaddress2"><a class="anchor" href="#getaddress2" aria-hidden="true">#</a><code>getAddress2</code></h3>
+<p><code>POST /rest1/customer/getAddress</code>. <code>CustomerCode=12001-01-BM0007</code>. <code>CustomerId</code> kapalıdır.</p>
+<h2 id="modül-özeti"><a class="anchor" href="#modül-özeti" aria-hidden="true">#</a>Modül özeti</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Modül</th>
+<th align="right">Metot</th>
+<th>Not</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="/rest/auth/">Auth</a></td>
+<td align="right">3</td>
+<td>Web servis kullanıcısının token alması. Vitrin üyesi girişi değildir.</td>
+</tr>
+<tr>
+<td><a href="/rest/branchoffice/">BranchOffice</a></td>
+<td align="right">5</td>
+<td>Mağaza / şube kayıtlarını okuma ve yazma.</td>
+</tr>
+<tr>
+<td><a href="/rest/brand/">Brand</a></td>
+<td align="right">8</td>
+<td>Marka listeleme, yazma, dil ve görsel.</td>
+</tr>
+<tr>
+<td><a href="/rest/campaign/">Campaign</a></td>
+<td align="right">22</td>
+<td>Kampanya, koşul, promosyon ve hediye kodu. Konsolda hepsi alpha.</td>
+</tr>
+<tr>
+<td><a href="/rest/cart/">Cart</a></td>
+<td align="right">7</td>
+<td>Üye sepetine ürün yazma ve okuma. Konsolda hepsi alpha. Ayrı sepet linki alanı yok.</td>
+</tr>
+<tr>
+<td><a href="/rest/catalog/">Catalog</a></td>
+<td align="right">5</td>
+<td>Varyant teması ve katalog görseli.</td>
+</tr>
+<tr>
+<td><a href="/rest/category/">Category</a></td>
+<td align="right">8</td>
+<td>Kategori ağacı, listeleme ve yazma.</td>
+</tr>
+<tr>
+<td><a href="/rest/content/">Content</a></td>
+<td align="right">1</td>
+<td>İçerik kaydı okuma.</td>
+</tr>
+<tr>
+<td><a href="/rest/customer/">Customer</a></td>
+<td align="right">34</td>
+<td>Üye, adres, grup, giriş linki, sepet okuma, istek listesi ve arşiv.</td>
+</tr>
+<tr>
+<td><a href="/rest/filter/">Filter</a></td>
+<td align="right">7</td>
+<td>Yeni filtre yapısı: grup, seçenek ve ürüne bağlama.</td>
+</tr>
+<tr>
+<td><a href="/rest/fundmovement/">FundMovement</a></td>
+<td align="right">10</td>
+<td>Cari hareket okuma, yazma ve silme.</td>
+</tr>
+<tr>
+<td><a href="/rest/payment/">Payment</a></td>
+<td align="right">7</td>
+<td>Taksit, havale, BIN ve POS parametreleri.</td>
+</tr>
+<tr>
+<td><a href="/rest/mobile/">Mobile</a></td>
+<td align="right">25</td>
+<td>Mobil uygulama oturumu (MobileToken) ile sipariş, favori, alarm, adres.</td>
+</tr>
+<tr>
+<td><a href="/rest/model/">Model</a></td>
+<td align="right">9</td>
+<td>Model kayıtları.</td>
+</tr>
+<tr>
+<td><a href="/rest/order2/">Order2</a></td>
+<td align="right">26</td>
+<td>Sipariş oluşturma ve durum güncelleme. Eski sipariş sınıfı.</td>
+</tr>
+<tr>
+<td><a href="/rest/order/">Order</a></td>
+<td align="right">30</td>
+<td>Güncel sipariş okuma, arşiv, iade, kargo ve sevkiyat.</td>
+</tr>
+<tr>
+<td><a href="/rest/personalization/">Personalization</a></td>
+<td align="right">1</td>
+<td>Ürün kişiselleştirme formları.</td>
+</tr>
+<tr>
+<td><a href="/rest/trackingcode/">TrackingCode</a></td>
+<td align="right">3</td>
+<td>İzleme kodları.</td>
+</tr>
+<tr>
+<td><a href="/rest/product/">Product</a></td>
+<td align="right">70</td>
+<td>Ürün oluşturma, stok, fiyat, görsel, etiket ve dil.</td>
+</tr>
+<tr>
+<td><a href="/rest/setting/">Setting</a></td>
+<td align="right">12</td>
+<td>Kod güncelleme ve önbellek silme.</td>
+</tr>
+<tr>
+<td><a href="/rest/subproduct/">SubProduct</a></td>
+<td align="right">20</td>
+<td>Alt ürün, özellik ve stok/fiyat.</td>
+</tr>
+<tr>
+<td><a href="/rest/supplier/">Supplier</a></td>
+<td align="right">10</td>
+<td>Tedarikçi ve mağaza görselleri.</td>
+</tr>
+<tr>
+<td><a href="/rest/ticket/">Ticket</a></td>
+<td align="right">9</td>
+<td>Destek talebi ve iletişim mesajı.</td>
+</tr>
+<tr>
+<td><a href="/rest/user/">User</a></td>
+<td align="right">7</td>
+<td>Yönetim paneli ve web servis kullanıcıları. Panele yönetici olarak giriş linki.</td>
+</tr>
+<tr>
+<td><a href="/rest/news/">News</a></td>
+<td align="right">2</td>
+<td>Haber kayıtları.</td>
+</tr>
+<tr>
+<td><a href="/rest/hopi/">Hopi</a></td>
+<td align="right">3</td>
+<td>Hopi kampanya oturumu.</td>
+</tr>
+<tr>
+<td><a href="/rest/zubizu/">Zubizu</a></td>
+<td align="right">6</td>
+<td>Zubizu kampanya oturumu.</td>
+</tr>
+<tr>
+<td><a href="/rest/adapter/">Adapter</a></td>
+<td align="right">2</td>
+<td>Sendheap ve Nildesk aktarımı.</td>
+</tr>
+<tr>
+<td><a href="/rest/showcase/">Showcase</a></td>
+<td align="right">3</td>
+<td>Vitrin yerleşimi.</td>
+</tr>
+<tr>
+<td><a href="/rest/point/">Point</a></td>
+<td align="right">2</td>
+<td>Üye puanı ekleme veya düşürme.</td>
+</tr>
+<tr>
+<td><a href="/rest/cargo/">Cargo</a></td>
+<td align="right">1</td>
+<td>Kargo gönderi logu.</td>
+</tr>
+<tr>
+<td><a href="/rest/widget/">Widget</a></td>
+<td align="right">2</td>
+<td>Widget yazma ve silme.</td>
+</tr>
+<tr>
+<td><a href="/rest/platform/">Platform</a></td>
+<td align="right">47</td>
+<td>Mobil/platform oturumu (CustomerHash): üye, sepet, sipariş, adres, iade.</td>
+</tr>
+<tr>
+<td><a href="/rest/notification/">Notification</a></td>
+<td align="right">5</td>
+<td>Push cihaz kaydı ve bildirim.</td>
+</tr>
+<tr>
+<td><a href="/rest/htmlblock/">HtmlBlock</a></td>
+<td align="right">3</td>
+<td>HTML blok. Konsolda üçü de support-only.</td>
+</tr>
+<tr>
+<td><a href="/rest/link/">Link</a></td>
+<td align="right">4</td>
+<td>SEO, sitemap ve yönlendirme linki. Sepet linki değildir.</td>
+</tr>
+<tr>
+<td><a href="/rest/segment/">Segment</a></td>
+<td align="right">7</td>
+<td>Üye segmenti oluşturma ve üyeye atama.</td>
+</tr>
+<tr>
+<td><a href="/rest/routing/">Routing</a></td>
+<td align="right">2</td>
+<td>Servis yönlendirme.</td>
+</tr>
+</tbody></table></div>
+<h2 id="metot-kataloğu"><a class="anchor" href="#metot-kataloğu" aria-hidden="true">#</a>Metot kataloğu</h2>
+<p>Her modül ayrı sayfadadır. Zorunluluk, konsolun <code>required</code> alanıdır. Boş açıklama, konsolun o metot için metin vermediği anlamına gelir. Hata ve mesaj kodları <a href="/rest/hatalar/">Hatalar ve mesaj kodları</a> sayfasındadır.</p>
+
+</article>
+<nav class="pager" aria-label="Sayfa geçişi"><a class="prev" href="/theme/"><span>← Önceki</span>Eski tema (Smarty)</a><a class="next" href="/rest/hatalar/"><span>Sonraki →</span>Hatalar ve mesaj kodları</a></nav>
+<footer class="page-foot"><a href="https://github.com/bahadirdogru/tsoft-documentation-examples/edit/main/content/rest/README.md">GitHub'da düzenle</a> · <a href="/rest.md">Markdown</a> · <a href="/llms.txt">llms.txt</a> · Topluluk belgesidir, T-Soft’un resmî yayını değildir.</footer>
+</main>
+<nav class="toc" aria-label="Bu sayfada"><div class="toc-title">Bu sayfada</div><ul><li class="l2"><a href="#ortak-kurallar">Ortak kurallar</a></li><li class="l2"><a href="#20-ekim-2026-canlı-çağrı">20 Ekim 2026 canlı çağrı</a></li><li class="l2"><a href="#öğretmen-senkronu-için-kullanılan-ve-bilinçli-bırakılan-uçlar">Öğretmen senkronu için kullanılan ve bilinçli bırakılan uçlar</a></li><li class="l3"><a href="#üye-yazma">Üye yazma</a></li><li class="l3"><a href="#giriş-linki">Giriş linki</a></li><li class="l3"><a href="#sepet">Sepet</a></li><li class="l2"><a href="#postman-koleksiyonu">Postman koleksiyonu</a></li><li class="l3"><a href="#login">login</a></li><li class="l3"><a href="#setcustomer">setCustomer</a></li><li class="l3"><a href="#setcredibility">setCredibility</a></li><li class="l3"><a href="#setcustomergroups-adlı-istek">setCustomerGroups adlı istek</a></li><li class="l3"><a href="#getcustomersb2b-getcustomersb2c-getcustomersid">getCustomersB2B, getCustomersB2C, getCustomersID</a></li><li class="l3"><a href="#getcustomergroups">getCustomerGroups</a></li><li class="l3"><a href="#setproducts">setProducts</a></li><li class="l3"><a href="#updatecustomergroupprice">updateCustomerGroupPrice</a></li><li class="l3"><a href="#getordersb2c-ve-getordersb2b">getOrdersB2C ve getOrdersB2B</a></li><li class="l3"><a href="#getorderstatuslist">getOrderStatusList</a></li><li class="l3"><a href="#updateorderstatusascargoready">updateOrderStatusAsCargoReady</a></li><li class="l3"><a href="#setaddress">setAddress</a></li><li class="l3"><a href="#getaddress">getAddress</a></li><li class="l3"><a href="#getaddress2">getAddress2</a></li><li class="l2"><a href="#modül-özeti">Modül özeti</a></li><li class="l2"><a href="#metot-kataloğu">Metot kataloğu</a></li></ul></nav>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/twig.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/http.min.js"></script>
+<script src="/assets/site.js"></script>
+</body>
+</html>

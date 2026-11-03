@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fırsat ürünleri · T-Soft Dokümantasyonu</title>
+<meta name="description" content="T-Soft e-ticaret altyapısı için REST1 web servisi, Admin API v3, uygulama platformu, Storefront API ve Twig/Smarty tema kodlama başvuru dokümantasyonu. İnsanlar ve LLM'ler için.">
+<link rel="canonical" href="https://tsoft.bahadirdogru.com/theme/bloklar/firsat-urunleri/">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%231f6feb%22%2F%3E%3Cpath%20d%3D%22M8%209h16v3.2h-6.4V23h-3.2V12.2H8z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E">
+<meta property="og:title" content="Fırsat ürünleri">
+<meta property="og:description" content="T-Soft e-ticaret altyapısı için REST1 web servisi, Admin API v3, uygulama platformu, Storefront API ve Twig/Smarty tema kodlama başvuru dokümantasyonu. İnsanlar ve LLM'ler için.">
+<meta property="og:url" content="https://tsoft.bahadirdogru.com/theme/bloklar/firsat-urunleri/">
+<meta property="og:type" content="website">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" media="(prefers-color-scheme: light)" id="hl-light">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" media="(prefers-color-scheme: dark)" id="hl-dark">
+</head>
+<body>
+<a class="skip" href="#main">İçeriğe geç</a>
+<header class="top">
+  <button class="menu-btn" aria-label="Menü" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="/"><svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><path d="M8 9h16v3.2h-6.4V23h-3.2V12.2H8z" fill="var(--bg)"/></svg><span>T-Soft Dokümantasyonu</span></a>
+  <div class="search">
+    <input id="q" type="search" placeholder="Ara: metot, uç, değişken, sayfa…  ( / )" autocomplete="off" aria-label="Ara">
+    <ul id="results" role="listbox" hidden></ul>
+  </div>
+  <button class="theme-btn" aria-label="Tema değiştir" title="Tema değiştir">◐</button>
+</header>
+<div class="layout">
+<aside id="sidebar" class="sidebar"><details class="nav-sec" open><summary>Başlangıç <span class="count">3</span></summary><ul><li><a href="/">Ana sayfa</a></li><li><a href="/rehber/">Hangi yüzey?</a></li><li><a href="/llm/">LLM ve ajanlar için</a></li></ul></details><details class="nav-sec" open><summary>Platform <span class="count">4</span></summary><ul><li><a href="/developer/">Platform haritası</a></li><li><a href="/developer/baslarken/">Başlarken</a></li><li><a href="/developer/uygulama/">Uygulama geliştirme</a></li><li><a href="/developer/storefront-api/">Storefront API</a></li></ul></details><details class="nav-sec" open><summary>Tema <span class="count">2</span></summary><ul><li><a href="/developer/tema/">Tema motoru (Twig)</a></li><li><a href="/theme/">Eski tema (Smarty)</a></li></ul></details><details class="nav-sec" open><summary>REST1 <span class="count">2</span></summary><ul><li><a href="/rest/">Genel bakış</a></li><li><a href="/rest/hatalar/">Hatalar ve mesaj kodları</a></li></ul></details><details class="nav-sec"><summary>REST1 modülleri <span class="count">38</span></summary><ul><li><a href="/rest/auth/">Auth</a></li><li><a href="/rest/customer/">Customer</a></li><li><a href="/rest/product/">Product</a></li><li><a href="/rest/subproduct/">SubProduct</a></li><li><a href="/rest/category/">Category</a></li><li><a href="/rest/brand/">Brand</a></li><li><a href="/rest/model/">Model</a></li><li><a href="/rest/filter/">Filter</a></li><li><a href="/rest/catalog/">Catalog</a></li><li><a href="/rest/order/">Order</a></li><li><a href="/rest/order2/">Order2</a></li><li><a href="/rest/cart/">Cart</a></li><li><a href="/rest/campaign/">Campaign</a></li><li><a href="/rest/payment/">Payment</a></li><li><a href="/rest/fundmovement/">FundMovement</a></li><li><a href="/rest/point/">Point</a></li><li><a href="/rest/segment/">Segment</a></li><li><a href="/rest/supplier/">Supplier</a></li><li><a href="/rest/branchoffice/">BranchOffice</a></li><li><a href="/rest/content/">Content</a></li><li><a href="/rest/news/">News</a></li><li><a href="/rest/showcase/">Showcase</a></li><li><a href="/rest/htmlblock/">HtmlBlock</a></li><li><a href="/rest/widget/">Widget</a></li><li><a href="/rest/link/">Link</a></li><li><a href="/rest/personalization/">Personalization</a></li><li><a href="/rest/trackingcode/">TrackingCode</a></li><li><a href="/rest/ticket/">Ticket</a></li><li><a href="/rest/user/">User</a></li><li><a href="/rest/setting/">Setting</a></li><li><a href="/rest/notification/">Notification</a></li><li><a href="/rest/mobile/">Mobile</a></li><li><a href="/rest/platform/">Platform</a></li><li><a href="/rest/cargo/">Cargo</a></li><li><a href="/rest/adapter/">Adapter</a></li><li><a href="/rest/hopi/">Hopi</a></li><li><a href="/rest/zubizu/">Zubizu</a></li><li><a href="/rest/routing/">Routing</a></li></ul></details><details class="nav-sec" open><summary>Admin API v3 <span class="count">3</span></summary><ul><li><a href="/admin-api/">Genel bakış</a></li><li><a href="/admin-api/uclar/">Uç listesi</a></li><li><a href="/admin-api/odeme-bildirimi/">Ödeme bildirimi</a></li></ul></details><details class="nav-sec"><summary>Örnek kod <span class="count">5</span></summary><ul><li><a href="/examples/python/tsoft_client/">Python istemci</a></li><li><a href="/examples/python/add_customer/">Üye ekleme</a></li><li><a href="/examples/python/check_group_price/">Grup fiyatı</a></li><li><a href="/examples/python/env/">Ortam değişkenleri</a></li><li><a href="/examples/apps-script/code/">Apps Script</a></li></ul></details><details class="nav-sec" open><summary>Eski tema blokları <span class="count">18</span></summary><ul><li><a href="/theme/bloklar/ust/">Üst blok</a></li><li><a href="/theme/bloklar/alt/">Alt blok</a></li><li><a href="/theme/bloklar/yeni-urunler/">Yeni ürünler</a></li><li><a href="/theme/bloklar/kategori-menusu/">Kategori menüsü</a></li><li><a href="/theme/bloklar/kategori-listesi/">Kategori listesi</a></li><li><a href="/theme/bloklar/home-banner/">Ana sayfa banner</a></li><li><a href="/theme/bloklar/home-sale/">Ana sayfa indirim</a></li><li><a href="/theme/bloklar/haberler/">Haberler</a></li><li><a href="/theme/bloklar/benzer-urunler/">Benzer ürünler</a></li><li><a href="/theme/bloklar/model-listesi/">Model listesi</a></li><li><a href="/theme/bloklar/marka-listesi/">Marka listesi</a></li><li><a href="/theme/bloklar/parca-toplama-sihirbazi/">Parça toplama sihirbazı</a></li><li><a href="/theme/bloklar/tedarikci-listesi/">Tedarikçi listesi</a></li><li><a href="/theme/bloklar/firsat-urunleri/" aria-current="page">Fırsat ürünleri</a></li><li><a href="/theme/bloklar/ayin-yazari/">Ayın yazarı</a></li><li><a href="/theme/bloklar/gelecek-firsat-urun-listesi/">Gelecek fırsatlar</a></li><li><a href="/theme/bloklar/sss/">SSS</a></li><li><a href="/theme/bloklar/gorsel-vitrin/">Görsel vitrin</a></li></ul></details><details class="nav-sec"><summary>Eski tema değişkenleri <span class="count">5</span></summary><ul><li><a href="/theme/degiskenler/tsoft-product-varriables/">Ürün değişkenleri</a></li><li><a href="/theme/degiskenler/tsoft-header-page-links-varriable/">Sayfa linkleri</a></li><li><a href="/theme/degiskenler/tsoft-header-tabs-varriable/">Üst sekmeler</a></li><li><a href="/theme/degiskenler/tsoft-footer-menu-varriables/">Alt menü</a></li><li><a href="/theme/degiskenler/tsoft-left-right-category-varriables/">Sol ve sağ kategori</a></li></ul></details><details class="nav-sec"><summary>Eski tema şablonları <span class="count">5</span></summary><ul><li><a href="/theme/snippets/bayi-mi-degil-mi/">Bayi hesabı koşulu</a></li><li><a href="/theme/orta/user_bayipanel/">Bayi paneli</a></li><li><a href="/theme/orta/user_bayigirisplasiyer/">Bayi giriş plasiyer</a></li><li><a href="/theme/orta/user_v4tpl/">V4 şablon</a></li><li><a href="/theme/UstAlt/user_tasarimyenimenu/">Tasarım yeni menü</a></li></ul></details></aside>
+<main id="main" class="content">
+<nav class="crumbs" aria-label="Konum"><a href="/">Ana sayfa</a> <span>/</span> <a href="/theme/">Eski tema (Smarty)</a></nav>
+<article>
+<h1 id="fırsat-ürünleri"><a class="anchor" href="#fırsat-ürünleri" aria-hidden="true">#</a>Fırsat ürünleri</h1>
+<p>Dosya: <code>theme/bloklar/firsat-urunleri.html</code> · <a href="/theme/bloklar/firsat-urunleri.html">Ham dosya</a> · Smarty</p>
+<pre><code class="language-xml">{if $PRODUCT_LIST|@count &gt; 0}
+    &lt;!-- &lt;link rel=&quot;stylesheet&quot; property=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;{$STANDART_THEME}css/FirsatUrunSayac.css&quot;/&gt; --&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        window.onload = function () {
+        {foreach $PRODUCT_LIST as $D}
+            var sideDate{$D.ID} = new Date({$D.DEAL_END_DATE|date_format:'Y,m-1,d,H,i,s'});
+            GetCount(sideDate{$D.ID}, 'side-counter-{$D.ID}');
+        {/foreach}
+        };
+        $(document).ready(function () {
+            $('#campaign-products').equalizer();
+            $('#campaign-carousel').slide({
+                slideType: 'carousel',
+                slideCtrl: {
+                    showCtrl: true,
+                    wrapCtrl: '#productControl',
+                    nextBtn: '#nextProduct',
+                    prevBtn: '#prevProduct'
+                }
+            });
+        });
+    &lt;/script&gt;
+    &lt;div class=&quot;col col-12&quot;&gt;
+        &lt;div id=&quot;campaign-products&quot; class=&quot;row mb&quot;&gt;
+            &lt;div class=&quot;box col-12 vitTitleWrap&quot;&gt;
+                &lt;div class=&quot;vitTitle fl&quot;&gt;{$BLOCK_TITLE}&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;col col-12 box-border b-bottom b-right&quot; id=&quot;list-slide{$BLOCK_ID}&quot;&gt;
+                &lt;div class=&quot;row&quot;&gt;
+                    &lt;div&gt;
+                        &lt;ul id=&quot;campaign-carousel&quot; class=&quot;notClear&quot;&gt;
+                            {foreach $PRODUCT_LIST as $P}
+                                &lt;li class=&quot;fl col-2 col-sm-{12 / $ROW_PRODUCT_COUNT_SM} col-xs-{12 / $ROW_PRODUCT_COUNT_XS}&quot;&gt;
+                                    &lt;div class=&quot;col col-12 productItem&quot;&gt;
+                                        &lt;div class=&quot;row&quot;&gt;
+                                            &lt;a href=&quot;/{$P.URL}&quot; class=&quot;image-wrapper fl{if $P.IMAGE_LIST.1.SMALL != ''} imgGallery{/if}&quot;&gt;
+                                                &lt;span class=&quot;imgInner&quot;&gt;
+                                                    &lt;img {if $IS_LAZY_LOAD_ACTIVE == '1'}data-src=&quot;{$P.IMAGE.SMALL}&quot; src=&quot;{$LAZY_LOAD_LOADING_IMAGE}&quot; class=&quot;lazy&quot; {else}src=&quot;{$P.IMAGE.SMALL}&quot; class=&quot;active&quot; {/if}alt=&quot;{$P.BRAND} - {$P.TITLE}&quot; title=&quot;{$P.BRAND} - {$P.TITLE}&quot; /&gt;
+                                                &lt;/span&gt;
+                                                {if $P.IMAGE_LIST.1.SMALL != ''}
+                                                    &lt;span class=&quot;imgInner&quot;&gt;
+                                                        &lt;img {if $IS_LAZY_LOAD_ACTIVE == '1'}data-src=&quot;{$P.IMAGE_LIST.1.SMALL}&quot; src=&quot;{$LAZY_LOAD_LOADING_IMAGE}&quot; class=&quot;ease ndImage lazy&quot; {else}src=&quot;{$P.IMAGE_LIST.1.SMALL}&quot; class=&quot;ease ndImage&quot; {/if} alt=&quot;{$P.BRAND} - {$P.TITLE} (1)&quot; title=&quot;{$P.BRAND} - {$P.TITLE} (1)&quot; /&gt;
+                                                    &lt;/span&gt;
+                                                {/if}
+                                                &lt;span id=&quot;side-counter-{$P.ID}&quot; class=&quot;col image-band campaign-band&quot;&gt;&lt;/span&gt;
+                                            &lt;/a&gt;
+                                            &lt;div class=&quot;box col-12 productDetails loaderWrapper&quot;&gt;
+                                                &lt;div class=&quot;row&quot;&gt;
+                                                    &lt;div class=&quot;box col-12&quot;&gt;
+                                                        &lt;div class=&quot;row&quot;&gt;
+                                                            &lt;a href=&quot;/{$P.URL}&quot; title=&quot;{$P.TITLE}&quot; class=&quot;col col-12 productDescription&quot;&gt;{$P.TITLE}&lt;/a&gt;
+                                                        &lt;/div&gt;
+                                                    &lt;/div&gt;
+                                                    &lt;div class=&quot;box col-12&quot;&gt;
+                                                        &lt;span class=&quot;col col-12 productBrand&quot;&gt;
+                                                            {if $DISPLAY_BRAND == 1}
+                                                                &lt;a href=&quot;/{$P.BRAND_URL}&quot; title=&quot;{$P.BRAND} {$P.TITLE}&quot; class=&quot;col col-12 productBrand&quot;&gt;{$P.BRAND}&lt;/a&gt;
+                                                            {/if}
+                                                        &lt;/span&gt;
+                                                        &lt;div class=&quot;fl col-12 productComment&quot;&gt;
+                                                            &lt;div class=&quot;stars&quot;&gt;
+                                                                &lt;div class=&quot;fl stars-inner&quot; style=&quot;width:{$P.COMMENT_RANK}%;&quot;&gt;&lt;/div&gt;
+                                                            &lt;/div&gt;
+                                                        &lt;/div&gt;
+                                                    &lt;/div&gt;  
+                                                    &lt;div class=&quot;box col-12&quot;&gt;
+                                                        &lt;div class=&quot;fl col-12 tooltipWrapper&quot;&gt;
+                                                            &lt;div class=&quot;productPrice col-12 fl&quot;&gt;
+                                                                {if $P.DISCOUNT_PERCENT &gt; 0 &amp;&amp; $P.IS_DISPLAY_DISCOUNTED_ACTIVE == 1}
+                                                                    &lt;div class=&quot;fl productDiscount&quot;&gt;%{$P.DISCOUNT_PERCENT}&lt;/div&gt;
+                                                                {/if}
+                                                                &lt;div class=&quot;priceWrapper&quot;&gt;
+                                                                    &lt;div class=&quot;currentPrice {if $P.DISCOUNT_PERCENT &gt; 0}currentPrice2{/if}&quot;&gt;
+                                                                        {vat price=$P.PRICE_SELL vat=$P.VAT} {$P.TARGET_CURRENCY}
+                                                                    &lt;/div&gt;
+                                                                    {if $P.DISCOUNT_PERCENT &gt; 0 &amp;&amp; $P.IS_DISPLAY_DISCOUNTED_ACTIVE == 1}
+                                                                        &lt;div class=&quot;discountedPrice&quot;&gt;
+                                                                            {vat price=$P.PRICE_NOT_DISCOUNTED vat=$P.VAT} {$P.TARGET_CURRENCY}
+                                                                        &lt;/div&gt;
+                                                                    {/if}
+                                                                &lt;/div&gt;
+                                                            &lt;/div&gt;
+                                                            &lt;div class=&quot;fl col-12 dn-xs&quot;&gt;
+                                                                &lt;input type=&quot;hidden&quot; id=&quot;Adet{$P.ID}{$BLOCK_ID}&quot; name=&quot;Adet{$P.ID}{$BLOCK_ID}&quot; value=&quot;{$P.MIN_ORDER_COUNT|default:1}&quot; /&gt;
+                                                                {if $DISPLAY_CART_BUTTON == 1}
+                                                                    &lt;a onclick=&quot;Add2Cart({$P.ID}, $('#subPro{$P.ID}{$BLOCK_ID}').val(), $('#Adet{$P.ID}{$BLOCK_ID}').val());&quot; class=&quot;fl col-12 basketBtn2&quot; data-parent=&quot;{$P.ID}{$BLOCK_ID}&quot;&gt;Sepete Ekle&lt;/a&gt;
+                                                                {/if}
+                                                            &lt;/div&gt;
+                                                        &lt;/div&gt;
+                                                    &lt;/div&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/li&gt;
+                            {/foreach}
+                        &lt;/ul&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;colControl&quot; id=&quot;productControl&quot;&gt;
+                        &lt;span id=&quot;prevProduct&quot; class=&quot;fl colPrev&quot;&gt;&lt;/span&gt;
+                        &lt;span id=&quot;nextProduct&quot; class=&quot;fr colNext&quot;&gt;&lt;/span&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+{/if}</code></pre>
+
+</article>
+<nav class="pager" aria-label="Sayfa geçişi"><a class="prev" href="/theme/bloklar/tedarikci-listesi/"><span>← Önceki</span>Tedarikçi listesi</a><a class="next" href="/theme/bloklar/ayin-yazari/"><span>Sonraki →</span>Ayın yazarı</a></nav>
+<footer class="page-foot"><a href="https://github.com/bahadirdogru/tsoft-documentation-examples/edit/main/content/theme/bloklar/firsat-urunleri.html">GitHub'da düzenle</a> · <a href="/theme/bloklar/firsat-urunleri.html">Ham dosya</a> · <a href="/llms.txt">llms.txt</a> · Topluluk belgesidir, T-Soft’un resmî yayını değildir.</footer>
+</main>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/twig.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/http.min.js"></script>
+<script src="/assets/site.js"></script>
+</body>
+</html>

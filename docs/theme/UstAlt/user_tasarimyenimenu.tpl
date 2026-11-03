@@ -13,26 +13,26 @@
         
         // Temsilci verilerini tanımla
         const temsilciVerileri = {
-            "Ahmet Ünal": {
-                telefon: "0533 484 06 26",
+            "Temsilci Bir": {
+                telefon: "0500 000 00 01",
                 email: "ornek@magaza.example",
-                resim: "ahmet-unal.jpg"
+                resim: "temsilci-1.jpg"
             },
-            "Murat Çetin": {
-                telefon: "0554 534 14 49",
+            "Temsilci İki": {
+                telefon: "0500 000 00 02",
                 email: "ornek@magaza.example",
-                resim: "murat-cetin.jpg"
+                resim: "temsilci-2.jpg"
             },
-            "Erkan Başar": {
-                telefon: "0553 247 37 48",
+            "Temsilci Üç": {
+                telefon: "0500 000 00 03",
                 email: "ornek@magaza.example",
-                resim: "erkan-basar.jpg"
+                resim: "temsilci-3.jpg"
             }
         };
         
         // Varsayılan verileri tanımla
         const varsayilanVeriler = {
-            telefon: "0212 514 28 28",
+            telefon: "0212 000 00 00",
             email: "ornek@magaza.example",
             resim: "genel-merkez.jpg"
         };

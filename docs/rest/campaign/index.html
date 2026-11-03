@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Campaign · T-Soft Dokümantasyonu</title>
+<meta name="description" content="Kampanya, koşul, promosyon ve hediye kodu. Konsolda hepsi alpha.">
+<link rel="canonical" href="https://tsoft.bahadirdogru.com/rest/campaign/">
+<link rel="alternate" type="text/markdown" href="/rest/campaign.md" title="Markdown">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%231f6feb%22%2F%3E%3Cpath%20d%3D%22M8%209h16v3.2h-6.4V23h-3.2V12.2H8z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E">
+<meta property="og:title" content="Campaign">
+<meta property="og:description" content="Kampanya, koşul, promosyon ve hediye kodu. Konsolda hepsi alpha.">
+<meta property="og:url" content="https://tsoft.bahadirdogru.com/rest/campaign/">
+<meta property="og:type" content="website">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" media="(prefers-color-scheme: light)" id="hl-light">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" media="(prefers-color-scheme: dark)" id="hl-dark">
+</head>
+<body>
+<a class="skip" href="#main">İçeriğe geç</a>
+<header class="top">
+  <button class="menu-btn" aria-label="Menü" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="/"><svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><path d="M8 9h16v3.2h-6.4V23h-3.2V12.2H8z" fill="var(--bg)"/></svg><span>T-Soft Dokümantasyonu</span></a>
+  <div class="search">
+    <input id="q" type="search" placeholder="Ara: metot, uç, değişken, sayfa…  ( / )" autocomplete="off" aria-label="Ara">
+    <ul id="results" role="listbox" hidden></ul>
+  </div>
+  <button class="theme-btn" aria-label="Tema değiştir" title="Tema değiştir">◐</button>
+</header>
+<div class="layout">
+<aside id="sidebar" class="sidebar"><details class="nav-sec" open><summary>Başlangıç <span class="count">3</span></summary><ul><li><a href="/">Ana sayfa</a></li><li><a href="/rehber/">Hangi yüzey?</a></li><li><a href="/llm/">LLM ve ajanlar için</a></li></ul></details><details class="nav-sec" open><summary>Platform <span class="count">4</span></summary><ul><li><a href="/developer/">Platform haritası</a></li><li><a href="/developer/baslarken/">Başlarken</a></li><li><a href="/developer/uygulama/">Uygulama geliştirme</a></li><li><a href="/developer/storefront-api/">Storefront API</a></li></ul></details><details class="nav-sec" open><summary>Tema <span class="count">2</span></summary><ul><li><a href="/developer/tema/">Tema motoru (Twig)</a></li><li><a href="/theme/">Eski tema (Smarty)</a></li></ul></details><details class="nav-sec" open><summary>REST1 <span class="count">2</span></summary><ul><li><a href="/rest/">Genel bakış</a></li><li><a href="/rest/hatalar/">Hatalar ve mesaj kodları</a></li></ul></details><details class="nav-sec" open><summary>REST1 modülleri <span class="count">38</span></summary><ul><li><a href="/rest/auth/">Auth</a></li><li><a href="/rest/customer/">Customer</a></li><li><a href="/rest/product/">Product</a></li><li><a href="/rest/subproduct/">SubProduct</a></li><li><a href="/rest/category/">Category</a></li><li><a href="/rest/brand/">Brand</a></li><li><a href="/rest/model/">Model</a></li><li><a href="/rest/filter/">Filter</a></li><li><a href="/rest/catalog/">Catalog</a></li><li><a href="/rest/order/">Order</a></li><li><a href="/rest/order2/">Order2</a></li><li><a href="/rest/cart/">Cart</a></li><li><a href="/rest/campaign/" aria-current="page">Campaign</a></li><li><a href="/rest/payment/">Payment</a></li><li><a href="/rest/fundmovement/">FundMovement</a></li><li><a href="/rest/point/">Point</a></li><li><a href="/rest/segment/">Segment</a></li><li><a href="/rest/supplier/">Supplier</a></li><li><a href="/rest/branchoffice/">BranchOffice</a></li><li><a href="/rest/content/">Content</a></li><li><a href="/rest/news/">News</a></li><li><a href="/rest/showcase/">Showcase</a></li><li><a href="/rest/htmlblock/">HtmlBlock</a></li><li><a href="/rest/widget/">Widget</a></li><li><a href="/rest/link/">Link</a></li><li><a href="/rest/personalization/">Personalization</a></li><li><a href="/rest/trackingcode/">TrackingCode</a></li><li><a href="/rest/ticket/">Ticket</a></li><li><a href="/rest/user/">User</a></li><li><a href="/rest/setting/">Setting</a></li><li><a href="/rest/notification/">Notification</a></li><li><a href="/rest/mobile/">Mobile</a></li><li><a href="/rest/platform/">Platform</a></li><li><a href="/rest/cargo/">Cargo</a></li><li><a href="/rest/adapter/">Adapter</a></li><li><a href="/rest/hopi/">Hopi</a></li><li><a href="/rest/zubizu/">Zubizu</a></li><li><a href="/rest/routing/">Routing</a></li></ul></details><details class="nav-sec" open><summary>Admin API v3 <span class="count">3</span></summary><ul><li><a href="/admin-api/">Genel bakış</a></li><li><a href="/admin-api/uclar/">Uç listesi</a></li><li><a href="/admin-api/odeme-bildirimi/">Ödeme bildirimi</a></li></ul></details><details class="nav-sec"><summary>Örnek kod <span class="count">5</span></summary><ul><li><a href="/examples/python/tsoft_client/">Python istemci</a></li><li><a href="/examples/python/add_customer/">Üye ekleme</a></li><li><a href="/examples/python/check_group_price/">Grup fiyatı</a></li><li><a href="/examples/python/env/">Ortam değişkenleri</a></li><li><a href="/examples/apps-script/code/">Apps Script</a></li></ul></details><details class="nav-sec"><summary>Eski tema blokları <span class="count">18</span></summary><ul><li><a href="/theme/bloklar/ust/">Üst blok</a></li><li><a href="/theme/bloklar/alt/">Alt blok</a></li><li><a href="/theme/bloklar/yeni-urunler/">Yeni ürünler</a></li><li><a href="/theme/bloklar/kategori-menusu/">Kategori menüsü</a></li><li><a href="/theme/bloklar/kategori-listesi/">Kategori listesi</a></li><li><a href="/theme/bloklar/home-banner/">Ana sayfa banner</a></li><li><a href="/theme/bloklar/home-sale/">Ana sayfa indirim</a></li><li><a href="/theme/bloklar/haberler/">Haberler</a></li><li><a href="/theme/bloklar/benzer-urunler/">Benzer ürünler</a></li><li><a href="/theme/bloklar/model-listesi/">Model listesi</a></li><li><a href="/theme/bloklar/marka-listesi/">Marka listesi</a></li><li><a href="/theme/bloklar/parca-toplama-sihirbazi/">Parça toplama sihirbazı</a></li><li><a href="/theme/bloklar/tedarikci-listesi/">Tedarikçi listesi</a></li><li><a href="/theme/bloklar/firsat-urunleri/">Fırsat ürünleri</a></li><li><a href="/theme/bloklar/ayin-yazari/">Ayın yazarı</a></li><li><a href="/theme/bloklar/gelecek-firsat-urun-listesi/">Gelecek fırsatlar</a></li><li><a href="/theme/bloklar/sss/">SSS</a></li><li><a href="/theme/bloklar/gorsel-vitrin/">Görsel vitrin</a></li></ul></details><details class="nav-sec"><summary>Eski tema değişkenleri <span class="count">5</span></summary><ul><li><a href="/theme/degiskenler/tsoft-product-varriables/">Ürün değişkenleri</a></li><li><a href="/theme/degiskenler/tsoft-header-page-links-varriable/">Sayfa linkleri</a></li><li><a href="/theme/degiskenler/tsoft-header-tabs-varriable/">Üst sekmeler</a></li><li><a href="/theme/degiskenler/tsoft-footer-menu-varriables/">Alt menü</a></li><li><a href="/theme/degiskenler/tsoft-left-right-category-varriables/">Sol ve sağ kategori</a></li></ul></details><details class="nav-sec"><summary>Eski tema şablonları <span class="count">5</span></summary><ul><li><a href="/theme/snippets/bayi-mi-degil-mi/">Bayi hesabı koşulu</a></li><li><a href="/theme/orta/user_bayipanel/">Bayi paneli</a></li><li><a href="/theme/orta/user_bayigirisplasiyer/">Bayi giriş plasiyer</a></li><li><a href="/theme/orta/user_v4tpl/">V4 şablon</a></li><li><a href="/theme/UstAlt/user_tasarimyenimenu/">Tasarım yeni menü</a></li></ul></details></aside>
+<main id="main" class="content">
+<nav class="crumbs" aria-label="Konum"><a href="/">Ana sayfa</a> <span>/</span> <a href="/rest/">REST1</a></nav>
+<article>
+<h1 id="campaign"><a class="anchor" href="#campaign" aria-hidden="true">#</a>Campaign</h1>
+<p>REST1 modülü · 22 metot · taban <code>https://magaza.example/rest1/campaign/{metot}/</code></p>
+<p>Her çağrı <code>POST</code> ve form gövdesidir; <code>token</code> ayrı alan olarak gider. Ortak kurallar, zarf yapısı ve süzgeç sözdizimi <a href="/rest/#ortak-kurallar">REST1 genel bakış</a> sayfasındadır. Tablodaki &quot;Yer&quot; sütunu: <code>url_param</code> yolun sonuna eklenir, <code>query</code> gövde alanıdır, <code>file</code> dosya yüklemesidir.</p>
+<p>Kampanya, koşul, promosyon ve hediye kodu. Konsolda hepsi alpha.</p>
+<h2 id="campaign-deletecampaign-alpha"><a class="anchor" href="#campaign-deletecampaign-alpha" aria-hidden="true">#</a><code>campaign/deleteCampaign</code> (alpha)</h2>
+<p><code>POST https://magaza.example/rest1/campaign/deleteCampaign/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CampaignCode</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="campaign-deletecampaignconditionexclude-alpha"><a class="anchor" href="#campaign-deletecampaignconditionexclude-alpha" aria-hidden="true">#</a><code>campaign/deleteCampaignConditionExclude</code> (alpha)</h2>
+<p><code>POST https://magaza.example/rest1/campaign/deleteCampaignConditionExclude/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Code</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="campaign-deletecampaignconditioninclude-alpha"><a class="anchor" href="#campaign-deletecampaignconditioninclude-alpha" aria-hidden="true">#</a><code>campaign/deleteCampaignConditionInclude</code> (alpha)</h2>
+<p><code>POST https://magaza.example/rest1/campaign/deleteCampaignConditionInclude/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Code</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="campaign-deletecampaignpromotion-alpha"><a class="anchor" href="#campaign-deletecampaignpromotion-alpha" aria-hidden="true">#</a><code>campaign/deleteCampaignPromotion</code> (alpha)</h2>
+<p><code>POST https://magaza.example/rest1/campaign/deleteCampaignPromotion/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Code</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="campaign-getcampaignconditionbycode-alpha"><a class="anchor" href="#campaign-getcampaignconditionbycode-alpha" aria-hidden="true">#</a><code>campaign/getCampaignConditionByCode</code> (alpha)</h2>
+<p><code>POST https://magaza.example/rest1/campaign/getCampaignConditionByCode/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Code</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="campaign-getcampaignconditionsbycampaigncode-alpha"><a class="anchor" href="#campaign-getcampaignconditionsbycampaigncode-alpha" aria-hidden="true">#</a><code>campaign/getCampaignConditionsByCampaignCode</code> (alpha)</h2>
+<p><code>POST https://magaza.example/rest1/campaign/getCampaignConditionsByCampaignCode/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CampaignCode</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="campaign-getcampaigndetailbycampaigncode-alpha"><a class="anchor" href="#campaign-getcampaigndetailbycampaigncode-alpha" aria-hidden="true">#</a><code>campaign/getCampaignDetailByCampaignCode</code> (alpha)</h2>
+<p><code>POST https://magaza.example/rest1/campaign/getCampaignDetailByCampaignCode/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CampaignCode</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="campaign-getcampaignpromotionbycode-alpha"><a class="anchor" href="#campaign-getcampaignpromotionbycode-alpha" aria-hidden="true">#</a><code>campaign/getCampaignPromotionByCode</code> (alpha)</h2>
+<p><code>POST https://magaza.example/rest1/campaign/getCampaignPromotionByCode/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Code</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="campaign-getcampaignpromotionsbycampaigncode-alpha"><a class="anchor" href="#campaign-getcampaignpromotionsbycampaigncode-alpha" aria-hidden="true">#</a><code>campaign/getCampaignPromotionsByCampaignCode</code> (alpha)</h2>
+<p><code>POST https://magaza.example/rest1/campaign/getCampaignPromotionsByCampaignCode/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CampaignCode</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="campaign-getcampaigns-alpha"><a class="anchor" href="#campaign-getcampaigns-alpha" aria-hidden="true">#</a><code>campaign/getCampaigns</code> (alpha)</h2>
+<p><code>POST https://magaza.example/rest1/campaign/getCampaigns/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>``</td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchExcludeConditions</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="campaign-setcampaigndetail-alpha"><a class="anchor" href="#campaign-setcampaigndetail-alpha" aria-hidden="true">#</a><code>campaign/setCampaignDetail</code> (alpha)</h2>
+<p><code>POST https://magaza.example/rest1/campaign/setCampaignDetail/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>CountryCodes birden çok ülke kodu gönderileceği zaman aralarına &#39;,&#39; koymak yeterlidir.Örn: TR,USA   Boş gönderilirse Tüm Ülkeleri kapsar.</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>Code</code>, <code>Name</code>, <code>CartDescription</code>, <code>Description</code>, <code>StartDate</code>, <code>FinishDate</code>, <code>Weekdays</code>, <code>MaxCount</code>, <code>VatIncluded</code>, <code>CustomerFilterType</code>, <code>CustomerFilterIds</code>, <code>CountryCodes</code>, <code>LogicalGroup</code>, <code>Priority</code>, <code>Status</code>, <code>MobileAppStatus</code>, <code>AutoStart</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;Code&quot;: &quot;T5&quot;,
+    &quot;Name&quot;: &quot;test kampanya&quot;,
+    &quot;CartDescription&quot;: &quot;&quot;,
+    &quot;Description&quot;: &quot;&quot;,
+    &quot;StartDate&quot;: &quot;1514926800&quot;,
+    &quot;FinishDate&quot;: &quot;1516309200&quot;,
+    &quot;Weekdays&quot;: &quot;&quot;,
+    &quot;MaxCount&quot;: &quot;&quot;,
+    &quot;VatIncluded&quot;: &quot;&quot;,
+    &quot;CustomerFilterType&quot;: &quot;&quot;,
+    &quot;CustomerFilterIds&quot;: &quot;&quot;,
+    &quot;CountryCodes&quot;: &quot;&quot;,
+    &quot;LogicalGroup&quot;: &quot;&quot;,
+    &quot;Priority&quot;: &quot;&quot;,
+    &quot;Status&quot;: &quot;&quot;,
+    &quot;MobileAppStatus&quot;: &quot;&quot;,
+    &quot;AutoStart&quot;: 0
+  }
+]</code></pre>
+<h2 id="campaign-getcampaigngiftcode-alpha"><a class="anchor" href="#campaign-getcampaigngiftcode-alpha" aria-hidden="true">#</a><code>campaign/getCampaignGiftCode</code> (alpha)</h2>
+<p><code>POST https://magaza.example/rest1/campaign/getCampaignGiftCode/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CampaignCode</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>CampaignId</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>start</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>f</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Kullanılabilen operatörler: startwith,endwith,equal,greater,smaller,between,contain. Örn: &quot;FinishTime|1529931531|smaller&quot;</td>
+</tr>
+<tr>
+<td><code>f2</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Allowed operators: startwith,endwith,equal,greater,smaller,between,contain. Example: &quot;CustomerName | ahmet | contain&quot;</td>
+</tr>
+<tr>
+<td><code>FetchCampaignDetail</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="campaign-setcampaigngiftcode-alpha"><a class="anchor" href="#campaign-setcampaigngiftcode-alpha" aria-hidden="true">#</a><code>campaign/setCampaignGiftCode</code> (alpha)</h2>
+<p><code>POST https://magaza.example/rest1/campaign/setCampaignGiftCode/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>Type; product, category, brand, c2c, model   CustomerId yerine CustomerCode kullanılarak üye kodu gönderilebilir.</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>CampaignCode</code>, <code>Coupon</code>, <code>CustomerId</code>, <code>FinishTime</code>, <code>Variable1</code>, <code>Status</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;CampaignCode&quot;: &quot;T5&quot;,
+    &quot;Coupon&quot;: &quot;TEST&quot;,
+    &quot;CustomerId&quot;: 275,
+    &quot;FinishTime&quot;: 1598605351,
+    &quot;Variable1&quot;: 1,
+    &quot;Status&quot;: 1
+  }
+]</code></pre>
+<h2 id="campaign-deletecampaigngiftcode-alpha"><a class="anchor" href="#campaign-deletecampaigngiftcode-alpha" aria-hidden="true">#</a><code>campaign/deleteCampaignGiftCode</code> (alpha)</h2>
+<p><code>POST https://magaza.example/rest1/campaign/deleteCampaignGiftCode/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>CampaignCode</code>, <code>Coupon</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;CampaignCode&quot;: &quot;T5&quot;,
+    &quot;Coupon&quot;: &quot;TEST&quot;
+  }
+]</code></pre>
+<h2 id="campaign-setcampaignconditionexclude-alpha"><a class="anchor" href="#campaign-setcampaignconditionexclude-alpha" aria-hidden="true">#</a><code>campaign/setCampaignConditionExclude</code> (alpha)</h2>
+<p><code>POST https://magaza.example/rest1/campaign/setCampaignConditionExclude/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>Type; product, category, brand, c2c, model</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>CampaignCode</code>, <code>Code</code>, <code>Type</code>, <code>TableId</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;CampaignCode&quot;: &quot;T5&quot;,
+    &quot;Code&quot;: &quot;TEST&quot;,
+    &quot;Type&quot;: &quot;cart&quot;,
+    &quot;TableId&quot;: &quot;&quot;
+  }
+]</code></pre>
+<h2 id="campaign-setcampaignconditioninclude-alpha"><a class="anchor" href="#campaign-setcampaignconditioninclude-alpha" aria-hidden="true">#</a><code>campaign/setCampaignConditionInclude</code> (alpha)</h2>
+<p><code>POST https://magaza.example/rest1/campaign/setCampaignConditionInclude/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>Type; cart, product, category, brand, c2c, model</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>CampaignCode</code>, <code>Code</code>, <code>Type</code>, <code>TableId</code>, <code>MinCount</code>, <code>MinTotal</code>, <code>MaxTotal</code>, <code>AllowSameItem</code>, <code>LogicalGroup</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;CampaignCode&quot;: &quot;T5&quot;,
+    &quot;Code&quot;: &quot;TEST&quot;,
+    &quot;Type&quot;: &quot;cart&quot;,
+    &quot;TableId&quot;: &quot;&quot;,
+    &quot;MinCount&quot;: &quot;&quot;,
+    &quot;MinTotal&quot;: &quot;100&quot;,
+    &quot;MaxTotal&quot;: &quot;&quot;,
+    &quot;AllowSameItem&quot;: &quot;&quot;,
+    &quot;LogicalGroup&quot;: &quot;&quot;
+  }
+]</code></pre>
+<h2 id="campaign-setcampaignpromotion-alpha"><a class="anchor" href="#campaign-setcampaignpromotion-alpha" aria-hidden="true">#</a><code>campaign/setCampaignPromotion</code> (alpha)</h2>
+<p><code>POST https://magaza.example/rest1/campaign/setCampaignPromotion/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>Type; cart, product, category, brand, c2c, model</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>CampaignCode</code>, <code>Code</code>, <code>Type</code>, <code>TableId</code>, <code>Count</code>, <code>DiscountType</code>, <code>DiscountValue</code>, <code>OrderBy</code>, <code>CartIndex</code>, <code>LogicalGroup</code>, <code>Priority</code>, <code>AutoAdd</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;CampaignCode&quot;: &quot;T5&quot;,
+    &quot;Code&quot;: &quot;TEST&quot;,
+    &quot;Type&quot;: &quot;product&quot;,
+    &quot;TableId&quot;: &quot;705&quot;,
+    &quot;Count&quot;: &quot;3&quot;,
+    &quot;DiscountType&quot;: &quot;&quot;,
+    &quot;DiscountValue&quot;: &quot;&quot;,
+    &quot;OrderBy&quot;: &quot;&quot;,
+    &quot;CartIndex&quot;: &quot;&quot;,
+    &quot;LogicalGroup&quot;: &quot;&quot;,
+    &quot;Priority&quot;: &quot;&quot;,
+    &quot;AutoAdd&quot;: 0
+  }
+]</code></pre>
+<h2 id="campaign-updatecampaignexcludefield-alpha"><a class="anchor" href="#campaign-updatecampaignexcludefield-alpha" aria-hidden="true">#</a><code>campaign/updateCampaignExcludeField</code> (alpha)</h2>
+<p><code>POST https://magaza.example/rest1/campaign/updateCampaignExcludeField/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Code</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>field</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>value</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="campaign-updatecampaignfield-alpha"><a class="anchor" href="#campaign-updatecampaignfield-alpha" aria-hidden="true">#</a><code>campaign/updateCampaignField</code> (alpha)</h2>
+<p><code>POST https://magaza.example/rest1/campaign/updateCampaignField/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CampaignCode</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>field</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>value</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="campaign-updatecampaignincludefield-alpha"><a class="anchor" href="#campaign-updatecampaignincludefield-alpha" aria-hidden="true">#</a><code>campaign/updateCampaignIncludeField</code> (alpha)</h2>
+<p><code>POST https://magaza.example/rest1/campaign/updateCampaignIncludeField/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Code</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>field</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>value</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="campaign-updatecampaignpromotionfield-alpha"><a class="anchor" href="#campaign-updatecampaignpromotionfield-alpha" aria-hidden="true">#</a><code>campaign/updateCampaignPromotionField</code> (alpha)</h2>
+<p><code>POST https://magaza.example/rest1/campaign/updateCampaignPromotionField/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Code</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>field</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>value</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="campaign-updatecampaignstatus-alpha"><a class="anchor" href="#campaign-updatecampaignstatus-alpha" aria-hidden="true">#</a><code>campaign/updateCampaignStatus</code> (alpha)</h2>
+<p><code>POST https://magaza.example/rest1/campaign/updateCampaignStatus/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CampaignCode</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+
+</article>
+<nav class="pager" aria-label="Sayfa geçişi"><a class="prev" href="/rest/cart/"><span>← Önceki</span>Cart</a><a class="next" href="/rest/payment/"><span>Sonraki →</span>Payment</a></nav>
+<footer class="page-foot"><a href="https://github.com/bahadirdogru/tsoft-documentation-examples/edit/main/content/rest/campaign.md">GitHub'da düzenle</a> · <a href="/rest/campaign.md">Markdown</a> · <a href="/llms.txt">llms.txt</a> · Topluluk belgesidir, T-Soft’un resmî yayını değildir.</footer>
+</main>
+<nav class="toc" aria-label="Bu sayfada"><div class="toc-title">Bu sayfada</div><ul><li class="l2"><a href="#campaign-deletecampaign-alpha">campaign/deleteCampaign (alpha)</a></li><li class="l2"><a href="#campaign-deletecampaignconditionexclude-alpha">campaign/deleteCampaignConditionExclude (alpha)</a></li><li class="l2"><a href="#campaign-deletecampaignconditioninclude-alpha">campaign/deleteCampaignConditionInclude (alpha)</a></li><li class="l2"><a href="#campaign-deletecampaignpromotion-alpha">campaign/deleteCampaignPromotion (alpha)</a></li><li class="l2"><a href="#campaign-getcampaignconditionbycode-alpha">campaign/getCampaignConditionByCode (alpha)</a></li><li class="l2"><a href="#campaign-getcampaignconditionsbycampaigncode-alpha">campaign/getCampaignConditionsByCampaignCode (alpha)</a></li><li class="l2"><a href="#campaign-getcampaigndetailbycampaigncode-alpha">campaign/getCampaignDetailByCampaignCode (alpha)</a></li><li class="l2"><a href="#campaign-getcampaignpromotionbycode-alpha">campaign/getCampaignPromotionByCode (alpha)</a></li><li class="l2"><a href="#campaign-getcampaignpromotionsbycampaigncode-alpha">campaign/getCampaignPromotionsByCampaignCode (alpha)</a></li><li class="l2"><a href="#campaign-getcampaigns-alpha">campaign/getCampaigns (alpha)</a></li><li class="l2"><a href="#campaign-setcampaigndetail-alpha">campaign/setCampaignDetail (alpha)</a></li><li class="l2"><a href="#campaign-getcampaigngiftcode-alpha">campaign/getCampaignGiftCode (alpha)</a></li><li class="l2"><a href="#campaign-setcampaigngiftcode-alpha">campaign/setCampaignGiftCode (alpha)</a></li><li class="l2"><a href="#campaign-deletecampaigngiftcode-alpha">campaign/deleteCampaignGiftCode (alpha)</a></li><li class="l2"><a href="#campaign-setcampaignconditionexclude-alpha">campaign/setCampaignConditionExclude (alpha)</a></li><li class="l2"><a href="#campaign-setcampaignconditioninclude-alpha">campaign/setCampaignConditionInclude (alpha)</a></li><li class="l2"><a href="#campaign-setcampaignpromotion-alpha">campaign/setCampaignPromotion (alpha)</a></li><li class="l2"><a href="#campaign-updatecampaignexcludefield-alpha">campaign/updateCampaignExcludeField (alpha)</a></li><li class="l2"><a href="#campaign-updatecampaignfield-alpha">campaign/updateCampaignField (alpha)</a></li><li class="l2"><a href="#campaign-updatecampaignincludefield-alpha">campaign/updateCampaignIncludeField (alpha)</a></li><li class="l2"><a href="#campaign-updatecampaignpromotionfield-alpha">campaign/updateCampaignPromotionField (alpha)</a></li><li class="l2"><a href="#campaign-updatecampaignstatus-alpha">campaign/updateCampaignStatus (alpha)</a></li></ul></nav>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/twig.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/http.min.js"></script>
+<script src="/assets/site.js"></script>
+</body>
+</html>

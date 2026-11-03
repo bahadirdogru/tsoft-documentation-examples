@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tema motoru (Twig) · T-Soft Dokümantasyonu</title>
+<meta name="description" content="Twig section, snippet, Tailwind, JS global’leri, CLI">
+<link rel="canonical" href="https://tsoft.bahadirdogru.com/developer/tema/">
+<link rel="alternate" type="text/markdown" href="/developer/tema.md" title="Markdown">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%231f6feb%22%2F%3E%3Cpath%20d%3D%22M8%209h16v3.2h-6.4V23h-3.2V12.2H8z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E">
+<meta property="og:title" content="Tema motoru (Twig)">
+<meta property="og:description" content="Twig section, snippet, Tailwind, JS global’leri, CLI">
+<meta property="og:url" content="https://tsoft.bahadirdogru.com/developer/tema/">
+<meta property="og:type" content="website">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" media="(prefers-color-scheme: light)" id="hl-light">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" media="(prefers-color-scheme: dark)" id="hl-dark">
+</head>
+<body>
+<a class="skip" href="#main">İçeriğe geç</a>
+<header class="top">
+  <button class="menu-btn" aria-label="Menü" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="/"><svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><path d="M8 9h16v3.2h-6.4V23h-3.2V12.2H8z" fill="var(--bg)"/></svg><span>T-Soft Dokümantasyonu</span></a>
+  <div class="search">
+    <input id="q" type="search" placeholder="Ara: metot, uç, değişken, sayfa…  ( / )" autocomplete="off" aria-label="Ara">
+    <ul id="results" role="listbox" hidden></ul>
+  </div>
+  <button class="theme-btn" aria-label="Tema değiştir" title="Tema değiştir">◐</button>
+</header>
+<div class="layout">
+<aside id="sidebar" class="sidebar"><details class="nav-sec" open><summary>Başlangıç <span class="count">3</span></summary><ul><li><a href="/">Ana sayfa</a></li><li><a href="/rehber/">Hangi yüzey?</a></li><li><a href="/llm/">LLM ve ajanlar için</a></li></ul></details><details class="nav-sec" open><summary>Platform <span class="count">4</span></summary><ul><li><a href="/developer/">Platform haritası</a></li><li><a href="/developer/baslarken/">Başlarken</a></li><li><a href="/developer/uygulama/">Uygulama geliştirme</a></li><li><a href="/developer/storefront-api/">Storefront API</a></li></ul></details><details class="nav-sec" open><summary>Tema <span class="count">2</span></summary><ul><li><a href="/developer/tema/" aria-current="page">Tema motoru (Twig)</a></li><li><a href="/theme/">Eski tema (Smarty)</a></li></ul></details><details class="nav-sec" open><summary>REST1 <span class="count">2</span></summary><ul><li><a href="/rest/">Genel bakış</a></li><li><a href="/rest/hatalar/">Hatalar ve mesaj kodları</a></li></ul></details><details class="nav-sec"><summary>REST1 modülleri <span class="count">38</span></summary><ul><li><a href="/rest/auth/">Auth</a></li><li><a href="/rest/customer/">Customer</a></li><li><a href="/rest/product/">Product</a></li><li><a href="/rest/subproduct/">SubProduct</a></li><li><a href="/rest/category/">Category</a></li><li><a href="/rest/brand/">Brand</a></li><li><a href="/rest/model/">Model</a></li><li><a href="/rest/filter/">Filter</a></li><li><a href="/rest/catalog/">Catalog</a></li><li><a href="/rest/order/">Order</a></li><li><a href="/rest/order2/">Order2</a></li><li><a href="/rest/cart/">Cart</a></li><li><a href="/rest/campaign/">Campaign</a></li><li><a href="/rest/payment/">Payment</a></li><li><a href="/rest/fundmovement/">FundMovement</a></li><li><a href="/rest/point/">Point</a></li><li><a href="/rest/segment/">Segment</a></li><li><a href="/rest/supplier/">Supplier</a></li><li><a href="/rest/branchoffice/">BranchOffice</a></li><li><a href="/rest/content/">Content</a></li><li><a href="/rest/news/">News</a></li><li><a href="/rest/showcase/">Showcase</a></li><li><a href="/rest/htmlblock/">HtmlBlock</a></li><li><a href="/rest/widget/">Widget</a></li><li><a href="/rest/link/">Link</a></li><li><a href="/rest/personalization/">Personalization</a></li><li><a href="/rest/trackingcode/">TrackingCode</a></li><li><a href="/rest/ticket/">Ticket</a></li><li><a href="/rest/user/">User</a></li><li><a href="/rest/setting/">Setting</a></li><li><a href="/rest/notification/">Notification</a></li><li><a href="/rest/mobile/">Mobile</a></li><li><a href="/rest/platform/">Platform</a></li><li><a href="/rest/cargo/">Cargo</a></li><li><a href="/rest/adapter/">Adapter</a></li><li><a href="/rest/hopi/">Hopi</a></li><li><a href="/rest/zubizu/">Zubizu</a></li><li><a href="/rest/routing/">Routing</a></li></ul></details><details class="nav-sec" open><summary>Admin API v3 <span class="count">3</span></summary><ul><li><a href="/admin-api/">Genel bakış</a></li><li><a href="/admin-api/uclar/">Uç listesi</a></li><li><a href="/admin-api/odeme-bildirimi/">Ödeme bildirimi</a></li></ul></details><details class="nav-sec"><summary>Örnek kod <span class="count">5</span></summary><ul><li><a href="/examples/python/tsoft_client/">Python istemci</a></li><li><a href="/examples/python/add_customer/">Üye ekleme</a></li><li><a href="/examples/python/check_group_price/">Grup fiyatı</a></li><li><a href="/examples/python/env/">Ortam değişkenleri</a></li><li><a href="/examples/apps-script/code/">Apps Script</a></li></ul></details><details class="nav-sec"><summary>Eski tema blokları <span class="count">18</span></summary><ul><li><a href="/theme/bloklar/ust/">Üst blok</a></li><li><a href="/theme/bloklar/alt/">Alt blok</a></li><li><a href="/theme/bloklar/yeni-urunler/">Yeni ürünler</a></li><li><a href="/theme/bloklar/kategori-menusu/">Kategori menüsü</a></li><li><a href="/theme/bloklar/kategori-listesi/">Kategori listesi</a></li><li><a href="/theme/bloklar/home-banner/">Ana sayfa banner</a></li><li><a href="/theme/bloklar/home-sale/">Ana sayfa indirim</a></li><li><a href="/theme/bloklar/haberler/">Haberler</a></li><li><a href="/theme/bloklar/benzer-urunler/">Benzer ürünler</a></li><li><a href="/theme/bloklar/model-listesi/">Model listesi</a></li><li><a href="/theme/bloklar/marka-listesi/">Marka listesi</a></li><li><a href="/theme/bloklar/parca-toplama-sihirbazi/">Parça toplama sihirbazı</a></li><li><a href="/theme/bloklar/tedarikci-listesi/">Tedarikçi listesi</a></li><li><a href="/theme/bloklar/firsat-urunleri/">Fırsat ürünleri</a></li><li><a href="/theme/bloklar/ayin-yazari/">Ayın yazarı</a></li><li><a href="/theme/bloklar/gelecek-firsat-urun-listesi/">Gelecek fırsatlar</a></li><li><a href="/theme/bloklar/sss/">SSS</a></li><li><a href="/theme/bloklar/gorsel-vitrin/">Görsel vitrin</a></li></ul></details><details class="nav-sec"><summary>Eski tema değişkenleri <span class="count">5</span></summary><ul><li><a href="/theme/degiskenler/tsoft-product-varriables/">Ürün değişkenleri</a></li><li><a href="/theme/degiskenler/tsoft-header-page-links-varriable/">Sayfa linkleri</a></li><li><a href="/theme/degiskenler/tsoft-header-tabs-varriable/">Üst sekmeler</a></li><li><a href="/theme/degiskenler/tsoft-footer-menu-varriables/">Alt menü</a></li><li><a href="/theme/degiskenler/tsoft-left-right-category-varriables/">Sol ve sağ kategori</a></li></ul></details><details class="nav-sec"><summary>Eski tema şablonları <span class="count">5</span></summary><ul><li><a href="/theme/snippets/bayi-mi-degil-mi/">Bayi hesabı koşulu</a></li><li><a href="/theme/orta/user_bayipanel/">Bayi paneli</a></li><li><a href="/theme/orta/user_bayigirisplasiyer/">Bayi giriş plasiyer</a></li><li><a href="/theme/orta/user_v4tpl/">V4 şablon</a></li><li><a href="/theme/UstAlt/user_tasarimyenimenu/">Tasarım yeni menü</a></li></ul></details></aside>
+<main id="main" class="content">
+<nav class="crumbs" aria-label="Konum"><a href="/">Ana sayfa</a> <span>/</span> <a href="/developer/">Platform haritası</a></nav>
+<article>
+<h1 id="tema-geliştirme"><a class="anchor" href="#tema-geliştirme" aria-hidden="true">#</a>Tema geliştirme</h1>
+<p>Kaynak: <a href="https://developer.tsoft.com.tr/tema-gelistirme/genel-bakis" rel="noopener" target="_blank">Tema Geliştirme</a> (20 Ekim 2026).</p>
+<p>Bu depodaki <a href="/theme/">eski tema</a> bölümü Smarty blok HTML’i, değişken JSON’u ve <code>.tpl</code> parçalarıdır. Aşağıdaki motor Twig section’ları, Tailwind ve <code>tsoft-cli</code> ile çalışır. Sayfa sunucuda HTML’e çevrilir. CDN paketi varsa statik dosya dağıtım ağından gelir.</p>
+<h2 id="akış"><a class="anchor" href="#akış" aria-hidden="true">#</a>Akış</h2>
+<ol>
+<li>URL sayfa tipini seçer: ürün, kategori, ana sayfa, sepet.</li>
+<li>O sayfa ve section için Twig’e UPPERCASE global’ler gider: <code>PRODUCTS</code>, <code>P</code>, <code>TOTAL</code>, <code>SETTING</code>, <code>BLOCK</code>.</li>
+<li>Panelden eklenen section’lar sırayla işlenir.</li>
+<li>Motor snippet çağırır ve Tailwind sınıflarıyla HTML üretir.</li>
+</ol>
+<p>Canlı değişken listesi Chrome eklentisi <strong>T-Soft Theme Devtools</strong> içindedir. Eklenti, mağaza yönetim ekranı açıkken DevTools’a sekme ekler.</p>
+<pre><code class="language-bash">npm install -g tsoft-cli
+tsoft login
+tsoft theme create
+cd example-tsoft-biz/my-theme
+tsoft theme dev
+tsoft theme push</code></pre>
+<p><code>tsoft theme dev</code> dosyayı kaydedince sunucuya yollar. Silinen dosya mağazadan da kalkar. Aynı anda tek geliştirici kilit alır. Bağlantı 30 saniyede bir canlı tutulur. <code>Ctrl+C</code> kilidi sonraki oturum için saklar.</p>
+<p><code>(Seçili)</code> üzerinde çalışılan temadır. <code>(Yayında)</code> müşterinin gördüğü temadır. İkisi aynı olmak zorunda değildir.</p>
+<h2 id="dizin"><a class="anchor" href="#dizin" aria-hidden="true">#</a>Dizin</h2>
+<p>Mağaza klasörü, domaindeki noktaların tireye çevrilmiş küçük harf halidir: <code>example.tsoft.biz</code> → <code>example-tsoft-biz</code>.</p>
+<pre><code class="language-plaintext">example-tsoft-biz/my-theme/
+├── .theme
+├── section/&lt;isim&gt;/default.twig
+├── section/&lt;isim&gt;/&lt;varyant&gt;.twig
+├── snippets/&lt;isim&gt;.twig
+├── layout/&lt;isim&gt;.twig
+├── locales/&lt;dil&gt;.json
+└── assets/
+    ├── css/theme.css
+    ├── js/theme.js
+    └── img/</code></pre>
+<p><code>.theme</code> JSON alanları: <code>name</code>, <code>author</code>, <code>version</code> (SemVer).</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Ne</th>
+<th>Nereye</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Panelden eklenen bölüm</td>
+<td><code>section/&lt;isim&gt;/default.twig</code></td>
+</tr>
+<tr>
+<td>Aynı bölümün varyantı</td>
+<td><code>section/&lt;isim&gt;/&lt;varyant&gt;.twig</code></td>
+</tr>
+<tr>
+<td>Birden çok yerde kullanılan parça</td>
+<td><code>snippets/&lt;isim&gt;.twig</code></td>
+</tr>
+<tr>
+<td>Yalnız bir üst parçanın içinden çağrılan</td>
+<td><code>snippets/_&lt;isim&gt;.twig</code></td>
+</tr>
+<tr>
+<td>Paylaşılan include</td>
+<td><code>layout/&lt;isim&gt;.twig</code></td>
+</tr>
+<tr>
+<td>Stil</td>
+<td><code>assets/css/theme.css</code></td>
+</tr>
+<tr>
+<td>Davranış</td>
+<td><code>assets/js/theme.js</code></td>
+</tr>
+</tbody></table></div>
+<p>CLI, bulunduğunuz yolun dizin adlarını giriş yapılan mağaza envanteriyle eşler. En dıştaki eşleşen dizin mağaza, hemen altı temadır. <code>theme dev</code>, <code>theme push</code> ve <code>theme section</code> bu dizinden argümansız çalışır. Dizin dışındaysanız <code>tsoft theme use</code> ile seçilen tema kullanılır. Tek komut için <code>tsoft --store musteri.tsoft.biz theme push</code>. Öncelik <code>--store</code> bayrağındadır.</p>
+<p>Tema dizininin içindeyken <code>theme create</code> veya <code>theme pull</code> yeni temayı bir üst köke koyar.</p>
+<h2 id="cli"><a class="anchor" href="#cli" aria-hidden="true">#</a>CLI</h2>
+<pre><code class="language-plaintext">tsoft
+├── login | logout | whoami
+├── store list | store use [domain]
+├── org switch
+└── theme
+    ├── list | create [name] | pull | use [name] | fork
+    ├── dev [name] | push [name]
+    └── section
+        ├── list | add | create | fork</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Ortam</th>
+<th>Varsayılan</th>
+<th>Anlamı</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>TSOFT_LANG</code></td>
+<td><code>tr</code></td>
+<td><code>tr</code> veya <code>en</code></td>
+</tr>
+<tr>
+<td><code>TSOFT_DEBUG</code></td>
+<td>—</td>
+<td><code>1</code> iken eksik çeviri anahtarı stderr’e yazılır</td>
+</tr>
+<tr>
+<td><code>TSOFT_IDP_DOMAIN</code></td>
+<td><code>login.tsoft360.com</code></td>
+<td>OAuth alanı</td>
+</tr>
+<tr>
+<td><code>TSOFT_CALLBACK_PORT</code></td>
+<td><code>8046</code></td>
+<td>Login callback</td>
+</tr>
+<tr>
+<td><code>TSOFT_CLIENT_ID</code></td>
+<td>yerleşik</td>
+<td>OAuth istemci kimliği</td>
+</tr>
+</tbody></table></div>
+<p><code>tsoft theme push</code> inceleme bekleyen temada <code>PUSH-PENDING-REVIEW</code> döner. <code>tsoft logout</code> token’ı sunucuda iptal eder ve yerel kimlik dosyasını siler.</p>
+<p>Section komutları bitince tema dosyalarını günceller. <code>section add</code> hazır section ekler. Çakışmada atla, üzerine yaz veya kalanların tümünü üzerine yaz seçenekleri vardır. <code>section create</code> boş <code>.twig</code> açar. <code>section fork</code> mevcut section’ın kopyasını yeni adla yazar.</p>
+<p>Müşteri mağazasında akış: davet kodu → erişim onayı → <code>tsoft store use</code> → <code>tsoft theme pull</code> → tema dizininde <code>tsoft theme dev</code>. Değişiklik taslak sürümde tutulur.</p>
+<h2 id="twig"><a class="anchor" href="#twig" aria-hidden="true">#</a>Twig</h2>
+<p><code>{{ }}</code> yazar, <code>{% %}</code> mantık çalıştırır, <code>{# #}</code> yorumdur.</p>
+<p>Sık global’ler: <code>t</code>, <code>BLOCK</code> (<code>BLOCK.ID</code>), <code>SETTING</code>, <code>CART_INFO</code>, <code>CURRENCY</code>, <code>DESIGN_MODE</code>, <code>IS_ADMIN_LOGGED</code>, <code>IS_HOME_PAGE</code>, <code>SEARCH_WORD</code>, <code>PRODUCTS</code>, <code>TOTAL</code>, <code>ALLOWED_SORTS</code>, <code>P</code>, <code>CAMPAIGN_LIST</code>.</p>
+<p>Ürün detayında aktif ürün <code>P</code> dir. Sık alanlar: <code>P.ID</code>, <code>P.TITLE</code>, <code>P.PRODUCT_CODE</code>, <code>P.PRICE_SELL</code>, <code>P.PRICE_NOT_DISCOUNTED</code>, <code>P.VAT</code>, <code>P.IN_STOCK</code>, <code>P.HAS_VARIANT</code>, <code>P.IMAGE_LIST</code>, <code>P.ADDITIONAL_FIELD_1</code>. Liste section’ında döngü değişkeni de çoğu zaman <code>P</code> olur. Gelen küme section tipine göre değişir; Devtools teyit eder.</p>
+<p><code>product-list</code> için belgelenenler: <code>PRODUCTS</code>, <code>TOTAL</code>, <code>SEARCH_WORD</code>, <code>ALLOWED_SORTS</code>, <code>IS_HOME_PAGE</code>, <code>IS_AUTO_LOAD_ACTIVE</code>, <code>BLOCK.ID</code>, <code>SETTING</code>.</p>
+<p>Filtreler: <code>money</code>, <code>date</code>, <code>default</code>, <code>truncate</code>, <code>upper</code>, <code>lower</code>, <code>escape</code>, <code>raw</code>, <code>replace</code>, <code>merge</code>, <code>length</code>, <code>join</code>.</p>
+<p>Fonksiyon sayfasındaki adlar: <code>t</code>, <code>format</code>, <code>vat</code>, <code>snippet</code>, <code>dump</code>, <code>menu</code>, <code>url</code>, <code>form</code>, <code>request_path</code>, <code>exchange</code>, <code>category</code>, <code>brand</code>, <code>model</code>, <code>product</code>, <code>query</code>, <code>asset</code>, <code>theme</code>, <code>theme_asset</code>, <code>csrf_token</code>, <code>snippetUri</code>. Şablon sayfası aynı iş için <code>snippet_uri</code> ve <code>cookie</code> adlarını da kullanır.</p>
+<pre><code class="language-twig">{{ snippet('product-card', { product: P }) }}
+{{ snippet('product-detail.variant-1.select') }}
+&lt;img src=&quot;{{ theme_asset('img/logo.svg') }}&quot; alt=&quot;&quot;&gt;
+{{ t.block_title }}
+{{ t.search_result|replace({'%COUNT%': TOTAL}) }}</code></pre>
+<p>Nokta, klasör seviyesidir: <code>snippet(&#39;product-detail.variant-1.select&#39;)</code> → <code>snippets/product-detail/variant-1/select.twig</code>. Alt çizgi, parçanın dışarıdan doğrudan çağrılmaması anlaşmasıdır.</p>
+<p>Section panelden eklenir ve sırası değişir. Snippet yalnız çağrıldığı yerde durur. Section ayarı panelden gelir; şablonda <code>{% schema %}</code> bloğu yoktur.</p>
+<p><code>locales/&lt;dil&gt;.json</code> üst anahtarları <code>common</code>, section adı, <code>_&lt;snippet&gt;</code> veya nokta notasyonlu snippet adıdır. Render sırasında o blok ile <code>common</code> <code>t</code> nesnesine yüklenir. Aynı anahtar temadaki dosyada varsa varsayılan sözlüğü ezer. Dinamik anahtar <code>t[key]</code> ile okunur. Yer tutucu <code>%COUNT%</code> biçimindedir. Yeni dil dosyası ISO koduyla açılır ve panelde Ayarlar → Diller üzerinden açılır.</p>
+<h2 id="görünüm"><a class="anchor" href="#görünüm" aria-hidden="true">#</a>Görünüm</h2>
+<p>Panel 6 renk ve 3 font verir. Sabit hex yazılmaz.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Panel</th>
+<th>Sınıf</th>
+<th>Değişken</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Body Text</td>
+<td><code>text-body</code></td>
+<td><code>--body</code></td>
+</tr>
+<tr>
+<td>Primary</td>
+<td><code>bg-primary</code></td>
+<td><code>--primary</code></td>
+</tr>
+<tr>
+<td>Secondary</td>
+<td><code>bg-secondary</code></td>
+<td><code>--secondary</code></td>
+</tr>
+<tr>
+<td>Dark</td>
+<td><code>bg-dark</code></td>
+<td><code>--dark</code></td>
+</tr>
+<tr>
+<td>Light</td>
+<td><code>bg-light</code></td>
+<td><code>--light</code></td>
+</tr>
+<tr>
+<td>Form</td>
+<td><code>border-form</code></td>
+<td><code>--form</code></td>
+</tr>
+<tr>
+<td>Font</td>
+<td><code>font-sans</code></td>
+<td>—</td>
+</tr>
+<tr>
+<td>Secondary Font</td>
+<td><code>font-secondary</code></td>
+<td>—</td>
+</tr>
+<tr>
+<td>RTL Font</td>
+<td><code>font-rtl</code></td>
+<td>—</td>
+</tr>
+</tbody></table></div>
+<p>Renkler <code>bg-</code> / <code>text-</code> / <code>border-</code> öneki, skala (<code>bg-primary-100</code>) ve opaklık (<code>bg-primary/10</code>) ile kullanılır. Seçilmeyen ikincil ve RTL font birincil fonta düşer.</p>
+<p>Tailwind kurulumu platformdadır. Plugin eklenmez, yeni utility ilan edilmez. <code>tailwind.config.js</code> temada yoktur; editör önerisi için yerel bir yardımcı config yazılır. Kırılımlar: <code>sm</code> 640, <code>md</code> 768, <code>lg</code> 1024, <code>xl</code> 1280, <code>2xl</code> 1440. Sınıf adı şablonda tam yazılır; çalışma anında birleştirilen sınıf derlemeye girmez.</p>
+<p><code>theme.css</code> içinde tekrar <code>@layer components</code> ve <code>@apply</code> ile isimlendirilir. <code>theme_asset()</code> görsel ve ek dosya için host, içerik hash’i ve <code>Cache-Control: public, max-age=31536000, immutable</code> üretir. <code>theme.css</code> ile <code>theme.js</code> bu fonksiyonla çağrılmaz; platform yükler.</p>
+<h2 id="javascript"><a class="anchor" href="#javascript" aria-hidden="true">#</a>JavaScript</h2>
+<p><code>assets/js/theme.js</code> her sayfada yüklenir. Şablona <code>&lt;script&gt;</code> veya <code>&lt;style&gt;</code> gömülmez. Twig’den JS’e veri <code>data-*</code> veya <code>json_encode</code> ile gider.</p>
+<p>Sayfa global’leri: <code>PRODUCT_DATA</code>, <code>SETTINGS</code>, <code>PAGE_TYPE</code>, <code>PAGE_ID</code>, <code>ON_PAGE_READY</code>, <code>MEMBER_INFO</code>, <code>IS_VENDOR</code>, <code>CART_INFO</code>, <code>CART_COUNT</code>, <code>CART_TOTAL</code>, <code>LANGUAGE</code>, <code>CURRENCY</code>, <code>SEP_DEC</code>, <code>SEP_THO</code>, <code>DECIMAL_LENGTH</code>, <code>THEME_VERSION</code>, <code>CSRF_TOKEN</code>, <code>CART_CSRF_TOKEN</code>, <code>BLOCKS</code>, <code>BLOCK_JS</code>, <code>callbacks</code>, <code>components</code>.</p>
+<pre><code class="language-javascript">ON_PAGE_READY.push(function () {
+  var btn = document.querySelector(&quot;[data-add]&quot;);
+  if (!btn) return;
+});
+
+callbacks.cart.load.push(function (a, b, c) {});</code></pre>
+<p>Blok kökünde <code>data-block-id</code> vardır. Ayar, <code>closest(&quot;[data-block-id]&quot;)</code> ile <code>BLOCKS</code> içinden okunur. Analitik ve üçüncü taraf kod panelde Ayarlar → İzleme kodlarına yazılır.</p>
+<p><code>data-toggle</code> değerleri (resmi katalog): <code>flag</code>, <code>form-submit</code>, <code>popup</code>, <code>country</code>, <code>city</code>, <code>town</code>, <code>district</code>, <code>state</code>, <code>accordion</code>, <code>tooltip</code>, <code>count-down</code>, <code>share</code>, <code>slider</code>, <code>drawer</code>, <code>copy</code>, <code>tab</code>, <code>dropdown</code>, <code>sticky</code>, <code>menu</code>, <code>password-toggle</code>, <code>captcha-toggle</code>, <code>product</code>, <code>sort</code>, <code>layout</code>, <code>show-in-stock</code>, <code>show-out-stock</code>, <code>qty</code>, <code>variant-one</code>, <code>variant-two</code>, <code>variant-notify</code>, <code>variant-one-active</code>, <code>product-note</code>, <code>product-subscribe</code>, <code>product-multiple</code>, <code>product-code</code>, <code>barcode</code>, <code>supplier-product-code</code>, <code>product-loader</code>, <code>product-showcase</code>, <code>showcase</code>, <code>collection</code>, <code>product-card-catalog</code>, <code>light-gallery</code>, <code>zoom</code>, <code>login</code>, <code>fast-register</code>, <code>social-login</code>, <code>logout</code>, <code>newsletter</code>, <code>member-name</code>, <code>message-count</code>, <code>favourite-count</code>, <code>cart-count</code>, <code>cart-price</code>, <code>cart-preview</code>, <code>cart-drawer</code>, <code>language</code>, <code>currency</code>, <code>live-search</code>.</p>
+<p><code>form-submit</code> uçları <code>/resources/assets/js/endpoint.js</code> içindedir.</p>
+<h2 id="performans-ve-market"><a class="anchor" href="#performans-ve-market" aria-hidden="true">#</a>Performans ve market</h2>
+<p>Hedefler: LCP 2,5 saniyenin altı, INP 200 ms altı, CLS 0,1 altı, TTFB 600 ms altı. Lighthouse mobil 85 ve üzeri. Görselde <code>width</code> ve <code>height</code> yazılır. LCP görseli eager kalır; alttakiler <code>loading=&quot;lazy&quot;</code>. Hero slider’ın ilk karesi <code>fetchpriority=&quot;high&quot;</code>. Font yüklemesini platform yapar.</p>
+<p>Market akışı: kod ve panel içeriği biter → <code>tsoft theme push</code> taslağı günceller → hazırlık ekranı (ad, açıklama, detay, changelog) → kapak 16:9, 1600×900, WebP → en az 3 ekran görüntüsü (panel ölçüsü 1280×960 JPG/PNG) → İncelemeye Gönder. Onaylanan tema <code>tsoftthemes.com/temalar</code> üzerinde listelenir.</p>
+<p>İnceleme başlıkları: şablonda stil ve script yok, sabit hex yok, metin <code>locales/</code> içinde, yatay kaydırma yok, liste-detay-varyant-sepet-ödeme-üyelik-arama çalışır, konsol temiz, <code>console.log</code> kalmaz.</p>
+<h2 id="sayfa-dizini"><a class="anchor" href="#sayfa-dizini" aria-hidden="true">#</a>Sayfa dizini</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Sayfa</th>
+<th>Adres</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Genel bakış</td>
+<td><a href="https://developer.tsoft.com.tr/tema-gelistirme/genel-bakis" rel="noopener" target="_blank">https://developer.tsoft.com.tr/tema-gelistirme/genel-bakis</a></td>
+</tr>
+<tr>
+<td>Kurulum</td>
+<td><a href="https://developer.tsoft.com.tr/tema-gelistirme/kurulum" rel="noopener" target="_blank">https://developer.tsoft.com.tr/tema-gelistirme/kurulum</a></td>
+</tr>
+<tr>
+<td>IDE</td>
+<td><a href="https://developer.tsoft.com.tr/tema-gelistirme/ide-kurulumu" rel="noopener" target="_blank">https://developer.tsoft.com.tr/tema-gelistirme/ide-kurulumu</a></td>
+</tr>
+<tr>
+<td>Çalışma dizini</td>
+<td><a href="https://developer.tsoft.com.tr/tema-gelistirme/calisma-dizini" rel="noopener" target="_blank">https://developer.tsoft.com.tr/tema-gelistirme/calisma-dizini</a></td>
+</tr>
+<tr>
+<td>Sıfırdan tema</td>
+<td><a href="https://developer.tsoft.com.tr/tema-gelistirme/yeni-tema-gelistirme" rel="noopener" target="_blank">https://developer.tsoft.com.tr/tema-gelistirme/yeni-tema-gelistirme</a></td>
+</tr>
+<tr>
+<td>Müşteri teması</td>
+<td><a href="https://developer.tsoft.com.tr/tema-gelistirme/musteri-temasi" rel="noopener" target="_blank">https://developer.tsoft.com.tr/tema-gelistirme/musteri-temasi</a></td>
+</tr>
+<tr>
+<td>Tema yapısı</td>
+<td><a href="https://developer.tsoft.com.tr/tema-gelistirme/tema-yapisi" rel="noopener" target="_blank">https://developer.tsoft.com.tr/tema-gelistirme/tema-yapisi</a></td>
+</tr>
+<tr>
+<td>Özelleştirme</td>
+<td><a href="https://developer.tsoft.com.tr/tema-gelistirme/temayi-ozellestir" rel="noopener" target="_blank">https://developer.tsoft.com.tr/tema-gelistirme/temayi-ozellestir</a></td>
+</tr>
+<tr>
+<td>Markete gönderme</td>
+<td><a href="https://developer.tsoft.com.tr/tema-gelistirme/markete-gonderme" rel="noopener" target="_blank">https://developer.tsoft.com.tr/tema-gelistirme/markete-gonderme</a></td>
+</tr>
+<tr>
+<td>İnceleme</td>
+<td><a href="https://developer.tsoft.com.tr/tema-gelistirme/inceleme-kriterleri" rel="noopener" target="_blank">https://developer.tsoft.com.tr/tema-gelistirme/inceleme-kriterleri</a></td>
+</tr>
+<tr>
+<td>Section</td>
+<td><a href="https://developer.tsoft.com.tr/tema-gelistirme/section" rel="noopener" target="_blank">https://developer.tsoft.com.tr/tema-gelistirme/section</a></td>
+</tr>
+<tr>
+<td>Snippet</td>
+<td><a href="https://developer.tsoft.com.tr/tema-gelistirme/snippet" rel="noopener" target="_blank">https://developer.tsoft.com.tr/tema-gelistirme/snippet</a></td>
+</tr>
+<tr>
+<td>Locale</td>
+<td><a href="https://developer.tsoft.com.tr/tema-gelistirme/locale" rel="noopener" target="_blank">https://developer.tsoft.com.tr/tema-gelistirme/locale</a></td>
+</tr>
+<tr>
+<td>Asset</td>
+<td><a href="https://developer.tsoft.com.tr/tema-gelistirme/assetler" rel="noopener" target="_blank">https://developer.tsoft.com.tr/tema-gelistirme/assetler</a></td>
+</tr>
+<tr>
+<td>Twig</td>
+<td><a href="https://developer.tsoft.com.tr/tema-gelistirme/twig" rel="noopener" target="_blank">https://developer.tsoft.com.tr/tema-gelistirme/twig</a></td>
+</tr>
+<tr>
+<td>Twig fonksiyonları</td>
+<td><a href="https://developer.tsoft.com.tr/tema-gelistirme/twig-fonksiyonlari" rel="noopener" target="_blank">https://developer.tsoft.com.tr/tema-gelistirme/twig-fonksiyonlari</a></td>
+</tr>
+<tr>
+<td>Tailwind</td>
+<td><a href="https://developer.tsoft.com.tr/tema-gelistirme/tailwind" rel="noopener" target="_blank">https://developer.tsoft.com.tr/tema-gelistirme/tailwind</a></td>
+</tr>
+<tr>
+<td>JavaScript</td>
+<td><a href="https://developer.tsoft.com.tr/tema-gelistirme/javascript/genel-bakis" rel="noopener" target="_blank">https://developer.tsoft.com.tr/tema-gelistirme/javascript/genel-bakis</a></td>
+</tr>
+<tr>
+<td>JS fonksiyonları</td>
+<td><a href="https://developer.tsoft.com.tr/tema-gelistirme/javascript/fonksiyonlar" rel="noopener" target="_blank">https://developer.tsoft.com.tr/tema-gelistirme/javascript/fonksiyonlar</a></td>
+</tr>
+<tr>
+<td>JS bileşenleri</td>
+<td><a href="https://developer.tsoft.com.tr/tema-gelistirme/javascript/bilesenler" rel="noopener" target="_blank">https://developer.tsoft.com.tr/tema-gelistirme/javascript/bilesenler</a></td>
+</tr>
+<tr>
+<td>JS callback</td>
+<td><a href="https://developer.tsoft.com.tr/tema-gelistirme/javascript/callbackler" rel="noopener" target="_blank">https://developer.tsoft.com.tr/tema-gelistirme/javascript/callbackler</a></td>
+</tr>
+<tr>
+<td>Data-toggle</td>
+<td><a href="https://developer.tsoft.com.tr/tema-gelistirme/data-toggle" rel="noopener" target="_blank">https://developer.tsoft.com.tr/tema-gelistirme/data-toggle</a></td>
+</tr>
+<tr>
+<td>Pratik çözümler</td>
+<td><a href="https://developer.tsoft.com.tr/tema-gelistirme/pratik-cozumler" rel="noopener" target="_blank">https://developer.tsoft.com.tr/tema-gelistirme/pratik-cozumler</a></td>
+</tr>
+<tr>
+<td>CLI</td>
+<td><a href="https://developer.tsoft.com.tr/tema-gelistirme/cli-referansi" rel="noopener" target="_blank">https://developer.tsoft.com.tr/tema-gelistirme/cli-referansi</a></td>
+</tr>
+<tr>
+<td>Performans</td>
+<td><a href="https://developer.tsoft.com.tr/tema-gelistirme/performans" rel="noopener" target="_blank">https://developer.tsoft.com.tr/tema-gelistirme/performans</a></td>
+</tr>
+</tbody></table></div>
+<p>IDE sayfası navigasyon ağacında yok, sitemap’te var ve 200 döner. Önerilen eklentiler: Twig Language 2, Tailwind CSS IntelliSense, Prettier. <code>.twig</code> dosyası Twig diliyle eşlenir.</p>
+<p>Pratik çözümler sayfası iki tarif verir: asorti tablosu (<code>BEDEN:ADET|...#TOPLAM</code>, alan <code>P.ADDITIONAL_FIELD_1</code>) ve ürün kartında <code>P.IMAGE_LIST</code> uzunluğu 1’den büyükse slider noktaları.</p>
+
+</article>
+<nav class="pager" aria-label="Sayfa geçişi"><a class="prev" href="/developer/storefront-api/"><span>← Önceki</span>Storefront API</a><a class="next" href="/theme/"><span>Sonraki →</span>Eski tema (Smarty)</a></nav>
+<footer class="page-foot"><a href="https://github.com/bahadirdogru/tsoft-documentation-examples/edit/main/content/developer/tema.md">GitHub'da düzenle</a> · <a href="/developer/tema.md">Markdown</a> · <a href="/llms.txt">llms.txt</a> · Topluluk belgesidir, T-Soft’un resmî yayını değildir.</footer>
+</main>
+<nav class="toc" aria-label="Bu sayfada"><div class="toc-title">Bu sayfada</div><ul><li class="l2"><a href="#akış">Akış</a></li><li class="l2"><a href="#dizin">Dizin</a></li><li class="l2"><a href="#cli">CLI</a></li><li class="l2"><a href="#twig">Twig</a></li><li class="l2"><a href="#görünüm">Görünüm</a></li><li class="l2"><a href="#javascript">JavaScript</a></li><li class="l2"><a href="#performans-ve-market">Performans ve market</a></li><li class="l2"><a href="#sayfa-dizini">Sayfa dizini</a></li></ul></nav>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/twig.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/http.min.js"></script>
+<script src="/assets/site.js"></script>
+</body>
+</html>

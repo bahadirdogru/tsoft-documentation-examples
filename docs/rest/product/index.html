@@ -1,0 +1,3260 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Product · T-Soft Dokümantasyonu</title>
+<meta name="description" content="Ürün oluşturma, stok, fiyat, görsel, etiket ve dil.">
+<link rel="canonical" href="https://tsoft.bahadirdogru.com/rest/product/">
+<link rel="alternate" type="text/markdown" href="/rest/product.md" title="Markdown">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%231f6feb%22%2F%3E%3Cpath%20d%3D%22M8%209h16v3.2h-6.4V23h-3.2V12.2H8z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E">
+<meta property="og:title" content="Product">
+<meta property="og:description" content="Ürün oluşturma, stok, fiyat, görsel, etiket ve dil.">
+<meta property="og:url" content="https://tsoft.bahadirdogru.com/rest/product/">
+<meta property="og:type" content="website">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" media="(prefers-color-scheme: light)" id="hl-light">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" media="(prefers-color-scheme: dark)" id="hl-dark">
+</head>
+<body>
+<a class="skip" href="#main">İçeriğe geç</a>
+<header class="top">
+  <button class="menu-btn" aria-label="Menü" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="/"><svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><path d="M8 9h16v3.2h-6.4V23h-3.2V12.2H8z" fill="var(--bg)"/></svg><span>T-Soft Dokümantasyonu</span></a>
+  <div class="search">
+    <input id="q" type="search" placeholder="Ara: metot, uç, değişken, sayfa…  ( / )" autocomplete="off" aria-label="Ara">
+    <ul id="results" role="listbox" hidden></ul>
+  </div>
+  <button class="theme-btn" aria-label="Tema değiştir" title="Tema değiştir">◐</button>
+</header>
+<div class="layout">
+<aside id="sidebar" class="sidebar"><details class="nav-sec" open><summary>Başlangıç <span class="count">3</span></summary><ul><li><a href="/">Ana sayfa</a></li><li><a href="/rehber/">Hangi yüzey?</a></li><li><a href="/llm/">LLM ve ajanlar için</a></li></ul></details><details class="nav-sec" open><summary>Platform <span class="count">4</span></summary><ul><li><a href="/developer/">Platform haritası</a></li><li><a href="/developer/baslarken/">Başlarken</a></li><li><a href="/developer/uygulama/">Uygulama geliştirme</a></li><li><a href="/developer/storefront-api/">Storefront API</a></li></ul></details><details class="nav-sec" open><summary>Tema <span class="count">2</span></summary><ul><li><a href="/developer/tema/">Tema motoru (Twig)</a></li><li><a href="/theme/">Eski tema (Smarty)</a></li></ul></details><details class="nav-sec" open><summary>REST1 <span class="count">2</span></summary><ul><li><a href="/rest/">Genel bakış</a></li><li><a href="/rest/hatalar/">Hatalar ve mesaj kodları</a></li></ul></details><details class="nav-sec" open><summary>REST1 modülleri <span class="count">38</span></summary><ul><li><a href="/rest/auth/">Auth</a></li><li><a href="/rest/customer/">Customer</a></li><li><a href="/rest/product/" aria-current="page">Product</a></li><li><a href="/rest/subproduct/">SubProduct</a></li><li><a href="/rest/category/">Category</a></li><li><a href="/rest/brand/">Brand</a></li><li><a href="/rest/model/">Model</a></li><li><a href="/rest/filter/">Filter</a></li><li><a href="/rest/catalog/">Catalog</a></li><li><a href="/rest/order/">Order</a></li><li><a href="/rest/order2/">Order2</a></li><li><a href="/rest/cart/">Cart</a></li><li><a href="/rest/campaign/">Campaign</a></li><li><a href="/rest/payment/">Payment</a></li><li><a href="/rest/fundmovement/">FundMovement</a></li><li><a href="/rest/point/">Point</a></li><li><a href="/rest/segment/">Segment</a></li><li><a href="/rest/supplier/">Supplier</a></li><li><a href="/rest/branchoffice/">BranchOffice</a></li><li><a href="/rest/content/">Content</a></li><li><a href="/rest/news/">News</a></li><li><a href="/rest/showcase/">Showcase</a></li><li><a href="/rest/htmlblock/">HtmlBlock</a></li><li><a href="/rest/widget/">Widget</a></li><li><a href="/rest/link/">Link</a></li><li><a href="/rest/personalization/">Personalization</a></li><li><a href="/rest/trackingcode/">TrackingCode</a></li><li><a href="/rest/ticket/">Ticket</a></li><li><a href="/rest/user/">User</a></li><li><a href="/rest/setting/">Setting</a></li><li><a href="/rest/notification/">Notification</a></li><li><a href="/rest/mobile/">Mobile</a></li><li><a href="/rest/platform/">Platform</a></li><li><a href="/rest/cargo/">Cargo</a></li><li><a href="/rest/adapter/">Adapter</a></li><li><a href="/rest/hopi/">Hopi</a></li><li><a href="/rest/zubizu/">Zubizu</a></li><li><a href="/rest/routing/">Routing</a></li></ul></details><details class="nav-sec" open><summary>Admin API v3 <span class="count">3</span></summary><ul><li><a href="/admin-api/">Genel bakış</a></li><li><a href="/admin-api/uclar/">Uç listesi</a></li><li><a href="/admin-api/odeme-bildirimi/">Ödeme bildirimi</a></li></ul></details><details class="nav-sec"><summary>Örnek kod <span class="count">5</span></summary><ul><li><a href="/examples/python/tsoft_client/">Python istemci</a></li><li><a href="/examples/python/add_customer/">Üye ekleme</a></li><li><a href="/examples/python/check_group_price/">Grup fiyatı</a></li><li><a href="/examples/python/env/">Ortam değişkenleri</a></li><li><a href="/examples/apps-script/code/">Apps Script</a></li></ul></details><details class="nav-sec"><summary>Eski tema blokları <span class="count">18</span></summary><ul><li><a href="/theme/bloklar/ust/">Üst blok</a></li><li><a href="/theme/bloklar/alt/">Alt blok</a></li><li><a href="/theme/bloklar/yeni-urunler/">Yeni ürünler</a></li><li><a href="/theme/bloklar/kategori-menusu/">Kategori menüsü</a></li><li><a href="/theme/bloklar/kategori-listesi/">Kategori listesi</a></li><li><a href="/theme/bloklar/home-banner/">Ana sayfa banner</a></li><li><a href="/theme/bloklar/home-sale/">Ana sayfa indirim</a></li><li><a href="/theme/bloklar/haberler/">Haberler</a></li><li><a href="/theme/bloklar/benzer-urunler/">Benzer ürünler</a></li><li><a href="/theme/bloklar/model-listesi/">Model listesi</a></li><li><a href="/theme/bloklar/marka-listesi/">Marka listesi</a></li><li><a href="/theme/bloklar/parca-toplama-sihirbazi/">Parça toplama sihirbazı</a></li><li><a href="/theme/bloklar/tedarikci-listesi/">Tedarikçi listesi</a></li><li><a href="/theme/bloklar/firsat-urunleri/">Fırsat ürünleri</a></li><li><a href="/theme/bloklar/ayin-yazari/">Ayın yazarı</a></li><li><a href="/theme/bloklar/gelecek-firsat-urun-listesi/">Gelecek fırsatlar</a></li><li><a href="/theme/bloklar/sss/">SSS</a></li><li><a href="/theme/bloklar/gorsel-vitrin/">Görsel vitrin</a></li></ul></details><details class="nav-sec"><summary>Eski tema değişkenleri <span class="count">5</span></summary><ul><li><a href="/theme/degiskenler/tsoft-product-varriables/">Ürün değişkenleri</a></li><li><a href="/theme/degiskenler/tsoft-header-page-links-varriable/">Sayfa linkleri</a></li><li><a href="/theme/degiskenler/tsoft-header-tabs-varriable/">Üst sekmeler</a></li><li><a href="/theme/degiskenler/tsoft-footer-menu-varriables/">Alt menü</a></li><li><a href="/theme/degiskenler/tsoft-left-right-category-varriables/">Sol ve sağ kategori</a></li></ul></details><details class="nav-sec"><summary>Eski tema şablonları <span class="count">5</span></summary><ul><li><a href="/theme/snippets/bayi-mi-degil-mi/">Bayi hesabı koşulu</a></li><li><a href="/theme/orta/user_bayipanel/">Bayi paneli</a></li><li><a href="/theme/orta/user_bayigirisplasiyer/">Bayi giriş plasiyer</a></li><li><a href="/theme/orta/user_v4tpl/">V4 şablon</a></li><li><a href="/theme/UstAlt/user_tasarimyenimenu/">Tasarım yeni menü</a></li></ul></details></aside>
+<main id="main" class="content">
+<nav class="crumbs" aria-label="Konum"><a href="/">Ana sayfa</a> <span>/</span> <a href="/rest/">REST1</a></nav>
+<article>
+<h1 id="product"><a class="anchor" href="#product" aria-hidden="true">#</a>Product</h1>
+<p>REST1 modülü · 70 metot · taban <code>https://magaza.example/rest1/product/{metot}/</code></p>
+<p>Her çağrı <code>POST</code> ve form gövdesidir; <code>token</code> ayrı alan olarak gider. Ortak kurallar, zarf yapısı ve süzgeç sözdizimi <a href="/rest/#ortak-kurallar">REST1 genel bakış</a> sayfasındadır. Tablodaki &quot;Yer&quot; sütunu: <code>url_param</code> yolun sonuna eklenir, <code>query</code> gövde alanıdır, <code>file</code> dosya yüklemesidir.</p>
+<p>Ürün oluşturma, stok, fiyat, görsel, etiket ve dil.</p>
+<h2 id="product-get"><a class="anchor" href="#product-get" aria-hidden="true">#</a><code>product/get</code></h2>
+<p><code>POST https://magaza.example/rest1/product/get/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ProductId</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ProductIds</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>123|321 şeklinde girilebilir.</td>
+</tr>
+<tr>
+<td><code>ProductCode</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Barcode</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ProductName</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>CategoryIds</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>123|321 şeklinde girilebilir.</td>
+</tr>
+<tr>
+<td><code>BrandIds</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>123|321 şeklinde girilebilir.</td>
+</tr>
+<tr>
+<td><code>CustomerGroupDisplayIds</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>123|321 şeklinde girilebilir.</td>
+</tr>
+<tr>
+<td><code>ModelCode</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Translation</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Çeviri yapılacak diller. Örn.: Translation=en,ar</td>
+</tr>
+<tr>
+<td><code>start</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Default:50, Max:500</td>
+</tr>
+<tr>
+<td><code>columns</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Example: &quot;ProductId,ProductCode,ProductName&quot;</td>
+</tr>
+<tr>
+<td><code>f</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Allowed operators: startwith,endwith,equal,greater,smaller,between,contain. Example: &quot;CustomerName | ahmet | contain&quot;</td>
+</tr>
+<tr>
+<td><code>f2</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Allowed operators: startwith,endwith,equal,greater,smaller,between,contain. Example: &quot;CustomerName | ahmet | contain&quot;</td>
+</tr>
+<tr>
+<td><code>orderby</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Example: &quot;OrderId ASC&quot;</td>
+</tr>
+<tr>
+<td><code>CustomerGroupCode</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>İstenilen grup fiyatlarını çekmek için kullanılır. (Örnek : TZ0|TB1)</td>
+</tr>
+<tr>
+<td><code>FlexiblePrices</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Örnek : Price3,Price4 (product/fields metodundan erişilebilir.)</td>
+</tr>
+<tr>
+<td><code>StockFields</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Örnek : Stock2,Stock3 (product/fields metodundan erişilebilir.)</td>
+</tr>
+<tr>
+<td><code>FetchDiscountedPriceDetail</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td>İndirim tiplerinin de gelmesini sağlar</td>
+</tr>
+<tr>
+<td><code>FetchPackageProducts</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchCatalogData</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchFilters</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchDetails</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchAllCategories</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchImageUrls</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchMultipleDiscount</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchTags</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchRelatedBlocks</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchComplementaryProducts</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchSubProducts</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchInstallments</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>TranslateDefaultCategoryPath</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td>Ana kategori path&#39;ini Translation parametresinde belirtilen dillere çevirir.</td>
+</tr>
+</tbody></table></div>
+<p>20 Ekim 2026 okumasında <code>CustomerGroupCode=ogretmenler</code> ve <code>FetchDiscountedPriceDetail=true</code> grup fiyatını <code>DiscountedPrices</code> dizisine koydu. <code>SellingPrice</code> raf fiyatı kaldı. Dizi alanları <code>DiscountedPrice</code>, <code>DiscountedPriceVatIncluded</code>, <code>DiscountPercent</code>, <code>PriceType</code>, <code>PriceTypeDescription</code>.</p>
+<h2 id="product-addcategory"><a class="anchor" href="#product-addcategory" aria-hidden="true">#</a><code>product/addCategory</code></h2>
+<p><code>POST https://magaza.example/rest1/product/addCategory/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>ProductCode</code>, <code>CategoryCode</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;ProductCode&quot;: &quot;T582&quot;,
+    &quot;CategoryCode&quot;: &quot;C582&quot;
+  }
+]</code></pre>
+<h2 id="product-addimagefromfile"><a class="anchor" href="#product-addimagefromfile" aria-hidden="true">#</a><code>product/addImageFromFile</code></h2>
+<p><code>POST https://magaza.example/rest1/product/addImageFromFile/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ProductCode</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td>Parametre tipini POST seçerek, ProductCode parametresini POST ile de gönderebilirsiniz.</td>
+</tr>
+<tr>
+<td><code>image</code></td>
+<td>file</td>
+<td>file</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>list_number</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ImageSizeWidthHeightControl</code></td>
+<td>query</td>
+<td>int</td>
+<td>evet</td>
+<td>Bu parametre 0 gönderildiğinde yeni resim ekleme yapılır. 1 gönderildiğinde eğer boyutları aynı olan bir resim daha önceden yüklenmişse o resim silinir. Üzerine yeni resim yazılır. 2 gönderilmişse ve resim varsa hata mesajı döner. Hiçbir işlem yapılmaz. Önceki resim silinmez.</td>
+</tr>
+</tbody></table></div>
+<h2 id="product-attributes"><a class="anchor" href="#product-attributes" aria-hidden="true">#</a><code>product/attributes</code></h2>
+<p><code>POST https://magaza.example/rest1/product/attributes/</code></p>
+<p>Seçili ürünün özelliklerini baz alarak, Model altındaki özellikleri stok bilgisi ve örnek ürün kimliği ile birlikte döndür.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>product_id</code></td>
+<td>url_param</td>
+<td>int</td>
+<td>evet</td>
+<td>Ürün id&#39;si</td>
+</tr>
+<tr>
+<td><code>with_image</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="product-addimagefromlink"><a class="anchor" href="#product-addimagefromlink" aria-hidden="true">#</a><code>product/addImageFromLink</code></h2>
+<p><code>POST https://magaza.example/rest1/product/addImageFromLink/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ImageSizeWidthHeightControl</code></td>
+<td>post</td>
+<td>int</td>
+<td>hayır</td>
+<td>Bu parametre 0 gönderildiğinde yeni resim ekleme yapılır. 1 gönderildiğinde eğer boyutları aynı olan bir resim daha önceden yüklenmişse o resim silinir. Üzerine yeni resim yazılır. 2 gönderilmişse ve resim varsa hata mesajı döner. Hiçbir işlem yapılmaz. Önceki resim silinmez.</td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>ProductCode</code>, <code>ImageUrl</code>, <code>ListNumber</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;ProductCode&quot;: &quot;T582&quot;,
+    &quot;ImageUrl&quot;: &quot;http://celil.meticaret.com/kiz-cocuk-elbise-503-64-B.jpg&quot;,
+    &quot;ListNumber&quot;: &quot;&quot;
+  }
+]</code></pre>
+<h2 id="product-addimagebase64"><a class="anchor" href="#product-addimagebase64" aria-hidden="true">#</a><code>product/addImageBase64</code></h2>
+<p><code>POST https://magaza.example/rest1/product/addImageBase64/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ImageSizeWidthHeightControl</code></td>
+<td>post</td>
+<td>int</td>
+<td>hayır</td>
+<td>Bu parametre 0 gönderildiğinde yeni resim ekleme yapılır. 1 gönderildiğinde eğer boyutları aynı olan bir resim daha önceden yüklenmişse o resim silinir. Üzerine yeni resim yazılır. 2 gönderilmişse ve resim varsa hata mesajı döner. Hiçbir işlem yapılmaz. Önceki resim silinmez.</td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>Base64 kodu <code>data:image/{image_type};base64,</code> şeklinde başlamalıdır.</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>ProductCode</code>, <code>Base64</code>, <code>ListNumber</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;ProductCode&quot;: &quot;T582&quot;,
+    &quot;Base64&quot;: &quot;&quot;,
+    &quot;ListNumber&quot;: &quot;&quot;
+  }
+]</code></pre>
+<h2 id="product-comment"><a class="anchor" href="#product-comment" aria-hidden="true">#</a><code>product/comment</code></h2>
+<p><code>POST https://magaza.example/rest1/product/comment/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>Resimli yorum eklemek için lisansa ihtiyaç vardır. Eğer uygun bir lisansa sahipseniz, &#39;ImageUrl&#39; parametresi aracılığıyla resmin URL&#39;sini göndererek ekleyebilirsiniz. Eğer dosyadan resim eklemek istiyorsanız, data alanındaki ilk gelen yorumu kabul edeceğiz.    DateTimeStamp(unix timestamp) verisi gönderilirse gönderilen tarihte yorum eklenir. Gönderilmezse veya boş gönderilirse, yorum eklenme anında eklenir.   Ürüne yorum ekeleme için type:comment, ürüne soru eklemek için type:question gönderilmelidir.</td>
+</tr>
+<tr>
+<td><code>image</code></td>
+<td>file</td>
+<td>file</td>
+<td>hayır</td>
+<td>Gerekli lisansa sahip olmalısınız(Ürün yorumlarında resim ekleme)</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>CustomerId</code>, <code>ProductId</code>, <code>Type</code>, <code>Comment</code>, <code>Title</code>, <code>Rate</code>, <code>IsNameDisplayed</code>, <code>ImageUrl</code>, <code>DateTimeStamp</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;CustomerId&quot;: &quot;110&quot;,
+    &quot;ProductId&quot;: &quot;68&quot;,
+    &quot;Type&quot;: &quot;comment&quot;,
+    &quot;Comment&quot;: &quot;test message&quot;,
+    &quot;Title&quot;: &quot;test title&quot;,
+    &quot;Rate&quot;: &quot;3&quot;,
+    &quot;IsNameDisplayed&quot;: &quot;&quot;,
+    &quot;ImageUrl&quot;: &quot;&quot;,
+    &quot;DateTimeStamp&quot;: &quot;&quot;
+  }
+]</code></pre>
+<h2 id="product-createproducts"><a class="anchor" href="#product-createproducts" aria-hidden="true">#</a><code>product/createProducts</code></h2>
+<p><code>POST https://magaza.example/rest1/product/createProducts/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>ProductCode: Ürün Web Servis Kodu  ProductName: Ürün Adı  DefaultCategoryCode: Ana Kategori Kodu  SupplierProductCode: Tedarikçi Ürün Kodu  Barcode: Barkod  Stock: Stok  StockUnit: Stok Birimi  IsActive: Aktif mi?  ComparisonSites: Karşılaştırma sitelerinde görünsün mü ?  Vat: KDV  Currency: Para Birimi  BuyingPrice: Alış Fiyatı  SellingPrice: Satış Fiyatı  SearchKeywords: Site Arama Kelimeleri   IsNewProduct: Yeni Ürün Mü?  OnSale: İndirimde mi?  ImageUrl: İlk Resim Linki  IsDisplayProduct: Tanıtım Ürünü Mü?  VendorDisplayOnly: Bayi Ürünü Mü?  DisplayWithVat: KDV Dahil Göster?  Brand: Marka  Model: Model  Supplier: Tedarikçi  CustomerGroupDisplay: Üye grubuna göre ürün görünümü aktifse, burada ürünün gösterileceği üye grupları gönderilir  Additional1: Ek Bilgiler &gt; Ek 1 alanı  Additional2: Ek Bilgiler &gt; Ek 2 alanı  Additional3: Ek Bilgiler &gt; Ek 3 alanı  RelatedProductsBlock1: İlişkili Ürünler &gt; İlgili Ürünler  RelatedProductsBlock2: İlişkili Ürünler &gt; İkame Ürünler  RelatedProductsBlock3: İlişkili Ürünler &gt; Aksesuarlar  Magnifier: Ek Bilgiler &gt; Mercek Göster?  MemberMinOrder: Ek Bilgiler &gt; Üye Minumum Sipariş Miktarı  MemberMaxOrder: Ek Bilgiler &gt; Üye Maksimum Sipariş Miktarı  VendorMinOrder: Ek Bilgiler &gt; Bayi Minumum Sipariş Miktarı  VendorMaxOrder: Ek Bilgiler &gt; Bayi Maksimum Sipariş Miktarı  FreeDeliveryMember: Ek Bilgiler &gt; Üyelere Ücretsiz Kargo  FreeDeliveryVendor: Ek Bilgiler &gt; Bayilere Ücretsiz Kargo ShortDescription: Ek Bilgiler &gt; Kısa Açıklama  Details: Ürün Detayı  Width: En  Height: Boy  Depth: Derinlik  Weight: Ağırlık  CBM: Desi  Document: Ek Bilgiler &gt; Dökümanlar  Gender: Erkek için 1, Kadın için 2, unisex için 3  WarrantyInfo: Garanti Bilgisi  DeliveryInfo: Sevk Bilgisi  ProductNote: Ürün Notu  SeoSettingsId: SEO Ayar  SeoTitle: SEO Başlık  SeoDescription: SEO Açıklama  ListNo: Sıra No  Label1-10: Simge Gösterimi &gt; Etiket olsun mu olmasın mı ayarı DisablePaymentTypes: Yasaklı ödeme yöntemleri belirlenebilir. DisableCargoCompany: Yasaklı kargolar belirlenebilir.   AgeGroup parametresinin alabileceği değerler. (newborn,infant,toddle,kids,adult)   Supplier : SupplierId de gönderilebilir   DefaultSubProductId : Ön tanımlı alt ürün ID&#39;si   EftRate: Havale İndirimi  Numeric1: Boş gönderilirse veritabanı değeri sıfırlanır. Değiştirmek istenmiyorsa key silinmelidir.</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>ProductCode</code>, <code>ProductName</code>, <code>DefaultCategoryCode</code>, <code>SupplierProductCode</code>, <code>Barcode</code>, <code>Stock</code>, <code>StockUnit</code>, <code>IsActive</code>, <code>ComparisonSites</code>, <code>Vat</code>, <code>Currency</code>, <code>BuyingPrice</code>, <code>SellingPrice</code>, <code>SearchKeywords</code>, <code>DisplayOnHomepage</code>, <code>XmlNotUpdateStock</code>, <code>XmlNotUpdatePrice</code>, <code>PointCatalog</code>, <code>IsNewProduct</code>, <code>OnSale</code>, <code>ImageUrl</code>, <code>IsDisplayProduct</code>, <code>VendorDisplayOnly</code>, <code>DisplayWithVat</code>, <code>Brand</code>, <code>Model</code>, <code>Supplier</code>, <code>CustomerGroupDisplay</code>, <code>Additional1</code>, <code>Additional2</code>, <code>Additional3</code>, <code>RelatedProductsBlock1</code>, <code>RelatedProductsBlock2</code>, <code>RelatedProductsBlock3</code>, <code>Magnifier</code>, <code>MemberMinOrder</code>, <code>MemberMaxOrder</code>, <code>VendorMinOrder</code>, <code>VendorMaxOrder</code>, <code>FreeDeliveryMember</code>, <code>FreeDeliveryVendor</code>, <code>FreeDeliveryForProduct</code>, <code>ShortDescription</code>, <code>Details</code>, <code>Width</code>, <code>Height</code>, <code>Depth</code>, <code>Weight</code>, <code>CBM</code>, <code>Document</code>, <code>WarrantyInfo</code>, <code>DeliveryInfo</code>, <code>DeliveryTime</code>, <code>ProductNote</code>, <code>SeoSettingsId</code>, <code>SeoTitle</code>, <code>SeoDescription</code>, <code>Gtip</code>, <code>ListNo</code>, <code>PersonalizationId</code>, <code>DisablePaymentTypes</code>, <code>DisableCargoCompany</code>, <code>Label1</code>, <code>Label2</code>, <code>Label3</code>, <code>Label4</code>, <code>Label5</code>, <code>Label6</code>, <code>Label7</code>, <code>Label8</code>, <code>Label9</code>, <code>Label10</code>, <code>HomepageSort</code>, <code>MostSoldSort</code>, <code>NewestSort</code>, <code>AgeGroup</code>, <code>Point</code>, <code>Numeric1</code>, <code>DefaultSubProductId</code>, <code>EftRate</code>, <code>Tags</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;ProductCode&quot;: &quot;T582&quot;,
+    &quot;ProductName&quot;: &quot;deneme&quot;,
+    &quot;DefaultCategoryCode&quot;: &quot;T251&quot;,
+    &quot;SupplierProductCode&quot;: &quot;&quot;,
+    &quot;Barcode&quot;: &quot;356574&quot;,
+    &quot;Stock&quot;: &quot;5&quot;,
+    &quot;StockUnit&quot;: &quot;adet&quot;,
+    &quot;IsActive&quot;: &quot;1&quot;,
+    &quot;ComparisonSites&quot;: &quot;0&quot;,
+    &quot;Vat&quot;: &quot;&quot;,
+    &quot;Currency&quot;: &quot;TL&quot;,
+    &quot;BuyingPrice&quot;: &quot;300&quot;,
+    &quot;SellingPrice&quot;: &quot;500&quot;,
+    &quot;SearchKeywords&quot;: &quot;&quot;,
+    &quot;DisplayOnHomepage&quot;: &quot;&quot;,
+    &quot;XmlNotUpdateStock&quot;: &quot;&quot;,
+    &quot;XmlNotUpdatePrice&quot;: &quot;&quot;,
+    &quot;PointCatalog&quot;: &quot;&quot;,
+    &quot;IsNewProduct&quot;: &quot;&quot;,
+    &quot;OnSale&quot;: &quot;&quot;,
+    &quot;ImageUrl&quot;: &quot;http://celil.meticaret.com/kiz-cocuk-elbise-503-64-B.jpg&quot;,
+    &quot;IsDisplayProduct&quot;: &quot;&quot;,
+    &quot;VendorDisplayOnly&quot;: &quot;&quot;,
+    &quot;DisplayWithVat&quot;: &quot;&quot;,
+    &quot;Brand&quot;: &quot;Donatella&quot;,
+    &quot;Model&quot;: &quot;beige&quot;,
+    &quot;Supplier&quot;: &quot;Penta&quot;,
+    &quot;CustomerGroupDisplay&quot;: &quot;TZ0|TE2&quot;,
+    &quot;Additional1&quot;: &quot;&quot;,
+    &quot;Additional2&quot;: &quot;&quot;,
+    &quot;Additional3&quot;: &quot;&quot;,
+    &quot;RelatedProductsBlock1&quot;: &quot;T678|T3181&quot;,
+    &quot;RelatedProductsBlock2&quot;: &quot;&quot;,
+    &quot;RelatedProductsBlock3&quot;: &quot;&quot;,
+    &quot;Magnifier&quot;: &quot;&quot;,
+    &quot;MemberMinOrder&quot;: &quot;&quot;,
+    &quot;MemberMaxOrder&quot;: &quot;&quot;,
+    &quot;VendorMinOrder&quot;: &quot;&quot;,
+    &quot;VendorMaxOrder&quot;: &quot;&quot;,
+    &quot;FreeDeliveryMember&quot;: &quot;0&quot;,
+    &quot;FreeDeliveryVendor&quot;: &quot;0&quot;,
+    &quot;FreeDeliveryForProduct&quot;: &quot;0&quot;,
+    &quot;ShortDescription&quot;: &quot;&quot;,
+    &quot;Details&quot;: &quot;detailsdetails&quot;,
+    &quot;Width&quot;: &quot;&quot;,
+    &quot;Height&quot;: &quot;&quot;,
+    &quot;Depth&quot;: &quot;&quot;,
+    &quot;Weight&quot;: &quot;&quot;,
+    &quot;CBM&quot;: &quot;&quot;,
+    &quot;Document&quot;: &quot;DocumentDocumentDocument&quot;,
+    &quot;WarrantyInfo&quot;: &quot;&quot;,
+    &quot;DeliveryInfo&quot;: &quot;&quot;,
+    &quot;DeliveryTime&quot;: &quot;&quot;,
+    &quot;ProductNote&quot;: &quot;ProductNoteProductNote&quot;,
+    &quot;SeoSettingsId&quot;: &quot;&quot;,
+    &quot;SeoTitle&quot;: &quot;&quot;,
+    &quot;SeoDescription&quot;: &quot;&quot;,
+    &quot;Gtip&quot;: &quot;&quot;,
+    &quot;ListNo&quot;: &quot;&quot;,
+    &quot;PersonalizationId&quot;: 0,
+    &quot;DisablePaymentTypes&quot;: &quot;49,50,51&quot;,
+    &quot;DisableCargoCompany&quot;: &quot;9,10,11&quot;,
+    &quot;Label1&quot;: {
+      &quot;Value&quot;: 1
+    },
+    &quot;Label2&quot;: {
+      &quot;Value&quot;: 0
+    },
+    &quot;Label3&quot;: 1,
+…</code></pre>
+<h2 id="product-deleteproductimages"><a class="anchor" href="#product-deleteproductimages" aria-hidden="true">#</a><code>product/deleteProductImages</code></h2>
+<p><code>POST https://magaza.example/rest1/product/deleteProductImages/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>ProductCode</code>, <code>ImageId</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;ProductCode&quot;: &quot;T582&quot;,
+    &quot;ImageId&quot;: &quot;&quot;
+  }
+]</code></pre>
+<h2 id="product-deleteproducts"><a class="anchor" href="#product-deleteproducts" aria-hidden="true">#</a><code>product/deleteProducts</code></h2>
+<p><code>POST https://magaza.example/rest1/product/deleteProducts/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>ProductCode</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;ProductCode&quot;: &quot;T582&quot;
+  },
+  {
+    &quot;ProductCode&quot;: &quot;T764&quot;
+  }
+]</code></pre>
+<h2 id="product-find"><a class="anchor" href="#product-find" aria-hidden="true">#</a><code>product/find</code></h2>
+<p><code>POST https://magaza.example/rest1/product/find/</code></p>
+<p>Ürünlerde filtreleme yapmayı sağlar, ID ile ürün bilgisini ve ilişkili ürünleri getirir</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>product</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>hayır</td>
+<td>Ürün ID</td>
+</tr>
+<tr>
+<td><code>product_ids</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Çoklu Ürün ID, Virgülle ayrılarak gönderilmelidir. (örn: &quot;123,365&quot;)</td>
+</tr>
+<tr>
+<td><code>related</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>1:İlgili Ürünler, 2:İkame Ürünler, 3:Aksesuarlar, 4:Tamamlayıcı Ürünler</td>
+</tr>
+<tr>
+<td><code>category</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Kategori ID</td>
+</tr>
+<tr>
+<td><code>store</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Dükkan / WS kullanıcı ID</td>
+</tr>
+<tr>
+<td><code>supplier</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>brand</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Marka ID</td>
+</tr>
+<tr>
+<td><code>model</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Model ID</td>
+</tr>
+<tr>
+<td><code>barcode</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Ürünün barkod numarası</td>
+</tr>
+<tr>
+<td><code>tag</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Etiket</td>
+</tr>
+<tr>
+<td><code>q</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Arama kelimesi</td>
+</tr>
+<tr>
+<td><code>stock</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>1: Sadece stoktakiler</td>
+</tr>
+<tr>
+<td><code>price</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Fiyat aralığı  örn; 30-100</td>
+</tr>
+<tr>
+<td><code>type1</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Variant type ID</td>
+</tr>
+<tr>
+<td><code>type2</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Variant type ID</td>
+</tr>
+<tr>
+<td><code>discounted</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>İndirimli ürünler için 1 gönderilir</td>
+</tr>
+<tr>
+<td><code>sort</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Sıralama için  0: Sıra No, 1: Ada göre A-Z, 2: Ada göre Z-A, 3: Yeniden Eskiye, 4: Eskiden Yeniye, 5: Fiyat artan, 6: Fiyat azalan, 7: Random, 8: En yüksek puan, 10: En çok satanlar, 11: Numeric azalan, 12, Numeric artan</td>
+</tr>
+<tr>
+<td><code>pg</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Sayfa numarası</td>
+</tr>
+<tr>
+<td><code>perpage</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Bir istekte dönecek kayıt sayısı</td>
+</tr>
+<tr>
+<td><code>currency_id</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>parabirimine göre filtreleme</td>
+</tr>
+<tr>
+<td><code>fetch_product_detail</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>fetch_filters_for_detail</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>fetch_installment_list</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>fetch_comments</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>fetch_passive_products</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>filter_related_products</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td>Bu parametre true olarak gönderildiğinde, &quot;Stokta Yoksa Göster&quot; ayarına bağlı olarak sadece aktif ve stokta olan ilişkili ürün ID&#39;leri döner.</td>
+</tr>
+<tr>
+<td><code>fetch_campaigns</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td>Bu parametre true olarak gönderildiğinde, panelden &quot;Ürün detay sayfasında ürün ile ilgili kampanyaların sorgulanması&quot; (UrunDetayKampanyaSorgu) ayarı aktif ise ürüne bağlı kampanyalar campaign_list alanı altında döner.</td>
+</tr>
+<tr>
+<td><code>variant_id</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>image_limit</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>without_cache</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>with_passive_sub_products</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="product-productlistfilter"><a class="anchor" href="#product-productlistfilter" aria-hidden="true">#</a><code>product/productListFilter</code></h2>
+<p><code>POST https://magaza.example/rest1/product/productListFilter/</code></p>
+<p>Ürün listesi filtre/faset listesini döner (kategori, varyant, marka, model, fiyat aralığı, sıralama vb.). Ürün dönmez; mobil tarafta filtre butonuna tıklandığında çağrılmalıdır. find metodu no_filter=true ile çağrılarak ürün listesi alınır, bu metot sadece filtre paneli açıldığında çalıştırılır.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>category</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Kategori ID</td>
+</tr>
+<tr>
+<td><code>brand</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Marka ID</td>
+</tr>
+<tr>
+<td><code>model</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Model ID</td>
+</tr>
+<tr>
+<td><code>supplier</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Tedarikçi</td>
+</tr>
+<tr>
+<td><code>store</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Dükkan / WS kullanıcı ID</td>
+</tr>
+<tr>
+<td><code>tag</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Etiket</td>
+</tr>
+<tr>
+<td><code>q</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Arama kelimesi</td>
+</tr>
+<tr>
+<td><code>barcode</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Barkod</td>
+</tr>
+<tr>
+<td><code>stock</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>1: Sadece stoktakiler</td>
+</tr>
+<tr>
+<td><code>price</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Fiyat aralığı (örn: 30-100)</td>
+</tr>
+<tr>
+<td><code>type1</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Varyant tip 1 ID</td>
+</tr>
+<tr>
+<td><code>type2</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Varyant tip 2 ID</td>
+</tr>
+<tr>
+<td><code>multi</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Çoklu seçim filtre değerleri</td>
+</tr>
+<tr>
+<td><code>single</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Tek seçim filtre değerleri</td>
+</tr>
+<tr>
+<td><code>decimal</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Sayısal aralık filtre değeri</td>
+</tr>
+<tr>
+<td><code>newproducts</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Yeni ürünler için 1</td>
+</tr>
+<tr>
+<td><code>discounted</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>İndirimli ürünler için 1</td>
+</tr>
+<tr>
+<td><code>sort</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Sıralama</td>
+</tr>
+<tr>
+<td><code>pg</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Sayfa numarası</td>
+</tr>
+<tr>
+<td><code>perpage</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Sayfa başına kayıt</td>
+</tr>
+<tr>
+<td><code>currency_id</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Para birimine göre filtreleme</td>
+</tr>
+<tr>
+<td><code>product_ids</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Çoklu Ürün ID&#39;si (örn: 123,365)</td>
+</tr>
+<tr>
+<td><code>fetch_passive_products</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td>Pasif ürünleri de hesaba kat</td>
+</tr>
+<tr>
+<td><code>without_cache</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td>Cache&#39;i bypass et</td>
+</tr>
+<tr>
+<td><code>language</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Dil kodu</td>
+</tr>
+<tr>
+<td><code>product_list_page_id</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Sıralama yapılandırması için sayfa ID</td>
+</tr>
+</tbody></table></div>
+<h2 id="product-getactivepropertygroup"><a class="anchor" href="#product-getactivepropertygroup" aria-hidden="true">#</a><code>product/getActivePropertyGroup</code></h2>
+<p><code>POST https://magaza.example/rest1/product/getActivePropertyGroup/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ProductId</code></td>
+<td>url_param</td>
+<td>int</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="product-getcomments"><a class="anchor" href="#product-getcomments" aria-hidden="true">#</a><code>product/getComments</code></h2>
+<p><code>POST https://magaza.example/rest1/product/getComments/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>type</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>ürüne iletilmiş olan soruları görmek için type: question, ürüne iletilen yorumları görmek için type:comment gönderilmelidir</td>
+</tr>
+<tr>
+<td><code>isAnswered</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Sadece cevaplı kayıtlar için 1/true, cevapsız kayıtlar için 0/false gönderiniz.</td>
+</tr>
+<tr>
+<td><code>start</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>columns</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Seçilebilir alanlara Answer, AnsweredBy, AnsweredAt eklendi (kolonlar veritabanında mevcutsa).</td>
+</tr>
+<tr>
+<td><code>f</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>orderby</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="product-getcurrencylist"><a class="anchor" href="#product-getcurrencylist" aria-hidden="true">#</a><code>product/getCurrencyList</code></h2>
+<p><code>POST https://magaza.example/rest1/product/getCurrencyList/</code></p>
+<p>Konsol bu metot için ek parametre listelemiyor. <code>token</code> yine gönderilir.</p>
+<h2 id="product-getdiscounttypelist"><a class="anchor" href="#product-getdiscounttypelist" aria-hidden="true">#</a><code>product/getDiscountTypeList</code></h2>
+<p><code>POST https://magaza.example/rest1/product/getDiscountTypeList/</code></p>
+<p>Konsol bu metot için ek parametre listelemiyor. <code>token</code> yine gönderilir.</p>
+<h2 id="productfilter-getfilters"><a class="anchor" href="#productfilter-getfilters" aria-hidden="true">#</a><code>productFilter/getFilters</code></h2>
+<p><code>POST https://magaza.example/rest1/productFilter/getFilters/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>GroupId</code></td>
+<td>url_param</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="productfilter-getfiltersbyproductcode"><a class="anchor" href="#productfilter-getfiltersbyproductcode" aria-hidden="true">#</a><code>productFilter/getFiltersByProductCode</code></h2>
+<p><code>POST https://magaza.example/rest1/productFilter/getFiltersByProductCode/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ProductCode</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Filter</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="product-getproductbybarcode"><a class="anchor" href="#product-getproductbybarcode" aria-hidden="true">#</a><code>product/getProductByBarcode</code></h2>
+<p><code>POST https://magaza.example/rest1/product/getProductByBarcode/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Barcode</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Barcodes</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Ürün barkodu ve alt ürün barkodlarını aralarında webservis ayraç ayarına girdiğiniz (default: |) ayracı kullanarak gönderiniz.</td>
+</tr>
+<tr>
+<td><code>FetchDiscountedPrice</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchImageUrls</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchSubProducts</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<pre><code class="language-json">&quot;123456|987456&quot;</code></pre>
+<h2 id="product-getproductbycode"><a class="anchor" href="#product-getproductbycode" aria-hidden="true">#</a><code>product/getProductByCode</code></h2>
+<p><code>POST https://magaza.example/rest1/product/getProductByCode/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ProductCode</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ProductCodes</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td>Ürün kodu ve alt ürün kodlarını aralarında webservis ayraç ayarına girdiğiniz (default: |) ayracı kullanarak gönderiniz. Kodu, ürünlerde bulunamazsa alt ürünlerde arar.</td>
+</tr>
+<tr>
+<td><code>FetchDiscountedPrice</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchImageUrls</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchMultipleDiscount</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<pre><code class="language-json">&quot;T548|T549|TA9&quot;</code></pre>
+<h2 id="product-getproductbyid"><a class="anchor" href="#product-getproductbyid" aria-hidden="true">#</a><code>product/getProductById</code></h2>
+<p><code>POST https://magaza.example/rest1/product/getProductById/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ProductId</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ProductIds</code></td>
+<td>query</td>
+<td>str</td>
+<td>evet</td>
+<td>Ürün ID&#39;lerini aralarında | ayracı kullanarak gönderiniz.</td>
+</tr>
+<tr>
+<td><code>FetchDiscountedPrice</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchImageUrls</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ImageSize</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>1:small, 2:mid, 3:large</td>
+</tr>
+<tr>
+<td><code>FetchMultipleDiscount</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<pre><code class="language-json">&quot;145|146&quot;</code></pre>
+<h2 id="product-getproductbyname"><a class="anchor" href="#product-getproductbyname" aria-hidden="true">#</a><code>product/getProductByName</code></h2>
+<p><code>POST https://magaza.example/rest1/product/getProductByName/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ProductName</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="product-getproductbysupplierproductcode"><a class="anchor" href="#product-getproductbysupplierproductcode" aria-hidden="true">#</a><code>product/getProductBySupplierProductCode</code></h2>
+<p><code>POST https://magaza.example/rest1/product/getProductBySupplierProductCode/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>SupplierProductCode</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="product-getproductdetail"><a class="anchor" href="#product-getproductdetail" aria-hidden="true">#</a><code>product/getProductDetail</code></h2>
+<p><code>POST https://magaza.example/rest1/product/getProductDetail/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ProductId</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ProductCode</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Default:50, Max:500</td>
+</tr>
+<tr>
+<td><code>start</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>columns</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>f</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>f2</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Allowed operators: startwith,endwith,equal,greater,smaller,between,contain. Example: &quot;CustomerName | ahmet | contain&quot;</td>
+</tr>
+<tr>
+<td><code>orderby</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>OnlyDetail</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="product-getproductimages"><a class="anchor" href="#product-getproductimages" aria-hidden="true">#</a><code>product/getProductImages</code></h2>
+<p><code>POST https://magaza.example/rest1/product/getProductImages/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ProductId</code></td>
+<td>url_param</td>
+<td>int</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="product-getproductimagesbycode"><a class="anchor" href="#product-getproductimagesbycode" aria-hidden="true">#</a><code>product/getProductImagesByCode</code></h2>
+<p><code>POST https://magaza.example/rest1/product/getProductImagesByCode/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ProductCode</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="product-getproducts"><a class="anchor" href="#product-getproducts" aria-hidden="true">#</a><code>product/getProducts</code></h2>
+<p><code>POST https://magaza.example/rest1/product/getProducts/</code></p>
+<p>Bu metoda alternatif olarak yeni geliştirilen product/get metodu mevcuttur. product/get metodunun kullanılması önerilir. Bkz. <a href="/rest/product/#product-get"><code>product/get</code></a>.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>limit</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Default:50, Max:500</td>
+</tr>
+<tr>
+<td><code>start</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>columns</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>f</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>f2</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Allowed operators: startwith,endwith,equal,greater,smaller,between,contain. Example: &quot;CustomerName | ahmet | contain&quot;</td>
+</tr>
+<tr>
+<td><code>orderby</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchDiscountedPrice</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchAllCategories</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchPriceWithComma</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchMultipleDiscount</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FlexiblePrices</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Örnek : Price3,Price4 (product/fields metodundan erişilebilir.)</td>
+</tr>
+<tr>
+<td><code>StockFields</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Örnek : Stock2,Stock3 (product/fields metodundan erişilebilir.)</td>
+</tr>
+</tbody></table></div>
+<p>Postman’daki <code>getProducts</code> adlı istek bu uca gitmez. <code>product/setProducts</code> adresine yazar.</p>
+<h2 id="product-getproductsbycategorycode"><a class="anchor" href="#product-getproductsbycategorycode" aria-hidden="true">#</a><code>product/getProductsByCategoryCode</code></h2>
+<p><code>POST https://magaza.example/rest1/product/getProductsByCategoryCode/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CategoryCode</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>start</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>columns</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>f</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>orderby</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>CategorySortLevel</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FetchDiscountedPrice</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="product-getproducttotal"><a class="anchor" href="#product-getproducttotal" aria-hidden="true">#</a><code>product/getProductTotal</code></h2>
+<p><code>POST https://magaza.example/rest1/product/getProductTotal/</code></p>
+<p>Konsol bu metot için ek parametre listelemiyor. <code>token</code> yine gönderilir.</p>
+<p>Postman’daki <code>getProductsCount</code> adlı istek bu uca gitmez. <code>product/setProducts</code> adresine yazar.</p>
+<h2 id="product-getseosettinglist"><a class="anchor" href="#product-getseosettinglist" aria-hidden="true">#</a><code>product/getSeoSettingList</code></h2>
+<p><code>POST https://magaza.example/rest1/product/getSeoSettingList/</code></p>
+<p>Konsol bu metot için ek parametre listelemiyor. <code>token</code> yine gönderilir.</p>
+<h2 id="product-getstockunitlist"><a class="anchor" href="#product-getstockunitlist" aria-hidden="true">#</a><code>product/getStockUnitList</code></h2>
+<p><code>POST https://magaza.example/rest1/product/getStockUnitList/</code></p>
+<p>Konsol bu metot için ek parametre listelemiyor. <code>token</code> yine gönderilir.</p>
+<h2 id="product-getsupplierlist"><a class="anchor" href="#product-getsupplierlist" aria-hidden="true">#</a><code>product/getSupplierList</code></h2>
+<p><code>POST https://magaza.example/rest1/product/getSupplierList/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>orderby</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Örn: Supplier ASC</td>
+</tr>
+<tr>
+<td><code>start</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="product-removecategory"><a class="anchor" href="#product-removecategory" aria-hidden="true">#</a><code>product/removeCategory</code></h2>
+<p><code>POST https://magaza.example/rest1/product/removeCategory/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>CategoryCode alanı &quot;&lt;__ALL__&gt;&quot; olarak gönderilirse varsayılan kategori de dahil tüm kategorileri siler.</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>ProductCode</code>, <code>CategoryCode</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;ProductCode&quot;: &quot;T582&quot;,
+    &quot;CategoryCode&quot;: &quot;C582&quot;
+  }
+]</code></pre>
+<h2 id="product-setcomplementaryproducts-beta"><a class="anchor" href="#product-setcomplementaryproducts-beta" aria-hidden="true">#</a><code>product/setComplementaryProducts</code> (beta)</h2>
+<p><code>POST https://magaza.example/rest1/product/setComplementaryProducts/</code></p>
+<p>Tamamlayıcı ürünler veya alt ürünler ekleyin.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>MainProductCode</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>Bir tamamlayıcı ürün için ProductCode veya SubProductCode alanlarından sadece birini giriniz.</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>ProductCode</code>, <code>SubProductCode</code>, <code>Price</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;ProductCode&quot;: &quot;&quot;,
+    &quot;SubProductCode&quot;: &quot;TA26&quot;,
+    &quot;Price&quot;: &quot;300&quot;
+  }
+]</code></pre>
+<h2 id="product-deletecomplementaryproducts-beta"><a class="anchor" href="#product-deletecomplementaryproducts-beta" aria-hidden="true">#</a><code>product/deleteComplementaryProducts</code> (beta)</h2>
+<p><code>POST https://magaza.example/rest1/product/deleteComplementaryProducts/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>MainProductCode</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>Bir tamamlayıcı ürün için ProductCode veya SubProductCode alanlarından sadece birini giriniz.</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>ProductCode</code>, <code>SubProductCode</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;ProductCode&quot;: &quot;&quot;,
+    &quot;SubProductCode&quot;: &quot;TA26&quot;
+  }
+]</code></pre>
+<h2 id="productfilter-setfiltergroupcategory-beta"><a class="anchor" href="#productfilter-setfiltergroupcategory-beta" aria-hidden="true">#</a><code>productFilter/setFilterGroupCategory</code> (beta)</h2>
+<p><code>POST https://magaza.example/rest1/productFilter/setFilterGroupCategory/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>CategoryCode</code>, <code>FilterGroupId</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;CategoryCode&quot;: &quot;T317-1&quot;,
+    &quot;FilterGroupId&quot;: &quot;29&quot;
+  }
+]</code></pre>
+<h2 id="productfilter-setfiltervalues"><a class="anchor" href="#productfilter-setfiltervalues" aria-hidden="true">#</a><code>productFilter/setFilterValues</code></h2>
+<p><code>POST https://magaza.example/rest1/productFilter/setFilterValues/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>ProductCode</code>, <code>FilterId</code>, <code>ValueId</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;ProductCode&quot;: &quot;T695&quot;,
+    &quot;FilterId&quot;: &quot;78&quot;,
+    &quot;ValueId&quot;: &quot;120|121&quot;
+  }
+]</code></pre>
+<h2 id="product-setproductlanguage"><a class="anchor" href="#product-setproductlanguage" aria-hidden="true">#</a><code>product/setProductLanguage</code></h2>
+<p><code>POST https://magaza.example/rest1/product/setProductLanguage/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>Languages: tr, en, ar, az, bs, de, fr, ru. | Fields: ProductName, Details, Document, ShortDescription, Additional1, Additional2, Additional3</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>ProductCode</code>, <code>Language</code>, <code>ProductName</code>, <code>Details</code>, <code>Document</code>, <code>ShortDescription</code>, <code>Additional1</code>, <code>Additional2</code>, <code>Additional3</code>, <code>SeoLink</code>, <code>SeoTitle</code>, <code>SeoDescription</code>, <code>WarrantyInfo</code>, <code>DeliveryInfo</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;ProductCode&quot;: &quot;T802&quot;,
+    &quot;Language&quot;: &quot;en&quot;,
+    &quot;ProductName&quot;: &quot;Test Product&quot;,
+    &quot;Details&quot;: &quot;Test Product Detail&quot;,
+    &quot;Document&quot;: &quot;&quot;,
+    &quot;ShortDescription&quot;: &quot;&quot;,
+    &quot;Additional1&quot;: &quot;&quot;,
+    &quot;Additional2&quot;: &quot;&quot;,
+    &quot;Additional3&quot;: &quot;&quot;,
+    &quot;SeoLink&quot;: &quot;test-product&quot;,
+    &quot;SeoTitle&quot;: &quot;&quot;,
+    &quot;SeoDescription&quot;: &quot;&quot;,
+    &quot;WarrantyInfo&quot;: &quot;&quot;,
+    &quot;DeliveryInfo&quot;: &quot;&quot;
+  },
+  {
+    &quot;ProductCode&quot;: &quot;T802&quot;,
+    &quot;Language&quot;: &quot;de&quot;,
+    &quot;ProductName&quot;: &quot;Testprodukt&quot;,
+    &quot;Details&quot;: &quot;Detail Testprodukt&quot;,
+    &quot;Document&quot;: &quot;&quot;,
+    &quot;ShortDescription&quot;: &quot;&quot;,
+    &quot;Additional1&quot;: &quot;&quot;,
+    &quot;Additional2&quot;: &quot;&quot;,
+    &quot;Additional3&quot;: &quot;&quot;,
+    &quot;SeoLink&quot;: &quot;test-produkt&quot;,
+    &quot;SeoTitle&quot;: &quot;&quot;,
+    &quot;SeoDescription&quot;: &quot;&quot;,
+    &quot;WarrantyInfo&quot;: &quot;&quot;,
+    &quot;DeliveryInfo&quot;: &quot;&quot;
+  }
+]</code></pre>
+<h2 id="product-getproductlanguage"><a class="anchor" href="#product-getproductlanguage" aria-hidden="true">#</a><code>product/getProductLanguage</code></h2>
+<p><code>POST https://magaza.example/rest1/product/getProductLanguage/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ProductCode</code></td>
+<td>url_param</td>
+<td>int</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Language</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ForceWithoutOriginal</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="product-setproducts"><a class="anchor" href="#product-setproducts" aria-hidden="true">#</a><code>product/setProducts</code></h2>
+<p><code>POST https://magaza.example/rest1/product/setProducts/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>ProductCode: Ürün Web Servis Kodu  ProductName: Ürün Adı  DefaultCategoryCode: Ana Kategori Kodu  SupplierProductCode: Tedarikçi Ürün Kodu  Barcode: Barkod  Stock: Stok  (Stock2, Stock3, Stock4 gibi değerleri de ekleyerek çoklu stok değerlerini de yönetebilirsiniz.)  StockUnit: Stok Birimi  IsActive: Aktif mi?  ComparisonSites: Karşılaştırma sitelerinde görünsün mü ?  Vat: KDV  Currency: Para Birimi  BuyingPrice: Alış Fiyatı  SellingPrice: Satış Fiyatı  SearchKeywords: Site Arama Kelimeleri   IsNewProduct: Yeni Ürün Mü?  OnSale: İndirimde mi?  ImageUrl: İlk Resim Linki  IsDisplayProduct: Tanıtım Ürünü Mü?  VendorDisplayOnly: Bayi Ürünü Mü?  DisplayWithVat: KDV Dahil Göster?  Brand: Marka  Model: Model  HasSubProducts: Alt Ürün Var Mı?  Supplier: Tedarikçi  CustomerGroupDisplay: Üye grubuna göre ürün görünümü aktifse, burada ürünün gösterileceği üye grupları gönderilir  Additional1: Ek Bilgiler &gt; Ek 1 alanı  Additional2: Ek Bilgiler &gt; Ek 2 alanı  Additional3: Ek Bilgiler &gt; Ek 3 alanı  RelatedProductsBlock1: İlişkili Ürünler &gt; İlgili Ürünler  RelatedProductsBlock2: İlişkili Ürünler &gt; İkame Ürünler  RelatedProductsBlock3: İlişkili Ürünler &gt; Aksesuarlar  Magnifier: Ek Bilgiler &gt; Mercek Göster?  MemberMinOrder: Ek Bilgiler &gt; Üye Minumum Sipariş Miktarı  MemberMaxOrder: Ek Bilgiler &gt; Üye Maksimum Sipariş Miktarı  VendorMinOrder: Ek Bilgiler &gt; Bayi Minumum Sipariş Miktarı  VendorMaxOrder: Ek Bilgiler &gt; Bayi Maksimum Sipariş Miktarı  FreeDeliveryMember: Ek Bilgiler &gt; Üyelere Ücretsiz Kargo  FreeDeliveryVendor: Ek Bilgiler &gt; Bayilere Ücretsiz Kargo ShortDescription: Ek Bilgiler &gt; Kısa Açıklama  Details: Ürün Detayı  Width: En  Height: Boy  Depth: Derinlik  Weight: Ağırlık  CBM: Desi  Document: Ek Bilgiler &gt; Dökümanlar  Gender: Erkek için 1, Kadın için 2, unisex için 3  Warehouse: Depo  Gender: Erkek için 1, Kadın için 2, unisex için 3  OpportunityProduct: Fırsat Ürünü ise 1, değilse 0  OpportunityStart: Fırsat başlangıç tarihi (unixtime)  OpportunityProduct: Fırsat bitiş tarihi (unixtime)  WarrantyInfo: Garanti Bilgisi  DeliveryInfo: Sevk Bilgisi  ProductNote: Ürün Notu  SeoSettingsId: SEO Ayar  SeoTitle: SEO Başlık  SeoDescription: SEO Açıklama  ListNo: Sıra No  Label1-10: Simge Gösterimi &gt; Etiket olsun mu olmasın mı ayarı DisablePaymentTypes: Yasaklı ödeme yöntemleri belirlenebilir. DisableCargoCompany: Yasaklı kargolar belirlenebilir.    AgeGroup parametresinin alabileceği değerler. (newborn,infant,toddle,kids,adult)   DefaultSubProductId: Ön tanılı alt ürün ID&#39;si   EftRate: Havale İndirimi  Numeric1: Boş gönderilirse veritabanı değeri sıfırlanır. Değiştirmek istenmiyorsa key silinmelidir.  ModelActivity: Model Aktif mi? 1: Aktif, 0: Pasif   CountryOfOrigin: Ürünün üretildiği ülke kodu (TR, DE, US, CN, ...)  ProformaTitle: Proforma Fatura Başlığı</td>
+</tr>
+<tr>
+<td><code>RemoveOldCategory</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>QuickUpdate</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td>BETA(Sadece bu parametrelere izin verir) - {Stock, BuyingPrice, SellingPrice, Label1: 1, Label2: 0, Label3: 1, Label4: 1, Label5: 0, Label6: 0, Label7: 1, Label8: 0, Label9: 0, Label10: 1}</td>
+</tr>
+<tr>
+<td><code>DisableSEOSettings</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td>false gönderilirse SEO ayarlarını göz önünde bulundurur</td>
+</tr>
+</tbody></table></div>
+<p>Postman <code>setProducts</code> gövdesi aşağıdaki <code>T582</code> örneğinin kısa halidir ve <code>SeoKeywords</code> anahtarını da taşır. <code>getProducts</code> ile <code>getProductsCount</code> adlı istekler aynı gövdeyle bu uca gider.</p>
+<p>Örnek <code>data</code> alanları: <code>ProductCode</code>, <code>ProductName</code>, <code>DefaultCategoryCode</code>, <code>SupplierProductCode</code>, <code>Barcode</code>, <code>ManufacturerPartNumber</code>, <code>Stock</code>, <code>StockUnit</code>, <code>IsActive</code>, <code>ComparisonSites</code>, <code>Vat</code>, <code>Currency</code>, <code>BuyingPrice</code>, <code>SellingPrice</code>, <code>SearchKeywords</code>, <code>DisplayOnHomepage</code>, <code>PointCatalog</code>, <code>XmlNotUpdateStock</code>, <code>XmlNotUpdatePrice</code>, <code>IsNewProduct</code>, <code>OnSale</code>, <code>ImageUrl</code>, <code>IsDisplayProduct</code>, <code>VendorDisplayOnly</code>, <code>DisplayWithVat</code>, <code>Brand</code>, <code>Model</code>, <code>ModelActivity</code>, <code>HasSubProducts</code>, <code>Supplier</code>, <code>CustomerGroupDisplay</code>, <code>Additional1</code>, <code>Additional2</code>, <code>Additional3</code>, <code>RelatedProductsBlock1</code>, <code>RelatedProductsBlock2</code>, <code>RelatedProductsBlock3</code>, <code>Magnifier</code>, <code>MemberMinOrder</code>, <code>MemberMaxOrder</code>, <code>VendorMinOrder</code>, <code>VendorMaxOrder</code>, <code>FreeDeliveryMember</code>, <code>FreeDeliveryVendor</code>, <code>FreeDeliveryForProduct</code>, <code>ShortDescription</code>, <code>Details</code>, <code>Width</code>, <code>Height</code>, <code>Depth</code>, <code>Weight</code>, <code>CBM</code>, <code>Document</code>, <code>Warehouse</code>, <code>WarrantyInfo</code>, <code>DeliveryInfo</code>, <code>DeliveryTime</code>, <code>ProductNote</code>, <code>SeoSettingsId</code>, <code>SeoTitle</code>, <code>SeoDescription</code>, <code>Gtip</code>, <code>Gender</code>, <code>VariantThemeId</code>, <code>CatalogCode</code>, <code>Attributes</code>, <code>OpportunityProduct</code>, <code>OpportunityStart</code>, <code>OpportunityFinish</code>, <code>ListNo</code>, <code>PersonalizationId</code>, <code>DisablePaymentTypes</code>, <code>DisableCargoCompany</code>, <code>Label1</code>, <code>Label2</code>, <code>Label3</code>, <code>Label4</code>, <code>Label5</code>, <code>Label6</code>, <code>Label7</code>, <code>Label8</code>, <code>Label9</code>, <code>Label10</code>, <code>HomepageSort</code>, <code>MostSoldSort</code>, <code>NewestSort</code>, <code>AgeGroup</code>, <code>Point</code>, <code>Numeric1</code>, <code>DefaultSubProductId</code>, <code>DefaultSubProductCode</code>, <code>EftRate</code>, <code>Tags</code>, <code>SearchRank</code>, <code>CountryOfOrigin</code>, <code>ProformaTitle</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;ProductCode&quot;: &quot;T582&quot;,
+    &quot;ProductName&quot;: &quot;deneme&quot;,
+    &quot;DefaultCategoryCode&quot;: &quot;T251&quot;,
+    &quot;SupplierProductCode&quot;: &quot;&quot;,
+    &quot;Barcode&quot;: &quot;356574&quot;,
+    &quot;ManufacturerPartNumber&quot;: &quot;&quot;,
+    &quot;Stock&quot;: &quot;5&quot;,
+    &quot;StockUnit&quot;: &quot;adet&quot;,
+    &quot;IsActive&quot;: &quot;1&quot;,
+    &quot;ComparisonSites&quot;: &quot;0&quot;,
+    &quot;Vat&quot;: &quot;&quot;,
+    &quot;Currency&quot;: &quot;TL&quot;,
+    &quot;BuyingPrice&quot;: &quot;300&quot;,
+    &quot;SellingPrice&quot;: &quot;500&quot;,
+    &quot;SearchKeywords&quot;: &quot;&quot;,
+    &quot;DisplayOnHomepage&quot;: &quot;&quot;,
+    &quot;PointCatalog&quot;: &quot;&quot;,
+    &quot;XmlNotUpdateStock&quot;: &quot;&quot;,
+    &quot;XmlNotUpdatePrice&quot;: &quot;&quot;,
+    &quot;IsNewProduct&quot;: &quot;&quot;,
+    &quot;OnSale&quot;: &quot;&quot;,
+    &quot;ImageUrl&quot;: &quot;http://celil.meticaret.com/kiz-cocuk-elbise-503-64-B.jpg&quot;,
+    &quot;IsDisplayProduct&quot;: &quot;&quot;,
+    &quot;VendorDisplayOnly&quot;: &quot;&quot;,
+    &quot;DisplayWithVat&quot;: &quot;&quot;,
+    &quot;Brand&quot;: &quot;Donatella&quot;,
+    &quot;Model&quot;: &quot;beige&quot;,
+    &quot;ModelActivity&quot;: &quot;1&quot;,
+    &quot;HasSubProducts&quot;: false,
+    &quot;Supplier&quot;: &quot;Penta&quot;,
+    &quot;CustomerGroupDisplay&quot;: &quot;TZ0|TE2&quot;,
+    &quot;Additional1&quot;: &quot;&quot;,
+    &quot;Additional2&quot;: &quot;&quot;,
+    &quot;Additional3&quot;: &quot;&quot;,
+    &quot;RelatedProductsBlock1&quot;: &quot;T678|T3181&quot;,
+    &quot;RelatedProductsBlock2&quot;: &quot;&quot;,
+    &quot;RelatedProductsBlock3&quot;: &quot;&quot;,
+    &quot;Magnifier&quot;: &quot;&quot;,
+    &quot;MemberMinOrder&quot;: &quot;&quot;,
+    &quot;MemberMaxOrder&quot;: &quot;&quot;,
+    &quot;VendorMinOrder&quot;: &quot;&quot;,
+    &quot;VendorMaxOrder&quot;: &quot;&quot;,
+    &quot;FreeDeliveryMember&quot;: &quot;0&quot;,
+    &quot;FreeDeliveryVendor&quot;: &quot;0&quot;,
+    &quot;FreeDeliveryForProduct&quot;: &quot;0&quot;,
+    &quot;ShortDescription&quot;: &quot;&quot;,
+    &quot;Details&quot;: &quot;detailsdetails&quot;,
+    &quot;Width&quot;: &quot;&quot;,
+    &quot;Height&quot;: &quot;&quot;,
+    &quot;Depth&quot;: &quot;&quot;,
+    &quot;Weight&quot;: &quot;&quot;,
+    &quot;CBM&quot;: &quot;&quot;,
+    &quot;Document&quot;: &quot;DocumentDocumentDocument&quot;,
+    &quot;Warehouse&quot;: &quot;&quot;,
+    &quot;WarrantyInfo&quot;: &quot;&quot;,
+    &quot;DeliveryInfo&quot;: &quot;&quot;,
+    &quot;DeliveryTime&quot;: &quot;&quot;,
+    &quot;ProductNote&quot;: &quot;ProductNoteProductNote&quot;,
+    &quot;SeoSettingsId&quot;: &quot;&quot;,
+    &quot;SeoTitle&quot;: &quot;&quot;,
+    &quot;SeoDescription&quot;: &quot;&quot;,
+    &quot;Gtip&quot;: &quot;&quot;,
+    &quot;Gender&quot;: 0,
+    &quot;VariantThemeId&quot;: 0,
+    &quot;CatalogCode&quot;: &quot;&quot;,
+    &quot;Attributes&quot;: [
+      {
+        &quot;Attribute
+…</code></pre>
+<h2 id="product-setproductsstatus"><a class="anchor" href="#product-setproductsstatus" aria-hidden="true">#</a><code>product/setProductsStatus</code></h2>
+<p><code>POST https://magaza.example/rest1/product/setProductsStatus/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>Bu metot toplu istekleri karşılamak içindir. Tedarikçilerin kullanımı için uygun değildir. Entegrasyonlarınızda tedarikçilerin kullanımına sunmak üzere &quot;setProductStatus&quot; metodunu kullanınız.</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>ProductCode</code>, <code>Status</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;ProductCode&quot;: &quot;T582&quot;,
+    &quot;Status&quot;: true
+  }
+]</code></pre>
+<h2 id="product-setproductstatus"><a class="anchor" href="#product-setproductstatus" aria-hidden="true">#</a><code>product/setProductStatus</code></h2>
+<p><code>POST https://magaza.example/rest1/product/setProductStatus/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ProductCode</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>query</td>
+<td>bool</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="product-setrelatedproducts"><a class="anchor" href="#product-setrelatedproducts" aria-hidden="true">#</a><code>product/setRelatedProducts</code></h2>
+<p><code>POST https://magaza.example/rest1/product/setRelatedProducts/</code></p>
+<p>Single</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ProductCode</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<pre><code class="language-json">&quot;T582&quot;</code></pre>
+<pre><code class="language-json">{
+  &quot;RelatedProductsBlock1&quot;: &quot;T668&quot;,
+  &quot;RelatedProductsBlock2&quot;: &quot;&quot;,
+  &quot;RelatedProductsBlock3&quot;: &quot;&quot;
+}</code></pre>
+<h2 id="product-setrelatedproducts-2"><a class="anchor" href="#product-setrelatedproducts-2" aria-hidden="true">#</a><code>product/setRelatedProducts</code></h2>
+<p><code>POST https://magaza.example/rest1/product/setRelatedProducts/</code></p>
+<p>Multiple</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>ProductCode</code>, <code>RelatedProductsBlock1</code>, <code>RelatedProductsBlock2</code>, <code>RelatedProductsBlock3</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;ProductCode&quot;: &quot;T582&quot;,
+    &quot;RelatedProductsBlock1&quot;: &quot;T668&quot;,
+    &quot;RelatedProductsBlock2&quot;: &quot;&quot;,
+    &quot;RelatedProductsBlock3&quot;: &quot;&quot;
+  }
+]</code></pre>
+<h2 id="product-setdefaultcategory-beta"><a class="anchor" href="#product-setdefaultcategory-beta" aria-hidden="true">#</a><code>product/setDefaultCategory</code> (beta)</h2>
+<p><code>POST https://magaza.example/rest1/product/setDefaultCategory/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>ProductCode</code>, <code>DefaultCategoryCode</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;ProductCode&quot;: &quot;T582&quot;,
+    &quot;DefaultCategoryCode&quot;: &quot;T283&quot;
+  }
+]</code></pre>
+<h2 id="product-updatecommentstatus"><a class="anchor" href="#product-updatecommentstatus" aria-hidden="true">#</a><code>product/updateCommentStatus</code></h2>
+<p><code>POST https://magaza.example/rest1/product/updateCommentStatus/</code></p>
+<p>Yorum/soru kaydının durumunu günceller. answer gönderildiğinde soru cevaplanır ve durum otomatik olarak onaylı yapılır.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CommentId</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td>Durum güncellemesi için gönderilir. true=onaylı, false=onaysız.</td>
+</tr>
+<tr>
+<td><code>answer</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Soru cevabı. Bu alan gönderildiğinde sadece type=question kayıtlar cevaplanır.</td>
+</tr>
+<tr>
+<td><code>answeredBy</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Cevaplayan kullanıcı bilgisi. Gönderilmezse rest1 kullanıcısı yazılır.</td>
+</tr>
+</tbody></table></div>
+<h2 id="product-answercomment"><a class="anchor" href="#product-answercomment" aria-hidden="true">#</a><code>product/answerComment</code></h2>
+<p><code>POST https://magaza.example/rest1/product/answerComment/</code></p>
+<p>Ürüne iletilen soruyu cevaplar.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CommentId</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>answer</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>Soru cevabı.</td>
+</tr>
+<tr>
+<td><code>answeredBy</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Cevaplayan kullanıcı bilgisi. Gönderilmezse rest1 kullanıcısı yazılır.</td>
+</tr>
+</tbody></table></div>
+<h2 id="product-updatecustomergroupprice"><a class="anchor" href="#product-updatecustomergroupprice" aria-hidden="true">#</a><code>product/updateCustomerGroupPrice</code></h2>
+<p><code>POST https://magaza.example/rest1/product/updateCustomerGroupPrice/</code></p>
+<p>1- Manuel olarak fiyat girmek istediğinizde DiscountType ve Percentage boş bırakılmalıdır. DiscountedPrice alanına indirimli fiyatınızı giriniz. 2- Satış fiyatı üzerinden fiyat değişikliği yapmak istediğinizde DiscountType=1 olmalıdır. Percentage değeri (fiyat değişikliği için oran) pozitifse fiyatta artış olur, negatifse fiyatta düşüş olur. 3- Alış fiyatı üzerinden yüzde indirim yapmak istediğinizde DiscountType=2 olmalıdır. Percentage değeri (fiyat değişikliği için oran) pozitifse fiyatta artış olur, negatifse fiyatta düşüş olur. 4- Mevcut özel fiyatı resetlemek istediğinizde yalnızca ProductCode ve CustomerGroupCode gönderilmesi yeterlidir.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>Üye grubuna göre ürün görünme özelliği aktifse, gönderilen ürün üye grubuna default olarak görünür yapılır. Eğer görünürlüğünü değiştirmek istemiyorsanız IsVisible: false gönderiniz.    OnSale parametresi gönderilerek İndirimli Göster bayrağı yönetilebilir. Onsale parametresi gönderilmese İndirimli Göster bayrağı etkilenmez.</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>ProductCode</code>, <code>CustomerGroupCode</code>, <code>DiscountType</code>, <code>Percentage</code>, <code>DiscountedPrice</code>, <code>IsVisible</code>, <code>OnSale</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;ProductCode&quot;: &quot;T641&quot;,
+    &quot;CustomerGroupCode&quot;: &quot;TZ0&quot;,
+    &quot;DiscountType&quot;: &quot;1&quot;,
+    &quot;Percentage&quot;: &quot;-10&quot;,
+    &quot;DiscountedPrice&quot;: &quot;&quot;,
+    &quot;IsVisible&quot;: true,
+    &quot;OnSale&quot;: false
+  }
+]</code></pre>
+<p>Postman örneği <code>ProductCode</code> <code>15201-ICA0001</code>, <code>CustomerGroupCode</code> <code>01</code>, <code>DiscountType</code> <code>1</code>, <code>Percentage</code> <code>-10</code>, <code>IsVisible</code> true, <code>OnSale</code> true gönderir.</p>
+<p>20 Ekim 2026 çağrısında <code>Percentage</code> <code>-35</code>, <code>IsVisible</code> false ve <code>CustomerGroupCode</code> <code>ogretmenler</code> kabul edildi. Başarı kodu <code>PRI019</code>. <code>ORNEK-001</code> raf fiyatı <code>85</code> iken grup fiyatı <code>55.25</code> ve <code>DiscountPercent</code> <code>-35</code> okundu. Raf fiyatı <code>0</code> olan <code>ORNEK-002</code> yüzde tabanı vermedi.</p>
+<h2 id="product-updateprice"><a class="anchor" href="#product-updateprice" aria-hidden="true">#</a><code>product/updatePrice</code></h2>
+<p><code>POST https://magaza.example/rest1/product/updatePrice/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>Yalnızca güncellemek istediğiniz alanları gönderiniz.   DiscountedSellingPrice değeri gönderilmezse eski fiyat değişmez. Sıfır gönderilirse indirimli fiyat ve ziyaretçi fiyatı alanları silinir. Sıfırdan büyük bir değer girilirse ziyaretçi fiyatı ve indirimli fiyat bu değere set edilir.</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>ProductCode</code>, <code>BuyingPrice</code>, <code>SellingPrice</code>, <code>DiscountedSellingPrice</code>, <code>Currency</code>, <code>Vat</code>, <code>Stock</code>, <code>OnSale</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;ProductCode&quot;: &quot;T582&quot;,
+    &quot;BuyingPrice&quot;: &quot;3500&quot;,
+    &quot;SellingPrice&quot;: &quot;4500&quot;,
+    &quot;DiscountedSellingPrice&quot;: &quot;4500&quot;,
+    &quot;Currency&quot;: &quot;TL&quot;,
+    &quot;Vat&quot;: &quot;18&quot;,
+    &quot;Stock&quot;: &quot;10&quot;,
+    &quot;OnSale&quot;: false
+  }
+]</code></pre>
+<h2 id="product-updateflexibleprice"><a class="anchor" href="#product-updateflexibleprice" aria-hidden="true">#</a><code>product/updateFlexiblePrice</code></h2>
+<p><code>POST https://magaza.example/rest1/product/updateFlexiblePrice/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>IsConditional:1 ise (yani koşullu fiyat ise)  BaseField, Percent değerleri gönderilmesi gerekmektedir, Price ve Currency değerlerinin gönderilmesine gerek yoktur.   IsConditional:0 ise Price ve Currency parametreleri gönderilmelidir, BaseField ve Percent parametresinin gönderilmesine gerek yoktur.     IsDiscounted:1 ise koşul olarak sadece kendisine bağlanabilir.   Alt ürünler için ProductCode yerine SubProductCode gönderilebilir.</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>ProductCode</code>, <code>PriceField</code>, <code>IsDiscounted</code>, <code>IsConditional</code>, <code>BaseField</code>, <code>Percent</code>, <code>Price</code>, <code>Currency</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;ProductCode&quot;: &quot;T582&quot;,
+    &quot;PriceField&quot;: &quot;SF3&quot;,
+    &quot;IsDiscounted&quot;: &quot;0&quot;,
+    &quot;IsConditional&quot;: &quot;1&quot;,
+    &quot;BaseField&quot;: &quot;SF&quot;,
+    &quot;Percent&quot;: &quot;10&quot;,
+    &quot;Price&quot;: &quot;100&quot;,
+    &quot;Currency&quot;: &quot;TL&quot;
+  }
+]</code></pre>
+<h2 id="product-updateproducts"><a class="anchor" href="#product-updateproducts" aria-hidden="true">#</a><code>product/updateProducts</code></h2>
+<p><code>POST https://magaza.example/rest1/product/updateProducts/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>ProductCode Yerine ProductId Gönderilebilir.  ProductCode: Ürün Web Servis Kodu  ProductName: Ürün Adı  DefaultCategoryCode: Ana Kategori Kodu  SupplierProductCode: Tedarikçi Ürün Kodu  Barcode: Barkod  Stock: Stok  (Stock2, Stock3, Stock4 gibi değerleri de ekleyerek çoklu stok değerlerini de yönetebilirsiniz.)  StockUnit: Stok Birimi  IsActive: Aktif mi?  ComparisonSites: Karşılaştırma sitelerinde görünsün mü ?  Vat: KDV  Currency: Para Birimi  BuyingPrice: Alış Fiyatı  SellingPrice: Satış Fiyatı  SearchKeywords: Site Arama Kelimeleri   IsNewProduct: Yeni Ürün Mü?  OnSale: İndirimde mi?  ImageUrl: İlk Resim Linki  IsDisplayProduct: Tanıtım Ürünü Mü?  VendorDisplayOnly: Bayi Ürünü Mü?  DisplayWithVat: KDV Dahil Göster?  Brand: Marka  Model: Model  HasSubProducts: Alt üeün var mı ?  Supplier: Tedarikçi  CustomerGroupDisplay: Üye grubuna göre ürün görünümü aktifse, burada ürünün gösterileceği üye grupları gönderilir  Additional1: Ek Bilgiler &gt; Ek 1 alanı  Additional2: Ek Bilgiler &gt; Ek 2 alanı  Additional3: Ek Bilgiler &gt; Ek 3 alanı  RelatedProductsBlock1: İlişkili Ürünler &gt; İlgili Ürünler  RelatedProductsBlock2: İlişkili Ürünler &gt; İkame Ürünler  RelatedProductsBlock3: İlişkili Ürünler &gt; Aksesuarlar  Magnifier: Ek Bilgiler &gt; Mercek Göster?  MemberMinOrder: Ek Bilgiler &gt; Üye Minumum Sipariş Miktarı  MemberMaxOrder: Ek Bilgiler &gt; Üye Maksimum Sipariş Miktarı  VendorMinOrder: Ek Bilgiler &gt; Bayi Minumum Sipariş Miktarı  VendorMaxOrder: Ek Bilgiler &gt; Bayi Maksimum Sipariş Miktarı  FreeDeliveryMember: Ek Bilgiler &gt; Üyelere Ücretsiz Kargo  FreeDeliveryVendor: Ek Bilgiler &gt; Bayilere Ücretsiz Kargo ShortDescription: Ek Bilgiler &gt; Kısa Açıklama  Details: Ürün Detayı  Width: En  Height: Boy  Depth: Derinlik  Weight: Ağırlık  CBM: Desi  Document: Ek Bilgiler &gt; Dökümanlar  Gender: Erkek için 1, Kadın için 2, unisex için 3  Warehouse: Depo WarrantyInfo: Garanti Bilgisi  DeliveryInfo: Sevk Bilgisi  ProductNote: Ürün Notu  SeoSettingsId: SEO Ayar  SeoTitle: SEO Başlık  SeoDescription: SEO Açıklama  ListNo: Sıra No  Label1-10: Simge Gösterimi &gt; Etiket olsun mu olmasın mı ayarı DisablePaymentTypes: Yasaklı ödeme yöntemleri belirlenebilir. DisableCargoCompany: Yasaklı kargolar belirlenebilir.   AgeGroup parametresinin alabileceği değerler. (newborn,infant,toddle,kids,adult)   DefaultSubProductId : Ön tanımlı alt ürün ID&#39;si   EftRate: Havale İndirimi  Numeric1: Boş gönderilirse veritabanı değeri sıfırlanır. Değiştirmek istenmiyorsa key silinmelidir.</td>
+</tr>
+<tr>
+<td><code>RemoveOldCategory</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>DisableSEOSettings</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td>false gönderilirse SEO ayarlarını göz önünde bulundurur</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>ProductCode</code>, <code>ProductName</code>, <code>DefaultCategoryCode</code>, <code>SupplierProductCode</code>, <code>Barcode</code>, <code>Stock</code>, <code>StockUnit</code>, <code>IsActive</code>, <code>ComparisonSites</code>, <code>Vat</code>, <code>Currency</code>, <code>BuyingPrice</code>, <code>SellingPrice</code>, <code>SearchKeywords</code>, <code>DisplayOnHomepage</code>, <code>PointCatalog</code>, <code>XmlNotUpdateStock</code>, <code>XmlNotUpdatePrice</code>, <code>IsNewProduct</code>, <code>OnSale</code>, <code>ImageUrl</code>, <code>IsDisplayProduct</code>, <code>VendorDisplayOnly</code>, <code>DisplayWithVat</code>, <code>Brand</code>, <code>Model</code>, <code>HasSubProducts</code>, <code>Supplier</code>, <code>CustomerGroupDisplay</code>, <code>Additional1</code>, <code>Additional2</code>, <code>Additional3</code>, <code>RelatedProductsBlock1</code>, <code>RelatedProductsBlock2</code>, <code>RelatedProductsBlock3</code>, <code>Magnifier</code>, <code>MemberMinOrder</code>, <code>MemberMaxOrder</code>, <code>VendorMinOrder</code>, <code>VendorMaxOrder</code>, <code>FreeDeliveryMember</code>, <code>FreeDeliveryVendor</code>, <code>FreeDeliveryForProduct</code>, <code>ShortDescription</code>, <code>Details</code>, <code>Width</code>, <code>Height</code>, <code>Depth</code>, <code>Weight</code>, <code>CBM</code>, <code>Document</code>, <code>Warehouse</code>, <code>WarrantyInfo</code>, <code>DeliveryInfo</code>, <code>DeliveryTime</code>, <code>ProductNote</code>, <code>SeoSettingsId</code>, <code>SeoTitle</code>, <code>SeoDescription</code>, <code>Gtip</code>, <code>Gender</code>, <code>ListNo</code>, <code>PersonalizationId</code>, <code>DisablePaymentTypes</code>, <code>DisableCargoCompany</code>, <code>Label1</code>, <code>Label2</code>, <code>Label3</code>, <code>Label4</code>, <code>Label5</code>, <code>Label6</code>, <code>Label7</code>, <code>Label8</code>, <code>Label9</code>, <code>Label10</code>, <code>HomepageSort</code>, <code>MostSoldSort</code>, <code>NewestSort</code>, <code>AgeGroup</code>, <code>Point</code>, <code>Numeric1</code>, <code>DefaultSubProductId</code>, <code>EftRate</code>, <code>Tags</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;ProductCode&quot;: &quot;T582&quot;,
+    &quot;ProductName&quot;: &quot;deneme&quot;,
+    &quot;DefaultCategoryCode&quot;: &quot;T251&quot;,
+    &quot;SupplierProductCode&quot;: &quot;&quot;,
+    &quot;Barcode&quot;: &quot;356574&quot;,
+    &quot;Stock&quot;: &quot;5&quot;,
+    &quot;StockUnit&quot;: &quot;adet&quot;,
+    &quot;IsActive&quot;: &quot;1&quot;,
+    &quot;ComparisonSites&quot;: &quot;0&quot;,
+    &quot;Vat&quot;: &quot;&quot;,
+    &quot;Currency&quot;: &quot;TL&quot;,
+    &quot;BuyingPrice&quot;: &quot;300&quot;,
+    &quot;SellingPrice&quot;: &quot;500&quot;,
+    &quot;SearchKeywords&quot;: &quot;&quot;,
+    &quot;DisplayOnHomepage&quot;: &quot;&quot;,
+    &quot;PointCatalog&quot;: &quot;&quot;,
+    &quot;XmlNotUpdateStock&quot;: &quot;&quot;,
+    &quot;XmlNotUpdatePrice&quot;: &quot;&quot;,
+    &quot;IsNewProduct&quot;: &quot;&quot;,
+    &quot;OnSale&quot;: &quot;&quot;,
+    &quot;ImageUrl&quot;: &quot;http://celil.meticaret.com/kiz-cocuk-elbise-503-64-B.jpg&quot;,
+    &quot;IsDisplayProduct&quot;: &quot;&quot;,
+    &quot;VendorDisplayOnly&quot;: &quot;&quot;,
+    &quot;DisplayWithVat&quot;: &quot;&quot;,
+    &quot;Brand&quot;: &quot;Donatella&quot;,
+    &quot;Model&quot;: &quot;beige&quot;,
+    &quot;HasSubProducts&quot;: false,
+    &quot;Supplier&quot;: &quot;Penta&quot;,
+    &quot;CustomerGroupDisplay&quot;: &quot;TZ0|TE2&quot;,
+    &quot;Additional1&quot;: &quot;&quot;,
+    &quot;Additional2&quot;: &quot;&quot;,
+    &quot;Additional3&quot;: &quot;&quot;,
+    &quot;RelatedProductsBlock1&quot;: &quot;T678|T3181&quot;,
+    &quot;RelatedProductsBlock2&quot;: &quot;&quot;,
+    &quot;RelatedProductsBlock3&quot;: &quot;&quot;,
+    &quot;Magnifier&quot;: &quot;&quot;,
+    &quot;MemberMinOrder&quot;: &quot;&quot;,
+    &quot;MemberMaxOrder&quot;: &quot;&quot;,
+    &quot;VendorMinOrder&quot;: &quot;&quot;,
+    &quot;VendorMaxOrder&quot;: &quot;&quot;,
+    &quot;FreeDeliveryMember&quot;: &quot;0&quot;,
+    &quot;FreeDeliveryVendor&quot;: &quot;0&quot;,
+    &quot;FreeDeliveryForProduct&quot;: &quot;0&quot;,
+    &quot;ShortDescription&quot;: &quot;&quot;,
+    &quot;Details&quot;: &quot;detailsdetails&quot;,
+    &quot;Width&quot;: &quot;&quot;,
+    &quot;Height&quot;: &quot;&quot;,
+    &quot;Depth&quot;: &quot;&quot;,
+    &quot;Weight&quot;: &quot;&quot;,
+    &quot;CBM&quot;: &quot;&quot;,
+    &quot;Document&quot;: &quot;DocumentDocumentDocument&quot;,
+    &quot;Warehouse&quot;: &quot;&quot;,
+    &quot;WarrantyInfo&quot;: &quot;&quot;,
+    &quot;DeliveryInfo&quot;: &quot;&quot;,
+    &quot;DeliveryTime&quot;: &quot;&quot;,
+    &quot;ProductNote&quot;: &quot;ProductNoteProductNote&quot;,
+    &quot;SeoSettingsId&quot;: &quot;&quot;,
+    &quot;SeoTitle&quot;: &quot;&quot;,
+    &quot;SeoDescription&quot;: &quot;&quot;,
+    &quot;Gtip&quot;: &quot;&quot;,
+    &quot;Gender&quot;: 0,
+    &quot;ListNo&quot;: &quot;&quot;,
+    &quot;PersonalizationId&quot;: 0,
+    &quot;DisablePaymentTypes&quot;: &quot;49,50,51&quot;,
+    &quot;DisableCargoCompany&quot;: &quot;9,10,11&quot;,
+    &quot;Label1&quot;: {
+      &quot;Value&quot;:
+…</code></pre>
+<h2 id="product-updateproductasonsale"><a class="anchor" href="#product-updateproductasonsale" aria-hidden="true">#</a><code>product/updateProductAsOnSale</code></h2>
+<p><code>POST https://magaza.example/rest1/product/updateProductAsOnSale/</code></p>
+<p>Ürün kodu gönderilen ürünü indirimli olarak işaretler veya üründen indirimli işaretini kaldırır. ResetAll parametresi true olarak gönderilirse, mevcut tüm ürünlerin indirimli işaretleri varsa kaldırılır.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>Ürün kodu ve ürün indirimli mi değil mi boolean değeri.</td>
+</tr>
+<tr>
+<td><code>ResetAll</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td>Tümünü sıfırla</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>ProductCode</code>, <code>OnSale</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;ProductCode&quot;: &quot;T582&quot;,
+    &quot;OnSale&quot;: true
+  }
+]</code></pre>
+<h2 id="product-updatestock"><a class="anchor" href="#product-updatestock" aria-hidden="true">#</a><code>product/updateStock</code></h2>
+<p><code>POST https://magaza.example/rest1/product/updateStock/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>Stok değerini sabit bir değere atamak isterseniz Stok parametresini, sabit bir sayı kadar arttırmak isterseniz StockIncrease parametresini, sabit bir sayı kadar azaltmak isterseniz StockDecrease parametresini kullnamalısınız. Stock parametresi numerik, StockIncrease ve StockDecrease parametreleri ise pozitif tam sayı değeri alabilirler.    Bu metod aracılığı ile Çoklu stok parametreleri de güncellenebilmekteridir, Stock3, Stock4 vb. şeklinde gönderilebilir.</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>ProductCode</code>, <code>Stock</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;ProductCode&quot;: &quot;T582&quot;,
+    &quot;Stock&quot;: &quot;46&quot;
+  },
+  {
+    &quot;ProductCode&quot;: &quot;T582&quot;,
+    &quot;StockIncrease&quot;: &quot;3&quot;
+  },
+  {
+    &quot;ProductCode&quot;: &quot;T582&quot;,
+    &quot;StockDecrease&quot;: &quot;5&quot;
+  }
+]</code></pre>
+<h2 id="product-updatestockbysuppliercode"><a class="anchor" href="#product-updatestockbysuppliercode" aria-hidden="true">#</a><code>product/updateStockBySupplierCode</code></h2>
+<p><code>POST https://magaza.example/rest1/product/updateStockBySupplierCode/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>SupplierProductCode</code>, <code>Stock</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;SupplierProductCode&quot;: &quot;TKU582&quot;,
+    &quot;Stock&quot;: &quot;46&quot;
+  }
+]</code></pre>
+<h2 id="product-resetallstock"><a class="anchor" href="#product-resetallstock" aria-hidden="true">#</a><code>product/resetAllStock</code></h2>
+<p><code>POST https://magaza.example/rest1/product/resetAllStock/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Stock</code></td>
+<td>url_param</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="product-getalarmlist"><a class="anchor" href="#product-getalarmlist" aria-hidden="true">#</a><code>product/getAlarmList</code></h2>
+<p><code>POST https://magaza.example/rest1/product/getAlarmList/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CustomerId</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ProductId</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>SubProductId</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>AlarmType</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Filtreleme için Price veya Stock girilebilir.</td>
+</tr>
+<tr>
+<td><code>OnlyCurrentTime</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td>Alarm zamanı geçmemiş olanları getir</td>
+</tr>
+<tr>
+<td><code>OnlyNotSend</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td>Sadece gönderilmeyenleri getir</td>
+</tr>
+<tr>
+<td><code>SendingType</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Sadece gönderilmemişler listelenecekse gönderim tipi gönderilmeli. (email, sms, web_push, mobile_push)</td>
+</tr>
+<tr>
+<td><code>start</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>orderby</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Örn: RecordTime DESC</td>
+</tr>
+<tr>
+<td><code>f</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>Kullanılabilen operatörler: startwith,endwith,equal,greater,smaller,between,contain. Örn: &quot;RecordTime|1529931531|greater&quot;</td>
+</tr>
+<tr>
+<td><code>f2</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Allowed operators: startwith,endwith,equal,greater,smaller,between,contain. Example: &quot;CustomerName | ahmet | contain&quot;</td>
+</tr>
+<tr>
+<td><code>FetchProductData</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="product-markalarmassent"><a class="anchor" href="#product-markalarmassent" aria-hidden="true">#</a><code>product/markAlarmAsSent</code></h2>
+<p><code>POST https://magaza.example/rest1/product/markAlarmAsSent/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>AlarmId</code></td>
+<td>url_param</td>
+<td>int</td>
+<td>evet</td>
+<td></td>
+</tr>
+<tr>
+<td><code>SendingType</code></td>
+<td>query</td>
+<td>str</td>
+<td>hayır</td>
+<td>(email, sms, web_push, mobile_push)</td>
+</tr>
+</tbody></table></div>
+<h2 id="product-setcategorysortnumber"><a class="anchor" href="#product-setcategorysortnumber" aria-hidden="true">#</a><code>product/setCategorySortNumber</code></h2>
+<p><code>POST https://magaza.example/rest1/product/setCategorySortNumber/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>ProductCode</code>, <code>CategoryCode</code>, <code>ListNo</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;ProductCode&quot;: &quot;T582&quot;,
+    &quot;CategoryCode&quot;: &quot;T668&quot;,
+    &quot;ListNo&quot;: 5
+  }
+]</code></pre>
+<h2 id="product-setmultidiscount"><a class="anchor" href="#product-setmultidiscount" aria-hidden="true">#</a><code>product/setMultiDiscount</code></h2>
+<p><code>POST https://magaza.example/rest1/product/setMultiDiscount/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Id değeri varsa güncelleme yapar, yoksa ekleme yapar. Id değeri varsa ProductCode değeri ile uyumlu olması gereklidir.    Id değeri gönderilmeyip ProductCode, InitialQuantity, FinishQuantity değerleri ile eşleşen başka bir kayıt varsa güncelleme yapar.</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>Id</code>, <code>ProductCode</code>, <code>InitialQuantity</code>, <code>FinishQuantity</code>, <code>PercentDiscount</code>, <code>status</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;Id&quot;: 123,
+    &quot;ProductCode&quot;: &quot;T668&quot;,
+    &quot;InitialQuantity&quot;: 10,
+    &quot;FinishQuantity&quot;: 100,
+    &quot;PercentDiscount&quot;: 10,
+    &quot;status&quot;: 1
+  }
+]</code></pre>
+<h2 id="product-removemultidiscount"><a class="anchor" href="#product-removemultidiscount" aria-hidden="true">#</a><code>product/removeMultiDiscount</code></h2>
+<p><code>POST https://magaza.example/rest1/product/removeMultiDiscount/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Id değeri ProductCode değeri ile uyumlu olması zorundadır.   Id parametresi yerine RemoveAll:true gönderilirse o ürüne ait tüm kayıtlar silinecektir.</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>Id</code>, <code>ProductCode</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;Id&quot;: 123,
+    &quot;ProductCode&quot;: &quot;T668&quot;
+  }
+]</code></pre>
+<h2 id="product-fields"><a class="anchor" href="#product-fields" aria-hidden="true">#</a><code>product/fields</code></h2>
+<p><code>POST https://magaza.example/rest1/product/fields/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Type</code></td>
+<td>url_param</td>
+<td>str</td>
+<td>hayır</td>
+<td>Filtreleme için Price, Stock veya Additional girilmelidir.</td>
+</tr>
+<tr>
+<td><code>OnlyActive</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>SubProduct</code></td>
+<td>query</td>
+<td>bool</td>
+<td>hayır</td>
+<td>Alt ürün alanları için true gönderilmelidir.</td>
+</tr>
+</tbody></table></div>
+<pre><code class="language-json">&quot;Stock&quot;</code></pre>
+<h2 id="product-getstockunit"><a class="anchor" href="#product-getstockunit" aria-hidden="true">#</a><code>product/getStockUnit</code></h2>
+<p><code>POST https://magaza.example/rest1/product/getStockUnit/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>limit</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>start</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>f</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>İzin Verilen İşlemler: startwith,endwith,equal,greater,smaller,between,contain. Example: &quot;CategoryId | 12 | equal&quot;</td>
+</tr>
+<tr>
+<td><code>f2</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Allowed operators: startwith,endwith,equal,greater,smaller,between,contain. Example: &quot;CustomerName | ahmet | contain&quot;</td>
+</tr>
+</tbody></table></div>
+<h2 id="product-setstockunit"><a class="anchor" href="#product-setstockunit" aria-hidden="true">#</a><code>product/setStockUnit</code></h2>
+<p><code>POST https://magaza.example/rest1/product/setStockUnit/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>You can send Id or Code for the update process. Values other than the ones sent will not be updated.</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>Id</code>, <code>Name</code>, <code>DecimalNumber</code>, <code>BasketIncreaseAmount</code>, <code>AddToCartSeparately</code>, <code>PredefinedBasketCount</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;Id&quot;: &quot;&quot;,
+    &quot;Name&quot;: &quot;&quot;,
+    &quot;DecimalNumber&quot;: 0,
+    &quot;BasketIncreaseAmount&quot;: 1,
+    &quot;AddToCartSeparately&quot;: 1,
+    &quot;PredefinedBasketCount&quot;: 0
+  }
+]</code></pre>
+<h2 id="product-setinstallment"><a class="anchor" href="#product-setinstallment" aria-hidden="true">#</a><code>product/setInstallment</code></h2>
+<p><code>POST https://magaza.example/rest1/product/setInstallment/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>ProductCode yerine ProductId gönderilebilir.    Oluşturma Percentage,Status,CommercialPercentage,CommercialStatus değerleri gönderilmezse orjinal tablodaki değerleri alırlar.    Güncelleme işleminde sadece gönderilen değerler için işlem yapılır.</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>ProductCode</code>, <code>Installments</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;ProductCode&quot;: &quot;&quot;,
+    &quot;Installments&quot;: [
+      {
+        &quot;Id&quot;: &quot;&quot;,
+        &quot;Percentage&quot;: &quot;&quot;,
+        &quot;Status&quot;: &quot;&quot;,
+        &quot;CommercialPercentage&quot;: &quot;&quot;,
+        &quot;CommercialStatus&quot;: &quot;&quot;
+      },
+      {
+        &quot;Id&quot;: &quot;&quot;,
+        &quot;Percentage&quot;: &quot;&quot;,
+        &quot;Status&quot;: &quot;&quot;,
+        &quot;CommercialPercentage&quot;: &quot;&quot;,
+        &quot;CommercialStatus&quot;: &quot;&quot;
+      }
+    ]
+  }
+]</code></pre>
+<h2 id="product-getvideocategories"><a class="anchor" href="#product-getvideocategories" aria-hidden="true">#</a><code>product/getVideoCategories</code></h2>
+<p><code>POST https://magaza.example/rest1/product/getVideoCategories/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Id</code></td>
+<td>url_param</td>
+<td>int</td>
+<td>hayır</td>
+<td>Id ile sorgulama yapılabilir.</td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>start</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>f</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>İzin Verilen İşlemler: startwith,endwith,equal,greater,smaller,between,contain. Example: &quot;CategoryId | 12 | equal&quot;</td>
+</tr>
+<tr>
+<td><code>f2</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Allowed operators: startwith,endwith,equal,greater,smaller,between,contain. Example: &quot;CustomerName | ahmet | contain&quot;</td>
+</tr>
+</tbody></table></div>
+<h2 id="product-getvideolist"><a class="anchor" href="#product-getvideolist" aria-hidden="true">#</a><code>product/getVideoList</code></h2>
+<p><code>POST https://magaza.example/rest1/product/getVideoList/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Id</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>Id ile sorgulama yapılabilir.</td>
+</tr>
+<tr>
+<td><code>ProductId</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>ProductId ile sorgulama yapılabilir.</td>
+</tr>
+<tr>
+<td><code>VideoCategoryId</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>VideoCategoryId ile sorgulama yapılabilir. VideoCategoryId&#39;leri görmek için getVideoCategories metodunu kullanabilirsiniz.</td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>start</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>f</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>İzin Verilen İşlemler: startwith,endwith,equal,greater,smaller,between,contain. Example: &quot;CategoryId | 12 | equal&quot;</td>
+</tr>
+<tr>
+<td><code>f2</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Allowed operators: startwith,endwith,equal,greater,smaller,between,contain. Example: &quot;CustomerName | ahmet | contain&quot;</td>
+</tr>
+</tbody></table></div>
+<h2 id="product-setvideo"><a class="anchor" href="#product-setvideo" aria-hidden="true">#</a><code>product/setVideo</code></h2>
+<p><code>POST https://magaza.example/rest1/product/setVideo/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Id değeri gönderilmezse ekleme yapar, gönderilirse güncelleme yapar.    &#39;ImageUrl&#39; parametresi aracılığıyla resim URL&#39;i göndererek video resmi ekleyebilirsiniz.  Eğer dosyadan resim eklemek istiyorsanız, data alanındaki ilk gelen videotu kabul edeceğiz.    VideoCategoryId&#39;leri görmek için getVideoCategories metodunu kullanabilirsiniz.</td>
+</tr>
+<tr>
+<td><code>image</code></td>
+<td>file</td>
+<td>file</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>Id</code>, <code>ProductId</code>, <code>VideoCategoryId</code>, <code>Title</code>, <code>Subject</code>, <code>EmbedCode</code>, <code>Tags</code>, <code>ListNo</code>, <code>Status</code>, <code>PublishedVideo</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;Id&quot;: &quot;&quot;,
+    &quot;ProductId&quot;: &quot;&quot;,
+    &quot;VideoCategoryId&quot;: &quot;&quot;,
+    &quot;Title&quot;: &quot;&quot;,
+    &quot;Subject&quot;: &quot;&quot;,
+    &quot;EmbedCode&quot;: &quot;&quot;,
+    &quot;Tags&quot;: &quot;&quot;,
+    &quot;ListNo&quot;: &quot;&quot;,
+    &quot;Status&quot;: &quot;&quot;,
+    &quot;PublishedVideo&quot;: &quot;&quot;
+  }
+]</code></pre>
+<h2 id="product-deletevideo"><a class="anchor" href="#product-deletevideo" aria-hidden="true">#</a><code>product/deleteVideo</code></h2>
+<p><code>POST https://magaza.example/rest1/product/deleteVideo/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>hayır</td>
+<td>Ürün videosunu silmek için  &quot;ProductId&quot; ile ürün id&#39;sini gönderebilirsiniz.</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>Id</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;Id&quot;: &quot;&quot;
+  }
+]</code></pre>
+<h2 id="product-gettags"><a class="anchor" href="#product-gettags" aria-hidden="true">#</a><code>product/getTags</code></h2>
+<p><code>POST https://magaza.example/rest1/product/getTags/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>TagId</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>TagId ile sorgulama yapılabilir.</td>
+</tr>
+<tr>
+<td><code>ProductId</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td>ProductId ile sorgulama yapılabilir.</td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+<tr>
+<td><code>start</code></td>
+<td>query</td>
+<td>int</td>
+<td>hayır</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="product-settags"><a class="anchor" href="#product-settags" aria-hidden="true">#</a><code>product/setTags</code></h2>
+<p><code>POST https://magaza.example/rest1/product/setTags/</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Yer</th>
+<th>Tip</th>
+<th>Zorunlu</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data</code></td>
+<td>query</td>
+<td>text</td>
+<td>evet</td>
+<td>TagId girilmediği durumda TagName isminde veri varsa bu veriyi güncellemektedir. Dil desteği sadece vitrin alanı için verilmiştir.</td>
+</tr>
+</tbody></table></div>
+<p>Örnek <code>data</code> alanları: <code>TagId</code>, <code>TagName</code>, <code>TagLink</code>, <code>SeoTitle</code>, <code>SeoDescription</code>, <code>Showcase</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;TagId&quot;: &quot;&quot;,
+    &quot;TagName&quot;: &quot;&quot;,
+    &quot;TagLink&quot;: &quot;&quot;,
+    &quot;SeoTitle&quot;: &quot;&quot;,
+    &quot;SeoDescription&quot;: &quot;&quot;,
+    &quot;Showcase&quot;: {
+      &quot;Top&quot;: &quot;&quot;,
+      &quot;Bottom&quot;: &quot;&quot;,
+      &quot;MobileTop&quot;: &quot;&quot;,
+      &quot;MobileBottom&quot;: &quot;&quot;,
+      &quot;Language&quot;: &quot;&quot;
+    }
+  }
+]</code></pre>
+
+</article>
+<nav class="pager" aria-label="Sayfa geçişi"><a class="prev" href="/rest/customer/"><span>← Önceki</span>Customer</a><a class="next" href="/rest/subproduct/"><span>Sonraki →</span>SubProduct</a></nav>
+<footer class="page-foot"><a href="https://github.com/bahadirdogru/tsoft-documentation-examples/edit/main/content/rest/product.md">GitHub'da düzenle</a> · <a href="/rest/product.md">Markdown</a> · <a href="/llms.txt">llms.txt</a> · Topluluk belgesidir, T-Soft’un resmî yayını değildir.</footer>
+</main>
+<nav class="toc" aria-label="Bu sayfada"><div class="toc-title">Bu sayfada</div><ul><li class="l2"><a href="#product-get">product/get</a></li><li class="l2"><a href="#product-addcategory">product/addCategory</a></li><li class="l2"><a href="#product-addimagefromfile">product/addImageFromFile</a></li><li class="l2"><a href="#product-attributes">product/attributes</a></li><li class="l2"><a href="#product-addimagefromlink">product/addImageFromLink</a></li><li class="l2"><a href="#product-addimagebase64">product/addImageBase64</a></li><li class="l2"><a href="#product-comment">product/comment</a></li><li class="l2"><a href="#product-createproducts">product/createProducts</a></li><li class="l2"><a href="#product-deleteproductimages">product/deleteProductImages</a></li><li class="l2"><a href="#product-deleteproducts">product/deleteProducts</a></li><li class="l2"><a href="#product-find">product/find</a></li><li class="l2"><a href="#product-productlistfilter">product/productListFilter</a></li><li class="l2"><a href="#product-getactivepropertygroup">product/getActivePropertyGroup</a></li><li class="l2"><a href="#product-getcomments">product/getComments</a></li><li class="l2"><a href="#product-getcurrencylist">product/getCurrencyList</a></li><li class="l2"><a href="#product-getdiscounttypelist">product/getDiscountTypeList</a></li><li class="l2"><a href="#productfilter-getfilters">productFilter/getFilters</a></li><li class="l2"><a href="#productfilter-getfiltersbyproductcode">productFilter/getFiltersByProductCode</a></li><li class="l2"><a href="#product-getproductbybarcode">product/getProductByBarcode</a></li><li class="l2"><a href="#product-getproductbycode">product/getProductByCode</a></li><li class="l2"><a href="#product-getproductbyid">product/getProductById</a></li><li class="l2"><a href="#product-getproductbyname">product/getProductByName</a></li><li class="l2"><a href="#product-getproductbysupplierproductcode">product/getProductBySupplierProductCode</a></li><li class="l2"><a href="#product-getproductdetail">product/getProductDetail</a></li><li class="l2"><a href="#product-getproductimages">product/getProductImages</a></li><li class="l2"><a href="#product-getproductimagesbycode">product/getProductImagesByCode</a></li><li class="l2"><a href="#product-getproducts">product/getProducts</a></li><li class="l2"><a href="#product-getproductsbycategorycode">product/getProductsByCategoryCode</a></li><li class="l2"><a href="#product-getproducttotal">product/getProductTotal</a></li><li class="l2"><a href="#product-getseosettinglist">product/getSeoSettingList</a></li><li class="l2"><a href="#product-getstockunitlist">product/getStockUnitList</a></li><li class="l2"><a href="#product-getsupplierlist">product/getSupplierList</a></li><li class="l2"><a href="#product-removecategory">product/removeCategory</a></li><li class="l2"><a href="#product-setcomplementaryproducts-beta">product/setComplementaryProducts (beta)</a></li><li class="l2"><a href="#product-deletecomplementaryproducts-beta">product/deleteComplementaryProducts (beta)</a></li><li class="l2"><a href="#productfilter-setfiltergroupcategory-beta">productFilter/setFilterGroupCategory (beta)</a></li><li class="l2"><a href="#productfilter-setfiltervalues">productFilter/setFilterValues</a></li><li class="l2"><a href="#product-setproductlanguage">product/setProductLanguage</a></li><li class="l2"><a href="#product-getproductlanguage">product/getProductLanguage</a></li><li class="l2"><a href="#product-setproducts">product/setProducts</a></li><li class="l2"><a href="#product-setproductsstatus">product/setProductsStatus</a></li><li class="l2"><a href="#product-setproductstatus">product/setProductStatus</a></li><li class="l2"><a href="#product-setrelatedproducts">product/setRelatedProducts</a></li><li class="l2"><a href="#product-setrelatedproducts-2">product/setRelatedProducts</a></li><li class="l2"><a href="#product-setdefaultcategory-beta">product/setDefaultCategory (beta)</a></li><li class="l2"><a href="#product-updatecommentstatus">product/updateCommentStatus</a></li><li class="l2"><a href="#product-answercomment">product/answerComment</a></li><li class="l2"><a href="#product-updatecustomergroupprice">product/updateCustomerGroupPrice</a></li><li class="l2"><a href="#product-updateprice">product/updatePrice</a></li><li class="l2"><a href="#product-updateflexibleprice">product/updateFlexiblePrice</a></li><li class="l2"><a href="#product-updateproducts">product/updateProducts</a></li><li class="l2"><a href="#product-updateproductasonsale">product/updateProductAsOnSale</a></li><li class="l2"><a href="#product-updatestock">product/updateStock</a></li><li class="l2"><a href="#product-updatestockbysuppliercode">product/updateStockBySupplierCode</a></li><li class="l2"><a href="#product-resetallstock">product/resetAllStock</a></li><li class="l2"><a href="#product-getalarmlist">product/getAlarmList</a></li><li class="l2"><a href="#product-markalarmassent">product/markAlarmAsSent</a></li><li class="l2"><a href="#product-setcategorysortnumber">product/setCategorySortNumber</a></li><li class="l2"><a href="#product-setmultidiscount">product/setMultiDiscount</a></li><li class="l2"><a href="#product-removemultidiscount">product/removeMultiDiscount</a></li><li class="l2"><a href="#product-fields">product/fields</a></li><li class="l2"><a href="#product-getstockunit">product/getStockUnit</a></li><li class="l2"><a href="#product-setstockunit">product/setStockUnit</a></li><li class="l2"><a href="#product-setinstallment">product/setInstallment</a></li><li class="l2"><a href="#product-getvideocategories">product/getVideoCategories</a></li><li class="l2"><a href="#product-getvideolist">product/getVideoList</a></li><li class="l2"><a href="#product-setvideo">product/setVideo</a></li><li class="l2"><a href="#product-deletevideo">product/deleteVideo</a></li><li class="l2"><a href="#product-gettags">product/getTags</a></li><li class="l2"><a href="#product-settags">product/setTags</a></li></ul></nav>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/twig.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/http.min.js"></script>
+<script src="/assets/site.js"></script>
+</body>
+</html>
