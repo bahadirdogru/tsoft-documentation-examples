@@ -11,7 +11,7 @@ T-Soft e-ticaret altyapısıyla entegrasyon ve tema yazan geliştiriciler ve onl
 <div class="cards">
 <a class="card" href="/rehber/"><strong>Hangi yüzey?</strong><span>REST1, Admin API, Storefront ve tema arasında seçim, ilk çağrılar, terimler.</span></a>
 <a class="card" href="/rest/"><strong>REST1 web servisi</strong><span>38 modül, 428 metot. Form gövdesi, token, PascalCase alanlar, hata kodları.</span></a>
-<a class="card" href="/admin-api/"><strong>Admin API v3</strong><span>Panelin kendi kullandığı 357 uç: kurallar, yetkiler, ödeme bildirimi örneği.</span></a>
+<a class="card" href="/admin-api/"><strong>Admin API v3</strong><span>Panelin kendi kullandığı 357 uç: kurallar, yetkiler, iki adımlı giriş, ziyaretçi raporları ve ödeme bildirimi örneği.</span></a>
 <a class="card" href="/developer/uygulama/"><strong>Uygulama platformu</strong><span>OAuth, 48 kapsam, 15 webhook olayı, panele gömülü uygulama, REST1’den geçiş.</span></a>
 <a class="card" href="/developer/storefront-api/"><strong>Storefront API</strong><span>Mobil uygulama ve headless vitrin için JSON:API, müşteri ve misafir token’ı.</span></a>
 <a class="card" href="/developer/tema/"><strong>Tema motoru (Twig)</strong><span>Yeni tema yapısı, tsoft-cli, şablonlar ve global değişkenler.</span></a>
@@ -35,7 +35,7 @@ T-Soft e-ticaret altyapısıyla entegrasyon ve tema yazan geliştiriciler ve onl
 
 - Token alma: [`auth/login`](rest/auth.md#auth-login) · Hata kodları: [REST1 hataları](rest/hatalar.md)
 - Üye: [`customer/setCustomers`](rest/customer.md#customer-setcustomers) · Ürün: [`product/get`](rest/product.md#product-get) · Sipariş: [`order2/getOrders`](rest/order2.md#order2-getorders)
-- Panel uç listesi: [Admin API v3 uçları](admin-api/uclar.md) · Örnek: [Ödeme bildirimi](admin-api/odeme-bildirimi.md)
+- Panel uç listesi: [Admin API v3 uçları](admin-api/uclar.md) · Giriş: [İki adımlı doğrulama](admin-api/oturum.md) · Örnekler: [Ziyaretçi raporları](admin-api/ziyaretci-raporlari.md), [Ödeme bildirimi](admin-api/odeme-bildirimi.md)
 - Örnek kod: [Python istemci](examples/python/tsoft_client.py) · [Apps Script](examples/apps-script/Code.gs)
 
 ## Katkı
@@ -121,6 +121,7 @@ curl "https://magaza.example/api/v3/storefront/2026-01/products?page[size]=5" \
 | Sepet | [`cart/*`](rest/cart.md) (alpha) | `customers/cart` (okuma) | `storefront:cart` |
 | Cari hareket | [`fundMovement/*`](rest/fundmovement.md) | `customers/billing/account-balance` | — |
 | Ödeme linki | — | [`customers/payment-notification`](admin-api/odeme-bildirimi.md) | — |
+| Ziyaretçi raporu (oturum, huni, kaynak) | — | [`analytics/report/visitor/*`](admin-api/ziyaretci-raporlari.md) | — |
 | Webhook | — | `configuration/webhooks` | — (uygulamada `2026-01/webhooks`) |
 | Önbellek temizle | [`setting/deleteCache`](rest/setting.md) | `configuration/cache` | — |
 
@@ -165,7 +166,7 @@ Sayfa adresi `/rest/customer/` biçimindedir. Aynı sayfanın Markdown hâli iç
 ## Sayfa düzeni
 
 - REST1 her modül için bir sayfadır: `rest/<modül>.md`. Modül adı küçük harftir (`order2.md`, `fundmovement.md`). Her metot `` ## `modul/metot` `` başlığıdır; altında tam URL, açıklama ve parametre tablosu (`Parametre | Yer | Tip | Zorunlu | Açıklama`) durur.
-- Admin API v3 panel iç uçları `admin-api/uclar.md` içinde gruplanmış liste, kurallar `admin-api/README.md` içindedir.
+- Admin API v3 panel iç uçları `admin-api/uclar.md` içinde gruplanmış liste, kurallar `admin-api/README.md` içindedir. Panel token'ı almak (iki adımlı doğrulama dahil) `admin-api/oturum.md`, ziyaretçi raporu cevapları `admin-api/ziyaretci-raporlari.md`.
 - Uygulama platformu (OAuth, kapsam, webhook, gömülü uygulama) `developer/uygulama.md`.
 - Tema: Twig için `developer/tema.md`, Smarty için `theme/README.md`.
 
@@ -9663,7 +9664,7 @@ Servis yönlendirme.
 <!-- https://tsoft.bahadirdogru.com/admin-api/ · admin-api/README.md -->
 # Admin API v3
 
-T-Soft yönetim paneli (`*.tsoftpanel.com`, Nuxt ön yüzü) kendi verisini mağaza alan adındaki `/api/v3/admin/*` uçlarından okur ve yazar. Bu sayfa o uçların genel kurallarını anlatır. Uç listesi [Uç listesi](uclar.md), çalışılmış bir örnek [Ödeme bildirimi](odeme-bildirimi.md) sayfasındadır.
+T-Soft yönetim paneli (`*.tsoftpanel.com`, Nuxt ön yüzü) kendi verisini mağaza alan adındaki `/api/v3/admin/*` uçlarından okur ve yazar. Bu sayfa o uçların genel kurallarını anlatır. Token almak [Giriş ve iki adımlı doğrulama](oturum.md), uç listesi [Uç listesi](uclar.md) sayfasındadır. Çalışılmış örnekler: [Ziyaretçi raporları](ziyaretci-raporlari.md) (salt okunur, cevap alanlarıyla) ve [Ödeme bildirimi](odeme-bildirimi.md) (yazma).
 
 Kaynak: panel sürümü `v5.0.273` ön yüz paketi ve bu paketin çağırdığı 627 ekran parçası (24 Ekim 2026). Yollar panel kodunda sabit duran adreslerdir; tarama sırasında uçlar tek tek çağrılmadı. Resmi [T-SOFT Geliştirici Platformu](https://developer.tsoft.com.tr/) bu listeyi yayımlamıyor ("API Dokümanı · Yakında").
 
@@ -9693,9 +9694,9 @@ Accept: application/json
 ```
 
 - Taban adres **panel alan adı değil**, mağaza alan adıdır: `https://www.magaza.example`.
-- Panel oturumunda token tarayıcı deposundaki `t-softpanel-auth` nesnesinin `laraToken` alanındadır (iki adımlı doğrulama açıksa erişim token’ı). Token kişiseldir; kodda, depoda ve paylaşılan belgede tutulmaz.
+- Token, girişte dönen `data.token.plainTextToken`'dır; panel ön yüzü onu `laraToken` diye anar ve tarayıcıda `t-softpanel-auth` nesnesinin `token.plainTextToken` alanında tutar. Aynı girişin `legacy.bearer` değeri bu uçlarda **401** alır. Token kişiseldir; kodda, depoda ve paylaşılan belgede tutulmaz.
 - Yazma isteklerinde `Content-Type: application/json` ve JSON gövde gider.
-- Giriş uçları `api/v3/admin/auth/*` altındadır (`login`, `login-by-jwt`, `token`, `token-validate`, `two-factor`, `oauth/refresh`).
+- Giriş uçları `api/v3/admin/auth/*` altındadır (`login`, `oauth/two-factor`, `two-factor`, `oauth/refresh`, `token`, `token-validate`). Parola girişi, iki adımlı doğrulama (SMS, e-posta, doğrulayıcı, bildirim), token süresi ve yenileme: [Giriş ve iki adımlı doğrulama](oturum.md).
 
 ## HTTP metotları
 
@@ -9745,9 +9746,9 @@ Ortak gözlemler:
 
 | HTTP | Gövde | Anlamı |
 | --- | --- | --- |
-| 401 | Laravel varsayılanı `{"message":"Unauthenticated."}` (bu taramada gözlenmedi) | Token yok veya süresi dolmuş |
+| 401 | `{"message":"Unauthenticated."}` | Token yok, süresi dolmuş ya da yanlış token türü (`legacy.bearer`). Bkz. [Giriş](oturum.md#hangi-token-nerede-geçer). |
 | 403 | — (gözlenmedi) | Rol bu izni vermiyor |
-| 422 | `{"message": "...", "errors": {"alan": ["..."]}}` | Laravel doğrulaması. `errors` alan bazında dizidir. |
+| 422 | `{"message": "...", "errors": {"alan": ["..."]}}` | Laravel doğrulaması. `errors` alan bazında dizidir. Mesaj `Accept-Language`'a göre Türkçe gelir (ör. `"Seçili range geçersiz."`). |
 | 429 | `Too Many Attempts.` | Hız sınırı. Cevapta `retryAfter` (saniye) ve `throttle.limit` vardır. `batch-recreate` için sınır 5 idi. |
 | 500 | `{"message":"Server Error"}` | Sunucu kaydı işlerken düştü. Alan adı söylemez; gövdeyi panelin gönderdiğiyle karşılaştırın. |
 
@@ -9794,8 +9795,8 @@ Toplam 357 uç ve kimlik eklenerek kullanılan 35 yol.
 
 | Grup | Uç | Ne işe yarar |
 | --- | ---: | --- |
-| [analytics](uclar.md#analitik) | 30 | Rapor, canlı ziyaretçi, arama boşluğu, personel ve fiyat/stok logu, risk |
-| [auth](uclar.md#oturum) | 24 | Giriş, jeton, iki adım, panel kullanıcısı ve rol |
+| [analytics](uclar.md#analitik) | 30 | Rapor, canlı ziyaretçi, arama boşluğu, personel ve fiyat/stok logu, risk. Ziyaretçi uçları: [Ziyaretçi raporları](ziyaretci-raporlari.md) |
+| [auth](uclar.md#oturum) | 24 | Giriş, jeton, iki adım, panel kullanıcısı ve rol. Akış: [Giriş ve iki adımlı doğrulama](oturum.md) |
 | [campaigns](uclar.md#kampanya) | 6 | Kampanya, hediye kodu, puan ve öneri |
 | [catalog](uclar.md#katalog) | 41 | Ürün, kategori, marka, varyant, grup fiyatı, görsel ve yorum |
 | [cms](uclar.md#içerik) | 12 | Blog, haber, SSS, galeri ve içerik |
@@ -9824,6 +9825,207 @@ Liste her ekranın gövdesini anlatmaz. Gövdeyi öğrenmenin güvenli yolu:
 
 ---
 
+<!-- https://tsoft.bahadirdogru.com/admin-api/oturum/ · admin-api/oturum.md -->
+# Giriş ve iki adımlı doğrulama
+
+Panel iç API'si (`/api/v3/admin/*`) bir panel kullanıcısının oturum token'ıyla çalışır. Bu sayfa o token'ın nasıl alındığını anlatır: parola girişi, iki adımlı doğrulama, hangi token'ın hangi uçta geçtiği, süresi ve yenilenmesi. Genel kurallar [Admin API v3](README.md) sayfasındadır.
+
+Kaynak: panel `v5.0.317` ön yüzünün giriş ekranı kodu ve canlı bir mağazada iki adımlı doğrulamalı (SMS) bir panel kullanıcısıyla yapılan giriş (11 Kasım 2026). İstek ve yanıtların yalnız alan adları ve tipleri kaydedildi. Değerler uydurmadır.
+
+## Özet
+
+| Adım | Çağrı | Sonuç |
+| --- | --- | --- |
+| 1. Parola | `POST /api/v3/admin/auth/login` | Doğrulama yoksa token. Varsa hata koduyla bir **doğrulama isteği** (`data.token`, `data.route`). |
+| 2. Yöntem seçimi | `POST /api/v3/admin/auth/oauth/two-factor` | Yöntem değişir (SMS, e-posta…), kod gönderilir. Yeni doğrulama isteği döner. |
+| 3. Kod | `POST <data.route.uri>` | Kod doğruysa token. |
+| Yenileme | `POST /api/v3/admin/auth/oauth/refresh` | Yalnız giriş `refreshToken` verdiyse. Parolayla girişte gelmedi. |
+
+Bütün çağrılar **mağaza alan adına** gider (`https://www.magaza.example/...`), panel alan adına (`*.tsoftpanel.com`) değil. Başlık: `Accept: application/json`, gövdeli isteklerde `Content-Type: application/json`.
+
+## 1. Parola girişi
+
+```http
+POST /api/v3/admin/auth/login HTTP/1.1
+Host: www.magaza.example
+Accept: application/json
+Content-Type: application/json
+
+{"domain": "www.magaza.example", "email": "panel@magaza.example", "password": "…"}
+```
+
+- `domain` mağaza alan adıdır, şemasız (`www.magaza.example`).
+- Panel giriş ekranı `Accept-Language` da gönderir (`tr`); hata metinleri bu dile göre gelir.
+- **429** çok fazla deneme demektir.
+
+### Doğrulama yoksa
+
+Cevap `200` ve aşağıdaki [oturum gövdesi](#oturum-gövdesi)dir.
+
+### İki adımlı doğrulama açıksa
+
+Cevap bir **hata kodu**yla gelir (panel kodu bunu `catch` dalında okur), ama gövdede `status: true` ve bir doğrulama isteği vardır:
+
+```json
+{
+  "status": true,
+  "attributes": {
+    "two_factor_must_validate": { "args": [ { "options": ["2fa_qr", "2fa_sms", "2fa_email", "2fa_notification"] } ] }
+  },
+  "data": {
+    "token": "<doğrulama token'ı>",
+    "route": { "type": "2fa_email", "uri": "https://www.magaza.example/api/v3/admin/auth/two-factor" }
+  }
+}
+```
+
+| Alan | Anlamı |
+| --- | --- |
+| `data.token` | Bu girişe ait kısa ömürlü doğrulama token'ı. Panel token'ı değildir. |
+| `data.route.type` | Varsayılan yöntem. Kod bu yöntemle gönderilmiştir. |
+| `data.route.uri` | Kodun gönderileceği adres. Mutlak ya da göreli gelebilir; mağaza alan adında çözün. |
+| `attributes.two_factor_must_validate.args[0].options` | Kullanıcının seçebileceği yöntemler. |
+
+İki adımlı doğrulamayı ayırt etmenin yolu HTTP kodu değil, gövdede `data.token` ve `data.route.uri` bulunmasıdır. Yanlış parola başka bir hata gövdesi (`message`) döner; **401** cevabında panel "T-Soft 360 ile giriş" ipucu gösterir.
+
+## 2. Yöntem seçmek ve kodu göndermek
+
+Yöntemler:
+
+| `type` | Kod nereden gelir |
+| --- | --- |
+| `2fa_qr` | Doğrulayıcı uygulama (TOTP). Gönderim yok, kod uygulamada. |
+| `2fa_sms` | SMS |
+| `2fa_email` | E-posta |
+| `2fa_notification` | T-Soft mobil uygulamasına bildirim; kullanıcı onaylar, kod yazılmaz |
+
+Varsayılan yöntem dışında bir yöntem için:
+
+```http
+POST /api/v3/admin/auth/oauth/two-factor HTTP/1.1
+Host: www.magaza.example
+Accept: application/json
+Content-Type: application/json
+
+{"type": "2fa_sms", "token": "<doğrulama token'ı>", "code": ""}
+```
+
+Cevap yine hata koduyla gelir ve yeni bir doğrulama isteği taşır: `data.token`, `data.route.type`, `data.route.uri`. **Bundan sonra yeni `token` ve `uri` kullanılır**; eskisi geçersizdir. T-Soft kodu bu çağrıyla gönderir. Aynı yöntem için kısa sürede yeniden istemek **429** döner; panel "daha önce gönderilen kodu girin" der.
+
+## 3. Kodu doğrulamak
+
+Kod 6 hanedir.
+
+```http
+POST <data.route.uri> HTTP/1.1
+Host: www.magaza.example
+Accept: application/json
+Content-Type: application/json
+
+{"code": "123456", "method": "2fa_sms", "token": "<doğrulama token'ı>"}
+```
+
+- Kod doğruysa `status: true` ve [oturum gövdesi](#oturum-gövdesi) döner.
+- Kod yanlışsa hata kodu ve `message`. Panel her yanlış denemeyi sayar.
+
+`2fa_notification` yönteminde kod yazılmaz. Panel 5 saniyede bir aynı `uri`'ye `{"token", "type", "code"}` gönderir ve 120 saniye bekler; kullanıcı mobil uygulamada onaylayınca cevap oturum gövdesi olur.
+
+## Oturum gövdesi
+
+Parola girişi, kod doğrulama ve yenileme aynı yapıyı döner:
+
+```json
+{
+  "status": true,
+  "data": {
+    "legacy": {
+      "bearer": "<eski panel token'ı>",
+      "exp_at": 1794400000,
+      "issued_at": 1794313600,
+      "email": "panel@magaza.example",
+      "isSupportUser": false,
+      "isSuperAdmin": false
+    },
+    "token": {
+      "plainTextToken": "<panel token'ı>",
+      "accessToken": { "expires_at": "2026-11-12T09:00:00.000000Z" }
+    },
+    "user": {
+      "id": 1, "name": "…", "surname": "…", "email": "panel@magaza.example",
+      "panelType": "admin", "supplierId": null,
+      "hasTwoFactor": true, "hasRestrictedAccess": false,
+      "tsoft360TwoFactorSetupUrl": null, "sessionKind": "password", "version": "v5"
+    }
+  }
+}
+```
+
+Giriş T-Soft 360 (SSO) ile yapıldıysa gövdede ayrıca `refreshToken` ve `refreshTokenExpiresAt` bulunur.
+
+### Hangi token nerede geçer
+
+| Token | Nerede | Not |
+| --- | --- | --- |
+| `data.token.plainTextToken` | `/api/v3/admin/*` panel iç uçları | `Authorization: Bearer <plainTextToken>`. Panel ön yüzü bunu `laraToken` diye anar. |
+| `data.legacy.bearer` | Eski panel (`/Y`) ve eski uçlar | Panel iç uçlarında **401** `{"message":"Unauthenticated."}` döner (ziyaretçi raporunda denendi). Kullanıcının panel sürümü `v4` ise ön yüz `https://<mağaza>/Y?token=<legacy.bearer>` adresine yönlenir. |
+
+### Süre
+
+- `token.accessToken.expires_at` ISO tarihidir. Gözlenen ömür **yaklaşık 24 saat**.
+- `legacy.exp_at` ve `legacy.issued_at` unix saniyesidir.
+- Parolayla girişte (`user.sessionKind: "password"`) **yenileme token'ı gelmedi**. Süre dolunca yeniden giriş gerekir; iki adımlı doğrulamalı kullanıcıda bu her gün yeni bir kod demektir.
+
+## Yenileme
+
+Panel ön yüzü yenilemeyi yalnız tarayıcı deposunda `refresh_token`, `refresh_ttl`, `pat_ttl` ve `device_id` varsa dener:
+
+```http
+POST /api/v3/admin/auth/oauth/refresh HTTP/1.1
+Host: www.magaza.example
+Accept: application/json
+Content-Type: application/json
+X-Device-Id: <cihaz kimliği>
+
+{"refreshToken": "<refresh token>"}
+```
+
+Cevap oturum gövdesidir; yeni `refreshToken` ve `refreshTokenExpiresAt` ile gelir. `refresh_ttl` geçmişse panel oturumu siler ve girişe döner.
+
+## Tarayıcı deposu
+
+Panel ön yüzü oturumu `localStorage` içinde `t-softpanel-` önekiyle tutar:
+
+| Anahtar | İçerik |
+| --- | --- |
+| `t-softpanel-auth` | Oturum gövdesinin `data` kısmı: `legacy`, `token`, `user` (ve iki adımda `otp_token`) |
+| `t-softpanel-auth:token_expires_at` | `token.accessToken.expires_at` |
+| `t-softpanel-auth:refresh_token`, `:refresh_ttl`, `:pat_ttl`, `:device_id` | Yalnız yenilenebilir oturumda |
+| `t-softpanel-domain` | Mağaza alan adı, şemasız |
+| `t-softpanel-panel-version` | `v5` ya da `v4` |
+
+Bu değerler kişiseldir. Kodda, depoda, ekran görüntüsünde ve paylaşılan belgede tutulmaz.
+
+## Sunucudan giriş
+
+Panel iç API'sini bir sunucudan kullanacaksanız:
+
+1. Mümkünse ayrı bir panel kullanıcısı açın ve rolüne yalnız gereken izinleri verin (ör. ziyaretçi raporları için `analytics:report:read`).
+2. Parola girişini yapın. Doğrulama isteği gelirse yöntemi seçip kodu kullanıcıdan alın; doğrulama isteğini (token, tür, uri) kod gelene kadar sunucuda saklayın, birkaç dakikadan uzun tutmayın.
+3. `plainTextToken`'ı ve `expires_at`'i saklayın. Süre dolana kadar yeniden giriş yapmayın; her girişte yeni kod gerekir.
+4. `uri` alanını mağaza alan adında çözün ve başka bir alan adına kod göndermeyin.
+5. **401** gelirse token'ı silin; yeniden giriş kullanıcıdan yeni kod ister. Arka planda kendiliğinden SMS göndermeyin.
+
+Çalışan bir örnek: [Panel girişi (Python)](../examples/python/panel_login.py).
+
+## Görülen ama denenmeyen akışlar
+
+- **SMS ile e-posta doğrulamasını aşmak.** Giriş hatası `data.availableMethods` içinde `sms` taşıyorsa ekran "e-postanıza erişemiyorsanız" düğmesi gösterir. Düğme `POST /api/v3/admin/auth/oauth/two-factor/sms-validation` çağrısını hata gövdesindeki `data.bearer` ile (`Authorization: Bearer …`) yapar ve `data.token` alır; kod `GET /api/v3/admin/auth/token-validate?token=<token>&code=<kod>` ile denetlenir, cevap `data.isValid`.
+- **T-Soft 360 (SSO).** OAuth yetkilendirme kodu akışı (PKCE). Panel bu yolla gelen oturumu `oauth/refresh` ile yeniler.
+- **`auth/login-by-jwt`**, **`auth/connect`**: panel kodunda adı geçiyor, gövdesi incelenmedi.
+
+
+---
+
 <!-- https://tsoft.bahadirdogru.com/admin-api/uclar/ · admin-api/uclar.md -->
 # Admin API v3 uç listesi
 
@@ -9833,7 +10035,7 @@ Liste yalnızca yolu verir. Metot ve gövde için panelde ilgili ekranı açıp 
 
 ## Analitik
 
-Rapor, canlı ziyaretçi, arama boşluğu ve personel logları.
+Rapor, canlı ziyaretçi, arama boşluğu ve personel logları. `analytics/report/visitor/*` uçlarının sorgu ve cevap alanları canlı denendi: [Ziyaretçi raporları](ziyaretci-raporlari.md).
 
 - `api/v3/admin/analytics/assistant/insights`
 - `api/v3/admin/analytics/log`
@@ -9868,7 +10070,7 @@ Rapor, canlı ziyaretçi, arama boşluğu ve personel logları.
 
 ## Oturum
 
-Giriş, parola sıfırlama, iki adımlı doğrulama, panel kullanıcısı ve rol.
+Giriş, parola sıfırlama, iki adımlı doğrulama, panel kullanıcısı ve rol. `login`, `oauth/two-factor`, `two-factor` ve `oauth/refresh` gövdeleri: [Giriş ve iki adımlı doğrulama](oturum.md).
 
 - `api/v3/admin/auth/auth-application`
 - `api/v3/admin/auth/auth-application/authorize`
@@ -10290,6 +10492,177 @@ Kod bu adreslerin sonuna kayıt kimliği yazar.
 - `api/v3/public/onlinestore/theme/`
 - `api/v3/public/themes/`
 - `api/v3/storefront/utils/developer/preview/template/`
+
+
+---
+
+<!-- https://tsoft.bahadirdogru.com/admin-api/ziyaretci-raporlari/ · admin-api/ziyaretci-raporlari.md -->
+# Ziyaretçi raporları
+
+Panel ekranı: Analiz → Raporlar → **Ziyaretçi Raporu** (`/analytics/report/visitor/overview`). Ekran oturum, ziyaretçi, sayfa görüntüleme, sipariş, ciro ve dönüşüm oranını; zaman serisini; en çok görüntülenen sayfa ve ürünleri; trafik kaynaklarını; satın alma hunisini, yeni / geri gelen ayrımını, yapay zekâ özetini ve arama boşluklarını gösterir. Bu veriler REST1'de yoktur.
+
+Kaynak: panel `v5.0.317`, canlı bir mağazada salt okunur çağrılar (11 Kasım 2026). Yalnız alan adları, tipleri ve geçerli değerler kaydedildi; örnek sayılar uydurmadır.
+
+## Ortak kurallar
+
+```http
+GET /api/v3/admin/analytics/report/visitor/overview?range=7d HTTP/1.1
+Host: www.magaza.example
+Authorization: Bearer <panel token>
+Accept: application/json
+```
+
+- Token, girişteki `data.token.plainTextToken`'dır. `legacy.bearer` bu uçlarda **401** döner. Bkz. [Giriş ve iki adımlı doğrulama](oturum.md#hangi-token-nerede-geçer).
+- İzin: `analytics:report:read`.
+- Cevap zarfı: `{"status": true, "message": "", "attributes": {"system.status": {…}}, "data": {…}}`. Aşağıdaki tablolar `data`'yı anlatır.
+- Geçersiz sorgu değeri **422** ve Türkçe `message` döner: `"Seçili range geçersiz."`, `"Seçili metric geçersiz."`.
+
+### Dönem
+
+| Sorgu | Geçerli değerler | Not |
+| --- | --- | --- |
+| `range` | `today`, `7d`, `30d` | `24h` ve `90d` **422**. `timeseries` uçta tersi: `24h`, `7d`, `30d` geçer, `today` **422**. |
+| `start`, `end` | `YYYY-MM-DD` | Özel aralık. `range` yerine gönderilir. `end`, `start`'tan önce olursa **422** (`"end şundan daha eski veya eşit bir tarih olmalıdır start."`). |
+
+- Özel aralıkta cevaptaki `range` alanı yine varsayılanı gösterir (`today` ya da `7d`), ama rakamlar istenen aralığa aittir. Aralığın uygulandığını `range` alanından anlamayın.
+- Panel ekranında Bugün / Son 7 Gün / Son 30 Gün düğmeleri `range` gönderir; tarih seçici `start` / `end` gönderir.
+
+## Uçlar
+
+Hepsi `GET` ve `api/v3/admin/analytics/report/visitor/` altındadır.
+
+| Uç | Panelin gönderdiği sorgu | `data` |
+| --- | --- | --- |
+| `overview` | `range` | Dönem toplamları ve önceki dönem |
+| `timeseries` | `range`, `metric` | Zaman serisi |
+| `top-pages` | `range`, `limit=10` | En çok görüntülenen sayfalar |
+| `top-products` | `range`, `order_by`, `limit=10` | Ürün etkileşimi |
+| `traffic-sources` | `range`, `limit=10` | Trafik kaynakları |
+| `funnel` | `range` | Satın alma hunisi |
+| `new-vs-returning` | `range` | Yeni / geri gelen ziyaretçi |
+| `briefing` | `range` | Yapay zekâ özeti ve sinyaller |
+| `search-gaps` | `range`, `limit=20` | Sonuçsuz ya da eşleşmeyen aramalar |
+| `live` | — | Şu anki ziyaret ve sepet durumu |
+| `live-count` | — | Şu anki oturum ve ziyaretçi sayısı |
+| `live-locations` | — | Canlı ziyaretçi konumları |
+
+### overview
+
+```json
+{
+  "range": "7d",
+  "current":  { "sessions": 1200, "visitors": 950, "pageviews": 4100, "orders": 12, "revenue": 8450.5, "currency": "TRY", "conversion_rate": 1.0 },
+  "previous": { "sessions": 1100, "visitors": 900, "pageviews": 3900, "orders": 10, "revenue": 7600.0, "currency": "TRY", "conversion_rate": 0.91 }
+}
+```
+
+`previous` aynı uzunluktaki önceki dönemdir; panel değişim yüzdesini bundan hesaplar. Bütün sayılar JSON sayısıdır. `conversion_rate` yüzdedir (`1.0` = %1).
+
+### timeseries
+
+| Sorgu | Geçerli değerler |
+| --- | --- |
+| `metric` | `sessions`, `visitors`, `pageviews`, `orders`, `revenue` (`conversion_rate` **422**) |
+| `range` | `24h` (25 saatlik kova), `7d` (8 günlük kova), `30d` (31 günlük kova) |
+
+```json
+{ "range": "7d", "metric": "sessions", "points": [ { "bucket": "2026-11-04", "value": 160 } ] }
+```
+
+`bucket` günlük aralıkta `YYYY-MM-DD`, `24h`'te `YYYY-MM-DD HH:MM:SS`. Kova sayısı aralığın iki ucunu da içerir.
+
+### top-pages
+
+```json
+{ "pages": [ { "path": "/kategori/defter", "views": 320, "sessions": 210 } ] }
+```
+
+`limit=100` kabul edildi; üst sınır denenmedi.
+
+### top-products
+
+`order_by`: `views`, `adds`, `purchases`, `revenue` (başka değer **422**).
+
+```json
+{ "products": [ { "product_id": "1234", "name": "Defter", "views": 150, "adds": 12, "purchases": 4, "revenue": 340.0 } ] }
+```
+
+`product_id` string gelir.
+
+### traffic-sources
+
+```json
+{ "sources": [ { "source": "google", "kind": "referrer", "sessions": 400, "visitors": 330 } ] }
+```
+
+`kind`: `direct`, `referrer`, `utm`.
+
+### funnel
+
+```json
+{ "overall_rate": 1.2, "steps": [ { "name": "product_view", "count": 800 }, { "name": "add_to_cart", "count": 90 }, { "name": "checkout_start", "count": 30 }, { "name": "purchase", "count": 12 } ] }
+```
+
+Adımlar bu sırayla gelir: `product_view`, `add_to_cart`, `checkout_start`, `purchase`.
+
+### new-vs-returning
+
+```json
+{ "new": 700, "returning": 250 }
+```
+
+### briefing
+
+```json
+{
+  "status": "ok",
+  "range": "7d",
+  "window": "last_7_days",
+  "totals": { "sessions": 1200, "visitors": 950, "pageviews": 4100, "orders": 12, "revenue": 8450.5, "currency": "TRY", "conversion_rate": 1.0 },
+  "briefing": {
+    "headline": "…", "summary": "…",
+    "findings": [ { "title": "…", "detail": "…", "severity": "warning" } ],
+    "actions":  [ { "title": "…", "detail": "…" } ]
+  },
+  "signals": [ { "key": "funnel_weakest_step", "severity": "warning", "step": "add_to_cart", "rate_from_prev": 11.2, "overall_rate": 1.2 } ]
+}
+```
+
+| Alan | Değerler |
+| --- | --- |
+| `status` | `ok`; panel kodu ayrıca `insufficient_data` (yetersiz oturum; `min_sessions` alanıyla) ve `unavailable` bekler |
+| `window` | `last_24_hours` (`range=today`), `last_7_days`, `last_30_days` |
+| `severity` | `good`, `warning`, `info` |
+| `signals[].key` | `sessions`, `visitors`, `pageviews`, `orders`, `revenue`, `conversion_rate` (alanlar: `direction`, `delta_pct`), `funnel_weakest_step` (`step`, `rate_from_prev`), `source_concentration` (`source`, `share_pct`), `product_high_view_low_add` (`product_id`, `name`, `views`, `adds`) |
+
+Metinler (`headline`, `summary`, `findings`) panelin yapay zekâ özetidir ve her çağrıda değişebilir.
+
+### search-gaps
+
+```json
+{
+  "status": "ok", "range": "7d", "window": "last_7_days",
+  "counts": { "not_found": 14, "no_match": 6 },
+  "gaps": [ { "term": "kareli defter", "group": "not_found", "searches": 9, "searchers": 7, "candidates": [ { "id": 1234, "name": "…", "category": "…" } ] } ],
+  "advice": { "summary": "…", "not_found_advice": "…", "no_match_advice": "…" }
+}
+```
+
+`group`: `not_found` (sonuç yok), `no_match` (sonuç var, aranan ürün değil). `candidates` aramaya yakın ürünlerdir.
+
+### live, live-count, live-locations
+
+```json
+{ "now": { "sessions": 12, "visitors": 10, "orders_today": 3, "revenue_today": 640.0, "currency": "TRY" },
+  "behavior": { "active_carts": 2, "checking_out": 1, "purchased": 0 } }
+```
+
+`live-count`: `{ "sessions": 12, "visitors": 10 }`. `live-locations`: `{ "points": [] }` (denemede boştu; nokta alanları görülmedi).
+
+## REST1 ve GA4 ile farkı
+
+- Sipariş ve ciro rakamları panelin ziyaret izleyicisinden gelir; REST1 `order/get` toplamlarıyla aynı olmayabilir (durum süzgeci, iptal ve iade farkı). Muhasebe toplamı için REST1 kullanın.
+- Google Analytics ile oturum ve ziyaretçi sayıları farklı tanımlıdır; birini ötekinin yerine koymayın.
 
 
 ---

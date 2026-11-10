@@ -78,6 +78,7 @@ curl "https://magaza.example/api/v3/storefront/2026-01/products?page[size]=5" \
 | Sepet | [`cart/*`](rest/cart.md) (alpha) | `customers/cart` (okuma) | `storefront:cart` |
 | Cari hareket | [`fundMovement/*`](rest/fundmovement.md) | `customers/billing/account-balance` | — |
 | Ödeme linki | — | [`customers/payment-notification`](admin-api/odeme-bildirimi.md) | — |
+| Ziyaretçi raporu (oturum, huni, kaynak) | — | [`analytics/report/visitor/*`](admin-api/ziyaretci-raporlari.md) | — |
 | Webhook | — | `configuration/webhooks` | — (uygulamada `2026-01/webhooks`) |
 | Önbellek temizle | [`setting/deleteCache`](rest/setting.md) | `configuration/cache` | — |
 

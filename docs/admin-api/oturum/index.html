@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Giriş ve iki adımlı doğrulama · T-Soft Dokümantasyonu</title>
+<meta name="description" content="Panel token'ı almak: login, SMS / e-posta / doğrulayıcı kodu, token türleri, süre ve yenileme">
+<link rel="canonical" href="https://tsoft.bahadirdogru.com/admin-api/oturum/">
+<link rel="alternate" type="text/markdown" href="/admin-api/oturum.md" title="Markdown">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%231f6feb%22%2F%3E%3Cpath%20d%3D%22M8%209h16v3.2h-6.4V23h-3.2V12.2H8z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E">
+<meta property="og:title" content="Giriş ve iki adımlı doğrulama">
+<meta property="og:description" content="Panel token'ı almak: login, SMS / e-posta / doğrulayıcı kodu, token türleri, süre ve yenileme">
+<meta property="og:url" content="https://tsoft.bahadirdogru.com/admin-api/oturum/">
+<meta property="og:type" content="website">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" media="(prefers-color-scheme: light)" id="hl-light">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" media="(prefers-color-scheme: dark)" id="hl-dark">
+</head>
+<body>
+<a class="skip" href="#main">İçeriğe geç</a>
+<header class="top">
+  <button class="menu-btn" aria-label="Menü" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="/"><svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><path d="M8 9h16v3.2h-6.4V23h-3.2V12.2H8z" fill="var(--bg)"/></svg><span>T-Soft Dokümantasyonu</span></a>
+  <div class="search">
+    <input id="q" type="search" placeholder="Ara: metot, uç, değişken, sayfa…  ( / )" autocomplete="off" aria-label="Ara">
+    <ul id="results" role="listbox" hidden></ul>
+  </div>
+  <button class="theme-btn" aria-label="Tema değiştir" title="Tema değiştir">◐</button>
+</header>
+<div class="layout">
+<aside id="sidebar" class="sidebar"><details class="nav-sec" open><summary>Başlangıç <span class="count">3</span></summary><ul><li><a href="/">Ana sayfa</a></li><li><a href="/rehber/">Hangi yüzey?</a></li><li><a href="/llm/">LLM ve ajanlar için</a></li></ul></details><details class="nav-sec" open><summary>Platform <span class="count">4</span></summary><ul><li><a href="/developer/">Platform haritası</a></li><li><a href="/developer/baslarken/">Başlarken</a></li><li><a href="/developer/uygulama/">Uygulama geliştirme</a></li><li><a href="/developer/storefront-api/">Storefront API</a></li></ul></details><details class="nav-sec" open><summary>Tema <span class="count">2</span></summary><ul><li><a href="/developer/tema/">Tema motoru (Twig)</a></li><li><a href="/theme/">Eski tema (Smarty)</a></li></ul></details><details class="nav-sec" open><summary>REST1 <span class="count">2</span></summary><ul><li><a href="/rest/">Genel bakış</a></li><li><a href="/rest/hatalar/">Hatalar ve mesaj kodları</a></li></ul></details><details class="nav-sec"><summary>REST1 modülleri <span class="count">38</span></summary><ul><li><a href="/rest/auth/">Auth</a></li><li><a href="/rest/customer/">Customer</a></li><li><a href="/rest/product/">Product</a></li><li><a href="/rest/subproduct/">SubProduct</a></li><li><a href="/rest/category/">Category</a></li><li><a href="/rest/brand/">Brand</a></li><li><a href="/rest/model/">Model</a></li><li><a href="/rest/filter/">Filter</a></li><li><a href="/rest/catalog/">Catalog</a></li><li><a href="/rest/order/">Order</a></li><li><a href="/rest/order2/">Order2</a></li><li><a href="/rest/cart/">Cart</a></li><li><a href="/rest/campaign/">Campaign</a></li><li><a href="/rest/payment/">Payment</a></li><li><a href="/rest/fundmovement/">FundMovement</a></li><li><a href="/rest/point/">Point</a></li><li><a href="/rest/segment/">Segment</a></li><li><a href="/rest/supplier/">Supplier</a></li><li><a href="/rest/branchoffice/">BranchOffice</a></li><li><a href="/rest/content/">Content</a></li><li><a href="/rest/news/">News</a></li><li><a href="/rest/showcase/">Showcase</a></li><li><a href="/rest/htmlblock/">HtmlBlock</a></li><li><a href="/rest/widget/">Widget</a></li><li><a href="/rest/link/">Link</a></li><li><a href="/rest/personalization/">Personalization</a></li><li><a href="/rest/trackingcode/">TrackingCode</a></li><li><a href="/rest/ticket/">Ticket</a></li><li><a href="/rest/user/">User</a></li><li><a href="/rest/setting/">Setting</a></li><li><a href="/rest/notification/">Notification</a></li><li><a href="/rest/mobile/">Mobile</a></li><li><a href="/rest/platform/">Platform</a></li><li><a href="/rest/cargo/">Cargo</a></li><li><a href="/rest/adapter/">Adapter</a></li><li><a href="/rest/hopi/">Hopi</a></li><li><a href="/rest/zubizu/">Zubizu</a></li><li><a href="/rest/routing/">Routing</a></li></ul></details><details class="nav-sec" open><summary>Admin API v3 <span class="count">5</span></summary><ul><li><a href="/admin-api/">Genel bakış</a></li><li><a href="/admin-api/oturum/" aria-current="page">Giriş ve iki adımlı doğrulama</a></li><li><a href="/admin-api/uclar/">Uç listesi</a></li><li><a href="/admin-api/ziyaretci-raporlari/">Ziyaretçi raporları</a></li><li><a href="/admin-api/odeme-bildirimi/">Ödeme bildirimi</a></li></ul></details><details class="nav-sec"><summary>Örnek kod <span class="count">6</span></summary><ul><li><a href="/examples/python/tsoft_client/">Python istemci</a></li><li><a href="/examples/python/panel_login/">Panel girişi (SMS)</a></li><li><a href="/examples/python/add_customer/">Üye ekleme</a></li><li><a href="/examples/python/check_group_price/">Grup fiyatı</a></li><li><a href="/examples/python/env/">Ortam değişkenleri</a></li><li><a href="/examples/apps-script/code/">Apps Script</a></li></ul></details><details class="nav-sec"><summary>Eski tema blokları <span class="count">18</span></summary><ul><li><a href="/theme/bloklar/ust/">Üst blok</a></li><li><a href="/theme/bloklar/alt/">Alt blok</a></li><li><a href="/theme/bloklar/yeni-urunler/">Yeni ürünler</a></li><li><a href="/theme/bloklar/kategori-menusu/">Kategori menüsü</a></li><li><a href="/theme/bloklar/kategori-listesi/">Kategori listesi</a></li><li><a href="/theme/bloklar/home-banner/">Ana sayfa banner</a></li><li><a href="/theme/bloklar/home-sale/">Ana sayfa indirim</a></li><li><a href="/theme/bloklar/haberler/">Haberler</a></li><li><a href="/theme/bloklar/benzer-urunler/">Benzer ürünler</a></li><li><a href="/theme/bloklar/model-listesi/">Model listesi</a></li><li><a href="/theme/bloklar/marka-listesi/">Marka listesi</a></li><li><a href="/theme/bloklar/parca-toplama-sihirbazi/">Parça toplama sihirbazı</a></li><li><a href="/theme/bloklar/tedarikci-listesi/">Tedarikçi listesi</a></li><li><a href="/theme/bloklar/firsat-urunleri/">Fırsat ürünleri</a></li><li><a href="/theme/bloklar/ayin-yazari/">Ayın yazarı</a></li><li><a href="/theme/bloklar/gelecek-firsat-urun-listesi/">Gelecek fırsatlar</a></li><li><a href="/theme/bloklar/sss/">SSS</a></li><li><a href="/theme/bloklar/gorsel-vitrin/">Görsel vitrin</a></li></ul></details><details class="nav-sec"><summary>Eski tema değişkenleri <span class="count">5</span></summary><ul><li><a href="/theme/degiskenler/tsoft-product-varriables/">Ürün değişkenleri</a></li><li><a href="/theme/degiskenler/tsoft-header-page-links-varriable/">Sayfa linkleri</a></li><li><a href="/theme/degiskenler/tsoft-header-tabs-varriable/">Üst sekmeler</a></li><li><a href="/theme/degiskenler/tsoft-footer-menu-varriables/">Alt menü</a></li><li><a href="/theme/degiskenler/tsoft-left-right-category-varriables/">Sol ve sağ kategori</a></li></ul></details><details class="nav-sec"><summary>Eski tema şablonları <span class="count">5</span></summary><ul><li><a href="/theme/snippets/bayi-mi-degil-mi/">Bayi hesabı koşulu</a></li><li><a href="/theme/orta/user_bayipanel/">Bayi paneli</a></li><li><a href="/theme/orta/user_bayigirisplasiyer/">Bayi giriş plasiyer</a></li><li><a href="/theme/orta/user_v4tpl/">V4 şablon</a></li><li><a href="/theme/UstAlt/user_tasarimyenimenu/">Tasarım yeni menü</a></li></ul></details></aside>
+<main id="main" class="content">
+<nav class="crumbs" aria-label="Konum"><a href="/">Ana sayfa</a> <span>/</span> <a href="/admin-api/">Admin API v3</a></nav>
+<article>
+<h1 id="giriş-ve-iki-adımlı-doğrulama"><a class="anchor" href="#giriş-ve-iki-adımlı-doğrulama" aria-hidden="true">#</a>Giriş ve iki adımlı doğrulama</h1>
+<p>Panel iç API&#39;si (<code>/api/v3/admin/*</code>) bir panel kullanıcısının oturum token&#39;ıyla çalışır. Bu sayfa o token&#39;ın nasıl alındığını anlatır: parola girişi, iki adımlı doğrulama, hangi token&#39;ın hangi uçta geçtiği, süresi ve yenilenmesi. Genel kurallar <a href="/admin-api/">Admin API v3</a> sayfasındadır.</p>
+<p>Kaynak: panel <code>v5.0.317</code> ön yüzünün giriş ekranı kodu ve canlı bir mağazada iki adımlı doğrulamalı (SMS) bir panel kullanıcısıyla yapılan giriş (11 Kasım 2026). İstek ve yanıtların yalnız alan adları ve tipleri kaydedildi. Değerler uydurmadır.</p>
+<h2 id="özet"><a class="anchor" href="#özet" aria-hidden="true">#</a>Özet</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Adım</th>
+<th>Çağrı</th>
+<th>Sonuç</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1. Parola</td>
+<td><code>POST /api/v3/admin/auth/login</code></td>
+<td>Doğrulama yoksa token. Varsa hata koduyla bir <strong>doğrulama isteği</strong> (<code>data.token</code>, <code>data.route</code>).</td>
+</tr>
+<tr>
+<td>2. Yöntem seçimi</td>
+<td><code>POST /api/v3/admin/auth/oauth/two-factor</code></td>
+<td>Yöntem değişir (SMS, e-posta…), kod gönderilir. Yeni doğrulama isteği döner.</td>
+</tr>
+<tr>
+<td>3. Kod</td>
+<td><code>POST &lt;data.route.uri&gt;</code></td>
+<td>Kod doğruysa token.</td>
+</tr>
+<tr>
+<td>Yenileme</td>
+<td><code>POST /api/v3/admin/auth/oauth/refresh</code></td>
+<td>Yalnız giriş <code>refreshToken</code> verdiyse. Parolayla girişte gelmedi.</td>
+</tr>
+</tbody></table></div>
+<p>Bütün çağrılar <strong>mağaza alan adına</strong> gider (<code>https://www.magaza.example/...</code>), panel alan adına (<code>*.tsoftpanel.com</code>) değil. Başlık: <code>Accept: application/json</code>, gövdeli isteklerde <code>Content-Type: application/json</code>.</p>
+<h2 id="1-parola-girişi"><a class="anchor" href="#1-parola-girişi" aria-hidden="true">#</a>1. Parola girişi</h2>
+<pre><code class="language-http">POST /api/v3/admin/auth/login HTTP/1.1
+Host: www.magaza.example
+Accept: application/json
+Content-Type: application/json
+
+{&quot;domain&quot;: &quot;www.magaza.example&quot;, &quot;email&quot;: &quot;panel@magaza.example&quot;, &quot;password&quot;: &quot;…&quot;}</code></pre>
+<ul>
+<li><code>domain</code> mağaza alan adıdır, şemasız (<code>www.magaza.example</code>).</li>
+<li>Panel giriş ekranı <code>Accept-Language</code> da gönderir (<code>tr</code>); hata metinleri bu dile göre gelir.</li>
+<li><strong>429</strong> çok fazla deneme demektir.</li>
+</ul>
+<h3 id="doğrulama-yoksa"><a class="anchor" href="#doğrulama-yoksa" aria-hidden="true">#</a>Doğrulama yoksa</h3>
+<p>Cevap <code>200</code> ve aşağıdaki <a href="#oturum-gövdesi">oturum gövdesi</a>dir.</p>
+<h3 id="iki-adımlı-doğrulama-açıksa"><a class="anchor" href="#iki-adımlı-doğrulama-açıksa" aria-hidden="true">#</a>İki adımlı doğrulama açıksa</h3>
+<p>Cevap bir <strong>hata kodu</strong>yla gelir (panel kodu bunu <code>catch</code> dalında okur), ama gövdede <code>status: true</code> ve bir doğrulama isteği vardır:</p>
+<pre><code class="language-json">{
+  &quot;status&quot;: true,
+  &quot;attributes&quot;: {
+    &quot;two_factor_must_validate&quot;: { &quot;args&quot;: [ { &quot;options&quot;: [&quot;2fa_qr&quot;, &quot;2fa_sms&quot;, &quot;2fa_email&quot;, &quot;2fa_notification&quot;] } ] }
+  },
+  &quot;data&quot;: {
+    &quot;token&quot;: &quot;&lt;doğrulama token'ı&gt;&quot;,
+    &quot;route&quot;: { &quot;type&quot;: &quot;2fa_email&quot;, &quot;uri&quot;: &quot;https://www.magaza.example/api/v3/admin/auth/two-factor&quot; }
+  }
+}</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Alan</th>
+<th>Anlamı</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data.token</code></td>
+<td>Bu girişe ait kısa ömürlü doğrulama token&#39;ı. Panel token&#39;ı değildir.</td>
+</tr>
+<tr>
+<td><code>data.route.type</code></td>
+<td>Varsayılan yöntem. Kod bu yöntemle gönderilmiştir.</td>
+</tr>
+<tr>
+<td><code>data.route.uri</code></td>
+<td>Kodun gönderileceği adres. Mutlak ya da göreli gelebilir; mağaza alan adında çözün.</td>
+</tr>
+<tr>
+<td><code>attributes.two_factor_must_validate.args[0].options</code></td>
+<td>Kullanıcının seçebileceği yöntemler.</td>
+</tr>
+</tbody></table></div>
+<p>İki adımlı doğrulamayı ayırt etmenin yolu HTTP kodu değil, gövdede <code>data.token</code> ve <code>data.route.uri</code> bulunmasıdır. Yanlış parola başka bir hata gövdesi (<code>message</code>) döner; <strong>401</strong> cevabında panel &quot;T-Soft 360 ile giriş&quot; ipucu gösterir.</p>
+<h2 id="2-yöntem-seçmek-ve-kodu-göndermek"><a class="anchor" href="#2-yöntem-seçmek-ve-kodu-göndermek" aria-hidden="true">#</a>2. Yöntem seçmek ve kodu göndermek</h2>
+<p>Yöntemler:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th><code>type</code></th>
+<th>Kod nereden gelir</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>2fa_qr</code></td>
+<td>Doğrulayıcı uygulama (TOTP). Gönderim yok, kod uygulamada.</td>
+</tr>
+<tr>
+<td><code>2fa_sms</code></td>
+<td>SMS</td>
+</tr>
+<tr>
+<td><code>2fa_email</code></td>
+<td>E-posta</td>
+</tr>
+<tr>
+<td><code>2fa_notification</code></td>
+<td>T-Soft mobil uygulamasına bildirim; kullanıcı onaylar, kod yazılmaz</td>
+</tr>
+</tbody></table></div>
+<p>Varsayılan yöntem dışında bir yöntem için:</p>
+<pre><code class="language-http">POST /api/v3/admin/auth/oauth/two-factor HTTP/1.1
+Host: www.magaza.example
+Accept: application/json
+Content-Type: application/json
+
+{&quot;type&quot;: &quot;2fa_sms&quot;, &quot;token&quot;: &quot;&lt;doğrulama token'ı&gt;&quot;, &quot;code&quot;: &quot;&quot;}</code></pre>
+<p>Cevap yine hata koduyla gelir ve yeni bir doğrulama isteği taşır: <code>data.token</code>, <code>data.route.type</code>, <code>data.route.uri</code>. <strong>Bundan sonra yeni <code>token</code> ve <code>uri</code> kullanılır</strong>; eskisi geçersizdir. T-Soft kodu bu çağrıyla gönderir. Aynı yöntem için kısa sürede yeniden istemek <strong>429</strong> döner; panel &quot;daha önce gönderilen kodu girin&quot; der.</p>
+<h2 id="3-kodu-doğrulamak"><a class="anchor" href="#3-kodu-doğrulamak" aria-hidden="true">#</a>3. Kodu doğrulamak</h2>
+<p>Kod 6 hanedir.</p>
+<pre><code class="language-http">POST &lt;data.route.uri&gt; HTTP/1.1
+Host: www.magaza.example
+Accept: application/json
+Content-Type: application/json
+
+{&quot;code&quot;: &quot;123456&quot;, &quot;method&quot;: &quot;2fa_sms&quot;, &quot;token&quot;: &quot;&lt;doğrulama token'ı&gt;&quot;}</code></pre>
+<ul>
+<li>Kod doğruysa <code>status: true</code> ve <a href="#oturum-gövdesi">oturum gövdesi</a> döner.</li>
+<li>Kod yanlışsa hata kodu ve <code>message</code>. Panel her yanlış denemeyi sayar.</li>
+</ul>
+<p><code>2fa_notification</code> yönteminde kod yazılmaz. Panel 5 saniyede bir aynı <code>uri</code>&#39;ye <code>{&quot;token&quot;, &quot;type&quot;, &quot;code&quot;}</code> gönderir ve 120 saniye bekler; kullanıcı mobil uygulamada onaylayınca cevap oturum gövdesi olur.</p>
+<h2 id="oturum-gövdesi"><a class="anchor" href="#oturum-gövdesi" aria-hidden="true">#</a>Oturum gövdesi</h2>
+<p>Parola girişi, kod doğrulama ve yenileme aynı yapıyı döner:</p>
+<pre><code class="language-json">{
+  &quot;status&quot;: true,
+  &quot;data&quot;: {
+    &quot;legacy&quot;: {
+      &quot;bearer&quot;: &quot;&lt;eski panel token'ı&gt;&quot;,
+      &quot;exp_at&quot;: 1794400000,
+      &quot;issued_at&quot;: 1794313600,
+      &quot;email&quot;: &quot;panel@magaza.example&quot;,
+      &quot;isSupportUser&quot;: false,
+      &quot;isSuperAdmin&quot;: false
+    },
+    &quot;token&quot;: {
+      &quot;plainTextToken&quot;: &quot;&lt;panel token'ı&gt;&quot;,
+      &quot;accessToken&quot;: { &quot;expires_at&quot;: &quot;2026-11-12T09:00:00.000000Z&quot; }
+    },
+    &quot;user&quot;: {
+      &quot;id&quot;: 1, &quot;name&quot;: &quot;…&quot;, &quot;surname&quot;: &quot;…&quot;, &quot;email&quot;: &quot;panel@magaza.example&quot;,
+      &quot;panelType&quot;: &quot;admin&quot;, &quot;supplierId&quot;: null,
+      &quot;hasTwoFactor&quot;: true, &quot;hasRestrictedAccess&quot;: false,
+      &quot;tsoft360TwoFactorSetupUrl&quot;: null, &quot;sessionKind&quot;: &quot;password&quot;, &quot;version&quot;: &quot;v5&quot;
+    }
+  }
+}</code></pre>
+<p>Giriş T-Soft 360 (SSO) ile yapıldıysa gövdede ayrıca <code>refreshToken</code> ve <code>refreshTokenExpiresAt</code> bulunur.</p>
+<h3 id="hangi-token-nerede-geçer"><a class="anchor" href="#hangi-token-nerede-geçer" aria-hidden="true">#</a>Hangi token nerede geçer</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Token</th>
+<th>Nerede</th>
+<th>Not</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data.token.plainTextToken</code></td>
+<td><code>/api/v3/admin/*</code> panel iç uçları</td>
+<td><code>Authorization: Bearer &lt;plainTextToken&gt;</code>. Panel ön yüzü bunu <code>laraToken</code> diye anar.</td>
+</tr>
+<tr>
+<td><code>data.legacy.bearer</code></td>
+<td>Eski panel (<code>/Y</code>) ve eski uçlar</td>
+<td>Panel iç uçlarında <strong>401</strong> <code>{&quot;message&quot;:&quot;Unauthenticated.&quot;}</code> döner (ziyaretçi raporunda denendi). Kullanıcının panel sürümü <code>v4</code> ise ön yüz <code>https://&lt;mağaza&gt;/Y?token=&lt;legacy.bearer&gt;</code> adresine yönlenir.</td>
+</tr>
+</tbody></table></div>
+<h3 id="süre"><a class="anchor" href="#süre" aria-hidden="true">#</a>Süre</h3>
+<ul>
+<li><code>token.accessToken.expires_at</code> ISO tarihidir. Gözlenen ömür <strong>yaklaşık 24 saat</strong>.</li>
+<li><code>legacy.exp_at</code> ve <code>legacy.issued_at</code> unix saniyesidir.</li>
+<li>Parolayla girişte (<code>user.sessionKind: &quot;password&quot;</code>) <strong>yenileme token&#39;ı gelmedi</strong>. Süre dolunca yeniden giriş gerekir; iki adımlı doğrulamalı kullanıcıda bu her gün yeni bir kod demektir.</li>
+</ul>
+<h2 id="yenileme"><a class="anchor" href="#yenileme" aria-hidden="true">#</a>Yenileme</h2>
+<p>Panel ön yüzü yenilemeyi yalnız tarayıcı deposunda <code>refresh_token</code>, <code>refresh_ttl</code>, <code>pat_ttl</code> ve <code>device_id</code> varsa dener:</p>
+<pre><code class="language-http">POST /api/v3/admin/auth/oauth/refresh HTTP/1.1
+Host: www.magaza.example
+Accept: application/json
+Content-Type: application/json
+X-Device-Id: &lt;cihaz kimliği&gt;
+
+{&quot;refreshToken&quot;: &quot;&lt;refresh token&gt;&quot;}</code></pre>
+<p>Cevap oturum gövdesidir; yeni <code>refreshToken</code> ve <code>refreshTokenExpiresAt</code> ile gelir. <code>refresh_ttl</code> geçmişse panel oturumu siler ve girişe döner.</p>
+<h2 id="tarayıcı-deposu"><a class="anchor" href="#tarayıcı-deposu" aria-hidden="true">#</a>Tarayıcı deposu</h2>
+<p>Panel ön yüzü oturumu <code>localStorage</code> içinde <code>t-softpanel-</code> önekiyle tutar:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Anahtar</th>
+<th>İçerik</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>t-softpanel-auth</code></td>
+<td>Oturum gövdesinin <code>data</code> kısmı: <code>legacy</code>, <code>token</code>, <code>user</code> (ve iki adımda <code>otp_token</code>)</td>
+</tr>
+<tr>
+<td><code>t-softpanel-auth:token_expires_at</code></td>
+<td><code>token.accessToken.expires_at</code></td>
+</tr>
+<tr>
+<td><code>t-softpanel-auth:refresh_token</code>, <code>:refresh_ttl</code>, <code>:pat_ttl</code>, <code>:device_id</code></td>
+<td>Yalnız yenilenebilir oturumda</td>
+</tr>
+<tr>
+<td><code>t-softpanel-domain</code></td>
+<td>Mağaza alan adı, şemasız</td>
+</tr>
+<tr>
+<td><code>t-softpanel-panel-version</code></td>
+<td><code>v5</code> ya da <code>v4</code></td>
+</tr>
+</tbody></table></div>
+<p>Bu değerler kişiseldir. Kodda, depoda, ekran görüntüsünde ve paylaşılan belgede tutulmaz.</p>
+<h2 id="sunucudan-giriş"><a class="anchor" href="#sunucudan-giriş" aria-hidden="true">#</a>Sunucudan giriş</h2>
+<p>Panel iç API&#39;sini bir sunucudan kullanacaksanız:</p>
+<ol>
+<li>Mümkünse ayrı bir panel kullanıcısı açın ve rolüne yalnız gereken izinleri verin (ör. ziyaretçi raporları için <code>analytics:report:read</code>).</li>
+<li>Parola girişini yapın. Doğrulama isteği gelirse yöntemi seçip kodu kullanıcıdan alın; doğrulama isteğini (token, tür, uri) kod gelene kadar sunucuda saklayın, birkaç dakikadan uzun tutmayın.</li>
+<li><code>plainTextToken</code>&#39;ı ve <code>expires_at</code>&#39;i saklayın. Süre dolana kadar yeniden giriş yapmayın; her girişte yeni kod gerekir.</li>
+<li><code>uri</code> alanını mağaza alan adında çözün ve başka bir alan adına kod göndermeyin.</li>
+<li><strong>401</strong> gelirse token&#39;ı silin; yeniden giriş kullanıcıdan yeni kod ister. Arka planda kendiliğinden SMS göndermeyin.</li>
+</ol>
+<p>Çalışan bir örnek: <a href="/examples/python/panel_login/">Panel girişi (Python)</a>.</p>
+<h2 id="görülen-ama-denenmeyen-akışlar"><a class="anchor" href="#görülen-ama-denenmeyen-akışlar" aria-hidden="true">#</a>Görülen ama denenmeyen akışlar</h2>
+<ul>
+<li><strong>SMS ile e-posta doğrulamasını aşmak.</strong> Giriş hatası <code>data.availableMethods</code> içinde <code>sms</code> taşıyorsa ekran &quot;e-postanıza erişemiyorsanız&quot; düğmesi gösterir. Düğme <code>POST /api/v3/admin/auth/oauth/two-factor/sms-validation</code> çağrısını hata gövdesindeki <code>data.bearer</code> ile (<code>Authorization: Bearer …</code>) yapar ve <code>data.token</code> alır; kod <code>GET /api/v3/admin/auth/token-validate?token=&lt;token&gt;&amp;code=&lt;kod&gt;</code> ile denetlenir, cevap <code>data.isValid</code>.</li>
+<li><strong>T-Soft 360 (SSO).</strong> OAuth yetkilendirme kodu akışı (PKCE). Panel bu yolla gelen oturumu <code>oauth/refresh</code> ile yeniler.</li>
+<li><strong><code>auth/login-by-jwt</code></strong>, <strong><code>auth/connect</code></strong>: panel kodunda adı geçiyor, gövdesi incelenmedi.</li>
+</ul>
+
+</article>
+<nav class="pager" aria-label="Sayfa geçişi"><a class="prev" href="/admin-api/"><span>← Önceki</span>Genel bakış</a><a class="next" href="/admin-api/uclar/"><span>Sonraki →</span>Uç listesi</a></nav>
+<footer class="page-foot"><a href="https://github.com/bahadirdogru/tsoft-documentation-examples/edit/main/content/admin-api/oturum.md">GitHub'da düzenle</a> · <a href="/admin-api/oturum.md">Markdown</a> · <a href="/llms.txt">llms.txt</a> · Topluluk belgesidir, T-Soft’un resmî yayını değildir.</footer>
+</main>
+<nav class="toc" aria-label="Bu sayfada"><div class="toc-title">Bu sayfada</div><ul><li class="l2"><a href="#özet">Özet</a></li><li class="l2"><a href="#1-parola-girişi">1. Parola girişi</a></li><li class="l3"><a href="#doğrulama-yoksa">Doğrulama yoksa</a></li><li class="l3"><a href="#iki-adımlı-doğrulama-açıksa">İki adımlı doğrulama açıksa</a></li><li class="l2"><a href="#2-yöntem-seçmek-ve-kodu-göndermek">2. Yöntem seçmek ve kodu göndermek</a></li><li class="l2"><a href="#3-kodu-doğrulamak">3. Kodu doğrulamak</a></li><li class="l2"><a href="#oturum-gövdesi">Oturum gövdesi</a></li><li class="l3"><a href="#hangi-token-nerede-geçer">Hangi token nerede geçer</a></li><li class="l3"><a href="#süre">Süre</a></li><li class="l2"><a href="#yenileme">Yenileme</a></li><li class="l2"><a href="#tarayıcı-deposu">Tarayıcı deposu</a></li><li class="l2"><a href="#sunucudan-giriş">Sunucudan giriş</a></li><li class="l2"><a href="#görülen-ama-denenmeyen-akışlar">Görülen ama denenmeyen akışlar</a></li></ul></nav>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/twig.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/http.min.js"></script>
+<script src="/assets/site.js"></script>
+</body>
+</html>

@@ -5,7 +5,7 @@ description: Panel iç API’si: taban, başlık, sayfalama, hata, yetki
 
 # Admin API v3
 
-T-Soft yönetim paneli (`*.tsoftpanel.com`, Nuxt ön yüzü) kendi verisini mağaza alan adındaki `/api/v3/admin/*` uçlarından okur ve yazar. Bu sayfa o uçların genel kurallarını anlatır. Uç listesi [Uç listesi](uclar.md), çalışılmış bir örnek [Ödeme bildirimi](odeme-bildirimi.md) sayfasındadır.
+T-Soft yönetim paneli (`*.tsoftpanel.com`, Nuxt ön yüzü) kendi verisini mağaza alan adındaki `/api/v3/admin/*` uçlarından okur ve yazar. Bu sayfa o uçların genel kurallarını anlatır. Token almak [Giriş ve iki adımlı doğrulama](oturum.md), uç listesi [Uç listesi](uclar.md) sayfasındadır. Çalışılmış örnekler: [Ziyaretçi raporları](ziyaretci-raporlari.md) (salt okunur, cevap alanlarıyla) ve [Ödeme bildirimi](odeme-bildirimi.md) (yazma).
 
 Kaynak: panel sürümü `v5.0.273` ön yüz paketi ve bu paketin çağırdığı 627 ekran parçası (24 Ekim 2026). Yollar panel kodunda sabit duran adreslerdir; tarama sırasında uçlar tek tek çağrılmadı. Resmi [T-SOFT Geliştirici Platformu](https://developer.tsoft.com.tr/) bu listeyi yayımlamıyor ("API Dokümanı · Yakında").
 
@@ -35,9 +35,9 @@ Accept: application/json
 ```
 
 - Taban adres **panel alan adı değil**, mağaza alan adıdır: `https://www.magaza.example`.
-- Panel oturumunda token tarayıcı deposundaki `t-softpanel-auth` nesnesinin `laraToken` alanındadır (iki adımlı doğrulama açıksa erişim token’ı). Token kişiseldir; kodda, depoda ve paylaşılan belgede tutulmaz.
+- Token, girişte dönen `data.token.plainTextToken`'dır; panel ön yüzü onu `laraToken` diye anar ve tarayıcıda `t-softpanel-auth` nesnesinin `token.plainTextToken` alanında tutar. Aynı girişin `legacy.bearer` değeri bu uçlarda **401** alır. Token kişiseldir; kodda, depoda ve paylaşılan belgede tutulmaz.
 - Yazma isteklerinde `Content-Type: application/json` ve JSON gövde gider.
-- Giriş uçları `api/v3/admin/auth/*` altındadır (`login`, `login-by-jwt`, `token`, `token-validate`, `two-factor`, `oauth/refresh`).
+- Giriş uçları `api/v3/admin/auth/*` altındadır (`login`, `oauth/two-factor`, `two-factor`, `oauth/refresh`, `token`, `token-validate`). Parola girişi, iki adımlı doğrulama (SMS, e-posta, doğrulayıcı, bildirim), token süresi ve yenileme: [Giriş ve iki adımlı doğrulama](oturum.md).
 
 ## HTTP metotları
 
@@ -87,9 +87,9 @@ Ortak gözlemler:
 
 | HTTP | Gövde | Anlamı |
 | --- | --- | --- |
-| 401 | Laravel varsayılanı `{"message":"Unauthenticated."}` (bu taramada gözlenmedi) | Token yok veya süresi dolmuş |
+| 401 | `{"message":"Unauthenticated."}` | Token yok, süresi dolmuş ya da yanlış token türü (`legacy.bearer`). Bkz. [Giriş](oturum.md#hangi-token-nerede-geçer). |
 | 403 | — (gözlenmedi) | Rol bu izni vermiyor |
-| 422 | `{"message": "...", "errors": {"alan": ["..."]}}` | Laravel doğrulaması. `errors` alan bazında dizidir. |
+| 422 | `{"message": "...", "errors": {"alan": ["..."]}}` | Laravel doğrulaması. `errors` alan bazında dizidir. Mesaj `Accept-Language`'a göre Türkçe gelir (ör. `"Seçili range geçersiz."`). |
 | 429 | `Too Many Attempts.` | Hız sınırı. Cevapta `retryAfter` (saniye) ve `throttle.limit` vardır. `batch-recreate` için sınır 5 idi. |
 | 500 | `{"message":"Server Error"}` | Sunucu kaydı işlerken düştü. Alan adı söylemez; gövdeyi panelin gönderdiğiyle karşılaştırın. |
 
@@ -136,8 +136,8 @@ Toplam 357 uç ve kimlik eklenerek kullanılan 35 yol.
 
 | Grup | Uç | Ne işe yarar |
 | --- | ---: | --- |
-| [analytics](uclar.md#analitik) | 30 | Rapor, canlı ziyaretçi, arama boşluğu, personel ve fiyat/stok logu, risk |
-| [auth](uclar.md#oturum) | 24 | Giriş, jeton, iki adım, panel kullanıcısı ve rol |
+| [analytics](uclar.md#analitik) | 30 | Rapor, canlı ziyaretçi, arama boşluğu, personel ve fiyat/stok logu, risk. Ziyaretçi uçları: [Ziyaretçi raporları](ziyaretci-raporlari.md) |
+| [auth](uclar.md#oturum) | 24 | Giriş, jeton, iki adım, panel kullanıcısı ve rol. Akış: [Giriş ve iki adımlı doğrulama](oturum.md) |
 | [campaigns](uclar.md#kampanya) | 6 | Kampanya, hediye kodu, puan ve öneri |
 | [catalog](uclar.md#katalog) | 41 | Ürün, kategori, marka, varyant, grup fiyatı, görsel ve yorum |
 | [cms](uclar.md#içerik) | 12 | Blog, haber, SSS, galeri ve içerik |

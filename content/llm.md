@@ -23,7 +23,7 @@ Sayfa adresi `/rest/customer/` biçimindedir. Aynı sayfanın Markdown hâli iç
 ## Sayfa düzeni
 
 - REST1 her modül için bir sayfadır: `rest/<modül>.md`. Modül adı küçük harftir (`order2.md`, `fundmovement.md`). Her metot `` ## `modul/metot` `` başlığıdır; altında tam URL, açıklama ve parametre tablosu (`Parametre | Yer | Tip | Zorunlu | Açıklama`) durur.
-- Admin API v3 panel iç uçları `admin-api/uclar.md` içinde gruplanmış liste, kurallar `admin-api/README.md` içindedir.
+- Admin API v3 panel iç uçları `admin-api/uclar.md` içinde gruplanmış liste, kurallar `admin-api/README.md` içindedir. Panel token'ı almak (iki adımlı doğrulama dahil) `admin-api/oturum.md`, ziyaretçi raporu cevapları `admin-api/ziyaretci-raporlari.md`.
 - Uygulama platformu (OAuth, kapsam, webhook, gömülü uygulama) `developer/uygulama.md`.
 - Tema: Twig için `developer/tema.md`, Smarty için `theme/README.md`.
 

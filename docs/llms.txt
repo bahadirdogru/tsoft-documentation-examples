@@ -76,12 +76,15 @@
 ## Admin API v3
 
 - [Genel bakış](https://tsoft.bahadirdogru.com/admin-api.md): Panel iç API’si: taban, başlık, sayfalama, hata, yetki
+- [Giriş ve iki adımlı doğrulama](https://tsoft.bahadirdogru.com/admin-api/oturum.md): Panel token'ı almak: login, SMS / e-posta / doğrulayıcı kodu, token türleri, süre ve yenileme
 - [Uç listesi](https://tsoft.bahadirdogru.com/admin-api/uclar.md): 357 uç ve 35 kimlikli yol, gruplarına göre
+- [Ziyaretçi raporları](https://tsoft.bahadirdogru.com/admin-api/ziyaretci-raporlari.md): analytics/report/visitor uçları: dönem, sorgu, cevap alanları, geçerli değerler
 - [Ödeme bildirimi](https://tsoft.bahadirdogru.com/admin-api/odeme-bildirimi.md): Uçtan uca örnek: gövde, doğrulama, bilinen sorunlar
 
 ## Örnek kod
 
 - [Python istemci](https://tsoft.bahadirdogru.com/examples/python/tsoft_client.py)
+- [Panel girişi (SMS)](https://tsoft.bahadirdogru.com/examples/python/panel_login.py)
 - [Üye ekleme](https://tsoft.bahadirdogru.com/examples/python/add_customer.py)
 - [Grup fiyatı](https://tsoft.bahadirdogru.com/examples/python/check_group_price.py)
 - [Ortam değişkenleri](https://tsoft.bahadirdogru.com/examples/python/.env.example)

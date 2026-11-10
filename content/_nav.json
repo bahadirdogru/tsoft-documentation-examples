@@ -78,7 +78,9 @@
     "title": "Admin API v3",
     "items": [
       "admin-api/README.md",
+      "admin-api/oturum.md",
       "admin-api/uclar.md",
+      "admin-api/ziyaretci-raporlari.md",
       "admin-api/odeme-bildirimi.md"
     ]
   },
@@ -89,6 +91,12 @@
       {
         "path": "examples/python/tsoft_client.py",
         "title": "Python istemci",
+        "description": "",
+        "lang": "python"
+      },
+      {
+        "path": "examples/python/panel_login.py",
+        "title": "Panel girişi (SMS)",
         "description": "",
         "lang": "python"
       },

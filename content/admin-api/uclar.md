@@ -11,7 +11,7 @@ Liste yalnızca yolu verir. Metot ve gövde için panelde ilgili ekranı açıp 
 
 ## Analitik
 
-Rapor, canlı ziyaretçi, arama boşluğu ve personel logları.
+Rapor, canlı ziyaretçi, arama boşluğu ve personel logları. `analytics/report/visitor/*` uçlarının sorgu ve cevap alanları canlı denendi: [Ziyaretçi raporları](ziyaretci-raporlari.md).
 
 - `api/v3/admin/analytics/assistant/insights`
 - `api/v3/admin/analytics/log`
@@ -46,7 +46,7 @@ Rapor, canlı ziyaretçi, arama boşluğu ve personel logları.
 
 ## Oturum
 
-Giriş, parola sıfırlama, iki adımlı doğrulama, panel kullanıcısı ve rol.
+Giriş, parola sıfırlama, iki adımlı doğrulama, panel kullanıcısı ve rol. `login`, `oauth/two-factor`, `two-factor` ve `oauth/refresh` gövdeleri: [Giriş ve iki adımlı doğrulama](oturum.md).
 
 - `api/v3/admin/auth/auth-application`
 - `api/v3/admin/auth/auth-application/authorize`

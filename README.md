@@ -26,7 +26,7 @@ Topluluk belgesidir, T-Soft’un resmi yayını değildir. Resmi kaynak: [develo
 content/            El yazımı sayfalar (Markdown, front matter: title, description) ve örnek dosyalar
   _nav.json         Kenar çubuğu sırası; örnek dosyaların başlık ve açıklaması
   rest/             REST1: README.md, hatalar.md, <modül>.md
-  admin-api/        Panel iç API'si: README.md, uclar.md, odeme-bildirimi.md
+  admin-api/        Panel iç API'si: README.md, oturum.md, uclar.md, ziyaretci-raporlari.md, odeme-bildirimi.md
   developer/        Platform, uygulama, Storefront, Twig tema
   theme/            Smarty rehberi, bloklar/, degiskenler/, .tpl şablonları
   examples/         Python ve Apps Script

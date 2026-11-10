@@ -50,9 +50,12 @@
 <url><loc>https://tsoft.bahadirdogru.com/rest/zubizu/</loc></url>
 <url><loc>https://tsoft.bahadirdogru.com/rest/routing/</loc></url>
 <url><loc>https://tsoft.bahadirdogru.com/admin-api/</loc></url>
+<url><loc>https://tsoft.bahadirdogru.com/admin-api/oturum/</loc></url>
 <url><loc>https://tsoft.bahadirdogru.com/admin-api/uclar/</loc></url>
+<url><loc>https://tsoft.bahadirdogru.com/admin-api/ziyaretci-raporlari/</loc></url>
 <url><loc>https://tsoft.bahadirdogru.com/admin-api/odeme-bildirimi/</loc></url>
 <url><loc>https://tsoft.bahadirdogru.com/examples/python/tsoft_client/</loc></url>
+<url><loc>https://tsoft.bahadirdogru.com/examples/python/panel_login/</loc></url>
 <url><loc>https://tsoft.bahadirdogru.com/examples/python/add_customer/</loc></url>
 <url><loc>https://tsoft.bahadirdogru.com/examples/python/check_group_price/</loc></url>
 <url><loc>https://tsoft.bahadirdogru.com/examples/python/env/</loc></url>

@@ -10,7 +10,7 @@ T-Soft e-ticaret altyapısıyla entegrasyon ve tema yazan geliştiriciler ve onl
 <div class="cards">
 <a class="card" href="/rehber/"><strong>Hangi yüzey?</strong><span>REST1, Admin API, Storefront ve tema arasında seçim, ilk çağrılar, terimler.</span></a>
 <a class="card" href="/rest/"><strong>REST1 web servisi</strong><span>38 modül, 428 metot. Form gövdesi, token, PascalCase alanlar, hata kodları.</span></a>
-<a class="card" href="/admin-api/"><strong>Admin API v3</strong><span>Panelin kendi kullandığı 357 uç: kurallar, yetkiler, ödeme bildirimi örneği.</span></a>
+<a class="card" href="/admin-api/"><strong>Admin API v3</strong><span>Panelin kendi kullandığı 357 uç: kurallar, yetkiler, iki adımlı giriş, ziyaretçi raporları ve ödeme bildirimi örneği.</span></a>
 <a class="card" href="/developer/uygulama/"><strong>Uygulama platformu</strong><span>OAuth, 48 kapsam, 15 webhook olayı, panele gömülü uygulama, REST1’den geçiş.</span></a>
 <a class="card" href="/developer/storefront-api/"><strong>Storefront API</strong><span>Mobil uygulama ve headless vitrin için JSON:API, müşteri ve misafir token’ı.</span></a>
 <a class="card" href="/developer/tema/"><strong>Tema motoru (Twig)</strong><span>Yeni tema yapısı, tsoft-cli, şablonlar ve global değişkenler.</span></a>
@@ -34,7 +34,7 @@ T-Soft e-ticaret altyapısıyla entegrasyon ve tema yazan geliştiriciler ve onl
 
 - Token alma: [`auth/login`](rest/auth.md#auth-login) · Hata kodları: [REST1 hataları](rest/hatalar.md)
 - Üye: [`customer/setCustomers`](rest/customer.md#customer-setcustomers) · Ürün: [`product/get`](rest/product.md#product-get) · Sipariş: [`order2/getOrders`](rest/order2.md#order2-getorders)
-- Panel uç listesi: [Admin API v3 uçları](admin-api/uclar.md) · Örnek: [Ödeme bildirimi](admin-api/odeme-bildirimi.md)
+- Panel uç listesi: [Admin API v3 uçları](admin-api/uclar.md) · Giriş: [İki adımlı doğrulama](admin-api/oturum.md) · Örnekler: [Ziyaretçi raporları](admin-api/ziyaretci-raporlari.md), [Ödeme bildirimi](admin-api/odeme-bildirimi.md)
 - Örnek kod: [Python istemci](examples/python/tsoft_client.py) · [Apps Script](examples/apps-script/Code.gs)
 
 ## Katkı
