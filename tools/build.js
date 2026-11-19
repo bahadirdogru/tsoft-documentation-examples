@@ -244,7 +244,7 @@ ${breadcrumbs(p)}
 ${content}
 </article>
 ${pager(p)}
-<footer class="page-foot">${edit}${alt}<a href="/llms.txt">llms.txt</a> · Topluluk belgesidir, T-Soft’un resmî yayını değildir.</footer>
+<footer class="page-foot"><a href="https://bahadirdogru.com/">bahadirdogru.com</a> · ${edit}${alt}<a href="/llms.txt">llms.txt</a> · Topluluk belgesidir, T-Soft’un resmî yayını değildir.</footer>
 </main>
 ${toc(content)}
 </div>
